@@ -1,0 +1,5 @@
+{
+  "_comment": "Retro run only. baseline is set ONCE from live quotes (SPY/QQQ/SMH) plus account value, then never edited - every rebased number depends on it. series holds raw closes; the board rebases.",
+  "baseline": null,
+  "series": []
+}

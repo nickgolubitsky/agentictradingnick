@@ -1,0 +1,40 @@
+{
+  "_comment": "Trading runs APPEND. Entries are immutable once written; the retro adds only the grade field. checklist 1-6: catalyst / not the +8% day / implied move / liquidity / expectations vs positioning / exits before entry. Values: pass | fail | ne | na.",
+  "entries": [
+    {
+      "kind": "will", "date": "2026-08-05 09:30",
+      "head": "Verify the data connection before reasoning about anything",
+      "body": "First action is a tool-availability check. If the brokerage connector did not attach: log the failure, notify, stop. No analysis on stale numbers. If it did: re-verify balances from the API before the playbook runs. No run has seen the real balance since 1:04 PM on 8/4, and the retro's figure is a reading, not a guarantee.",
+      "checklist": { "1": "na", "2": "na", "3": "na", "4": "na", "5": "na", "6": "na" },
+      "grade": null
+    },
+    {
+      "kind": "will", "date": "2026-08-05 09:30",
+      "head": "Settled cash sets the size before the thesis does",
+      "body": "Deployable is $28.96 until $100 of proceeds settle 8/5 AM. Cash account: buying with unsettled proceeds and selling again before settlement is a good-faith violation. Check unsettled funds first.",
+      "checklist": { "1": "na", "2": "na", "3": "na", "4": "na", "5": "na", "6": "na" },
+      "grade": null
+    },
+    {
+      "kind": "did", "date": "2026-08-04 15:30",
+      "head": "Stood aside into the close",
+      "body": "No new open. Three independent reasons, each sufficient alone: the mandate forbids opening in the last 30 minutes just to act, AMD printed that night, and the whole candidate list was up 5-10% into the print, which checklist item 2 calls a wait signal. This one holds up. It was right with full data, and the run had none.",
+      "checklist": { "1": "na", "2": "pass", "3": "na", "4": "na", "5": "pass", "6": "na" },
+      "grade": { "by": "retro 8/4", "text": "PASS on stated reasons. The only non-trade that day earning process credit - the other five stand-asides were forced by a connector outage and get none." }
+    },
+    {
+      "kind": "did", "date": "2026-08-04 13:04",
+      "head": "Closed the AMD call at $1.00 (+$29 / +40.8%)",
+      "body": "Sold the spike ahead of the print rather than holding a 2.3%-chance-of-profit contract through it. The decision was made and then executed promptly. No pre-committed target existed to grade it against, because the entry pre-dated the rules. That is why checklist item 6 exists now.",
+      "checklist": { "1": "na", "2": "na", "3": "na", "4": "na", "5": "na", "6": "ne" },
+      "grade": { "by": "retro 8/4", "text": "Exit behavior PASS, with an asterisk. Right call, promptly executed, but judged in hindsight rather than against a number written at entry. The asterisk is the lesson." }
+    },
+    {
+      "kind": "did", "date": "2026-08-04 11:56",
+      "head": "Opened the AMD 8/7 $675 call at $0.71 - PRE-MANDATE, placed by hand",
+      "body": "Bought the +7.9% spike day, into earnings that night, on a delta-0.032 contract with a strike three times the implied move away and open interest of 34. The straddle math was pulled at 12:06 PM, ten minutes after the fill. The +40.8% outcome changes none of it: a 2.3%-chance-of-profit entry loses the other 97.7% of the time.",
+      "checklist": { "1": "fail", "2": "fail", "3": "ne", "4": "fail", "5": "ne", "6": "ne" },
+      "grade": { "by": "retro 8/4", "text": "0/6 checklist. Options rules also fail on all three: delta 0.032 vs 0.40 minimum, 3 days to expiry vs 3-6 weeks, held into earnings. Graded outcome-blind." }
+    }
+  ]
+}

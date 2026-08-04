@@ -1,0 +1,38 @@
+{
+  "_comment": "Written by the trading runs. impliedMove is a decimal or null. null means the straddle was not pulled - an open checklist item, not a placeholder to guess at.",
+  "moves": [
+    {
+      "ticker": "AMD", "event": "Q2 earnings", "when": "2026-08-04, after close",
+      "spot": 522.95, "impliedMove": 0.10, "hold": false,
+      "source": "Consensus ~$1.61 EPS / ~$11.31B rev. Positioning crowded, targets raised into the print.",
+      "branches": [
+        { "cond": "Reaction strong and still holding 30-60 min after the open", "act": "Day-2 continuation (fractional)", "why": "Checklist item 2. Enter the day-2 hold, not the overnight coin flip." },
+        { "cond": "Gaps down hard", "act": "Stand aside the morning", "stand": true, "why": "Let the flush finish. There is no second balance." },
+        { "cond": "Reaction strong but already extended", "act": "Sympathy laggard from the chain", "why": "Buy what has not moved. Chasing after the run is the +8% day." }
+      ]
+    },
+    {
+      "ticker": "APP / DASH / IONQ / SMR / SOUN", "event": "Earnings cluster", "when": "2026-08-05, after close",
+      "spot": null, "impliedMove": null, "hold": false,
+      "source": "Cluster flagged for the 8/5 open.",
+      "branches": [
+        { "cond": "Any bought on the 8/5 morning", "act": "Exit by 3:55p ET", "why": "An overnight hold through a print is a decision or an accident. Default is exit." },
+        { "cond": "Considering a deliberate hold", "act": "Pull the ATM straddle first", "why": "Checklist item 3. A hold is a coin flip on the implied move. Know the number or skip it." }
+      ]
+    },
+    {
+      "ticker": "MARA", "event": "Earnings", "when": "2026-08-06, after close",
+      "spot": 11.78, "impliedMove": null, "hold": false, "source": "Candidate list.",
+      "branches": [
+        { "cond": "Position open into the 8/6 close", "act": "Close, or write the hold down", "why": "The hold gets pre-decided with the implied move attached, or it does not happen." }
+      ]
+    },
+    {
+      "ticker": "OKLO", "event": "Earnings", "when": "2026-08-07, before open",
+      "spot": 43.75, "impliedMove": null, "hold": false, "source": "Candidate list.",
+      "branches": [
+        { "cond": "Position open on the 8/6 close", "act": "Exit 8/6", "why": "A before-open report gaps past every stop. No run sits between the close and the print." }
+      ]
+    }
+  ]
+}

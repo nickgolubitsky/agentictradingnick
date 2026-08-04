@@ -1,0 +1,12 @@
+node_modules/
+.vercel/
+.env
+.env.*
+*.log
+.DS_Store
+
+# Never commit anything that reaches the brokerage.
+credentials*
+secrets*
+*.pem
+*.key
