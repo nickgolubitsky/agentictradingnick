@@ -11,9 +11,12 @@
  * to this repo unattended, so the gate has to be automatic, not a habit.
  */
 import { readFileSync, readdirSync, statSync } from "node:fs";
-import { join, extname } from "node:path";
+import { join, extname, sep } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const ROOT = new URL("..", import.meta.url).pathname;
+// fileURLToPath, not .pathname: on Windows the latter yields "/C:/a%20b/" —
+// leading slash and percent-encoded spaces, both of which break join().
+const ROOT = fileURLToPath(new URL("..", import.meta.url));
 const errors = [];
 const warnings = [];
 
@@ -53,7 +56,9 @@ function walk(dir, out = []) {
 }
 
 for (const file of walk(ROOT)) {
-  const rel = file.slice(ROOT.length);
+  // Normalise separators so SELF matches on Windows too — otherwise the
+  // validator scans itself and reports its own patterns as leaks.
+  const rel = file.slice(ROOT.length).split(sep).join("/");
   if (rel === SELF) continue;
   const text = readFileSync(file, "utf8");
   for (const rule of LEAK_RULES) {

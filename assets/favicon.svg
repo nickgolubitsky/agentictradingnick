@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Agentic Trading">
+  <title>Agentic Trading</title>
+  <!-- Outcome and process, same width, same height, neither in front. The board's
+       whole argument, at 16 pixels. Dark plate so it reads on light and dark chrome. -->
+  <rect width="32" height="32" rx="7" fill="#1c1917"/>
+  <rect x="7.5"  y="8" width="7" height="16" rx="1.5" fill="#4ade80"/>
+  <rect x="17.5" y="8" width="7" height="16" rx="1.5" fill="#fbbf24"/>
+</svg>
