@@ -58,6 +58,15 @@
       "connected": false,
       "actions": 0,
       "note": "Stopped on the staleness guard: fired at 00:53 ET, roughly nine hours and twenty minutes past the 15:33 ET pre-close window it was scheduled for, so the hold-or-exit decision this slot exists to make was never made inside the window. No order specification was written and the connector was not attached — a pre-close proposal resting on quotes nine hours dead is not a proposal, and publishing one would put a stale instruction on the board. The mandate was readable and its targetAccountId is set this time, so scope was not the blocker; lateness was."
+    },
+    {
+      "date": "2026-08-05",
+      "slot": "hourly",
+      "at": "00:57 ET",
+      "fired": true,
+      "connected": false,
+      "actions": 0,
+      "note": "Stopped on the staleness guard: fired at 00:57 ET, outside the 10:00-15:00 ET window entirely — 9h40m past the last 8/4 hourly slot and hours before the first 8/5 one, with the market closed in between. No quotes were read, the connector was not attached, and no order specification was written. This run's job is exits, so the honest statement of what was lost is that if a stop or target was hit during 8/4's session, this slot did not enforce it; the open positions list in state.json is empty as last written, but that file is not live state and this run did not verify it. The mandate was readable and its targetAccountId is set, so scope was not the blocker; lateness was."
     }
   ]
 }
