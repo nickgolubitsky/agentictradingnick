@@ -107,22 +107,39 @@ reads NEVER until the first one fires.
 
 This is the part with real consequences, so do it deliberately.
 
-**Runs commit to `staging`, never to `main`.** Give the agent a token scoped to this
-repo only. Then the daily sequence is:
+**Runs commit straight to `main` and publish live.** Give the agent a token scoped to
+this repo only. The daily sequence is:
 
 ```
 trading runs   → edit data/state.json, data/moves.json, append to data/why.json
 retro run      → edit data/perf.json, data/bench.json, add grades to data/why.json
-               → commit to staging
-you            → read the diff, merge staging → main
+               → node scripts/validate.mjs, then commit and push main
+               → live within a minute
 ```
 
-The after-close retro is the natural merge point: it has already re-checked the day's
-numbers, and merging once daily means a bad figure lives on a preview URL rather than
-on the public site.
+There is no human merge step, and that is deliberate. The runs publish order
+specifications that expire in 30 to 60 minutes; one sitting in a branch waiting to be
+reviewed is worthless by the time anyone reads it. The operator watches the live board
+and acts or does not.
 
-Every push runs the validator on both branches. A leaked identifier or a misleading
-statistic fails the build and nothing ships — including to preview.
+What that costs is the human read before publish. What replaces it is
+`scripts/validate.mjs`, which was always the layer that mattered — [SCOPE.md](SCOPE.md)
+says so directly: layers that depend on an agent behaving well are not the ones holding
+the line. Removing the merge step removes a behavioural check and leaves the automatic
+one. It also means **a bad write is public immediately**, so the gate has to be treated
+as load-bearing rather than as a formality.
+
+Two consequences worth accepting on purpose:
+
+- **`main` cannot be branch-protected** with required reviews, because the runs push to
+  it directly. Protect the token instead: scope it to this repository only.
+- **Every commit is public the moment it lands.** There is no staging URL to catch a
+  leak in. The validator's leak scan is the whole defence.
+
+Every push runs the validator, and it is also the Vercel build command, so a leaked
+identifier or a misleading statistic fails the build and the deploy does not happen.
+With no merge step in front of it, that is the only thing standing between an agent
+commit and the public board.
 
 **Before wiring anything up, read [SCOPE.md](SCOPE.md).** The preflight assertion there
 is what keeps a run from reading, totalling, or mentioning an account that is not the

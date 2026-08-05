@@ -27,6 +27,17 @@ proposal that breaks the rulebook fails the build rather than reaching the page 
 argued with later. This is the same reasoning as the leak scan — the outermost layer is
 the one that does not rely on an agent behaving well.
 
+**There is no human merge step.** Runs commit and push to `main`, and the site is live
+within a minute. That was a deliberate removal: a specification that expires in 40
+minutes is worthless waiting in a branch for someone to review it, and the operator
+reading a stale proposal is a worse failure than the one review was guarding against.
+
+The trade is explicit. A behavioural check was removed and an automatic one now carries
+the whole load. Every agent commit is public the instant it lands, with no staging URL to
+catch it in, so the validator is not a formality — it is the entire remaining defence,
+and weakening it to make a commit pass would remove the last check on an unattended
+writer. Each run prompt says so in those terms.
+
 Two properties of the trigger matter as much as its existence:
 
 - **It is not a server.** A desktop scheduled task fires only while the Claude app is
