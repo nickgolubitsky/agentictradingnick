@@ -36,6 +36,12 @@ Run in order before every open. An unlogged check counts as **not done**.
   2026-10-16 then 2026-12-18, so an invented "11/20" contract is a genuine third Friday
   and still does not exist. The publish gate rejects an option specification with no
   contract id, no quoted spread, or no open interest.
+- **The label must agree with the chain data.** Write the instrument as
+  `TICKER M/D $STRIKE` plus `c` or `p`, and carry `underlying`, `strike`, `right` and
+  `contractExpiry` as separate fields. The gate checks them against each other. This is
+  the one that catches a correct contract id sitting beside the wrong ticker, which no
+  amount of chain-pulling would otherwise reveal — the id is right, the words a person
+  reads before executing are not, and only the disagreement between them shows it.
 - Exit rules decided at entry, not discovered later.
 
 ## Order handling

@@ -316,6 +316,46 @@ if (why) {
       if (!Number.isInteger(o.oi) || o.oi <= 0) {
         errors.push(`RULE  ${at}: option spec has no open interest from the chain. Checklist item 4 is liquidity, and the entry this project already graded 0/6 had an open interest of 34.`);
       }
+
+      /* The instrument string is what a human reads and acts on; the machine fields
+       * are what the run pulled from the chain. If those two disagree, one of them is
+       * wrong and there is no way to tell which from the outside — so they have to
+       * agree. This is what catches a valid contract id pasted next to the wrong
+       * ticker, which the id check alone cannot see. */
+      if (!o.underlying) errors.push(`RULE  ${at}: option spec has no underlying`);
+      if (!["call", "put"].includes(String(o.right ?? "").toLowerCase())) {
+        errors.push(`RULE  ${at}: option spec must state right as call or put`);
+      }
+      if (typeof o.strike !== "number" || !(o.strike > 0)) {
+        errors.push(`RULE  ${at}: option spec has no numeric strike from the chain`);
+      }
+
+      const label = String(o.instrument ?? "");
+      const parsed = label.match(/^([A-Za-z.]{1,6})\s+(?:(\d{4})-(\d{2})-(\d{2})|(\d{1,2})\/(\d{1,2})(?:\/\d{2,4})?)\s+\$?([\d.]+)\s*(c|p|call|put)\b/i);
+      if (!parsed) {
+        errors.push(`RULE  ${at}: instrument '${label}' is not parseable as "<TICKER> <expiry> $<strike><c|p>". The label is what a person reads before executing, so it cannot be freeform.`);
+      } else {
+        const [, tick, y, mo, d, m2, d2, strikeTxt, rightTxt] = parsed;
+        const exp = String(o.contractExpiry ?? "");
+        const expParts = exp.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+        if (o.underlying && tick.toUpperCase() !== String(o.underlying).toUpperCase()) {
+          errors.push(`RULE  ${at}: instrument names '${tick.toUpperCase()}' but underlying is '${o.underlying}'`);
+        }
+        if (expParts) {
+          const em = +expParts[2], ed = +expParts[3];
+          const lm = y ? +mo : +m2, ld = y ? +d : +d2;
+          if (lm !== em || ld !== ed) {
+            errors.push(`RULE  ${at}: instrument label says ${lm}/${ld} but contractExpiry is ${exp}. The label and the chain date must be the same contract.`);
+          }
+        }
+        if (typeof o.strike === "number" && Math.abs(parseFloat(strikeTxt) - o.strike) > 0.005) {
+          errors.push(`RULE  ${at}: instrument label strike ${strikeTxt} does not match strike ${o.strike}`);
+        }
+        const lr = /^(c|call)$/i.test(rightTxt) ? "call" : "put";
+        if (o.right && lr !== String(o.right).toLowerCase()) {
+          errors.push(`RULE  ${at}: instrument label reads a ${lr} but right is '${o.right}'`);
+        }
+      }
       if (typeof o.delta !== "number") {
         errors.push(`RULE  ${at}: option spec has no delta. The 0.40 floor cannot be checked against a missing number.`);
       } else if (o.delta < 0.40) {
