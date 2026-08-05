@@ -1,5 +1,13 @@
 {
   "_comment": "Retro run only. baseline is set ONCE from live quotes (SPY/QQQ/SMH) plus account value, then never edited - every rebased number depends on it. series holds raw closes; the board rebases.",
-  "baseline": null,
+  "baseline": {
+    "date": "2026-08-04 open",
+    "spy": 760.62,
+    "qqq": 708.21,
+    "smh": 564.29,
+    "account": 99.96,
+    "source": "Regular-session opening bars, 2026-08-04 13:30:00Z (9:30 ET), pulled from the brokerage market-data API. Not the interpolated daily bars for that date, which carry zero volume and were stale by $13.66 on SPY. Account value is the documented open figure - cash plus premium held before the first fill - not a rounded $100.",
+    "note": "The baseline is the 8/4 open, which places it BEFORE the pre-mandate AMD call. That trade was entered by hand, graded 0/6 on the checklist, and returned +40.8%. Account performance measured from this baseline therefore includes a result the agent did not produce and the retro judged a process failure. The first sessions of this chart flatter the account by roughly 27 points against SMH for that reason alone."
+  },
   "series": []
 }

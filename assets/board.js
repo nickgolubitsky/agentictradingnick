@@ -442,6 +442,10 @@
         "<div class='tile__m'>" + (al >= 0 ? "beat semis" : "sector beta, not skill") + "</div></div>";
     }
     h += "</div>";
+    /* A baseline can be honest and still be misleading if the window it opens on
+       contains something the agent did not do. When the retro records that, it
+       renders next to the numbers rather than sitting in the JSON unread. */
+    if (base.note) h += "<p class='note'>" + esc(base.note) + "</p>";
     if (rows.length < 2) {
       h += "<div class='empty'><strong>One session on the board</strong>The curve draws from the second session.</div>";
       $("bench").innerHTML = h;
