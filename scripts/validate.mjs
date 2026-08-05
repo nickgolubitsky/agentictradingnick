@@ -171,6 +171,25 @@ if (runs) {
     if (Number.isNaN(+new Date(r.date))) {
       errors.push(`DATA  run has an unparseable date '${r.date}'`);
     }
+    /* trigger and declined decide what run health counts. Both failures below
+     * inflate the metric, which is the direction that needs a gate. */
+    if (r.trigger != null && !["scheduled", "manual"].includes(r.trigger)) {
+      errors.push(`DATA  run ${r.date ?? "?"} ${r.slot ?? ""}: trigger '${r.trigger}' is not scheduled | manual`);
+    }
+    if (r.declined != null && typeof r.declined !== "boolean") {
+      errors.push(`DATA  run ${r.date ?? "?"} ${r.slot ?? ""}: declined must be a boolean`);
+    }
+    if (r.declined && r.connected) {
+      errors.push(`DATA  run ${r.date ?? "?"} ${r.slot ?? ""} is marked declined but also connected. A run that stopped on a guard never reached the broker.`);
+    }
+    if (r.declined && r.actions > 0) {
+      errors.push(`DATA  run ${r.date ?? "?"} ${r.slot ?? ""} declined but recorded ${r.actions} action(s)`);
+    }
+  }
+  /* The failure this catches: a manual invocation quietly relabelled scheduled,
+   * which is how a number that has proven nothing starts looking like evidence. */
+  if (list.length && list.every((r) => r.trigger == null)) {
+    warnings.push("DATA  no run row carries a trigger field — run health cannot tell a scheduled firing from a manual one");
   }
   const SLOT_IDS = (runs.slots ?? []).map((s) => s.id);
   for (const s of runs.slots ?? []) {

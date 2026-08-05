@@ -28,18 +28,34 @@
       '<span class="badge badge--' + k[0] + '">' + esc(k[1]) + "</span>";
   }
 
-  /* ---------- run health ---------- */
-  /* Aggregate of the pre-file summary and the per-run rows. Kept in one place
-     because three surfaces read it and they must not disagree. */
+  /* ---------- run health ----------
+     Two exclusions, both of which make the number smaller and both of which are
+     the point:
+
+     1. Manual rows do not count. The metric says "scheduled runs that reached the
+        brokerage", and a human clicking Run now proves the code path works, not
+        that the system runs on its own. Counting manual invocations here is the
+        same error as counting the setup tests that were zeroed out of this file.
+     2. Declined rows are excluded from the denominator, not counted as failures.
+        A run that stopped on a guard never attempted to reach the broker, so it
+        is not evidence of bad connectivity. It IS evidence the scheduler fired
+        outside the window, which is reported separately.
+
+     Kept in one place because three surfaces read it and they must not disagree. */
   function runHealth(r) {
     var p = (r && r.priorSummary) || {};
-    var list = (r && r.runs) || [];
-    var f = function (k) { return list.filter(function (x) { return x[k]; }).length; };
+    var all = (r && r.runs) || [];
+    var scheduled = all.filter(function (x) { return x.trigger !== "manual"; });
+    var declined = scheduled.filter(function (x) { return x.declined; });
+    var attempted = scheduled.filter(function (x) { return x.fired && !x.declined; });
     return {
-      fired: (p.fired || 0) + f("fired"),
-      connected: (p.connected || 0) + f("connected"),
-      actions: (p.actions || 0) + list.reduce(function (n, x) { return n + (x.actions || 0); }, 0),
-      itemised: list.length
+      fired: (p.fired || 0) + attempted.length,
+      connected: (p.connected || 0) + attempted.filter(function (x) { return x.connected; }).length,
+      declined: declined.length,
+      manual: all.length - scheduled.length,
+      scheduled: scheduled.length,
+      actions: (p.actions || 0) + all.reduce(function (n, x) { return n + (x.actions || 0); }, 0),
+      itemised: all.length
     };
   }
 
@@ -64,7 +80,10 @@
         rh.fired ? rh.connected + "/" + rh.fired : "\u2014",
         !rh.fired ? "flat" : rh.connected === rh.fired ? "up" : "down",
         rh.fired ? "scheduled runs that reached the brokerage"
-                 : "no runs recorded yet") +
+                 : (rh.manual
+                     ? "no scheduled run yet \u00b7 " + rh.manual + " manual invocation" +
+                       (rh.manual === 1 ? "" : "s") + " excluded"
+                     : "no runs recorded yet")) +
 
       cell("Unaided actions",
         tot ? un + "/" + tot : "\u2014",
@@ -83,8 +102,13 @@
        "did they all connect" test passes vacuously, and the board congratulates
        itself on a record that does not exist. An empty log is unmeasured, not clean. */
     if (!rh.fired) {
-      v = "<b>Nothing has run yet.</b> No scheduled run has recorded a row, so run health is " +
-        "unmeasured rather than good — an empty record is not a clean one. " +
+      v = "<b>Nothing has run on its own yet.</b> No scheduled run has attempted a connection, so " +
+        "run health is unmeasured rather than good — an empty record is not a clean one. " +
+        (rh.manual ? rh.manual + " manual invocation" + (rh.manual === 1 ? " is" : "s are") +
+          " on record and deliberately excluded: clicking Run now proves the code path works, " +
+          "not that the system runs. " : "") +
+        (rh.declined ? rh.declined + " scheduled run" + (rh.declined === 1 ? "" : "s") +
+          " stopped on a guard before connecting. " : "") +
         (tot ? tot + " action" + (tot === 1 ? " on" : "s on") + " this board " +
           (tot === 1 ? "was" : "were") + " taken by hand" +
           (asst ? ", " + (asst === 1 ? "that one" : "" + asst) + " with the agent advising" : "") + ". "
@@ -161,12 +185,18 @@
     var list = (r.runs || []).slice().reverse();
     var p = r.priorSummary;
 
+    /* "Blind" is reserved for a run that operated without live state. A run that
+       stopped on a guard was not blind \u2014 it did not operate at all, and filing the
+       two together made three correct refusals look like three malfunctions. */
     var h = "<div class='tiles'>" +
-      tile("Runs fired", String(rh.fired), "scheduled firings on record", "flat") +
+      tile("Scheduled attempts", String(rh.fired), "fired in window and tried to connect", "flat") +
       tile("Connected", rh.fired ? rh.connected + "/" + rh.fired : "\u2014",
         "reached the brokerage", !rh.fired ? "flat" : rh.connected === rh.fired ? "up" : "down") +
       tile("Blind runs", String(rh.fired - rh.connected),
-        "fired with no live account state", rh.fired - rh.connected ? "down" : "up") +
+        "attempted but got no live state", rh.fired - rh.connected ? "down" : "up") +
+      tile("Declined on guard", String(rh.declined),
+        "scheduled runs that stopped on a guard", rh.declined ? "down" : "flat") +
+      tile("Manual", String(rh.manual), "invoked by hand · excluded entirely", "flat") +
       tile("Actions taken", String(rh.actions), "orders placed across all runs", "flat") +
       "</div>";
 
@@ -177,15 +207,17 @@
         "one from the log.</div>";
     } else {
       h += "<div class='tw'><table><thead><tr><th>Date</th><th>Slot</th><th>At</th>" +
-        "<th>Fired</th><th>Connected</th><th class='r'>Actions</th><th>Note</th></tr></thead><tbody>" +
+        "<th>Trigger</th><th>Outcome</th><th class='r'>Actions</th><th>Note</th></tr></thead><tbody>" +
         list.map(function (x) {
-          var yn = function (b) {
-            return "<span class='flag flag--" + (b ? "ok" : "nofly") + "'>" + (b ? "YES" : "NO") + "</span>";
-          };
+          var outcome = x.connected ? ["ok", "CONNECTED"]
+                      : x.declined ? ["wait", "DECLINED"]
+                      : ["nofly", "BLIND"];
           return "<tr><td class='num'>" + esc(x.date) + "</td>" +
             "<td class='sym'>" + esc(x.slot) + "</td>" +
             "<td class='num'>" + esc(x.at || "\u2014") + "</td>" +
-            "<td>" + yn(x.fired) + "</td><td>" + yn(x.connected) + "</td>" +
+            "<td><span class='flag flag--" + (x.trigger === "manual" ? "wait" : "ok") + "'>" +
+              esc(String(x.trigger || "scheduled").toUpperCase()) + "</span></td>" +
+            "<td><span class='flag flag--" + outcome[0] + "'>" + outcome[1] + "</span></td>" +
             "<td class='num r'>" + esc(String(x.actions == null ? "\u2014" : x.actions)) + "</td>" +
             "<td>" + esc(x.note || "") + "</td></tr>";
         }).join("") + "</tbody></table></div>";
