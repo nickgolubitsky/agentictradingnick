@@ -44,7 +44,14 @@ chance of profit and got lucky. Both are published, at equal weight.
 
 ## How it works
 
-Scheduled agent runs, weekdays, US Eastern:
+> **Status: specified, not scheduled.** Nothing currently fires these runs. There is no
+> cron job, no scheduled task, and no `schedule:` trigger in the GitHub workflow — it
+> runs on push only. The four slots below are a design, and the board says so: run
+> health reads **0/5**, every slot reads **NEVER**, and `runs.scheduler.configured` is
+> `false`. Read this section as a specification until that flag flips. The validator
+> will not let it flip until a run has actually recorded a row.
+
+Four run slots, weekdays, US Eastern:
 
 | Run | Job |
 |---|---|
@@ -106,8 +113,10 @@ This is the publish gate. It fails the build on:
 - any action in `moves.json` with no stated reasoning
 
 The same script is the Vercel build command and a GitHub Actions check, so it runs
-on every push. That matters because **an agent writes to this repo unattended** — the
-gate has to be automatic, not a habit.
+on every push. It is built for the case where **an agent writes to this repo
+unattended** — a gate that depends on someone remembering is not a gate. No agent
+writes here yet; the gate is deliberately in place before the thing it guards, which
+is the only order that works.
 
 ---
 

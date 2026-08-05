@@ -88,6 +88,10 @@ grep -rn "vercel.app" README.md
 
 ## 5. Wire the agent runs
 
+**Not done yet.** As of 2026-08-05 no scheduler exists — this step is outstanding, which
+is why the board reports run health 0/5 and every runbook slot reads NEVER. Steps 1–4
+above are complete; this one is the gap between a specification and a system.
+
 This is the part with real consequences, so do it deliberately.
 
 **Runs commit to `staging`, never to `main`.** Give the agent a token scoped to this

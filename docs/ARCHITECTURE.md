@@ -4,9 +4,16 @@
 
 ```
 scheduled agent runs  ──writes──▶  data/*.json  ──renders──▶  index.html  ──deploys──▶  static site
-                                       │
+    (not yet wired)                    │
                                        └──gated by──▶  scripts/validate.mjs
 ```
+
+**The left-hand box does not exist yet.** No scheduler fires these runs — verified
+against the cron list, the scheduled-task list, and `.github/workflows/validate.yml`,
+which triggers on push, pull_request and workflow_dispatch only. Everything from
+`data/*.json` rightward is real and running today; the writes are currently made by
+hand. `data/runs.json` carries `scheduler.configured: false` and the board renders that
+state rather than implying four daily runs are happening.
 
 No server, no database, no build step beyond the validator. The site is static files;
 the "state" is JSON in git, which means every change to the board is a reviewable diff
