@@ -3,17 +3,29 @@
 ## Shape
 
 ```
-scheduled agent runs  ──writes──▶  data/*.json  ──renders──▶  index.html  ──deploys──▶  static site
-    (not yet wired)                    │
-                                       └──gated by──▶  scripts/validate.mjs
+   retro run (16:32 ET)  ──writes──▶
+   trading runs (unwired)            data/*.json  ──renders──▶  index.html  ──deploys──▶  static site
+                                          │
+                                          └──gated by──▶  scripts/validate.mjs
 ```
 
-**The left-hand box does not exist yet.** No scheduler fires these runs — verified
-against the cron list, the scheduled-task list, and `.github/workflows/validate.yml`,
-which triggers on push, pull_request and workflow_dispatch only. Everything from
-`data/*.json` rightward is real and running today; the writes are currently made by
-hand. `data/runs.json` carries `scheduler.configured: false` and the board renders that
-state rather than implying four daily runs are happening.
+**One of the four slots is wired.** The read-only retro runs weekdays at 16:32 ET as a
+desktop scheduled task. The three trading slots are specification only — nothing fires
+them, and their writes are made by hand. `.github/workflows/validate.yml` still has no
+`schedule:` trigger; it runs on push, pull_request and workflow_dispatch.
+
+Two properties of that trigger matter more than the fact it exists:
+
+- **It is not a server.** It fires only while the Claude desktop app is open. A missed
+  window runs late on next launch, which for a market-hours run is worse than not
+  running — a run acting on stale prices is the failure mode the open-slot preflight
+  exists to prevent. This is why the retro, whose inputs are settled end-of-day numbers,
+  is the safe one to schedule this way and the trading slots are not.
+- **It has no order authority.** The retro is read-only by construction. Scheduling a
+  run that *can* trade is a separate decision, and it should not be taken until the
+  preflight assertion in [SCOPE.md](SCOPE.md) exists as code rather than as prose.
+
+Everything from `data/*.json` rightward is real and running today.
 
 No server, no database, no build step beyond the validator. The site is static files;
 the "state" is JSON in git, which means every change to the board is a reviewable diff

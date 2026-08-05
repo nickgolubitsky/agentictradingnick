@@ -88,9 +88,15 @@ grep -rn "vercel.app" README.md
 
 ## 5. Wire the agent runs
 
-**Not done yet.** As of 2026-08-05 no scheduler exists — this step is outstanding, which
-is why the board reports run health 0/5 and every runbook slot reads NEVER. Steps 1–4
-above are complete; this one is the gap between a specification and a system.
+**Partly done.** As of 2026-08-05 the read-only retro is scheduled weekdays at 16:32 ET
+as a desktop task — it fires only while the Claude app is open, so it is not yet a
+server-side runner. The three trading slots are still unwired, and no run has recorded a
+row, which is why the board reports run health 0/5 and every runbook slot reads NEVER
+until the first retro fires.
+
+The retro went first deliberately: it is read-only, so a misfire costs a bad grade rather
+than a bad trade. Do not put a run with order authority on a timer until the preflight
+assertion in [SCOPE.md](SCOPE.md) exists as code.
 
 This is the part with real consequences, so do it deliberately.
 

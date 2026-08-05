@@ -44,12 +44,24 @@ chance of profit and got lucky. Both are published, at equal weight.
 
 ## How it works
 
-> **Status: specified, not scheduled.** Nothing currently fires these runs. There is no
-> cron job, no scheduled task, and no `schedule:` trigger in the GitHub workflow — it
-> runs on push only. The four slots below are a design, and the board says so: run
-> health reads **0/5**, every slot reads **NEVER**, and `runs.scheduler.configured` is
-> `false`. Read this section as a specification until that flag flips. The validator
-> will not let it flip until a run has actually recorded a row.
+> **Status: one slot of four is scheduled.** The read-only retro runs weekdays at
+> 16:32 ET. The three trading slots — open, hourly, pre-close — are specification only;
+> nothing fires them, and the writes are made by hand.
+>
+> The retro's trigger is a **desktop scheduled task, not a server**. It fires only while
+> the Claude app is open; if the machine is asleep at 16:32 it runs late on next launch
+> rather than on time. That is worth stating plainly, because "runs on a laptop that
+> happens to be awake" is not the same claim as "runs unattended", and this project
+> exists to measure the difference. A real cloud runner is still outstanding.
+>
+> The retro was scheduled first because it is the run that **cannot place an order** —
+> it is read-only by construction, so a misfire costs a bad grade rather than a bad
+> trade. Order authority on a timer is a separate decision, gated behind the preflight
+> assertion in [docs/SCOPE.md](docs/SCOPE.md) existing as code.
+>
+> Until the first retro records a row, run health reads **0/5**, every runbook slot
+> reads **NEVER**, and `runs.scheduler.configured` stays `false` — the validator refuses
+> to let that flag go true on the strength of a schedule that has never actually fired.
 
 Four run slots, weekdays, US Eastern:
 

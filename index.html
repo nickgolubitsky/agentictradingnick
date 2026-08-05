@@ -173,12 +173,14 @@
 
 <footer>
   <strong>How this updates.</strong> Four run slots are specified — open, hourly, pre-close,
-  and a read-only retro after the close — but <strong>nothing schedules them yet</strong>, so
-  the writes are currently made by hand. The Runbook under Rules shows each slot and when it
-  last fired. Every run is meant to record whether it fired and whether it reached the
-  brokerage, so a run that failed silently shows up as a gap rather than as silence. The retro
-  grades the day against the rules without knowing whether the trade made money. This page
-  shows the state as of the last committed run, not live quotes.<br><br>
+  and a read-only retro after the close. <strong>Only the retro is scheduled</strong>, and its
+  trigger is a desktop task rather than a server, so it fires while the operator's machine is
+  awake and runs late otherwise. The three trading slots are unwired and their writes are made
+  by hand. The Runbook under Rules shows each slot and when it last fired. Every run records
+  whether it fired and whether it reached the brokerage, so a run that failed silently shows up
+  as a gap rather than as silence. The retro grades the day against the rules without knowing
+  whether the trade made money, and it has no order authority. This page shows the state as of
+  the last committed run, not live quotes.<br><br>
   <strong>What is deliberately absent.</strong> No account numbers, no broker identifiers, no
   balances for any account other than this one, no personal contact details. A CI check fails
   the build if any of those appear.<br><br>
