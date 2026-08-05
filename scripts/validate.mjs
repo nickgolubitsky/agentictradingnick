@@ -107,6 +107,27 @@ if (perf) {
       errors.push(`DATA  ${t.sym}: placedBy says 'agent' but byAgent is false. The two disagree about who placed it.`);
     }
   }
+  /* The mandate's two arms. Counting them wrong is how an experiment quietly
+   * stops testing anything, so the totals have to reconcile against the trades. */
+  const f = perf.forced;
+  if (f) {
+    for (const k of ["entries", "wins", "discretionaryEntries", "discretionaryWins"]) {
+      if (f[k] != null && (!Number.isInteger(f[k]) || f[k] < 0)) {
+        errors.push(`DATA  perf.forced.${k} must be a non-negative integer`);
+      }
+    }
+    if ((f.wins ?? 0) > (f.entries ?? 0)) {
+      errors.push(`DATA  perf.forced.wins (${f.wins}) exceeds perf.forced.entries (${f.entries})`);
+    }
+    if ((f.discretionaryWins ?? 0) > (f.discretionaryEntries ?? 0)) {
+      errors.push(`DATA  perf.forced.discretionaryWins exceeds discretionaryEntries`);
+    }
+    const closed = (perf.closedTrades ?? []).length;
+    if ((f.entries ?? 0) + (f.discretionaryEntries ?? 0) > closed) {
+      errors.push(`DATA  perf.forced arms sum to ${(f.entries ?? 0) + (f.discretionaryEntries ?? 0)} but only ${closed} trade(s) have closed`);
+    }
+  }
+
   const tagged = (perf.closedTrades ?? []).filter((t) => t.placedBy === "agent").length;
   if (tagged > perf.agentTrades) {
     errors.push(`DATA  ${tagged} closed trade(s) are tagged placedBy 'agent' but perf.agentTrades is ${perf.agentTrades}`);
@@ -136,6 +157,19 @@ if (bench) {
 }
 
 if (moves) {
+  /* A catalyst more than a session behind is not "anticipated" and its spot price
+   * is a quote from a day that is over. The board marks it PASSED so it cannot
+   * read as a forecast; this nags the run that owns the file to prune it. */
+  const midnight = new Date(); midnight.setHours(0, 0, 0, 0);
+  for (const m of moves.moves ?? []) {
+    const d = String(m.when ?? "").match(/(\d{4})-(\d{2})-(\d{2})/);
+    if (d) {
+      const days = (midnight - new Date(+d[1], +d[2] - 1, +d[3])) / 864e5;
+      if (days >= 2) {
+        warnings.push(`DATA  moves: ${m.ticker} '${m.event}' was ${Math.floor(days)} days ago and is still listed as an anticipated move — the pre-close run should prune it`);
+      }
+    }
+  }
   for (const m of moves.moves ?? []) {
     if (m.impliedMove != null && (m.impliedMove <= 0 || m.impliedMove > 1)) {
       errors.push(`DATA  ${m.ticker}: impliedMove ${m.impliedMove} is not a decimal fraction`);

@@ -286,10 +286,26 @@
         ". Options never hold through a print \u2014 IV crush kills even a correct call. " +
         "An equity hold is a pre-decided coin flip on the implied move, or it is a mistake.</span></div>";
     }
+    /* A catalyst whose date has passed is not anticipated. It stayed on the board
+       reading as upcoming, with the spot price it carried when it was written —
+       AMD showed a ±10% implied move against a reference forty points above where
+       it traded the next morning. Past events are marked and sorted last rather
+       than hidden, because the branch decided in advance is worth keeping; what is
+       not acceptable is presenting it as still ahead. */
+    var today = new Date(); today.setHours(0, 0, 0, 0);
+    var isPast = function (x) {
+      var d = String(x.when || "").match(/(\d{4})-(\d{2})-(\d{2})/);
+      if (!d) return false;
+      return new Date(+d[1], +d[2] - 1, +d[3]) < today;
+    };
+    list = list.slice().sort(function (a, b) { return (isPast(a) ? 1 : 0) - (isPast(b) ? 1 : 0); });
+
     h += list.map(function (x) {
-      var s = "<article class='move" + (x.hold ? " move--hold" : "") + "'>" +
+      var past = isPast(x);
+      var s = "<article class='move" + (x.hold ? " move--hold" : "") + (past ? " move--past" : "") + "'>" +
         "<div class='move__t'><span class='move__k'>" + esc(x.ticker) + "</span>" +
         "<span class='move__e'>" + esc(x.event) + "</span>" +
+        (past ? "<span class='flag flag--dead'>PASSED</span>" : "") +
         "<span class='move__w'>" + esc(x.when) + "</span></div><div class='imp'>" +
         "<div><div class='imp__k'>Implied move</div><div class='imp__v" +
           (x.impliedMove == null ? " imp__v--null" : "") + "'>" +
@@ -300,7 +316,10 @@
           money(x.spot * (1 - x.impliedMove)) + " \u2013 " + money(x.spot * (1 + x.impliedMove)) + "</div></div>";
       }
       if (x.spot != null) {
-        s += "<div><div class='imp__k'>Reference</div><div class='imp__v'>" + money(x.spot) + "</div></div>";
+        /* Label it as of when it was taken once the event is behind us, so nobody
+           reads a stale reference as a current quote. */
+        s += "<div><div class='imp__k'>Reference" + (past ? " (at the time)" : "") + "</div>" +
+          "<div class='imp__v" + (past ? " imp__v--null" : "") + "'>" + money(x.spot) + "</div></div>";
       }
       s += "</div>";
       (x.branches || []).forEach(function (b) {
@@ -575,6 +594,26 @@
         p.agentTrades ? "up" : "down") +
       tile("Agent-advised", String(p.assistedTrades || 0), "human executed", "flat") +
       "</div>";
+
+    /* The daily entry mandate is an experiment, and an experiment needs its two arms
+       counted separately. Blending a forced entry into the same average as a patient
+       one answers nothing about whether the mandate helps. */
+    var f = p.forced || null;
+    if (f && (f.entries || f.discretionaryEntries)) {
+      var arm = function (k, n, wins, pl, note) {
+        return tile(k, String(n),
+          n ? wins + "W · " + signed(pl) + " · " + note : "none yet",
+          !n ? "flat" : dir(pl));
+      };
+      h += "<div class='sub'>Mandate: forced vs discretionary</div><div class='tiles'>" +
+        arm("Forced entries", f.entries || 0, f.wins || 0, f.pl || 0, "checklist overridden") +
+        arm("Discretionary", f.discretionaryEntries || 0, f.discretionaryWins || 0,
+            f.discretionaryPl || 0, "checklist passed") +
+        "</div><p class='note'>Entries published under the 2026-08-05 daily mandate with a " +
+        "failing checklist item are counted here separately from entries the checklist " +
+        "passed. Neither column means anything yet at this sample size — they are kept " +
+        "apart so that when it does, the answer is readable rather than averaged away.</p>";
+    }
     if (thin) {
       h += "<p class='note'>Win rate and profit factor stay blank below " + p.minSampleForRates +
         " trades. One win is 100% and it would be a lie told with arithmetic \u2014 " +
