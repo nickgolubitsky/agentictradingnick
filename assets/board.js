@@ -578,7 +578,16 @@
   /* ---------- performance ---------- */
   /* Falls back to the old byAgent boolean so a trade written before the three-state
      field existed still renders rather than showing a blank cell. */
-  var PLACED = { agent: "agent, unattended", assisted: "agent-advised", hand: "by hand" };
+  /* Four states, because the broker reports who pressed the button and that is not
+     the same question as whether the system ran itself. An order with
+     placed_agent="agentic" that a person asked for in the moment is machine-executed
+     and human-initiated — neither "agent, unattended" nor "by hand". */
+  var PLACED = {
+    agent: "agent, unattended",
+    directed: "agent, human-directed",
+    assisted: "agent-advised",
+    hand: "by hand"
+  };
 
   function renderPerf(p) {
     var a = p.adherence, L = p.ledger;

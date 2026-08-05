@@ -91,7 +91,7 @@ if (perf) {
   /* Attribution is the autonomy claim, so it gets gated like one. The failure this
    * blocks is an assisted order drifting into the unattended column — which would
    * turn "a human clicked it on the agent's advice" into "the system ran itself". */
-  const PLACED_BY = ["agent", "assisted", "hand"];
+  const PLACED_BY = ["agent", "directed", "assisted", "hand"];
   const assisted = perf.assistedTrades ?? 0;
   if (assisted < 0 || !Number.isInteger(assisted)) {
     errors.push("DATA  perf.assistedTrades must be a non-negative integer");
