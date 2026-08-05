@@ -1,8 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Agentic Trading">
   <title>Agentic Trading</title>
-  <!-- Outcome and process, same width, same height, neither in front. The board's
-       whole argument, at 16 pixels. Dark plate so it reads on light and dark chrome. -->
-  <rect width="32" height="32" rx="7" fill="#1c1917"/>
-  <rect x="7.5"  y="8" width="7" height="16" rx="1.5" fill="#4ade80"/>
-  <rect x="17.5" y="8" width="7" height="16" rx="1.5" fill="#fbbf24"/>
+  <!-- Two bars, identical footprint: outcome and process, shown at the same size so
+       neither hides behind the other. Left solid, right hollow — same weight, one
+       graded through and one not.
+
+       Square corners and no accent colour are deliberate. A rounded plate and a
+       green/amber pair read as a generic trading app; this board is not one, and
+       the mark should not borrow the costume. Monochrome also means the silhouette
+       survives 16px, which is the only size that actually ships. -->
+  <rect width="32" height="32" fill="#1c1917"/>
+  <rect x="8" y="7" width="6" height="18" fill="#fafaf9"/>
+  <rect x="19" y="8" width="4" height="16" fill="none" stroke="#fafaf9" stroke-width="2"/>
 </svg>
