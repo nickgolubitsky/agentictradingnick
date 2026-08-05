@@ -79,7 +79,18 @@
         "entries passing all six \u00b7 exits on time " + a.exitsOnTime + "/" + a.exitsTotal);
 
     var v;
-    if (rh.fired && rh.connected === 0 && un === 0) {
+    /* Zero runs must be its own branch. Without it the ratios read 0/0, every
+       "did they all connect" test passes vacuously, and the board congratulates
+       itself on a record that does not exist. An empty log is unmeasured, not clean. */
+    if (!rh.fired) {
+      v = "<b>Nothing has run yet.</b> No scheduled run has recorded a row, so run health is " +
+        "unmeasured rather than good — an empty record is not a clean one. " +
+        (tot ? tot + " action" + (tot === 1 ? " on" : "s on") + " this board " +
+          (tot === 1 ? "was" : "were") + " taken by hand" +
+          (asst ? ", " + (asst === 1 ? "that one" : "" + asst) + " with the agent advising" : "") + ". "
+             : "") +
+        "The first number worth reading here appears when a run fires and writes its own row.";
+    } else if (rh.connected === 0 && un === 0) {
       v = "<b>The agent is not yet running itself.</b> " + rh.fired + " scheduled run" +
         (rh.fired === 1 ? "" : "s") + " fired and none reached the brokerage; " +
         (tot - un) + " of " + tot + " action" + (tot === 1 ? "" : "s") +

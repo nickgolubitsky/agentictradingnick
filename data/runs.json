@@ -35,10 +35,10 @@
   ],
   "priorSummary": {
     "through": "2026-08-04",
-    "fired": 5,
+    "fired": 0,
     "connected": 0,
     "actions": 0,
-    "note": "Five consecutive firings lost brokerage access. Carried from the discipline ledger and docs/ARCHITECTURE.md as an aggregate — this file did not exist when they ran, so there are no per-run rows to show. Counted in run health."
+    "note": "Zero, deliberately. Five firings were recorded here on 2026-08-04, but the operator has confirmed they were setup tests rather than live scheduled runs, so they are excluded from run health — counting a test as a run would overstate how much of this system has actually operated. They are set to zero rather than deleted, and this note stays, because the correction is part of the record. Run health now reads from live runs only, of which there are none yet."
   },
   "runs": []
 }

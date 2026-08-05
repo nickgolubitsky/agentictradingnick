@@ -2,6 +2,13 @@
   "_comment": "Trading runs APPEND. Entries are immutable once written; the retro adds only the grade field. checklist 1-6: catalyst / not the +8% day / implied move / liquidity / expectations vs positioning / exits before entry. Values: pass | fail | ne | na.",
   "entries": [
     {
+      "kind": "did", "date": "2026-08-05 01:10",
+      "head": "Operator correction: the five blind firings were setup tests, not runs",
+      "body": "Run health previously counted five firings on 8/4 that reached no brokerage. The operator has confirmed those were tests during setup, not live scheduled runs, so they are excluded from run health: counting a test as a run overstates how much of this system has operated. runs.json priorSummary is zeroed with the reason attached, and the discipline ledger carries the correction. Note what is NOT changed: the retro's 8/4 grade below refers to 'the other five stand-asides forced by a connector outage', and that sentence stands as written. Reasoning is immutable here, including reasoning that later turns out to rest on a wrong premise - a log that edits its own past to stay consistent is worth nothing. The correction is appended instead, which is the only honest way an append-only record absorbs one.",
+      "checklist": { "1": "na", "2": "na", "3": "na", "4": "na", "5": "na", "6": "na" },
+      "grade": null
+    },
+    {
       "kind": "will", "date": "2026-08-05 09:30",
       "head": "Verify the data connection before reasoning about anything",
       "body": "First action is a tool-availability check. If the brokerage connector did not attach: log the failure, notify, stop. No analysis on stale numbers. If it did: re-verify balances from the API before the playbook runs. No run has seen the real balance since 1:04 PM on 8/4, and the retro's figure is a reading, not a guarantee.",

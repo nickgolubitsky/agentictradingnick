@@ -90,7 +90,7 @@ it later silently rewrites history.
 
 These have all happened and are documented rather than hidden.
 
-- **Connector outage.** Scheduled runs lost brokerage access for five consecutive firings. Every run's first action is now a tool-availability check; a run with no connection must log the failure, notify, and stop — it must not reason about positions from the log as if the log were live data.
+- **Connector outage.** During setup, five consecutive test firings reached no brokerage. Those were tests rather than live runs and are excluded from run health, but the failure mode they exposed is real and the guard against it stands: every run's first action is a tool-availability check, and a run with no connection must log the failure, notify, and stop — it must not reason about positions from the log as if the log were live data. A failure found in a test still counts as a failure mode found.
 - **Stale board.** Cloud runs have no path to some display surfaces. The board shows a stale badge computed from `lastRefreshUtc` rather than pretending to be current.
 - **Reconciliation drift.** The log recorded a balance six cents off the brokerage's, from a regulatory fee. Small, but it is exactly the kind of gap that compounds. The retro reconciles against the API, not against the log.
 - **Sequence risk.** A one-or-two-position account has no diversification to smooth a losing streak. Three consecutive stops is a −22% drawdown. The checklist exists to raise the win rate; the stops exist to cap the damage.

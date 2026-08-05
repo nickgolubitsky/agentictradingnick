@@ -11,9 +11,11 @@ a human. Alongside that, the grading record: every order, every deliberate non-o
 reasoning written *before* the outcome was known, and a read-only audit that grades each
 one against a fixed checklist without being told whether the trade made money.
 
-As of the first published day the honest answer is *no, not yet*: five scheduled runs fired
-and none reached the broker, and the only trade on the board was placed by hand. That number
-is the headline rather than a footnote, because it is the gap the project exists to close.
+As of the first published day the honest answer is *no, not yet*: **no scheduled run has
+operated at all**, and the only trade on the board was placed by hand on the agent's advice.
+That is the headline rather than a footnote, because it is the gap the project exists to
+close. (An earlier version of this record counted five blind firings from 8/4 in run health;
+those were setup tests, not live runs, and have been removed. A test is not a run.)
 
 **Live board:** https://agentictradingnick.vercel.app
 **Not investment advice.** See [DISCLAIMER.md](DISCLAIMER.md). Read it before you read

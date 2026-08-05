@@ -25,7 +25,7 @@
     "items": [
       { "date": "8/4", "text": "Acted on time - the AMD close executed promptly once the decision was made." },
       { "date": "8/4", "text": "Stand-aside at the 3:30p pre-close, correct on its stated reasons." },
-      { "date": "8/4", "text": "Run health FAIL - five scheduled runs fired blind with no brokerage connection. The account happened to be flat; with a live stop, nothing would have enforced it." }
+      { "date": "8/5", "text": "Correction: the five blind firings previously recorded here were setup tests, not live scheduled runs, and have been removed from run health. No scheduled run has operated yet." }
     ]
   }
 }
