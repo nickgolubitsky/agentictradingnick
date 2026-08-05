@@ -114,6 +114,17 @@
       "note": "The first run in this record to fire inside its own window: 09:40 ET against a 09:33 slot, seven minutes late, so the staleness guard passed and the session was live to read. Connector attached and the scope preflight matched the mandate identifier exactly. Settled cash is 128.90 with nothing unsettled - the 99.94 the 00:53 row saw pending has cleared, so the two figures the board carried separately are now one number, and deployable is the whole balance. No equity or option positions are open, so no exit was due. No specification written: the branch the tape resolved to is the stand-aside one. AMD's 8/4 print gapped it down to a 491.73 bid against a 518.58 close, which kills the day-2 continuation setup this slot was watching and, with the leader red, kills the sympathy-laggard read that depended on it. UPST is the only name with a live catalyst and it is trading its reaction day at a 32.23 bid, +6.3% - checklist item 2 forbids exactly that entry, so the checklist stopped there in order.",
       "trigger": "scheduled",
       "declined": false
+    },
+    {
+      "date": "2026-08-05",
+      "slot": "hourly",
+      "at": "10:22 ET",
+      "fired": true,
+      "connected": true,
+      "actions": 0,
+      "note": "First hourly to fire inside its own window: 10:22 ET against the 10:17 slot, five minutes late, so the staleness guard passed and the quotes were live. Connector attached and the scope preflight matched the mandate identifier exactly. Re-read live: no equity positions, no option positions, cash 128.90 with nothing unsettled - so there was no target, stop, time stop or option no-fly window to enforce, which is the only job this slot has. No specification written. The entry question was not reopened on its own merits: the bar for a new mid-session entry is higher than at the open, and the one name with a live catalyst is UPST, still trading its reaction day at a 32.36 bid, +6.7%, which is the entry checklist item 2 names a wait signal. AMD extended its gap down to a 486.55 bid, -6.2%, so the setup this board was watching is further from valid than it was at 09:42, not closer. Standing aside with the position unchanged.",
+      "trigger": "scheduled",
+      "declined": false
     }
   ],
   "_rowFields": "trigger: 'scheduled' when the scheduler fired this run in its own window, 'manual' when a human invoked it. Only scheduled rows count toward run health - a manual invocation proves the code path works, not that the system runs. declined: true when the run deliberately stopped on a guard (fired outside its window, or the mandate was unset) and therefore never attempted to reach the broker. A decline is correct behaviour, not a connection failure, and it is excluded from the run-health denominator rather than counted against it."

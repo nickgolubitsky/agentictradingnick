@@ -1,6 +1,6 @@
 {
   "_comment": "Written by the trading runs (9:30a / hourly / 3:30p ET). Never contains account numbers, broker IDs, or any account other than the sandbox.",
-  "lastRefreshUtc": "2026-08-05T13:42:00Z",
+  "lastRefreshUtc": "2026-08-05T14:22:00Z",
   "accountLabel": "Sandbox account",
   "account": {
     "total": 128.90,
@@ -8,8 +8,8 @@
     "deployable": 128.90,
     "unsettled": 0.00,
     "settlesOn": "nothing pending",
-    "verifiedAt": "2026-08-05 09:42 ET",
-    "note": "Cash account. Proceeds settle T+1. Read live at 09:42 ET from the broker: the 99.94 that the 00:53 read showed unsettled has settled, so deployable is now the full balance rather than the 28.96 the board carried overnight. The board's old split was not wrong, it was pre-settlement; the brokerage figure is the one reconciled to."
+    "verifiedAt": "2026-08-05 10:22 ET",
+    "note": "Cash account. Proceeds settle T+1. Re-read live at 10:22 ET from the broker and unchanged from the 09:42 open read: 128.90 total, all of it cash, nothing unsettled, so deployable is the full balance. No equity or option positions are open, which is why the mid-session run had no exit to enforce."
   },
   "positions": [],
   "entryWatch": [
@@ -18,41 +18,41 @@
       "state": "dead",
       "trigger": "Reaction strong and still holding 30-60 min after the 8/5 open",
       "exits": "Target +20% / stop -8% / time stop 5 sessions",
-      "why": "Resolved against. The open settled the question the 00:53 read could not: AMD is bid 491.73 against a 518.58 official close, about -5.2%. The after-hours 478.41 bid was directionally right. A continuation setup needs a strong reaction to continue and the reaction was negative, so this is not a pullback to buy - it is the gap-down branch, which the rulebook answers with stand aside. Bouncing off the low is not reclaiming the close."
+      "why": "Resolved against, and the first hour made it more so rather than less. AMD is bid 486.55 at 10:22 ET against a 518.58 official close, about -6.2%, which is lower than the 491.73 the open read showed. A continuation setup needs a strong reaction to continue and the reaction is negative and still deteriorating, so this is the gap-down branch, which the rulebook answers with stand aside. Bouncing off the low would not have reclaimed the close; it has not even bounced."
     },
     {
       "setup": "Sympathy laggard",
       "state": "dead",
       "trigger": "Reaction strong but the leader is already extended",
       "exits": "Target +20% / stop -8% / time stop 5 sessions",
-      "why": "Conditional on a strong leader, and the leader printed red. There is no upside chain to find a laggard in. SMCI, the name this read pointed at, is bid 31.38 and down about 1.0% - it is not lagging a move, it is following the same one down."
+      "why": "Conditional on a strong leader, and the leader printed red. There is no upside chain to find a laggard in. SMCI, the name this read pointed at, is bid 31.01 and down about 2.1% - it is not lagging a move, it is following the same one down, and it has widened its loss since the open."
     },
     {
       "setup": "UPST day-2/3 pullback",
       "state": "watch",
       "trigger": "A pullback that holds on 8/6 or 8/7, not today's reaction bar",
       "exits": "Target +20% / stop -8% / time stop 5 sessions",
-      "why": "The one live catalyst on the list, and the one entry the rulebook explicitly forbids today. UPST reported 8/4 after the bell and is bid 32.23 against a 30.32 close, about +6.3%. That is the reaction day itself, which checklist item 2 calls a wait signal. Worth noting against it as well: the after-hours bid was 33.81 and the open is 32.23, so the move is fading rather than extending. The setup that fits is the day-2/3 pullback, which by definition cannot be bought today."
+      "why": "Still the one live catalyst on the list, and still the one entry the rulebook explicitly forbids today. UPST reported 8/4 after the bell and is bid 32.36 at 10:22 ET against a 30.32 close, about +6.7%. That is the reaction day itself, which checklist item 2 calls a wait signal. The first hour has firmed it slightly off the 32.23 open bid rather than resolving anything: a reaction day that holds is still a reaction day. The setup that fits is the day-2/3 pullback, which by definition cannot be bought today, and a mid-session run is the last place that should decide otherwise."
     },
     {
       "setup": "Stand aside",
       "state": "armed",
       "trigger": "Leader gapped down, most of the list red, only catalyst is a reaction-day spike",
       "exits": "-",
-      "why": "This is the branch the open resolved to and it is the position the account is in. Seven of the nine candidates are red, the eighth is a print-day spike the checklist forbids chasing, and four of the nine report tonight. A one-position account has no way to be wrong cheaply here. Deployable cash keeps for a setup that fits."
+      "why": "The branch the open resolved to and the position the account is still in an hour later. Seven of the nine candidates are red at 10:22, the eighth is a print-day spike the checklist forbids chasing, and four of the nine report tonight. Nothing in the first hour changed a flag or opened a setup. A one-position account has no way to be wrong cheaply here, and deployable cash keeps for a setup that fits."
     }
   ],
-  "candidatesAsOf": "2026-08-05 09:42 ET, live session bids. The Last column is the official 8/4 settled close.",
-  "candidatesNote": "Bids are live and quoted as bids, never marks. The 8/4 after-hours indications the previous read carried have now been settled by the open: AMD's gap down held, UPST's gap up faded from its after-hours bid. Earnings dates below were re-verified against the broker's calendar this run, which corrected SMCI from no known date to 8/11 after the close.",
+  "candidatesAsOf": "2026-08-05 10:22 ET, live session bids. The Last column is the official 8/4 settled close.",
+  "candidatesNote": "Bids are live and quoted as bids, never marks. Re-read at 10:22 ET by the mid-session run. The first hour moved prices but changed no flag and opened no setup: AMD extended its gap down, UPST's reaction-day spike firmed marginally, and the four names reporting tonight remain no-fly regardless of where they trade.",
   "candidates": [
-    { "sym": "AMD",  "last": 518.58, "bid": 491.73, "earnings": "8/4 after",  "flag": "watch", "note": "Reported. Gapped down and stayed down - bid 491.73, about -5.2%. Off the 478.41 after-hours low but nowhere near reclaiming the close. Continuation thesis is dead, not delayed." },
-    { "sym": "UPST", "last": 30.32,  "bid": 32.23,  "earnings": "8/4 after",  "flag": "watch", "note": "Reported, no longer no-fly. Bid 32.23, about +6.3%, and fading from a 33.81 after-hours bid. This is the reaction day; item 2 says wait for the day-2/3 pullback." },
-    { "sym": "IONQ", "last": 41.72,  "bid": 40.34,  "earnings": "8/5 after",  "flag": "nofly", "note": "Reports tonight, verified on the broker calendar. Any morning buy exits by 3:55p. Bid 40.34, about -3.3%." },
-    { "sym": "SMR",  "last": 9.49,   "bid": 9.17,   "earnings": "8/5 after",  "flag": "nofly", "note": "Reports tonight, verified. Any morning buy exits by 3:55p. Bid 9.17, about -3.4%." },
-    { "sym": "JOBY", "last": 7.97,   "bid": 7.86,   "earnings": "8/5 after",  "flag": "nofly", "note": "Reports tonight, verified. Any morning buy exits by 3:55p. Bid 7.86, about -1.4%." },
-    { "sym": "SOUN", "last": 6.51,   "bid": 6.53,   "earnings": "8/5 after",  "flag": "nofly", "note": "Reports tonight, verified. Any morning buy exits by 3:55p. Bid 6.53, about +0.3% - the only green name on the list that is not the print-day spike, and it is unbuyable tonight." },
-    { "sym": "MARA", "last": 11.75,  "bid": 11.73,  "earnings": "8/6 after",  "flag": "watch", "note": "Verified 8/6 after the close. Window closes 8/6 3:55p. Bid 11.73, flat." },
-    { "sym": "OKLO", "last": 43.33,  "bid": 42.97,  "earnings": "8/7 before", "flag": "watch", "note": "Verified 8/7 before the open. A BMO print gaps past every stop, so the window closes on the 8/6 close. Bid 42.97, about -0.8%." },
-    { "sym": "SMCI", "last": 31.69,  "bid": 31.38,  "earnings": "8/11 after", "flag": "watch", "note": "Corrected this run: the board carried no earnings date, the broker calendar has it 8/11 after the close. That lands inside a five-session time stop opened today, so any entry here needs the straddle pulled under item 3 rather than treated as an earnings-free name. Bid 31.38, about -1.0%; the sympathy read is worse anyway now that the leader printed red." }
+    { "sym": "AMD",  "last": 518.58, "bid": 486.55, "earnings": "8/4 after",  "flag": "watch", "note": "Reported. Gap down extending - bid 486.55, about -6.2%, below the 491.73 open bid. Continuation thesis is dead, not delayed." },
+    { "sym": "UPST", "last": 30.32,  "bid": 32.36,  "earnings": "8/4 after",  "flag": "watch", "note": "Reported, no longer no-fly. Bid 32.36, about +6.7%, firmer than the 32.23 open bid but still under the 33.81 after-hours print. This is the reaction day; item 2 says wait for the day-2/3 pullback." },
+    { "sym": "IONQ", "last": 41.72,  "bid": 40.61,  "earnings": "8/5 after",  "flag": "nofly", "note": "Reports tonight. Any position must be flat by 3:55p. Bid 40.61, about -2.7%." },
+    { "sym": "SMR",  "last": 9.49,   "bid": 9.35,   "earnings": "8/5 after",  "flag": "nofly", "note": "Reports tonight. Any position must be flat by 3:55p. Bid 9.35, about -1.5%." },
+    { "sym": "JOBY", "last": 7.97,   "bid": 7.92,   "earnings": "8/5 after",  "flag": "nofly", "note": "Reports tonight. Any position must be flat by 3:55p. Bid 7.92, about -0.6%." },
+    { "sym": "SOUN", "last": 6.51,   "bid": 6.54,   "earnings": "8/5 after",  "flag": "nofly", "note": "Reports tonight. Any position must be flat by 3:55p. Bid 6.54, about +0.5% - still the only green name that is not the print-day spike, and still unbuyable into tonight's print." },
+    { "sym": "MARA", "last": 11.75,  "bid": 11.72,  "earnings": "8/6 after",  "flag": "watch", "note": "Earnings 8/6 after the close, so the window closes 8/6 3:55p. Bid 11.72, about -0.3%. No catalyst before the print." },
+    { "sym": "OKLO", "last": 43.33,  "bid": 43.29,  "earnings": "8/7 before", "flag": "watch", "note": "Earnings 8/7 before the open. A BMO print gaps past every stop, so the window closes on the 8/6 close. Bid 43.29, about -0.1% - flat, no setup." },
+    { "sym": "SMCI", "last": 31.69,  "bid": 31.01,  "earnings": "8/11 after", "flag": "watch", "note": "Earnings 8/11 after the close, which lands inside a five-session time stop opened today, so any entry needs the straddle pulled under item 3 rather than being treated as an earnings-free name. Bid 31.01, about -2.1%; the sympathy read is worse anyway now that the leader is printing red and widening." }
   ]
 }
