@@ -1,21 +1,11 @@
 {
-  "_comment": "Written by the trading runs. impliedMove is a decimal or null. null means the straddle was not pulled - an open checklist item, not a placeholder to guess at.",
+  "_comment": "Written by the trading runs. impliedMove is a decimal or null. null means the straddle was not pulled - an open checklist item, not a placeholder to guess at. This file is a list of what is AHEAD: the pre-close run prunes catalysts once their date has passed and re-reads spot from a live quote, because a reference price carried from the day it was written makes every implied range wrong.",
   "moves": [
-    {
-      "ticker": "AMD", "event": "Q2 earnings", "when": "2026-08-04, after close",
-      "spot": 522.95, "impliedMove": 0.10, "hold": false,
-      "source": "Consensus ~$1.61 EPS / ~$11.31B rev. Positioning crowded, targets raised into the print.",
-      "resolved": "8/5 open: the 'gaps down hard' branch fired. Bid 491.73 against a 518.58 official close, about -5.2%, versus a 10% implied move - so the realised move was inside what the straddle priced, in the direction the crowded positioning was exposed to. Spot above is the pre-print quote the implied move was pulled against and is left as read. No position was open into it.",
-      "branches": [
-        { "cond": "Reaction strong and still holding 30-60 min after the open", "act": "Day-2 continuation (fractional)", "why": "Checklist item 2. Enter the day-2 hold, not the overnight coin flip." },
-        { "cond": "Gaps down hard", "act": "Stand aside the morning", "stand": true, "why": "Let the flush finish. There is no second balance." },
-        { "cond": "Reaction strong but already extended", "act": "Sympathy laggard from the chain", "why": "Buy what has not moved. Chasing after the run is the +8% day." }
-      ]
-    },
     {
       "ticker": "APP / DASH / IONQ / JOBY / SMR / SOUN", "event": "Earnings cluster", "when": "2026-08-05, after close",
       "spot": null, "impliedMove": null, "hold": false,
-      "source": "Cluster re-verified against the broker earnings calendar at the 8/5 open: all six confirmed reporting after today's close. JOBY was on the candidate list flagged no-fly but missing from this cluster label and has been added. No straddle pulled on any of them - impliedMove stays null because none was read, not as a placeholder to guess at, and nothing is held into tonight to need one.",
+      "source": "Cluster re-verified against the broker earnings calendar twice on 8/5, at the open and again at 15:37 ET: IONQ, JOBY, SMR, SOUN, APP and DASH all confirmed reporting after today's close, all timing 'pm', all verified. spot stays null because six tickers cannot share one reference price, not because none was read - the 15:37 ET bids are IONQ 40.38, JOBY 7.75, SMR 9.40, SOUN 6.41, APP 420.62, DASH 203.87. impliedMove stays null because no straddle was pulled on any of them, and none was needed: nothing is held into tonight.",
+      "resolved": "8/5 pre-close: the first branch resolved to nothing. None of the six was bought this morning, so there is no 3:55p exit to make, and the account carries no exposure into any of these prints. The second branch never armed because no deliberate hold was under consideration. The prints themselves are still ahead of this file at the time of writing; the 8/6 open run prunes the entry once they are behind it.",
       "branches": [
         { "cond": "Any bought on the 8/5 morning", "act": "Exit by 3:55p ET", "why": "An overnight hold through a print is a decision or an accident. Default is exit." },
         { "cond": "Considering a deliberate hold", "act": "Pull the ATM straddle first", "why": "Checklist item 3. A hold is a coin flip on the implied move. Know the number or skip it." }
@@ -23,25 +13,38 @@
     },
     {
       "ticker": "MARA", "event": "Earnings", "when": "2026-08-06, after close",
-      "spot": 11.78, "impliedMove": null, "hold": false, "source": "Candidate list.",
+      "spot": 11.40, "impliedMove": null, "hold": false,
+      "source": "Date verified on the broker earnings calendar 8/5, timing 'pm', verified flag true. spot is the live bid at 15:37 ET on 8/5, re-read by the pre-close run, not the 11.78 carried from the morning.",
       "branches": [
-        { "cond": "Position open into the 8/6 close", "act": "Close, or write the hold down", "why": "The hold gets pre-decided with the implied move attached, or it does not happen." }
+        { "cond": "Position open into the 8/6 close", "act": "Close, or write the hold down", "why": "The hold gets pre-decided with the implied move attached, or it does not happen." },
+        { "cond": "Considering an entry on 8/6", "act": "Treat the window as closing 8/6 3:55p", "why": "A five-session time stop opened 8/6 runs well past the print, so the print sits inside the intended hold rather than outside it. The entry has to be sized and exited against that, or not taken." }
       ]
     },
     {
       "ticker": "OKLO", "event": "Earnings", "when": "2026-08-07, before open",
-      "spot": 43.75, "impliedMove": null, "hold": false, "source": "Candidate list, date verified on the broker calendar 8/5.",
+      "spot": 43.20, "impliedMove": null, "hold": false,
+      "source": "Date verified on the broker earnings calendar 8/5, timing 'am', verified flag true. spot is the live bid at 15:37 ET on 8/5, re-read by the pre-close run, not the 43.75 carried from the morning.",
       "branches": [
         { "cond": "Position open on the 8/6 close", "act": "Exit 8/6", "why": "A before-open report gaps past every stop. No run sits between the close and the print." }
       ]
     },
     {
       "ticker": "SMCI", "event": "Earnings", "when": "2026-08-11, after close",
-      "spot": 31.38, "impliedMove": null, "hold": false,
-      "source": "Added 8/5. The candidate list carried SMCI as having no earnings date; the broker calendar has it 8/11 after the close. Spot is the live bid at 09:42 ET, not a mark.",
+      "spot": 30.75, "impliedMove": null, "hold": false,
+      "source": "Added 8/5 after the candidate list was found carrying SMCI as earnings-free; the broker calendar has it 8/11 after the close. spot is the live bid at 15:37 ET on 8/5, re-read by the pre-close run, not the 31.38 read at 09:42.",
       "branches": [
         { "cond": "Any entry opened on or after 8/5", "act": "Pull the ATM straddle before sizing", "why": "A five-session time stop opened today expires on or about 8/12, so the print sits inside the intended hold rather than outside it. Item 3 applies to this name now; treating it as earnings-free was the stale read." },
         { "cond": "Position open into the 8/11 close", "act": "Close, or write the hold down with the implied move attached", "why": "The rulebook forbids holding an option through a print outright, and an equity hold through one is a coin flip that gets pre-decided or does not happen." }
+      ]
+    },
+    {
+      "ticker": "UPST", "event": "Time stop on the open position", "when": "2026-08-11, at the close",
+      "spot": 30.25, "impliedMove": null, "hold": false,
+      "source": "Not an earnings event - UPST already reported 8/4 and is absent from the broker calendar through 8/7. hold is false and stays false: that flag drives the board's NO-FLY banner about carrying a position into a print, and there is no print here to carry into. 'straddle not pulled' renders on this row for the same reason - there is no event to price. This is the position's own clock, written into the file because it is the next dated thing that acts on the account and the board should not have to infer it from a position row. 8/5 is session one of five. spot is the live bid at 15:37 ET against a 31.09 average entry; target 37.31, stop 28.60.",
+      "branches": [
+        { "cond": "Bid at or below 28.60 on any run", "act": "Exit that run", "why": "-8% equity stop. Enforced at the level, not at the next convenient slot." },
+        { "cond": "Bid at or above 37.31", "act": "Exit that run", "why": "+20% take profit. Not more - the rulebook caps it deliberately." },
+        { "cond": "Neither level by the 8/11 close", "act": "Exit on the time stop", "why": "Five sessions with nothing happening means the thesis was wrong even though the stop never hit. Checklist item 6. The SMCI print the same evening is a separate reason not to still be sitting in a correlated small-cap on 8/12." }
       ]
     }
   ]

@@ -118,6 +118,17 @@
       "connected": true,
       "actions": 0,
       "note": "Sixth and last hourly of the day: 15:21 ET against the 15:17 slot, four minutes late, guard passed, quotes live. Connector attached and the scope preflight matched the mandate identifier exactly. One position to check and every level checked against a live bid: UPST bid 30.73 against a 31.09 average, so the position is -1.16%, with the 37.31 target 21.4% above and the 28.60 stop 6.9% below. Time stop is the 8/11 close and today is session one of five. Nothing hit, so nothing done. No specification: deployable settled cash is 4.54, below one share of every name on the list, and the mid-session bar for a new entry is higher than the open's in any case. Handing to the 15:30 pre-close with the position carrying no overnight earnings risk - UPST already reported 8/4, and the four names printing tonight are all names this account does not hold."
+    },
+    {
+      "date": "2026-08-05",
+      "slot": "preclose",
+      "at": "15:37 ET",
+      "fired": true,
+      "connected": true,
+      "actions": 0,
+      "note": "Fired 15:37 ET against the 15:33 slot, four minutes late, inside the guard and well short of the 15:55 cutoff, so quotes were live and the decision was made in its own window. Connector attached and the scope preflight matched the mandate identifier exactly. One position and it is being held overnight deliberately, not by default: UPST, 4 shares at a 31.09 average, bid 30.25, so the position is -2.70%. The option no-fly rule has nothing to bite on because the account holds no options at all. UPST already reported on 8/4 and is absent from the broker earnings calendar through 8/7, so there is no print tonight and therefore no straddle to pull and no coin flip to decline. No level is hit - the 37.31 target is 23.3% above the bid, the 28.60 stop 5.4% below, and the 8/11 time stop is four sessions out with today counting as one of five - so the hold stands on its levels and is written into why.json rather than left to happen. No specification published: this slot does not open positions in the last thirty minutes, the daily entry mandate binds the open slot and not this one, and deployable settled cash is 4.54 in any case. Pruned the passed AMD 8/4 catalyst from moves.json, re-read spot on every surviving entry from a live bid rather than the morning's numbers - MARA 11.78 to 11.40, OKLO 43.75 to 43.20, SMCI 31.38 to 30.75 - and added the UPST time stop as the next dated thing that acts on this account.",
+      "trigger": "scheduled",
+      "declined": false
     }
   ],
   "_rowFields": "trigger: 'scheduled' when the scheduler fired this run in its own window, 'manual' when a human invoked it. Only scheduled rows count toward run health - a manual invocation proves the code path works, not that the system runs. declined: true when the run deliberately stopped on a guard (fired outside its window, or the mandate was unset) and therefore never attempted to reach the broker. A decline is correct behaviour, not a connection failure, and it is excluded from the run-health denominator rather than counted against it.",
