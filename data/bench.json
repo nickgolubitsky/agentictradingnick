@@ -9,5 +9,8 @@
     "source": "Regular-session opening bars, 2026-08-04 13:30:00Z (9:30 ET), pulled from the brokerage market-data API. Not the interpolated daily bars for that date, which carry zero volume and were stale by $13.66 on SPY. Account value is the documented open figure - cash plus premium held before the first fill - not a rounded $100.",
     "note": "The baseline is the 8/4 open, which places it BEFORE the pre-mandate AMD call. That trade was entered by hand, graded 0/6 on the checklist, and returned +40.8%. Account performance measured from this baseline therefore includes a result the agent did not produce and the retro judged a process failure. The first sessions of this chart flatter the account by roughly 27 points against SMH for that reason alone."
   },
-  "series": []
+  "series": [
+    { "date": "2026-08-04 close", "spy": 771.33, "qqq": 723.85, "smh": 575.71, "account": 128.90,
+      "source": "Official settled closes read 2026-08-05 00:55 ET, after settlement. Each carried source 'sip-list-exchange-close' with interpolated=false - the explicit check against the daily-bar failure mode that was stale by $13.66 on SPY. Account value is the brokerage's own total for the session, not a figure derived from the trade." }
+  ]
 }

@@ -1,15 +1,15 @@
 {
   "_comment": "Written by the trading runs (9:30a / hourly / 3:30p ET). Never contains account numbers, broker IDs, or any account other than the sandbox.",
-  "lastRefreshUtc": "2026-08-04T20:30:00Z",
+  "lastRefreshUtc": "2026-08-05T04:53:00Z",
   "accountLabel": "Sandbox account",
   "account": {
     "total": 128.90,
     "cash": 128.90,
     "deployable": 28.96,
-    "unsettled": 100.00,
+    "unsettled": 99.94,
     "settlesOn": "2026-08-05 AM",
-    "verifiedAt": "2026-08-04 16:30 ET",
-    "note": "Cash account. Proceeds settle T+1. Buying with unsettled proceeds and selling again before settlement is a good-faith violation."
+    "verifiedAt": "2026-08-05 00:53 ET",
+    "note": "Cash account. Proceeds settle T+1. Buying with unsettled proceeds and selling again before settlement is a good-faith violation. Read live at 00:53 ET, before the morning settlement ran - the unsettled figure is what the broker reported at that moment, not a forecast of what clears."
   },
   "positions": [],
   "entryWatch": [
@@ -18,34 +18,34 @@
       "state": "wait",
       "trigger": "Reaction strong and still holding 30-60 min after the 8/5 open",
       "exits": "Target +20% / stop -8% / time stop 5 sessions",
-      "why": "Enter the day-2 hold, not the overnight coin flip. An hour of survival is the evidence the gap is real."
+      "why": "Not armed. AMD printed 8/4 after the bell and the extended-hours tape is DOWN, not up - bid 478.41 against a 518.58 official close. There is no strong reaction to continue, so the setup this slot was waiting on did not appear. Re-read at the real open; an after-hours bid is not an opening print."
     },
     {
       "setup": "Sympathy laggard",
       "state": "wait",
       "trigger": "Reaction strong but the leader is already extended",
       "exits": "Target +20% / stop -8% / time stop 5 sessions",
-      "why": "Buy what has not moved yet in the chain. Chasing the leader after the run is the +8% day by definition."
+      "why": "Conditional on a strong leader. The leader gapped down instead, so there is no upside chain to find a laggard in. A sympathy read off a red leader is just catching the same knife one name over."
     },
     {
       "setup": "Stand aside",
-      "state": "wait",
+      "state": "watch",
       "trigger": "AMD gaps down hard",
       "exits": "-",
-      "why": "A one-position account cannot survive catching it wrong. Let the flush finish."
+      "why": "This is the branch the tape currently points to: roughly -7.7% after hours on the print. A one-position account cannot survive catching it wrong. Let the flush finish and let the open establish a real price before anything is proposed."
     }
   ],
-  "candidatesAsOf": "2026-08-04 midday ET",
-  "candidatesNote": "Every name was up 5-10% into the AMD print. Chase warning stands. Prices are stale - re-quote before acting.",
+  "candidatesAsOf": "2026-08-04 official close, with after-hours bids read 00:53 ET 8/5",
+  "candidatesNote": "The Last column is the official 8/4 settled close. AMD reported after the bell and is indicated sharply lower; UPST reported and is indicated higher. After-hours bids are thin, wide and eight hours ahead of the open - they are a direction, not a fill price. Re-quote before acting.",
   "candidates": [
-    { "sym": "AMD",  "last": 522.95, "earnings": "8/4 after",  "flag": "watch", "note": "The catalyst itself. Fractional permitted." },
-    { "sym": "UPST", "last": 30.88,  "earnings": "8/4 after",  "flag": "nofly", "note": "No-fly until it reports" },
-    { "sym": "IONQ", "last": 41.58,  "earnings": "8/5 after",  "flag": "nofly", "note": "Morning buy exits by 3:55p" },
-    { "sym": "SMR",  "last": 9.57,   "earnings": "8/5 after",  "flag": "nofly", "note": "Morning buy exits by 3:55p" },
-    { "sym": "JOBY", "last": 8.01,   "earnings": "8/5 after",  "flag": "nofly", "note": "Morning buy exits by 3:55p" },
-    { "sym": "SOUN", "last": 6.41,   "earnings": "8/5 after",  "flag": "nofly", "note": "Morning buy exits by 3:55p" },
-    { "sym": "MARA", "last": 11.78,  "earnings": "8/6 after",  "flag": "watch", "note": "Window closes 8/6 3:55p" },
-    { "sym": "OKLO", "last": 43.75,  "earnings": "8/7 before", "flag": "watch", "note": "BMO print gaps past every stop. Window closes 8/6 close." },
-    { "sym": "SMCI", "last": 31.48,  "earnings": "-",          "flag": "ok",    "note": "Pure sympathy read" }
+    { "sym": "AMD",  "last": 518.58, "earnings": "8/4 after",  "flag": "watch", "note": "Reported. Gapped DOWN after hours - bid 478.41 vs this close, about -7.7%. The day-2 continuation thesis is off unless the open reclaims. Fractional permitted." },
+    { "sym": "UPST", "last": 30.32,  "earnings": "8/4 after",  "flag": "watch", "note": "Reported, no longer no-fly. Indicated higher after hours - bid 33.81, about +11.5%. That is the +8% day by definition; the rulebook says wait for the day-2 pullback, not the spike." },
+    { "sym": "IONQ", "last": 41.72,  "earnings": "8/5 after",  "flag": "nofly", "note": "Reports tonight. Morning buy exits by 3:55p" },
+    { "sym": "SMR",  "last": 9.49,   "earnings": "8/5 after",  "flag": "nofly", "note": "Reports tonight. Morning buy exits by 3:55p" },
+    { "sym": "JOBY", "last": 7.97,   "earnings": "8/5 after",  "flag": "nofly", "note": "Reports tonight. Morning buy exits by 3:55p" },
+    { "sym": "SOUN", "last": 6.51,   "earnings": "8/5 after",  "flag": "nofly", "note": "Reports tonight. Morning buy exits by 3:55p" },
+    { "sym": "MARA", "last": 11.75,  "earnings": "8/6 after",  "flag": "watch", "note": "Window closes 8/6 3:55p" },
+    { "sym": "OKLO", "last": 43.33,  "earnings": "8/7 before", "flag": "watch", "note": "BMO print gaps past every stop. Window closes 8/6 close." },
+    { "sym": "SMCI", "last": 31.69,  "earnings": "-",          "flag": "ok",    "note": "Pure sympathy read, and the read just got worse - the name it is sympathetic to went down on its print." }
   ]
 }

@@ -9,25 +9,33 @@
   },
   "slots": [
     {
-      "id": "open", "at": "09:33 ET", "name": "Market open",
+      "id": "open",
+      "at": "09:33 ET",
+      "name": "Market open",
       "does": "Verify the connector attached before reasoning about anything. Check settled cash, apply exit rules, run the six-item pre-trade checklist.",
       "writes": "state.json / moves.json / why.json (append)",
       "readOnly": false
     },
     {
-      "id": "hourly", "at": ":17 hourly, 10:00-15:00 ET", "name": "Mid-session",
+      "id": "hourly",
+      "at": ":17 hourly, 10:00-15:00 ET",
+      "name": "Mid-session",
       "does": "Enforce exits the hour a level is hit. Default is no trade.",
       "writes": "state.json / why.json (append)",
       "readOnly": false
     },
     {
-      "id": "preclose", "at": "15:33 ET", "name": "Pre-close",
+      "id": "preclose",
+      "at": "15:33 ET",
+      "name": "Pre-close",
       "does": "Exit discipline. Decide overnight holds explicitly rather than by default. Close option no-fly windows.",
       "writes": "state.json / moves.json / why.json (append)",
       "readOnly": false
     },
     {
-      "id": "retro", "at": "16:30 ET, read-only", "name": "Retro",
+      "id": "retro",
+      "at": "16:30 ET, read-only",
+      "name": "Retro",
       "does": "Read-only. Grades the day against the rules outcome-blind, then runs the standing rule-drift check. Never places an order.",
       "writes": "perf.json / bench.json / why.json (grade field only)",
       "readOnly": true
@@ -67,6 +75,24 @@
       "connected": false,
       "actions": 0,
       "note": "Stopped on the staleness guard: fired at 00:57 ET, outside the 10:00-15:00 ET window entirely — 9h40m past the last 8/4 hourly slot and hours before the first 8/5 one, with the market closed in between. No quotes were read, the connector was not attached, and no order specification was written. This run's job is exits, so the honest statement of what was lost is that if a stop or target was hit during 8/4's session, this slot did not enforce it; the open positions list in state.json is empty as last written, but that file is not live state and this run did not verify it. The mandate was readable and its targetAccountId is set, so scope was not the blocker; lateness was."
+    },
+    {
+      "date": "2026-08-05",
+      "slot": "open",
+      "at": "09:33 ET",
+      "fired": true,
+      "connected": true,
+      "actions": 0,
+      "note": "Stopped on the staleness guard, but from the other side: fired at 00:53 ET, eight hours and forty minutes BEFORE the 09:33 window rather than after it, with the market shut and no session yet to analyse. The connector did attach and the scope preflight passed on an exact identifier match, so live state was read and refreshed - settled cash 28.96, unsettled 99.94 settling this morning, no open equity or option positions and therefore no exit due. No order specification was written: there are no live quotes eight hours before an open, and the day-2 continuation trigger this slot was watching cannot be evaluated before the day exists."
+    },
+    {
+      "date": "2026-08-05",
+      "slot": "retro",
+      "at": "00:58 ET",
+      "fired": true,
+      "connected": true,
+      "actions": 0,
+      "note": "Second retro row today and the first one able to do the job: the 00:45 row above stopped at the scope preflight because the mandate was unset, the operator set it at 00:47 ET, and this run re-fired and matched the identifier exactly. Still 8h28m past the 16:30 ET 8/4 slot, which costs a retro nothing - it grades a session that has already settled and writes no specification. Reconciled both AMD legs against the API, appended 8/4's official settled closes to bench, graded the one ungraded entry, and ran the drift check. Zero actions, as always: this slot has no order authority."
     }
   ]
 }
