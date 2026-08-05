@@ -96,6 +96,17 @@
       "connected": true,
       "actions": 0,
       "note": "Fourth hourly inside its own window: 13:22 ET against the 13:17 slot, five minutes late, guard passed, quotes live. Connector attached and the scope preflight matched the mandate identifier exactly. Live read is unchanged for the fifth hour running - no equity positions, no option positions, cash 128.90 with nothing unsettled - so there was no target, stop, time stop or option no-fly window to enforce, which is this slot's only job. No specification written. Two reads moved and neither opened anything: AMD gave back most of last hour's bounce to a 485.92 bid, -6.3% from -5.7%, which is why last hour's note that a fading-gap bounce is a less-bad reaction rather than a strong one mattered - the flag did not have to move now that the bounce is gone. OKLO flipped from the list's only green print to a 43.17 bid, -0.4%, so all nine candidates are red for the first time today. UPST is still the only live catalyst and its reaction day leaked a fifth consecutive read, bid 31.26, +3.1%, now 0.97 below its own 32.23 open bid, which is a spike bleeding through its own session rather than the day-2/3 pullback the board is waiting for. Standing aside with the position unchanged."
+    },
+    {
+      "date": "2026-08-05",
+      "slot": "hourly",
+      "at": "14:21 ET",
+      "trigger": "scheduled",
+      "declined": false,
+      "fired": true,
+      "connected": true,
+      "actions": 0,
+      "note": "Fifth hourly inside its own window: 14:21 ET against the 14:17 slot, four minutes late, guard passed, quotes live. Connector attached and the scope preflight matched the mandate identifier exactly. First hour of the day with an actual position to check: the account is long 4 UPST at a 31.0899 average from a directed fill at 13:34:59 ET, twelve minutes after the last run read the book as flat. Levels checked against a live 30.84 bid - target 37.31, stop 28.60, time stop the 8/11 close. The position is -0.80% and no level is hit, so the correct action is none and none was taken. No specification written, and none was possible to write anyway: deployable settled cash is 4.54 with the rest of the balance in the position. UPST leaked a seventh consecutive read, which means the entry is already 0.25 underwater against a stop still 7.3% away."
     }
   ],
   "_rowFields": "trigger: 'scheduled' when the scheduler fired this run in its own window, 'manual' when a human invoked it. Only scheduled rows count toward run health - a manual invocation proves the code path works, not that the system runs. declined: true when the run deliberately stopped on a guard (fired outside its window, or the mandate was unset) and therefore never attempted to reach the broker. A decline is correct behaviour, not a connection failure, and it is excluded from the run-health denominator rather than counted against it.",
