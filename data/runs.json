@@ -103,6 +103,17 @@
       "note": "Second retro row today and the first one able to do the job: the 00:45 row above stopped at the scope preflight because the mandate was unset, the operator set it at 00:47 ET, and this run re-fired and matched the identifier exactly. Still 8h28m past the 16:30 ET 8/4 slot, which costs a retro nothing - it grades a session that has already settled and writes no specification. Reconciled both AMD legs against the API, appended 8/4's official settled closes to bench, graded the one ungraded entry, and ran the drift check. Zero actions, as always: this slot has no order authority.",
       "trigger": "manual",
       "declined": false
+    },
+    {
+      "date": "2026-08-05",
+      "slot": "open",
+      "at": "09:40 ET",
+      "fired": true,
+      "connected": true,
+      "actions": 0,
+      "note": "The first run in this record to fire inside its own window: 09:40 ET against a 09:33 slot, seven minutes late, so the staleness guard passed and the session was live to read. Connector attached and the scope preflight matched the mandate identifier exactly. Settled cash is 128.90 with nothing unsettled - the 99.94 the 00:53 row saw pending has cleared, so the two figures the board carried separately are now one number, and deployable is the whole balance. No equity or option positions are open, so no exit was due. No specification written: the branch the tape resolved to is the stand-aside one. AMD's 8/4 print gapped it down to a 491.73 bid against a 518.58 close, which kills the day-2 continuation setup this slot was watching and, with the leader red, kills the sympathy-laggard read that depended on it. UPST is the only name with a live catalyst and it is trading its reaction day at a 32.23 bid, +6.3% - checklist item 2 forbids exactly that entry, so the checklist stopped there in order.",
+      "trigger": "scheduled",
+      "declined": false
     }
   ],
   "_rowFields": "trigger: 'scheduled' when the scheduler fired this run in its own window, 'manual' when a human invoked it. Only scheduled rows count toward run health - a manual invocation proves the code path works, not that the system runs. declined: true when the run deliberately stopped on a guard (fired outside its window, or the mandate was unset) and therefore never attempted to reach the broker. A decline is correct behaviour, not a connection failure, and it is excluded from the run-health denominator rather than counted against it."

@@ -5,6 +5,7 @@
       "ticker": "AMD", "event": "Q2 earnings", "when": "2026-08-04, after close",
       "spot": 522.95, "impliedMove": 0.10, "hold": false,
       "source": "Consensus ~$1.61 EPS / ~$11.31B rev. Positioning crowded, targets raised into the print.",
+      "resolved": "8/5 open: the 'gaps down hard' branch fired. Bid 491.73 against a 518.58 official close, about -5.2%, versus a 10% implied move - so the realised move was inside what the straddle priced, in the direction the crowded positioning was exposed to. Spot above is the pre-print quote the implied move was pulled against and is left as read. No position was open into it.",
       "branches": [
         { "cond": "Reaction strong and still holding 30-60 min after the open", "act": "Day-2 continuation (fractional)", "why": "Checklist item 2. Enter the day-2 hold, not the overnight coin flip." },
         { "cond": "Gaps down hard", "act": "Stand aside the morning", "stand": true, "why": "Let the flush finish. There is no second balance." },
@@ -12,9 +13,9 @@
       ]
     },
     {
-      "ticker": "APP / DASH / IONQ / SMR / SOUN", "event": "Earnings cluster", "when": "2026-08-05, after close",
+      "ticker": "APP / DASH / IONQ / JOBY / SMR / SOUN", "event": "Earnings cluster", "when": "2026-08-05, after close",
       "spot": null, "impliedMove": null, "hold": false,
-      "source": "Cluster flagged for the 8/5 open.",
+      "source": "Cluster re-verified against the broker earnings calendar at the 8/5 open: all six confirmed reporting after today's close. JOBY was on the candidate list flagged no-fly but missing from this cluster label and has been added. No straddle pulled on any of them - impliedMove stays null because none was read, not as a placeholder to guess at, and nothing is held into tonight to need one.",
       "branches": [
         { "cond": "Any bought on the 8/5 morning", "act": "Exit by 3:55p ET", "why": "An overnight hold through a print is a decision or an accident. Default is exit." },
         { "cond": "Considering a deliberate hold", "act": "Pull the ATM straddle first", "why": "Checklist item 3. A hold is a coin flip on the implied move. Know the number or skip it." }
@@ -29,9 +30,18 @@
     },
     {
       "ticker": "OKLO", "event": "Earnings", "when": "2026-08-07, before open",
-      "spot": 43.75, "impliedMove": null, "hold": false, "source": "Candidate list.",
+      "spot": 43.75, "impliedMove": null, "hold": false, "source": "Candidate list, date verified on the broker calendar 8/5.",
       "branches": [
         { "cond": "Position open on the 8/6 close", "act": "Exit 8/6", "why": "A before-open report gaps past every stop. No run sits between the close and the print." }
+      ]
+    },
+    {
+      "ticker": "SMCI", "event": "Earnings", "when": "2026-08-11, after close",
+      "spot": 31.38, "impliedMove": null, "hold": false,
+      "source": "Added 8/5. The candidate list carried SMCI as having no earnings date; the broker calendar has it 8/11 after the close. Spot is the live bid at 09:42 ET, not a mark.",
+      "branches": [
+        { "cond": "Any entry opened on or after 8/5", "act": "Pull the ATM straddle before sizing", "why": "A five-session time stop opened today expires on or about 8/12, so the print sits inside the intended hold rather than outside it. Item 3 applies to this name now; treating it as earnings-free was the stale read." },
+        { "cond": "Position open into the 8/11 close", "act": "Close, or write the hold down with the implied move attached", "why": "The rulebook forbids holding an option through a print outright, and an equity hold through one is a coin flip that gets pre-decided or does not happen." }
       ]
     }
   ]
