@@ -240,20 +240,20 @@
         "A setup reaches this list only with its trigger and its exits written down first.</div>";
       return;
     }
-    $("watch").innerHTML = "<table><thead><tr><th>Setup</th><th></th><th>Trigger</th>" +
+    $("watch").innerHTML = "<div class='tw'><table><thead><tr><th>Setup</th><th></th><th>Trigger</th>" +
       "<th>Exits</th><th>Reasoning</th></tr></thead><tbody>" +
       w.map(function (x) {
         return "<tr><td class='sym'>" + esc(x.setup) + "</td>" +
           "<td><span class='flag flag--" + esc(x.state) + "'>" + esc(String(x.state).toUpperCase()) + "</span></td>" +
           "<td>" + esc(x.trigger) + "</td><td class='num'>" + esc(x.exits) + "</td>" +
           "<td>" + esc(x.why) + "</td></tr>";
-      }).join("") + "</tbody></table>";
+      }).join("") + "</tbody></table></div>";
   }
 
   /* ---------- candidates ---------- */
   function renderCandidates(state) {
     var label = { watch: "WATCH", nofly: "EARNINGS", ok: "OK" };
-    $("candidates").innerHTML = "<table><thead><tr><th>Name</th>" +
+    $("candidates").innerHTML = "<div class='tw'><table><thead><tr><th>Name</th>" +
       "<th class='r'>Last</th><th>Earnings</th><th></th><th>Note</th></tr></thead><tbody>" +
       (state.candidates || []).map(function (c) {
         return "<tr><td class='sym'>" + esc(c.sym) + "</td>" +
@@ -261,7 +261,7 @@
           "<td class='num'>" + esc(c.earnings) + "</td>" +
           "<td><span class='flag flag--" + esc(c.flag) + "'>" + esc(label[c.flag] || c.flag) + "</span></td>" +
           "<td>" + esc(c.note) + "</td></tr>";
-      }).join("") + "</tbody></table>" +
+      }).join("") + "</tbody></table></div>" +
       "<p class='stale'>Prices as of " + esc(state.candidatesAsOf) + ". " + esc(state.candidatesNote) + "</p>";
   }
 

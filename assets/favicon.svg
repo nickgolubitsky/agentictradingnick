@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Agentic Trading">
   <title>Agentic Trading</title>
-  <!-- Two bars, identical footprint: outcome and process, shown at the same size so
+  <!-- Two bars, identical footprint: the two measures shown at the same size so
        neither hides behind the other. Left solid, right hollow — same weight, one
        graded through and one not.
 
        Square corners and no accent colour are deliberate. A rounded plate and a
        green/amber pair read as a generic trading app; this board is not one, and
-       the mark should not borrow the costume. Monochrome also means the silhouette
-       survives 16px, which is the only size that actually ships. -->
-  <rect width="32" height="32" fill="#1c1917"/>
-  <rect x="8" y="7" width="6" height="18" fill="#fafaf9"/>
-  <rect x="19" y="8" width="4" height="16" fill="none" stroke="#fafaf9" stroke-width="2"/>
+       the mark should not borrow the costume. Plate is #0a0a0b to match the board's
+       ink token — the old #1c1917 was warm, and read brown at 16px. -->
+  <rect width="32" height="32" fill="#0a0a0b"/>
+  <rect x="8" y="7" width="6" height="18" fill="#f7f7f8"/>
+  <rect x="19" y="8" width="4" height="16" fill="none" stroke="#f7f7f8" stroke-width="2"/>
 </svg>

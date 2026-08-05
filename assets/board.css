@@ -1,52 +1,71 @@
+﻿/* Palette: cool neutral, deliberately without warmth. The previous stone scale
+   read as beige, which is the most common tell of a generated interface. The
+   structure comes from zinc; the contrast is pushed toward print â€” near-black on
+   near-white, hairline rules, and fills only where a surface genuinely sits above
+   another one. Radius is 5px, not 12px: rounding is a decision here, not a default. */
 :root{
-  --bg:#f5f5f4; --card:#fff; --line:#e7e5e4; --line2:#f0efee;
-  --ink:#1c1917; --ink2:#57534e; --ink3:#a8a29e;
-  --up:#15803d; --down:#b91c1c; --watch:#b45309; --bench:#1d4ed8; --ne:#a8a29e;
-  --ui:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif;
+  --bg:#f6f6f7; --card:#fff; --line:#dedee2; --line2:#eeeef1;
+  /* ink3 is #6e6e78, not a lighter grey: at 11-12px the muted labels are still
+     body text, and anything lighter lands under the 4.5:1 AA floor on white. */
+  --ink:#0a0a0b; --ink2:#46464e; --ink3:#6e6e78;
+  --up:#0d7a45; --down:#c22b2b; --watch:#8a5710; --bench:#2251c4; --ne:#6e6e78;
+  --ui:"Albert Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif;
+  --display:"Alumni Sans","Albert Sans",-apple-system,system-ui,sans-serif;
   --num:ui-monospace,"SF Mono","JetBrains Mono","Roboto Mono",monospace;
-  --r:12px;
+  --r:5px; --r2:3px;
 }
 @media (prefers-color-scheme:dark){
-  :root{--bg:#0c0a09;--card:#1c1917;--line:#292524;--line2:#231f1d;
-    --ink:#fafaf9;--ink2:#a8a29e;--ink3:#78716c;
-    --up:#4ade80;--down:#f87171;--watch:#fbbf24;--bench:#60a5fa;--ne:#57534e}
+  :root{--bg:#0a0a0b;--card:#141416;--line:#2b2b30;--line2:#1f1f23;
+    --ink:#f7f7f8;--ink2:#a6a6af;--ink3:#7d7d86;
+    --up:#3ddc84;--down:#ff6b6b;--watch:#f0b429;--bench:#6ea8fe;--ne:#6a6a73}
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);
-  font-size:15px;line-height:1.55;padding:26px 16px 64px;-webkit-font-smoothing:antialiased}
-.wrap{max-width:960px;margin:0 auto}
-a{color:var(--bench)}
+  font-size:15px;line-height:1.6;padding:38px 20px 80px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1000px;margin:0 auto}
+a{color:var(--ink);text-decoration-color:var(--ink3);text-underline-offset:2px}
+a:hover{text-decoration-color:var(--ink)}
 
 /* header */
-.hdr{display:flex;align-items:flex-start;gap:14px;flex-wrap:wrap;margin-bottom:18px}
-.hdr h1{font-size:19px;font-weight:700;letter-spacing:-.015em;margin:0}
-.hdr h1 span{color:var(--ink3);font-weight:500}
-.hdr p{margin:5px 0 0;font-size:12.5px;color:var(--ink3);max-width:52ch}
+.hdr{display:flex;align-items:flex-start;gap:14px;flex-wrap:wrap;margin-bottom:26px}
+.hdr h1{font-size:26px;font-weight:600;letter-spacing:-.025em;margin:0;line-height:1.15}
+.hdr h1 span{color:var(--ink3);font-weight:400}
+.hdr p{margin:9px 0 0;font-size:13.5px;color:var(--ink2);max-width:56ch;line-height:1.6}
 .stamp{margin-left:auto;text-align:right;font-family:var(--num);font-size:11px;color:var(--ink3)}
-.badge{display:inline-block;margin-top:5px;padding:3px 8px;border-radius:999px;
+.badge{display:inline-block;margin-top:5px;padding:3px 8px;border-radius:var(--r2);
   font:600 10.5px/1.5 var(--num);border:1px solid}
 .badge--fresh{color:var(--up);border-color:var(--up)}
 .badge--stale{color:var(--watch);border-color:var(--watch)}
 .badge--dead{color:var(--down);border-color:var(--down)}
 
-/* banner */
-.banner{background:var(--card);border:1px solid var(--watch);border-radius:var(--r);
-  padding:13px 15px;margin-bottom:18px;font-size:13px;line-height:1.6;color:var(--ink2)}
-.banner b{color:var(--ink)}
+/* banner — a rule rather than a box. It still has to be impossible to miss, but a
+   fully bordered amber panel was the loudest object on a page whose argument is
+   restraint. The left rule carries the signal; the weight of the lead does the rest. */
+/* ink2, not ink3: this is the one block on the page that must never be hard to
+   read, and demoting it to muted grey put the disclaimer at the lowest contrast
+   on the board — exactly backwards. */
+.banner{background:transparent;border:0;border-left:2px solid var(--watch);border-radius:0;
+  padding:2px 0 2px 15px;margin-bottom:26px;font-size:13px;line-height:1.65;color:var(--ink2);
+  max-width:88ch}
+.banner b{color:var(--ink);font-weight:600}
 
-/* headline: run health · unaided actions · adherence */
-.pair{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px}
-.pair>section{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px}
-.pair__k{font:600 10.5px/1 var(--num);letter-spacing:.09em;text-transform:uppercase;color:var(--ink3)}
-.pair__v{font-family:var(--num);font-size:32px;font-weight:600;font-variant-numeric:tabular-nums;
-  margin:9px 0 0;line-height:1;letter-spacing:-.02em}
-.pair__m{font-size:12px;color:var(--ink3);margin-top:7px}
-.verdict{grid-column:1/-1;background:var(--card);border:1px solid var(--line);border-radius:var(--r);
-  padding:13px 15px;font-size:13px;line-height:1.6;color:var(--ink2)}
-.verdict b{color:var(--ink)}
+/* headline: run health Â· unaided actions Â· adherence */
+.pair{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:22px}
+.pair>section{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:18px 18px 16px}
+.pair__k{font:600 10px/1 var(--num);letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+/* Alumni Sans is condensed and tall, so it carries a much larger optical size in
+   the same column width. The three autonomy numbers are the argument of the page;
+   they should be the first thing read, not a slightly bolder line of monospace. */
+.pair__v{font-family:var(--display);font-size:60px;font-weight:600;font-variant-numeric:tabular-nums;
+  margin:6px 0 0;line-height:.92;letter-spacing:-.01em}
+.pair__m{font-size:12px;color:var(--ink3);margin-top:8px;line-height:1.5}
+.verdict{grid-column:1/-1;background:transparent;border:0;border-top:1px solid var(--line);
+  border-radius:0;padding:14px 2px 0;font-size:13.5px;line-height:1.65;color:var(--ink2)}
+.verdict b{color:var(--ink);font-weight:600}
 
-/* tabs — primary nav. Deliberately an underline rather than the pill used by
+/* tabs â€” primary nav. Deliberately an underline rather than the pill used by
    .filters: the pills are a control inside one card, these switch the whole page,
    and two identical-looking controls at different altitudes read as one system. */
 .tabs{display:flex;gap:2px;flex-wrap:wrap;margin-bottom:18px;border-bottom:1px solid var(--line)}
@@ -57,25 +76,27 @@ a{color:var(--bench)}
 .tabs button:focus-visible{outline:2px solid var(--bench);outline-offset:-2px}
 [data-panel]:focus{outline:none}
 /* Only applied once JS runs. Without it every panel stays in flow and the page
-   is the long scroll it was before — no content is reachable only via tabs. */
+   is the long scroll it was before â€” no content is reachable only via tabs. */
 body.tabs-on [data-panel][hidden]{display:none}
 
 /* cards */
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);margin-bottom:16px}
-.card__h{display:flex;align-items:baseline;gap:11px;flex-wrap:wrap;padding:14px 16px;
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);margin-bottom:14px}
+.card__h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;padding:16px 18px;
   border-bottom:1px solid var(--line2)}
-.card__t{font:700 11px/1 var(--num);letter-spacing:.11em;text-transform:uppercase;margin:0}
-.card__s{font-size:12px;color:var(--ink3);margin:0}
-.card__o{margin-left:auto;font:600 9.5px/1 var(--num);letter-spacing:.07em;color:var(--ink3);
-  border:1px solid var(--line);border-radius:999px;padding:4px 9px;white-space:nowrap}
-.card__b{padding:16px}
+.card__t{font:600 10.5px/1 var(--num);letter-spacing:.13em;text-transform:uppercase;margin:0}
+.card__s{font-size:12.5px;color:var(--ink3);margin:0}
+/* No border on the owner tag: it is metadata, and a chip around it gave a label the
+   same visual weight as the data it describes. */
+.card__o{margin-left:auto;font:500 10px/1 var(--num);letter-spacing:.08em;color:var(--ink3);
+  border:0;padding:0;white-space:nowrap}
+.card__b{padding:18px}
 .empty{padding:22px 16px;text-align:center;color:var(--ink2);font-size:13px;line-height:1.65}
 .empty strong{display:block;color:var(--ink);margin-bottom:4px}
 .empty code{font-family:var(--num);font-size:11.5px;color:var(--watch)}
 
 /* tiles */
 .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(124px,1fr));gap:11px}
-.tile{border:1px solid var(--line);border-radius:9px;padding:11px 13px}
+.tile{border:1px solid var(--line);border-radius:var(--r);padding:11px 13px}
 .tile--alpha{border-color:var(--bench)}
 .tile__k{font:600 10px/1 var(--num);letter-spacing:.09em;text-transform:uppercase;color:var(--ink3)}
 .tile__v{font-family:var(--num);font-size:20px;font-weight:600;font-variant-numeric:tabular-nums;
@@ -84,7 +105,7 @@ body.tabs-on [data-panel][hidden]{display:none}
 .up{color:var(--up)} .down{color:var(--down)} .flat{color:var(--ink2)}
 
 /* position rows */
-.pos{border:1px solid var(--line);border-left-width:3px;border-radius:9px;padding:12px 13px;margin-bottom:9px}
+.pos{border:1px solid var(--line);border-left-width:3px;border-radius:var(--r);padding:12px 13px;margin-bottom:9px}
 .pos--exit{border-left-color:var(--down)}
 .pos--entry{border-left-color:var(--up)}
 .pos--watch{border-left-color:var(--watch)}
@@ -93,7 +114,7 @@ body.tabs-on [data-panel][hidden]{display:none}
 .pos__d{font-size:12px;color:var(--ink2)}
 .pos__p{margin-left:auto;font-family:var(--num);font-size:14px;font-weight:700}
 .levels{display:grid;grid-template-columns:repeat(auto-fit,minmax(108px,1fr));gap:9px}
-.level{border:1px solid var(--line);border-radius:7px;padding:7px 9px}
+.level{border:1px solid var(--line);border-radius:var(--r2);padding:7px 9px}
 .level--lit{border-color:var(--down);color:var(--down)}
 .level__k{font:600 9.5px/1 var(--num);letter-spacing:.08em;text-transform:uppercase;color:var(--ink3)}
 .level__v{font-family:var(--num);font-size:12.5px;margin-top:4px;font-variant-numeric:tabular-nums}
@@ -112,7 +133,7 @@ tr:last-child td{border-bottom:none}
 td.sym{font-family:var(--num);font-weight:700;color:var(--ink)}
 td.num{font-family:var(--num);font-variant-numeric:tabular-nums;color:var(--ink)}
 .flag{display:inline-block;font:600 9.5px/1 var(--num);letter-spacing:.06em;padding:4px 7px;
-  border-radius:999px;border:1px solid;white-space:nowrap}
+  border-radius:var(--r2);border:1px solid;white-space:nowrap}
 .flag--watch{color:var(--watch);border-color:var(--watch)}
 .flag--nofly{color:var(--down);border-color:var(--down)}
 .flag--ok{color:var(--ink3);border-color:var(--line)}
@@ -120,10 +141,10 @@ td.num{font-family:var(--num);font-variant-numeric:tabular-nums;color:var(--ink)
 .stale{margin:12px 0 0;font-size:11.5px;color:var(--watch);font-family:var(--num);line-height:1.55}
 
 /* moves */
-.nofly{display:flex;gap:11px;align-items:flex-start;border:1px solid var(--down);border-radius:9px;
+.nofly{display:flex;gap:11px;align-items:flex-start;border:1px solid var(--down);border-radius:var(--r);
   padding:12px 14px;margin-bottom:14px;color:var(--ink2);font-size:13px;line-height:1.6}
 .nofly b{color:var(--down);font:700 10px/1.6 var(--num);letter-spacing:.08em;white-space:nowrap}
-.move{border:1px solid var(--line);border-radius:9px;overflow:hidden;margin-bottom:11px}
+.move{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-bottom:11px}
 .move--hold{border-color:var(--down)}
 .move__t{display:flex;align-items:center;gap:11px;flex-wrap:wrap;padding:11px 13px;
   border-bottom:1px solid var(--line2)}
@@ -146,14 +167,14 @@ td.num{font-family:var(--num);font-variant-numeric:tabular-nums;color:var(--ink)
 /* why */
 .filters{display:flex;gap:7px;margin-bottom:14px}
 .filters button{font:600 12px var(--ui);color:var(--ink2);background:transparent;
-  border:1px solid var(--line);border-radius:999px;padding:6px 14px;cursor:pointer}
+  border:1px solid var(--line);border-radius:var(--r2);padding:6px 14px;cursor:pointer}
 .filters button[aria-pressed="true"]{background:var(--ink);color:var(--card);border-color:var(--ink)}
 .filters button:focus-visible{outline:2px solid var(--bench);outline-offset:2px}
-.wy{border:1px solid var(--line);border-left-width:3px;border-radius:9px;padding:13px;margin-bottom:11px}
+.wy{border:1px solid var(--line);border-left-width:3px;border-radius:var(--r);padding:13px;margin-bottom:11px}
 .wy--did{border-left-color:var(--ink3)}
 .wy--will{border-left-color:var(--bench)}
 .wy__t{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;margin-bottom:7px}
-.wy__k{font:700 9px/1 var(--num);letter-spacing:.09em;padding:4px 7px;border-radius:999px;
+.wy__k{font:700 9px/1 var(--num);letter-spacing:.09em;padding:4px 7px;border-radius:var(--r2);
   border:1px solid var(--line);color:var(--ink3)}
 .wy__h{font-size:13.5px;font-weight:650}
 .wy__d{margin-left:auto;font-family:var(--num);font-size:11px;color:var(--ink3);white-space:nowrap}
@@ -161,7 +182,7 @@ td.num{font-family:var(--num);font-variant-numeric:tabular-nums;color:var(--ink)
 .chips{display:flex;gap:5px;flex-wrap:wrap;align-items:center}
 .chips__k{font:600 9.5px/1 var(--num);letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);margin-right:4px}
 .chip{font-family:var(--num);font-size:10.5px;font-weight:600;width:23px;height:23px;
-  display:inline-flex;align-items:center;justify-content:center;border-radius:6px;border:1px solid;cursor:help}
+  display:inline-flex;align-items:center;justify-content:center;border-radius:var(--r2);border:1px solid;cursor:help}
 .chip--pass{color:var(--up);border-color:var(--up)}
 .chip--fail{color:var(--down);border-color:var(--down)}
 .chip--ne{color:var(--ne);border-color:var(--line);border-style:dashed}
@@ -185,7 +206,7 @@ td.num{font-family:var(--num);font-variant-numeric:tabular-nums;color:var(--ink)
 
 /* rules chips */
 .rules{display:flex;flex-wrap:wrap;gap:8px}
-.rule{font-size:12.5px;color:var(--ink2);border:1px solid var(--line);border-radius:999px;padding:6px 12px}
+.rule{font-size:12.5px;color:var(--ink2);border:1px solid var(--line);border-radius:var(--r2);padding:6px 12px}
 .rule b{color:var(--ink);font-family:var(--num);font-weight:600}
 
 footer{margin-top:28px;font-size:12px;line-height:1.7;color:var(--ink3)}
@@ -201,7 +222,11 @@ footer a{color:var(--ink2)}
   .pair{grid-template-columns:1fr}
   .pair>section:nth-child(3){grid-column:auto}
   .stamp,.card__o,.wy__d,.pos__p,.move__w{margin-left:0}
-  .pair__v{font-size:27px}
+  /* Scaled against the 60px base, not the old 32px one. Alumni Sans is condensed
+     enough that 46px still fits a 343px column with the longest value it can hold. */
+  .pair__v{font-size:46px}
+  .hdr h1{font-size:22px}
+  body{padding:28px 16px 64px}
   .tabs{gap:0}
   .tabs button{padding:9px 11px;font-size:12.5px}
 }
