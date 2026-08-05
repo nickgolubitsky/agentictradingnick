@@ -50,7 +50,7 @@
   function renderHeadline(perf, runs) {
     var rh = runHealth(runs);
     var a = perf.adherence;
-    var tot = perf.totalTrades, un = perf.agentTrades;
+    var tot = perf.totalTrades, un = perf.agentTrades, asst = perf.assistedTrades || 0;
     var thin = tot < (perf.minSampleForRates || 20);
 
     var cell = function (k, v, c, m) {
@@ -69,7 +69,8 @@
       cell("Unaided actions",
         tot ? un + "/" + tot : "\u2014",
         !tot ? "flat" : un === tot ? "up" : "down",
-        tot ? "orders placed by the agent, not by hand"
+        tot ? "placed by the agent unattended" +
+                (asst ? " \u00b7 " + asst + " agent-advised, human-executed" : "")
             : "no actions recorded yet") +
 
       cell("Checklist adherence",
@@ -82,8 +83,10 @@
       v = "<b>The agent is not yet running itself.</b> " + rh.fired + " scheduled run" +
         (rh.fired === 1 ? "" : "s") + " fired and none reached the brokerage; " +
         (tot - un) + " of " + tot + " action" + (tot === 1 ? "" : "s") +
-        " on this board was placed by hand. Everything below describes a process a human is " +
-        "still driving. Closing that gap is the project \u2014 so it is stated at the top rather " +
+        " on this board still needed a human at the keyboard" +
+        (asst ? ", " + (asst === 1 ? "that one" : "" + asst) + " with the agent advising" : "") +
+        ". Advice a person acts on is not the same as a system that runs; this number tracks " +
+        "the second. Closing that gap is the project \u2014 so it is stated at the top rather " +
         "than left to be inferred from a ledger note.";
     } else if (rh.connected < rh.fired) {
       v = "<b>Partial autonomy.</b> " + rh.connected + " of " + rh.fired + " runs reached the " +
@@ -101,6 +104,44 @@
         (perf.minSampleForRates || 20) + ".";
     }
     $("pair").innerHTML = h + "<div class='verdict'>" + v + "</div>";
+  }
+
+  /* ---------- runbook ----------
+     The four slots as specified, each showing whether anything has actually fired
+     it. The gap between "written down" and "running" is the project's subject, so
+     the board states it rather than letting the prose imply four daily runs. */
+  function renderRunbook(r) {
+    var slots = r.slots || [];
+    if (!slots.length) {
+      $("runbook").innerHTML = "<div class='empty'><strong>No slots defined</strong>" +
+        "data/runs.json carries no slot specification.</div>";
+      return;
+    }
+    var sch = r.scheduler || {};
+    var h = "";
+    if (sch.configured === false) {
+      h += "<div class='nofly'><b>NOT SCHEDULED</b><span>" + esc(sch.note || "") + "</span></div>";
+    }
+    h += "<div class='tw'><table><thead><tr><th>Slot</th><th>When</th><th>Does</th>" +
+      "<th>Writes</th><th>Last fired</th></tr></thead><tbody>" +
+      slots.map(function (s) {
+        var rows = (r.runs || []).filter(function (x) { return x.slot === s.id; });
+        var last = rows.length ? rows[rows.length - 1] : null;
+        var state = last
+          ? "<span class='flag flag--" + (last.connected ? "ok" : "nofly") + "'>" +
+            esc(last.date) + (last.connected ? "" : " · BLIND") + "</span>"
+          : "<span class='flag flag--nofly'>NEVER</span>";
+        return "<tr><td class='sym'>" + esc(s.name || s.id) +
+          (s.readOnly ? " <span class='flag flag--ok'>READ-ONLY</span>" : "") + "</td>" +
+          "<td class='num'>" + esc(s.at) + "</td>" +
+          "<td>" + esc(s.does) + "</td>" +
+          "<td class='num'>" + esc(s.writes) + "</td>" +
+          "<td>" + state + "</td></tr>";
+      }).join("") + "</tbody></table></div>" +
+      "<p class='note'>One writer per file, so two runs never edit the same block. The retro " +
+      "is read-only by design — a run that both trades and grades its own trades will always " +
+      "find a reason it was right.</p>";
+    $("runbook").innerHTML = h;
   }
 
   /* ---------- run history ---------- */
@@ -346,6 +387,10 @@
   }
 
   /* ---------- performance ---------- */
+  /* Falls back to the old byAgent boolean so a trade written before the three-state
+     field existed still renders rather than showing a blank cell. */
+  var PLACED = { agent: "agent, unattended", assisted: "agent-advised", hand: "by hand" };
+
   function renderPerf(p) {
     var a = p.adherence, L = p.ledger;
     var thin = p.totalTrades < (p.minSampleForRates || 20);
@@ -358,7 +403,9 @@
         p.grossLosses > 0 ? "gross wins / losses" : "no losses yet", "flat") +
       tile("Avg win", p.wins ? money(p.grossWins / p.wins) : "\u2014", "per winning trade", p.wins ? "up" : "flat") +
       tile("Avg loss", p.losses ? money(p.grossLosses / p.losses) : "\u2014", "per losing trade", "flat") +
-      tile("Agent trades", String(p.agentTrades), "of " + p.totalTrades + " total", "flat") +
+      tile("Placed unattended", String(p.agentTrades), "of " + p.totalTrades + " total",
+        p.agentTrades ? "up" : "down") +
+      tile("Agent-advised", String(p.assistedTrades || 0), "human executed", "flat") +
       "</div>";
     if (thin) {
       h += "<p class='note'>Win rate and profit factor stay blank below " + p.minSampleForRates +
@@ -391,7 +438,8 @@
             "<td class='num r'>" + esc(dash(t.held)) + "</td>" +
             "<td class='num r " + dir(t.pl) + "'>" + signed(t.pl) + "</td>" +
             "<td class='num r " + dir(t.plPct) + "'>" + pct(t.plPct) + "</td>" +
-            "<td>" + (t.byAgent ? "agent" : "by hand") + "</td><td>" + esc(t.grade) + "</td></tr>";
+            "<td>" + esc(PLACED[t.placedBy] || (t.byAgent ? "agent" : "by hand")) +
+            "</td><td>" + esc(t.grade) + "</td></tr>";
         }).join("") + "</tbody></table></div>"
       : "<div class='empty'><strong>No closed trades</strong>Nothing has been opened and closed " +
         "under the mandate yet.</div>";
@@ -482,6 +530,7 @@
       renderWatch(state);
       renderCandidates(state);
       renderWhy();
+      renderRunbook(runs);
       renderRuns(runs);
       renderPerf(perf);
       renderBench(bench);

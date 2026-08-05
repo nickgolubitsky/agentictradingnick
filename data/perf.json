@@ -1,7 +1,9 @@
 {
   "_comment": "Retro run only (4:30p ET). Outcome and process are graded separately and displayed side by side.",
+  "_placedBy": "Three states, not a boolean. 'agent' = the run placed the order itself, unattended. 'assisted' = a human executed it, with the agent advising. 'hand' = a human acting alone. Only 'agent' counts toward autonomy, because autonomy is the claim that the system runs without someone at the keyboard - an assisted order still required a person to be there. Assisted is tracked separately rather than folded into either neighbour, because collapsing it into 'agent' overstates the machine and collapsing it into 'hand' erases the agent's actual contribution.",
   "totalTrades": 1,
   "agentTrades": 0,
+  "assistedTrades": 1,
   "wins": 1,
   "losses": 0,
   "grossWins": 29.00,
@@ -15,7 +17,7 @@
   "closedTrades": [
     { "date": "2026-08-04", "sym": "AMD 8/7 $675c", "entry": 0.71, "exit": 1.00,
       "entryAt": "2026-08-04 11:56", "exitAt": "2026-08-04 13:04", "held": "1h 08m",
-      "pl": 29.00, "plPct": 40.8, "byAgent": false, "grade": "0/6 checklist - process FAIL" }
+      "pl": 29.00, "plPct": 40.8, "placedBy": "assisted", "grade": "0/6 checklist - process FAIL" }
   ],
   "adherence": { "entriesGraded": 1, "entriesPassed": 0, "exitsOnTime": 1, "exitsTotal": 1 },
   "ledger": {

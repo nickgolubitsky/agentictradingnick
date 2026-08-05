@@ -88,6 +88,29 @@ if (perf) {
   if (perf.agentTrades > perf.totalTrades) {
     errors.push("DATA  perf.agentTrades exceeds perf.totalTrades");
   }
+  /* Attribution is the autonomy claim, so it gets gated like one. The failure this
+   * blocks is an assisted order drifting into the unattended column — which would
+   * turn "a human clicked it on the agent's advice" into "the system ran itself". */
+  const PLACED_BY = ["agent", "assisted", "hand"];
+  const assisted = perf.assistedTrades ?? 0;
+  if (assisted < 0 || !Number.isInteger(assisted)) {
+    errors.push("DATA  perf.assistedTrades must be a non-negative integer");
+  }
+  if (perf.agentTrades + assisted > perf.totalTrades) {
+    errors.push(`DATA  agentTrades (${perf.agentTrades}) + assistedTrades (${assisted}) exceeds totalTrades (${perf.totalTrades})`);
+  }
+  for (const t of perf.closedTrades ?? []) {
+    if (t.placedBy != null && !PLACED_BY.includes(t.placedBy)) {
+      errors.push(`DATA  ${t.sym}: placedBy '${t.placedBy}' is not one of ${PLACED_BY.join(" | ")}`);
+    }
+    if (t.placedBy === "agent" && t.byAgent === false) {
+      errors.push(`DATA  ${t.sym}: placedBy says 'agent' but byAgent is false. The two disagree about who placed it.`);
+    }
+  }
+  const tagged = (perf.closedTrades ?? []).filter((t) => t.placedBy === "agent").length;
+  if (tagged > perf.agentTrades) {
+    errors.push(`DATA  ${tagged} closed trade(s) are tagged placedBy 'agent' but perf.agentTrades is ${perf.agentTrades}`);
+  }
   const netFromTrades = (perf.closedTrades ?? []).reduce((n, t) => n + t.pl, 0);
   const netFromGross = perf.grossWins - perf.grossLosses;
   if (Math.abs(netFromTrades - netFromGross) > 0.005) {
@@ -149,6 +172,28 @@ if (runs) {
       errors.push(`DATA  run has an unparseable date '${r.date}'`);
     }
   }
+  const SLOT_IDS = (runs.slots ?? []).map((s) => s.id);
+  for (const s of runs.slots ?? []) {
+    if (!SLOTS.includes(s.id)) {
+      errors.push(`DATA  runs.slots has unknown id '${s.id}'`);
+    }
+    if (!s.does || !s.writes) {
+      errors.push(`DATA  slot '${s.id}' is missing does/writes. A slot with no stated job cannot be checked against what it did.`);
+    }
+  }
+  for (const r of list) {
+    if (SLOT_IDS.length && !SLOT_IDS.includes(r.slot)) {
+      errors.push(`DATA  run ${r.date ?? "?"} uses slot '${r.slot}', which is not in runs.slots`);
+    }
+  }
+  /* A board about autonomy must not imply a scheduler it does not have. */
+  if (runs.scheduler?.configured === true && list.length === 0) {
+    errors.push("DATA  runs.scheduler.configured is true but no run has ever recorded a row. Set it true only once a real scheduler has fired.");
+  }
+  if (runs.scheduler && typeof runs.scheduler.configured !== "boolean") {
+    errors.push("DATA  runs.scheduler.configured must be a boolean");
+  }
+
   const p = runs.priorSummary;
   if (p) {
     if (p.connected > p.fired) {

@@ -1,6 +1,37 @@
 {
   "_comment": "Every scheduled run writes one record here — including, especially, a run that could not connect. A failed run that logs is data; a failed run that stays silent is a hole in the record, and a hole is indistinguishable from a run that never fired. Record shape: { date, slot: open|hourly|preclose|retro, at, fired, connected, actions, note }. 'connected' means the brokerage connector attached and the run read live account state; a run that reasoned only from this repo's JSON is fired=true, connected=false. Per-run rows begin on recordsBeginOn. Anything earlier is carried in priorSummary as an aggregate, because those runs predate this file and the per-run detail was never written down. Do not backfill it.",
   "recordsBeginOn": "2026-08-05",
+  "scheduler": {
+    "configured": false,
+    "checkedOn": "2026-08-05",
+    "note": "No scheduler is currently wired to these slots. The runbook below is a specification, not a running system: nothing fires it. This field is published because a board about autonomy that quietly implied four daily runs were happening would be the exact failure it exists to catch. Set to true only when a real scheduler exists and has fired at least once."
+  },
+  "slots": [
+    {
+      "id": "open", "at": "09:30 ET", "name": "Market open",
+      "does": "Verify the connector attached before reasoning about anything. Check settled cash, apply exit rules, run the six-item pre-trade checklist.",
+      "writes": "state.json / moves.json / why.json (append)",
+      "readOnly": false
+    },
+    {
+      "id": "hourly", "at": "hourly, mid-session", "name": "Mid-session",
+      "does": "Enforce exits the hour a level is hit. Default is no trade.",
+      "writes": "state.json / why.json (append)",
+      "readOnly": false
+    },
+    {
+      "id": "preclose", "at": "15:30 ET", "name": "Pre-close",
+      "does": "Exit discipline. Decide overnight holds explicitly rather than by default. Close option no-fly windows.",
+      "writes": "state.json / moves.json / why.json (append)",
+      "readOnly": false
+    },
+    {
+      "id": "retro", "at": "16:30 ET", "name": "Retro",
+      "does": "Read-only. Grades the day against the rules outcome-blind, then runs the standing rule-drift check. Never places an order.",
+      "writes": "perf.json / bench.json / why.json (grade field only)",
+      "readOnly": true
+    }
+  ],
   "priorSummary": {
     "through": "2026-08-04",
     "fired": 5,
