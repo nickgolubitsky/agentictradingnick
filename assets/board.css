@@ -69,6 +69,24 @@ a:hover{text-decoration-color:var(--ink)}
   border-radius:0;padding:14px 2px 0;font-size:13.5px;line-height:1.65;color:var(--ink2)}
 .verdict b{color:var(--ink);font-weight:600}
 
+/* live proposal panel — above the tabs, always present. The empty state is not an
+   absence of UI: "nothing to act on" is itself the answer most days, and a panel
+   that disappears when empty trains a reader to assume they missed something. */
+.act{border:1px solid var(--line);border-left:2px solid var(--bench);border-radius:var(--r);
+  padding:14px 16px;margin-bottom:18px;background:var(--card)}
+.act--none{border-left-color:var(--line);background:transparent}
+.act__h{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:11px}
+.act__k{font:700 9.5px/1 var(--num);letter-spacing:.1em;padding:5px 8px;border-radius:var(--r2);
+  border:1px solid var(--line);color:var(--ink3)}
+.act__k--live{border-color:var(--bench);color:var(--bench)}
+.act__i{font-family:var(--num);font-size:15px;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+.act__m{margin-left:auto;font:600 10.5px/1 var(--num);letter-spacing:.05em;color:var(--watch);
+  white-space:nowrap}
+.act--none .act__m{color:var(--ink3)}
+.act__b{margin:12px 0 0;font-size:13px;line-height:1.65;color:var(--ink2)}
+.act__f{margin:10px 0 0;padding-top:10px;border-top:1px dashed var(--line);
+  font-size:11.5px;line-height:1.55;color:var(--ink3)}
+
 /* tabs — primary nav. Deliberately an underline rather than the pill used by
    .filters: the pills are a control inside one card, these switch the whole page,
    and two identical-looking controls at different altitudes read as one system. */

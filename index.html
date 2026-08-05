@@ -41,6 +41,11 @@
 
 <div class="pair" id="pair" data-slot></div>
 
+<!-- Outside the tabs, like the disclaimer. An actionable specification expires in
+     under an hour; requiring a tab click to find one defeats the point of publishing
+     it live. Shows an explicit empty state rather than vanishing when there is none. -->
+<section id="proposals" data-slot aria-label="Live order proposals"></section>
+
 <nav class="tabs" role="tablist" aria-label="Board sections">
   <button role="tab" id="tab-now"    data-tab="now"    aria-controls="panel-now"    aria-selected="true">Now</button>
   <button role="tab" id="tab-moves"  data-tab="moves"  aria-controls="panel-moves"  aria-selected="false">Moves</button>

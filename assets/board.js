@@ -356,6 +356,71 @@
   var filter = "all";
   var whyData = { entries: [] };
 
+  /* Call or put, stated as a word. The runs encode it in the instrument string
+     ("AMD 9/18 $600c"), which is fine for a log and not fine for something a
+     person acts on at speed. An explicit `right` wins when present. */
+  function optionRight(o) {
+    if (o.right) return String(o.right).toUpperCase();
+    if (o.kind !== "option") return "";
+    var s = String(o.instrument || "");
+    if (/\bput\b/i.test(s) || /\d\s*p$/i.test(s)) return "PUT";
+    if (/\bcall\b/i.test(s) || /\d\s*c$/i.test(s)) return "CALL";
+    return "";
+  }
+
+  /* ---------- live proposals ----------
+     Every unexpired order spec, pulled out of the log and put above the tabs.
+     An expired one is deliberately NOT shown here — it stays in the Log where the
+     record belongs, because the failure this panel exists to prevent is acting on
+     a price that stopped existing forty minutes ago. */
+  function renderProposals() {
+    var live = (whyData.entries || []).filter(function (e) {
+      if (!e.order || !e.order.expiresAt) return false;
+      var t = new Date(e.order.expiresAt);
+      return !Number.isNaN(+t) && Date.now() <= +t;
+    });
+
+    if (!live.length) {
+      var lastDid = (whyData.entries || []).filter(function (e) { return e.kind === "did"; })[0];
+      $("proposals").innerHTML =
+        "<div class='act act--none'><div class='act__h'>" +
+        "<span class='act__k'>NO LIVE PROPOSAL</span>" +
+        "<span class='act__m'>nothing to act on right now</span></div>" +
+        "<p class='act__b'>No run has an unexpired order specification open. " +
+        (lastDid ? "Most recent decision: <b>" + esc(lastDid.head) + "</b> (" + esc(lastDid.date) + ")."
+                 : "") +
+        " A run that proposes nothing and says why is doing its job — the default is no trade.</p></div>";
+      return;
+    }
+
+    $("proposals").innerHTML = live.map(function (e) {
+      var o = e.order, r = optionRight(o);
+      var mins = Math.round((new Date(o.expiresAt) - Date.now()) / 6e4);
+      var lv = function (k, v) {
+        return "<div class='level'><div class='level__k'>" + esc(k) + "</div>" +
+          "<div class='level__v'>" + esc(v) + "</div></div>";
+      };
+      return "<div class='act'><div class='act__h'>" +
+        "<span class='act__k act__k--live'>ACTION</span>" +
+        "<span class='act__i'>" + esc(String(o.action || "").toUpperCase()) + " " +
+          (r ? r + " · " : "") + esc(o.instrument || "") + "</span>" +
+        "<span class='act__m'>expires in " + mins + " min · " + esc(o.expiresAt) + "</span>" +
+        "</div><div class='levels'>" +
+          lv("Limit", money(o.limit)) +
+          lv("Target", money(o.target)) +
+          lv("Stop", money(o.stop)) +
+          lv("Time stop", o.timeStop) +
+          (o.qty != null ? lv("Size", String(o.qty)) : "") +
+          (o.delta != null ? lv("Delta", String(o.delta)) : "") +
+          (o.contractExpiry ? lv("Contract expiry", o.contractExpiry) : "") +
+        "</div>" +
+        "<p class='act__b'>" + esc(e.body) + "</p>" +
+        "<p class='act__f'>Limit order. No run in this project can place it — this is a " +
+        "specification for you to execute or discard, and it stops being valid at " +
+        esc(o.expiresAt) + ".</p></div>";
+    }).join("");
+  }
+
   /* An order spec written by a run that cannot place it. Rendered with its expiry
      state because the dangerous version of this block is the one that still looks
      actionable an hour after the price it was written against stopped existing. */
@@ -370,7 +435,7 @@
       "<div class='spec__t'>" +
         "<span class='spec__k'>" + (dead ? "EXPIRED" : "PROPOSED") + "</span>" +
         "<span class='spec__i'>" + esc(String(o.action || "").toUpperCase()) + " " +
-          esc(o.instrument || "") + "</span>" +
+          (optionRight(o) ? esc(optionRight(o)) + " · " : "") + esc(o.instrument || "") + "</span>" +
         "<span class='spec__h'>human executes</span></div>" +
       "<div class='levels'>" +
         lv("Limit", money(o.limit)) +
@@ -614,6 +679,7 @@
       renderMoves(moves);
       renderWatch(state);
       renderCandidates(state);
+      renderProposals();
       renderWhy();
       renderRunbook(runs);
       renderRuns(runs);
