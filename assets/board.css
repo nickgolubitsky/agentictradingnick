@@ -1,6 +1,6 @@
-﻿/* Palette: cool neutral, deliberately without warmth. The previous stone scale
+/* Palette: cool neutral, deliberately without warmth. The previous stone scale
    read as beige, which is the most common tell of a generated interface. The
-   structure comes from zinc; the contrast is pushed toward print â€” near-black on
+   structure comes from zinc; the contrast is pushed toward print — near-black on
    near-white, hairline rules, and fills only where a surface genuinely sits above
    another one. Radius is 5px, not 12px: rounding is a decision here, not a default. */
 :root{
@@ -51,7 +51,7 @@ a:hover{text-decoration-color:var(--ink)}
   max-width:88ch}
 .banner b{color:var(--ink);font-weight:600}
 
-/* headline: run health Â· unaided actions Â· adherence */
+/* headline: run health · unaided actions · adherence */
 .pair{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:22px}
 .pair>section{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
   padding:18px 18px 16px}
@@ -69,7 +69,7 @@ a:hover{text-decoration-color:var(--ink)}
   border-radius:0;padding:14px 2px 0;font-size:13.5px;line-height:1.65;color:var(--ink2)}
 .verdict b{color:var(--ink);font-weight:600}
 
-/* tabs â€” primary nav. Deliberately an underline rather than the pill used by
+/* tabs — primary nav. Deliberately an underline rather than the pill used by
    .filters: the pills are a control inside one card, these switch the whole page,
    and two identical-looking controls at different altitudes read as one system. */
 .tabs{display:flex;gap:2px;flex-wrap:wrap;margin-bottom:18px;border-bottom:1px solid var(--line)}
@@ -80,7 +80,7 @@ a:hover{text-decoration-color:var(--ink)}
 .tabs button:focus-visible{outline:2px solid var(--bench);outline-offset:-2px}
 [data-panel]:focus{outline:none}
 /* Only applied once JS runs. Without it every panel stays in flow and the page
-   is the long scroll it was before â€” no content is reachable only via tabs. */
+   is the long scroll it was before — no content is reachable only via tabs. */
 body.tabs-on [data-panel][hidden]{display:none}
 
 /* cards */
