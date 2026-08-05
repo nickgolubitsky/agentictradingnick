@@ -29,8 +29,9 @@ a:hover{text-decoration-color:var(--ink)}
 
 /* header */
 .hdr{display:flex;align-items:flex-start;gap:14px;flex-wrap:wrap;margin-bottom:26px}
-.hdr h1{font-size:26px;font-weight:600;letter-spacing:-.025em;margin:0;line-height:1.15}
-.hdr h1 span{color:var(--ink3);font-weight:400}
+.hdr h1{font-family:var(--display);font-size:46px;font-weight:200;letter-spacing:-.012em;
+  margin:0;line-height:1}
+.hdr h1 span{color:var(--ink3);font-weight:200}
 .hdr p{margin:9px 0 0;font-size:13.5px;color:var(--ink2);max-width:56ch;line-height:1.6}
 .stamp{margin-left:auto;text-align:right;font-family:var(--num);font-size:11px;color:var(--ink3)}
 .badge{display:inline-block;margin-top:5px;padding:3px 8px;border-radius:var(--r2);
@@ -57,9 +58,12 @@ a:hover{text-decoration-color:var(--ink)}
 .pair__k{font:600 10px/1 var(--num);letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
 /* Alumni Sans is condensed and tall, so it carries a much larger optical size in
    the same column width. The three autonomy numbers are the argument of the page;
-   they should be the first thing read, not a slightly bolder line of monospace. */
-.pair__v{font-family:var(--display);font-size:60px;font-weight:600;font-variant-numeric:tabular-nums;
-  margin:6px 0 0;line-height:.92;letter-spacing:-.01em}
+   they should be the first thing read, not a slightly bolder line of monospace.
+   Weight 200: the reference uses 100 at this size, but these are figures a reader
+   has to parse exactly rather than a headline they scan, so this steps one stop
+   back from hairline without leaving the register. */
+.pair__v{font-family:var(--display);font-size:68px;font-weight:200;font-variant-numeric:tabular-nums;
+  margin:4px 0 0;line-height:.9;letter-spacing:-.012em}
 .pair__m{font-size:12px;color:var(--ink3);margin-top:8px;line-height:1.5}
 .verdict{grid-column:1/-1;background:transparent;border:0;border-top:1px solid var(--line);
   border-radius:0;padding:14px 2px 0;font-size:13.5px;line-height:1.65;color:var(--ink2)}
@@ -224,8 +228,8 @@ footer a{color:var(--ink2)}
   .stamp,.card__o,.wy__d,.pos__p,.move__w{margin-left:0}
   /* Scaled against the 60px base, not the old 32px one. Alumni Sans is condensed
      enough that 46px still fits a 343px column with the longest value it can hold. */
-  .pair__v{font-size:46px}
-  .hdr h1{font-size:22px}
+  .pair__v{font-size:52px}
+  .hdr h1{font-size:34px}
   body{padding:28px 16px 64px}
   .tabs{gap:0}
   .tabs button{padding:9px 11px;font-size:12.5px}
