@@ -74,6 +74,17 @@
       "connected": true,
       "actions": 0,
       "note": "Second hourly inside its own window: 11:22 ET against the 11:17 slot, five minutes late, guard passed, quotes live. Connector attached and the scope preflight matched the mandate identifier exactly. Live read is unchanged from 10:22 - no equity positions, no option positions, cash 128.90 with nothing unsettled - so there was no target, stop, time stop or option no-fly window to enforce, which is this slot's only job. No specification written. The entry question was checked and again not reopened: UPST is the only live catalyst and is still on its reaction day, now bid 32.05, +5.7%, faded below its own 32.23 open bid, which is a leaking spike rather than the day-2/3 pullback the board is waiting for. AMD extended a third time to a 482.06 bid, -7.0%, and SOUN flipped red, leaving eight of nine candidates down and OKLO's +0.2% as the only green print. Standing aside with the position unchanged."
+    },
+    {
+      "date": "2026-08-05",
+      "slot": "hourly",
+      "at": "12:22 ET",
+      "trigger": "scheduled",
+      "declined": false,
+      "fired": true,
+      "connected": true,
+      "actions": 0,
+      "note": "Third hourly inside its own window: 12:22 ET against the 12:17 slot, five minutes late, guard passed, quotes live. Connector attached and the scope preflight matched the mandate identifier exactly. Live read is unchanged for the fourth hour running - no equity positions, no option positions, cash 128.90 with nothing unsettled - so there was no target, stop, time stop or option no-fly window to enforce, which is this slot's only job. No specification written. The entry question was checked and again not reopened: UPST is the only live catalyst and its reaction day is still leaking, bid 31.63, +4.3%, down from 32.05 an hour ago and now 0.60 below its own 32.23 open bid. AMD bounced off its low to a 488.79 bid, -5.7% from -7.0%, which is the first read today that moved toward the continuation thesis rather than away - and a bounce inside a 5.7% gap down is not the strong reaction that setup requires, so the flag does not change. Eight of nine candidates are still red and four of them print tonight. Standing aside with the position unchanged."
     }
   ],
   "_rowFields": "trigger: 'scheduled' when the scheduler fired this run in its own window, 'manual' when a human invoked it. Only scheduled rows count toward run health - a manual invocation proves the code path works, not that the system runs. declined: true when the run deliberately stopped on a guard (fired outside its window, or the mandate was unset) and therefore never attempted to reach the broker. A decline is correct behaviour, not a connection failure, and it is excluded from the run-health denominator rather than counted against it.",
