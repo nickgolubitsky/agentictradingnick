@@ -457,6 +457,8 @@
           lv("Stop", money(o.stop)) +
           lv("Time stop", o.timeStop) +
           (o.qty != null ? lv("Size", String(o.qty)) : "") +
+          (o.qty != null && o.limit != null
+            ? lv("Cost", money(o.limit * o.qty * (o.kind === "option" ? 100 : 1))) : "") +
           (o.bid != null && o.ask != null ? lv("Bid / ask", money(o.bid) + " / " + money(o.ask)) : "") +
           (o.delta != null ? lv("Delta", String(o.delta)) : "") +
           (o.oi != null ? lv("Open interest", String(o.oi)) : "") +

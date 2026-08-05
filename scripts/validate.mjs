@@ -408,6 +408,18 @@ if (why) {
         errors.push(`RULE  ${at}: proposes holding an option through earnings. IV crush kills even a correct call; the rulebook forbids it outright.`);
       }
     }
+    /* A specification the account cannot pay for is not a specification. Checked
+     * here because the failure is silent otherwise: every field is individually
+     * valid and only the total is impossible. An option multiplies by 100, which
+     * is exactly where a $128 account and a $2.70 contract stop being compatible. */
+    if (typeof o.limit === "number" && typeof o.qty === "number" && state?.account?.deployable != null) {
+      const mult = o.kind === "option" ? 100 : 1;
+      const cost = o.limit * o.qty * mult;
+      if (cost > state.account.deployable + 0.005) {
+        errors.push(`RULE  ${at}: costs ${cost.toFixed(2)} against ${state.account.deployable.toFixed(2)} deployable. Settled cash sets the size before the thesis does.`);
+      }
+    }
+
     const exp = new Date(o.expiresAt);
     if (Number.isNaN(+exp)) {
       errors.push(`RULE  ${at}: order.expiresAt is not a parseable timestamp. A proposal with no expiry is a standing instruction, which is not what a run is allowed to leave behind.`);

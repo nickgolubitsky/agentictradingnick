@@ -49,6 +49,27 @@ Run in order before every open. An unlogged check counts as **not done**.
 - Limit orders only, except fractional shares in mega-liquid names (fractional is market-order-only, regular hours only).
 - Cash account: proceeds settle T+1. Buying with unsettled proceeds and selling again before settlement is a good-faith violation. Check settled cash before every open.
 
+## Size before instrument — checked 2026-08-05
+
+At this account size, **options are usually unavailable to this rulebook**, and that
+is arithmetic rather than opinion. Deployable cash was $128.90, so one contract has to
+price under about $1.28. Every contract cheap enough was on a small, low-priced name,
+and every one of those carried a spread far outside the 10% ceiling:
+
+| Contract | Cost | Delta | OI | Spread |
+|---|---|---|---|---|
+| SOUN 9/11 $6.50c | $91.50 | 0.57 | 73 | 44.8% |
+| SMR 9/11 $9.50c | $115.50 | 0.54 | 52 | 14.7% |
+| UPST 9/11 $32c | $270 — unaffordable | 0.52 | 26 | 25.5% |
+
+The names with tight option markets have contracts that cost more than the account
+holds. This is the shape of the universe, not three unlucky picks.
+
+So check affordability and spread **before** building a thesis around a contract.
+Equity on the same names quotes at 0.09–0.16% spreads and is the instrument that
+actually fits. The publish gate now rejects any specification whose total cost exceeds
+deployable settled cash — for an option that is limit × quantity × 100.
+
 ## Setups that fit
 
 Post-earnings day-2 continuation · sympathy laggards (find what has *not* moved in the
