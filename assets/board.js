@@ -501,6 +501,9 @@
   }
 
   /* ---------- bench ---------- */
+  /* renderBench needs to know how much of the account's move the agent actually
+     produced, so it can refuse to call an unattributed gap a win. */
+  var perfRef = null;
   var BL = [{ k: "account", label: "Account", color: "var(--bench)", w: 2.5 },
             { k: "smh", label: "SMH", color: "var(--watch)", w: 1.5 },
             { k: "spy", label: "SPY", color: "var(--ink3)", w: 1.5 },
@@ -527,9 +530,16 @@
     }).join("");
     if (last && last.account != null && last.smh != null) {
       var al = last.account - last.smh;
+      /* "beat semis" is a claim about skill, so it may only be made when the agent
+         actually placed something. With agentTrades at 0 the whole gap belongs to
+         trades a human entered, and labelling that a win would have the tile
+         contradicting the caveat rendered directly beneath it. */
+      var unattributed = !perfRef || !perfRef.agentTrades;
       h += "<div class='tile tile--alpha'><div class='tile__k'>vs SMH</div>" +
-        "<div class='tile__v " + dir(al) + "'>" + pct(al) + "</div>" +
-        "<div class='tile__m'>" + (al >= 0 ? "beat semis" : "sector beta, not skill") + "</div></div>";
+        "<div class='tile__v " + (unattributed ? "flat" : dir(al)) + "'>" + pct(al) + "</div>" +
+        "<div class='tile__m'>" + (unattributed
+          ? "not the agent's — 0 trades placed unattended"
+          : al >= 0 ? "beat semis" : "sector beta, not skill") + "</div></div>";
     }
     h += "</div>";
     /* A baseline can be honest and still be misleading if the window it opens on
@@ -564,6 +574,7 @@
     .then(function (d) {
       var state = d[0], moves = d[1], perf = d[3], bench = d[4], runs = d[5];
       whyData = d[2];
+      perfRef = perf;
       renderStamp(state);
       renderHeadline(perf, runs);
       renderAccount(state);
