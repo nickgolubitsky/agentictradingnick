@@ -79,6 +79,13 @@ a:hover{text-decoration-color:var(--ink)}
 .act__k{font:700 9.5px/1 var(--num);letter-spacing:.1em;padding:5px 8px;border-radius:var(--r2);
   border:1px solid var(--line);color:var(--ink3)}
 .act__k--live{border-color:var(--bench);color:var(--bench)}
+/* A forced entry is still an action, so it is not hidden or greyed — but it must not
+   look like one the checklist approved. */
+.act--forced{border-left-color:var(--watch)}
+.act__k--forced{border-color:var(--watch);color:var(--watch)}
+.act__w{margin:0 0 11px;padding:10px 12px;border:1px solid var(--watch);border-radius:var(--r2);
+  font-size:12.5px;line-height:1.6;color:var(--ink2)}
+.act__w b{color:var(--watch);font:700 10px/1.6 var(--num);letter-spacing:.08em}
 .act__i{font-family:var(--num);font-size:15px;font-weight:700;color:var(--ink);letter-spacing:-.01em}
 .act__m{margin-left:auto;font:600 10.5px/1 var(--num);letter-spacing:.05em;color:var(--watch);
   white-space:nowrap}

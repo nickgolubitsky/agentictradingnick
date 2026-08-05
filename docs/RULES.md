@@ -44,6 +44,41 @@ chain) · breakout pullbacks.
 
 **Does not fit:** chasing green candles, averaging down.
 
+## Rule changes
+
+### 2026-08-05 — Daily entry mandate. Operator decision.
+
+**The open run must publish an order specification every trading day.** Standing aside
+is no longer an available outcome for that slot. Trading daily is the challenge the
+operator set; a process that produces nothing on most days does not test it.
+
+This overrides the standing default of no trade **for the open slot only**. The
+mid-session and pre-close runs keep their defaults — mid-session remains exits-only,
+and the pre-close still may not open a position in the last thirty minutes.
+
+**It does not suspend the checklist. It changes what a failed checklist does.**
+
+Before: a failed item meant no entry.
+Now: a failed item means the entry is published **marked `forced`**, with the failing
+items named on the specification, and it is measured separately.
+
+Every mechanical rule still binds and is still enforced by the publish gate. A forced
+entry is still limit-only, still carries target, stop and time stop, and options still
+require delta ≥ 0.40, three weeks to expiry, and no earnings hold. The mandate makes an
+entry compulsory; it does not make a bad instrument permissible.
+
+**What this costs, recorded here so it is not discovered later.** A forced entry grades
+against the checklist it failed, so adherence will fall — and it should. The number stops
+measuring only the agent's judgement and starts measuring how often the mandate overrode
+it. That is the point of marking them: `forced` and discretionary entries are counted
+separately, so the log can answer whether patience or the mandate produced better
+outcomes rather than blending the two into one unreadable average.
+
+**This is a loosening, and it follows a win.** The drift policy below says to name that
+out loud rather than let a retro discover it. Naming it: the operator decided it, on
+2026-08-05, the day after a +40.8% trade, with the constraint that forced entries are
+labelled and separately measured. That constraint is what distinguishes it from tilt.
+
 ## Rule-drift policy
 
 Rules may be changed by the operator. They may not be changed by the agent, and they

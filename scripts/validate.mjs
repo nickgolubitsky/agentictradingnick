@@ -265,12 +265,26 @@ if (why) {
     if (!o.timeStop) {
       errors.push(`RULE  ${at}: no time stop. Checklist item 6 requires target, stop AND a time stop written before entry — if nothing happens the thesis was wrong even if the stop never hits.`);
     }
-    /* A spec with a failed checklist item is not a proposal, it is a rule violation
-     * with a price attached. Item 2 exists because the +8% day always looks good. */
+    /* Under the 2026-08-05 daily entry mandate a failed checklist no longer blocks
+     * the entry — it obliges the entry to declare itself. The gate moved from
+     * "you may not" to "you may not do it quietly", which is the only version of
+     * this that leaves the record still worth reading. */
     const failed = Object.entries(e.checklist ?? {})
       .filter(([, v]) => v === "fail").map(([k]) => k);
-    if (failed.length) {
-      errors.push(`RULE  ${at}: carries an order spec while checklist item(s) ${failed.join(", ")} are marked fail. The checklist gates the entry; it does not annotate it.`);
+    if (failed.length && !o.forced) {
+      errors.push(`RULE  ${at}: carries an order spec while checklist item(s) ${failed.join(", ")} are marked fail, but is not marked forced. Under the daily entry mandate a failing entry may be published; it may not be published as though it passed.`);
+    }
+    if (o.forced) {
+      if (!o.forcedReason) {
+        errors.push(`RULE  ${at}: marked forced with no forcedReason. A forced entry has to say what it would have failed on.`);
+      }
+      const named = (o.forcedItems ?? []).map(String).sort().join(",");
+      if (failed.length && named !== failed.slice().sort().join(",")) {
+        errors.push(`RULE  ${at}: forcedItems [${named || "none"}] does not match the checklist items actually marked fail [${failed.join(", ")}]`);
+      }
+      if (!failed.length && (o.forcedItems ?? []).length) {
+        errors.push(`RULE  ${at}: marked forced and names failing items, but no checklist item is marked fail`);
+      }
     }
     /* Options carry their own rulebook, and it is the one this project has already
      * broken once — delta 0.032 against a 0.40 floor, three days to expiry. */

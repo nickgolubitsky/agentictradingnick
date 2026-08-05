@@ -420,8 +420,15 @@
         return "<div class='level'><div class='level__k'>" + esc(k) + "</div>" +
           "<div class='level__v'>" + esc(v) + "</div></div>";
       };
-      return "<div class='act'><div class='act__h'>" +
-        "<span class='act__k act__k--live'>ACTION</span>" +
+      var forced = o.forced
+        ? "<div class='act__w'><b>FORCED ENTRY</b> — published under the daily entry mandate " +
+          "with checklist item" + ((o.forcedItems || []).length === 1 ? " " : "s ") +
+          esc((o.forcedItems || []).join(", ")) + " failing. " + esc(o.forcedReason || "") +
+          " This is the mandate overriding the checklist, not the checklist passing.</div>"
+        : "";
+      return "<div class='act" + (o.forced ? " act--forced" : "") + "'><div class='act__h'>" +
+        "<span class='act__k " + (o.forced ? "act__k--forced" : "act__k--live") + "'>" +
+          (o.forced ? "FORCED" : "ACTION") + "</span>" +
         "<span class='act__i'>" + esc(String(o.action || "").toUpperCase()) + " " +
           (r ? r + " · " : "") + esc(o.instrument || "") + "</span>" +
         "<span class='act__m'>expires in " + mins + " min · " + esc(o.expiresAt) + "</span>" +
@@ -433,7 +440,7 @@
           (o.qty != null ? lv("Size", String(o.qty)) : "") +
           (o.delta != null ? lv("Delta", String(o.delta)) : "") +
           (o.contractExpiry ? lv("Contract expiry", o.contractExpiry) : "") +
-        "</div>" +
+        "</div>" + forced +
         "<p class='act__b'>" + esc(e.body) + "</p>" +
         "<p class='act__f'>Limit order. No run in this project can place it — this is a " +
         "specification for you to execute or discard, and it stops being valid at " +
