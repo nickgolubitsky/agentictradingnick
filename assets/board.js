@@ -382,6 +382,13 @@
 
     if (!live.length) {
       var lastDid = (whyData.entries || []).filter(function (e) { return e.kind === "did"; })[0];
+      /* A stand-aside day is not an empty day. What the runs are waiting for, with
+         its trigger, is the thing to look at when there is nothing to act on — so
+         it goes here rather than one tab away. Dead setups are excluded: a thesis
+         that resolved against is history, not a watch item. */
+      var watching = (stateRef && stateRef.entryWatch || []).filter(function (w) {
+        return w.state !== "dead" && w.setup !== "Stand aside";
+      });
       $("proposals").innerHTML =
         "<div class='act act--none'><div class='act__h'>" +
         "<span class='act__k'>NO LIVE PROPOSAL</span>" +
@@ -389,7 +396,20 @@
         "<p class='act__b'>No run has an unexpired order specification open. " +
         (lastDid ? "Most recent decision: <b>" + esc(lastDid.head) + "</b> (" + esc(lastDid.date) + ")."
                  : "") +
-        " A run that proposes nothing and says why is doing its job — the default is no trade.</p></div>";
+        " A run that proposes nothing and says why is doing its job — the default is no trade.</p>" +
+        (watching.length
+          ? "<div class='wtch'><div class='wtch__k'>What would change that</div>" +
+            watching.map(function (w) {
+              return "<div class='wtch__i'>" +
+                "<div class='wtch__t'><span class='wtch__s'>" + esc(w.setup) + "</span>" +
+                "<span class='flag flag--" + esc(w.state) + "'>" + esc(String(w.state).toUpperCase()) + "</span>" +
+                (w.level != null ? "<span class='wtch__l'>" + esc(money(w.level)) + "</span>" : "") +
+                "</div><div class='wtch__c'>" + esc(w.trigger) + "</div>" +
+                (w.exits && w.exits !== "-" ? "<div class='wtch__e'>" + esc(w.exits) + "</div>" : "") +
+                "</div>";
+            }).join("") + "</div>"
+          : "") +
+        "</div>";
       return;
     }
 
@@ -601,6 +621,8 @@
   /* renderBench needs to know how much of the account's move the agent actually
      produced, so it can refuse to call an unattributed gap a win. */
   var perfRef = null;
+  /* The proposals panel needs the watch list, which state.json owns. */
+  var stateRef = null;
   var BL = [{ k: "account", label: "Account", color: "var(--bench)", w: 2.5 },
             { k: "smh", label: "SMH", color: "var(--watch)", w: 1.5 },
             { k: "spy", label: "SPY", color: "var(--ink3)", w: 1.5 },
@@ -672,6 +694,7 @@
       var state = d[0], moves = d[1], perf = d[3], bench = d[4], runs = d[5];
       whyData = d[2];
       perfRef = perf;
+      stateRef = state;
       renderStamp(state);
       renderHeadline(perf, runs);
       renderAccount(state);

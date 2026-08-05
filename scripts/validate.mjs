@@ -311,6 +311,20 @@ if (state) {
   for (const c of state.candidates ?? []) {
     if (!["watch", "nofly", "ok"].includes(c.flag)) errors.push(`DATA  candidate ${c.sym} has unknown flag '${c.flag}'`);
   }
+  /* Watch states drive a CSS class. An unknown one renders as an unstyled chip,
+   * which is how "dead" and "armed" shipped looking like every other state. */
+  const WATCH_STATES = ["wait", "watch", "armed", "dead"];
+  for (const w of state.entryWatch ?? []) {
+    if (!WATCH_STATES.includes(w.state)) {
+      errors.push(`DATA  entryWatch '${w.setup}' has unknown state '${w.state}' (expected ${WATCH_STATES.join(" | ")})`);
+    }
+    if (!w.trigger || !w.why) {
+      errors.push(`DATA  entryWatch '${w.setup}' is missing a trigger or its reasoning. A setup reaches this list only with both written down.`);
+    }
+    if (w.level != null && !(typeof w.level === "number" && w.level > 0)) {
+      errors.push(`DATA  entryWatch '${w.setup}': level must be a positive number when present`);
+    }
+  }
 }
 
 /* ---------- 3. account scope ---------- */
