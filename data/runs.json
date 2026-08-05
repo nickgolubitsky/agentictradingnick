@@ -2,10 +2,10 @@
   "_comment": "Every scheduled run writes one record here — including, especially, a run that could not connect. A failed run that logs is data; a failed run that stays silent is a hole in the record, and a hole is indistinguishable from a run that never fired. Record shape: { date, slot: open|hourly|preclose|retro, at, fired, connected, actions, note }. 'connected' means the brokerage connector attached and the run read live account state; a run that reasoned only from this repo's JSON is fired=true, connected=false. Per-run rows begin on recordsBeginOn. Anything earlier is carried in priorSummary as an aggregate, because those runs predate this file and the per-run detail was never written down. Do not backfill it.",
   "recordsBeginOn": "2026-08-05",
   "scheduler": {
-    "configured": false,
+    "configured": true,
     "checkedOn": "2026-08-05",
     "kind": "desktop",
-    "note": "All four slots now have a trigger, but it is a desktop scheduled task, not a server: it fires only while the operator's Claude app is open, and a missed window runs late on next launch rather than on time. Every run therefore checks how late it fired and refuses to write an order specification if the quotes it would rest on are stale. This flag stays false until a run has actually recorded a row — a schedule that has never fired is not a running system, and the validator enforces that."
+    "note": "True as of 2026-08-05: a scheduled run has now fired and recorded its own row. Read it narrowly. This is a desktop scheduled task, not a server-side runner — it fires only while the operator's Claude app is open, so a missed window runs late on next launch rather than on time, and the first row here is itself an example: the retro slot is 16:30 ET and it fired at 00:45 ET. Every run therefore checks how late it fired and refuses to write an order specification if the quotes it would rest on are stale. 'Configured' means a trigger exists and has fired, not that the four slots fire reliably at their stated times."
   },
   "slots": [
     {
@@ -40,5 +40,15 @@
     "actions": 0,
     "note": "Zero, deliberately. Five firings were recorded here on 2026-08-04, but the operator has confirmed they were setup tests rather than live scheduled runs, so they are excluded from run health — counting a test as a run would overstate how much of this system has actually operated. They are set to zero rather than deleted, and this note stays, because the correction is part of the record. Run health now reads from live runs only, of which there are none yet."
   },
-  "runs": []
+  "runs": [
+    {
+      "date": "2026-08-05",
+      "slot": "retro",
+      "at": "00:45 ET",
+      "fired": true,
+      "connected": false,
+      "actions": 0,
+      "note": "Stopped at the scope preflight: the private mandate's targetAccountId is unset, so there is no account this run is permitted to read. Nothing was reconciled and nothing was graded. Also fired at 00:45 ET rather than its 16:30 slot — a desktop trigger running the window late, recorded as it happened."
+    }
+  ]
 }
