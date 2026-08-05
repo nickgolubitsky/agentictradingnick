@@ -63,6 +63,17 @@
       "note": "First hourly to fire inside its own window: 10:22 ET against the 10:17 slot, five minutes late, so the staleness guard passed and the quotes were live. Connector attached and the scope preflight matched the mandate identifier exactly. Re-read live: no equity positions, no option positions, cash 128.90 with nothing unsettled - so there was no target, stop, time stop or option no-fly window to enforce, which is the only job this slot has. No specification written. The entry question was not reopened on its own merits: the bar for a new mid-session entry is higher than at the open, and the one name with a live catalyst is UPST, still trading its reaction day at a 32.36 bid, +6.7%, which is the entry checklist item 2 names a wait signal. AMD extended its gap down to a 486.55 bid, -6.2%, so the setup this board was watching is further from valid than it was at 09:42, not closer. Standing aside with the position unchanged.",
       "trigger": "scheduled",
       "declined": false
+    },
+    {
+      "date": "2026-08-05",
+      "slot": "hourly",
+      "at": "11:22 ET",
+      "trigger": "scheduled",
+      "declined": false,
+      "fired": true,
+      "connected": true,
+      "actions": 0,
+      "note": "Second hourly inside its own window: 11:22 ET against the 11:17 slot, five minutes late, guard passed, quotes live. Connector attached and the scope preflight matched the mandate identifier exactly. Live read is unchanged from 10:22 - no equity positions, no option positions, cash 128.90 with nothing unsettled - so there was no target, stop, time stop or option no-fly window to enforce, which is this slot's only job. No specification written. The entry question was checked and again not reopened: UPST is the only live catalyst and is still on its reaction day, now bid 32.05, +5.7%, faded below its own 32.23 open bid, which is a leaking spike rather than the day-2/3 pullback the board is waiting for. AMD extended a third time to a 482.06 bid, -7.0%, and SOUN flipped red, leaving eight of nine candidates down and OKLO's +0.2% as the only green print. Standing aside with the position unchanged."
     }
   ],
   "_rowFields": "trigger: 'scheduled' when the scheduler fired this run in its own window, 'manual' when a human invoked it. Only scheduled rows count toward run health - a manual invocation proves the code path works, not that the system runs. declined: true when the run deliberately stopped on a guard (fired outside its window, or the mandate was unset) and therefore never attempted to reach the broker. A decline is correct behaviour, not a connection failure, and it is excluded from the run-health denominator rather than counted against it.",
