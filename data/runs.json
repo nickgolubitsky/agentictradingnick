@@ -41,69 +41,7 @@
       "readOnly": true
     }
   ],
-  "priorSummary": {
-    "through": "2026-08-04",
-    "fired": 0,
-    "connected": 0,
-    "actions": 0,
-    "note": "Zero, deliberately. Five firings were recorded here on 2026-08-04, but the operator has confirmed they were setup tests rather than live scheduled runs, so they are excluded from run health — counting a test as a run would overstate how much of this system has actually operated. They are set to zero rather than deleted, and this note stays, because the correction is part of the record. Run health now reads from live runs only, of which there are none yet."
-  },
   "runs": [
-    {
-      "date": "2026-08-05",
-      "slot": "retro",
-      "at": "00:45 ET",
-      "fired": true,
-      "connected": false,
-      "actions": 0,
-      "note": "Stopped at the scope preflight: the private mandate's targetAccountId is unset, so there is no account this run is permitted to read. Nothing was reconciled and nothing was graded. Also fired at 00:45 ET rather than its 16:30 slot — a desktop trigger running the window late, recorded as it happened.",
-      "trigger": "manual",
-      "declined": true
-    },
-    {
-      "date": "2026-08-05",
-      "slot": "preclose",
-      "at": "00:53 ET",
-      "fired": true,
-      "connected": false,
-      "actions": 0,
-      "note": "Stopped on the staleness guard: fired at 00:53 ET, roughly nine hours and twenty minutes past the 15:33 ET pre-close window it was scheduled for, so the hold-or-exit decision this slot exists to make was never made inside the window. No order specification was written and the connector was not attached — a pre-close proposal resting on quotes nine hours dead is not a proposal, and publishing one would put a stale instruction on the board. The mandate was readable and its targetAccountId is set this time, so scope was not the blocker; lateness was.",
-      "trigger": "manual",
-      "declined": true
-    },
-    {
-      "date": "2026-08-05",
-      "slot": "hourly",
-      "at": "00:57 ET",
-      "fired": true,
-      "connected": false,
-      "actions": 0,
-      "note": "Stopped on the staleness guard: fired at 00:57 ET, outside the 10:00-15:00 ET window entirely — 9h40m past the last 8/4 hourly slot and hours before the first 8/5 one, with the market closed in between. No quotes were read, the connector was not attached, and no order specification was written. This run's job is exits, so the honest statement of what was lost is that if a stop or target was hit during 8/4's session, this slot did not enforce it; the open positions list in state.json is empty as last written, but that file is not live state and this run did not verify it. The mandate was readable and its targetAccountId is set, so scope was not the blocker; lateness was.",
-      "trigger": "manual",
-      "declined": true
-    },
-    {
-      "date": "2026-08-05",
-      "slot": "open",
-      "at": "00:53 ET",
-      "fired": true,
-      "connected": true,
-      "actions": 0,
-      "note": "Stopped on the staleness guard, but from the other side: fired at 00:53 ET, eight hours and forty minutes BEFORE the 09:33 window rather than after it, with the market shut and no session yet to analyse. The connector did attach and the scope preflight passed on an exact identifier match, so live state was read and refreshed - settled cash 28.96, unsettled 99.94 settling this morning, no open equity or option positions and therefore no exit due. No order specification was written: there are no live quotes eight hours before an open, and the day-2 continuation trigger this slot was watching cannot be evaluated before the day exists.",
-      "trigger": "manual",
-      "declined": false
-    },
-    {
-      "date": "2026-08-05",
-      "slot": "retro",
-      "at": "00:58 ET",
-      "fired": true,
-      "connected": true,
-      "actions": 0,
-      "note": "Second retro row today and the first one able to do the job: the 00:45 row above stopped at the scope preflight because the mandate was unset, the operator set it at 00:47 ET, and this run re-fired and matched the identifier exactly. Still 8h28m past the 16:30 ET 8/4 slot, which costs a retro nothing - it grades a session that has already settled and writes no specification. Reconciled both AMD legs against the API, appended 8/4's official settled closes to bench, graded the one ungraded entry, and ran the drift check. Zero actions, as always: this slot has no order authority.",
-      "trigger": "manual",
-      "declined": false
-    },
     {
       "date": "2026-08-05",
       "slot": "open",
@@ -127,5 +65,6 @@
       "declined": false
     }
   ],
-  "_rowFields": "trigger: 'scheduled' when the scheduler fired this run in its own window, 'manual' when a human invoked it. Only scheduled rows count toward run health - a manual invocation proves the code path works, not that the system runs. declined: true when the run deliberately stopped on a guard (fired outside its window, or the mandate was unset) and therefore never attempted to reach the broker. A decline is correct behaviour, not a connection failure, and it is excluded from the run-health denominator rather than counted against it."
+  "_rowFields": "trigger: 'scheduled' when the scheduler fired this run in its own window, 'manual' when a human invoked it. Only scheduled rows count toward run health - a manual invocation proves the code path works, not that the system runs. declined: true when the run deliberately stopped on a guard (fired outside its window, or the mandate was unset) and therefore never attempted to reach the broker. A decline is correct behaviour, not a connection failure, and it is excluded from the run-health denominator rather than counted against it.",
+  "_history": "Cleared 2026-08-05: 5 manual \"Run now\" invocations removed from this file, and the all-zero priorSummary carrying the five 2026-08-04 setup-test firings removed with them. Neither was ever counted in run health - manual rows are excluded by trigger and the prior summary was zeroed - so removing them changes no published number. Recorded here because deleting rows from a record that exists to prevent silent gaps should itself leave a trace. The reasoning entries covering both corrections stay in why.json, which is append-only and is not edited by this cleanup."
 }
