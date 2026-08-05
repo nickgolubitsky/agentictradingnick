@@ -44,24 +44,31 @@ chance of profit and got lucky. Both are published, at equal weight.
 
 ## How it works
 
-> **Status: one slot of four is scheduled.** The read-only retro runs weekdays at
-> 16:32 ET. The three trading slots — open, hourly, pre-close — are specification only;
-> nothing fires them, and the writes are made by hand.
+> **Status: all four slots are scheduled. None of them can place an order.**
 >
-> The retro's trigger is a **desktop scheduled task, not a server**. It fires only while
-> the Claude app is open; if the machine is asleep at 16:32 it runs late on next launch
-> rather than on time. That is worth stating plainly, because "runs on a laptop that
-> happens to be awake" is not the same claim as "runs unattended", and this project
-> exists to measure the difference. A real cloud runner is still outstanding.
+> The runs analyse, and they publish an **order specification** — instrument, limit,
+> target, stop, time stop, expiry — as a `will` entry for a human to execute or discard.
+> Nothing in this project has order authority. That is a deliberate split, not a missing
+> feature: the reasoning is the part worth automating and grading, and the last inch is
+> the part worth keeping a person in.
 >
-> The retro was scheduled first because it is the run that **cannot place an order** —
-> it is read-only by construction, so a misfire costs a bad grade rather than a bad
-> trade. Order authority on a timer is a separate decision, gated behind the preflight
-> assertion in [docs/SCOPE.md](docs/SCOPE.md) existing as code.
+> Because the spec is the output, **the spec is what gets gated.** `scripts/validate.mjs`
+> enforces the rulebook on every proposal and fails the build on a violation — limit
+> orders only, stop below and target above the entry, a time stop present, no failed
+> checklist item, options at delta ≥ 0.40 with three weeks minimum to expiry and never
+> held through earnings. The rules in [docs/RULES.md](docs/RULES.md) stopped being prose
+> a run is trusted to remember.
 >
-> Until the first retro records a row, run health reads **0/5**, every runbook slot
-> reads **NEVER**, and `runs.scheduler.configured` stays `false` — the validator refuses
-> to let that flag go true on the strength of a schedule that has never actually fired.
+> Two honest limits:
+>
+> - **The trigger is a desktop scheduled task, not a server.** It fires only while the
+>   Claude app is open, and a missed window runs late on next launch. "Runs on a laptop
+>   that happens to be awake" is not "runs unattended", and this project exists to
+>   measure that difference. Every run therefore checks how late it fired and **refuses
+>   to write a spec on stale quotes**. A cloud runner is still outstanding.
+> - **`runs.scheduler.configured` stays `false`** until a run actually records a row.
+>   A schedule that has never fired is not a running system, and the validator will not
+>   let that flag go true on the strength of a cron expression.
 
 Four run slots, weekdays, US Eastern:
 

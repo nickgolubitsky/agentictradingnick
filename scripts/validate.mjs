@@ -209,10 +209,77 @@ if (runs) {
   }
 }
 
+/* ---------- 2b. order proposals ----------
+ * The analyst runs have no order authority: they publish a spec a human executes.
+ * That makes the spec the thing worth gating, so docs/RULES.md is enforced here
+ * rather than trusted to a run that has read it. A proposal that breaks the
+ * rulebook does not get to reach the page and be argued with later. */
 if (why) {
   for (const e of why.entries ?? []) {
     if (!["did", "will"].includes(e.kind)) errors.push(`DATA  why entry has kind '${e.kind}'`);
     if (!e.body) errors.push(`DATA  why entry '${e.head}' has no reasoning body`);
+
+    const o = e.order;
+    if (!o) continue;
+    const at = `why entry '${e.head}'`;
+
+    if (e.kind !== "will") {
+      errors.push(`RULE  ${at}: an order spec belongs on a 'will' entry. A 'did' entry records what happened.`);
+    }
+    if (o.requiresHuman !== true) {
+      errors.push(`RULE  ${at}: order.requiresHuman must be true. No run in this project has order authority, and a spec that implies otherwise misrepresents what placed it.`);
+    }
+    if (o.orderType !== "limit") {
+      errors.push(`RULE  ${at}: orderType '${o.orderType}' — the rulebook is limit orders only (fractional equity is the one exception and is not proposable).`);
+    }
+    for (const k of ["limit", "target", "stop"]) {
+      if (typeof o[k] !== "number" || !(o[k] > 0)) {
+        errors.push(`RULE  ${at}: order.${k} must be a positive number. An exit that is not a number is not an exit.`);
+      }
+    }
+    if (typeof o.limit === "number" && typeof o.target === "number" && typeof o.stop === "number") {
+      const buy = o.action === "buy";
+      if (buy && !(o.target > o.limit)) errors.push(`RULE  ${at}: buy target ${o.target} is not above the limit ${o.limit}`);
+      if (buy && !(o.stop < o.limit)) errors.push(`RULE  ${at}: buy stop ${o.stop} is not below the limit ${o.limit}`);
+      if (!buy && !(o.target < o.limit)) errors.push(`RULE  ${at}: sell target ${o.target} is not below the limit ${o.limit}`);
+    }
+    if (!o.timeStop) {
+      errors.push(`RULE  ${at}: no time stop. Checklist item 6 requires target, stop AND a time stop written before entry — if nothing happens the thesis was wrong even if the stop never hits.`);
+    }
+    /* A spec with a failed checklist item is not a proposal, it is a rule violation
+     * with a price attached. Item 2 exists because the +8% day always looks good. */
+    const failed = Object.entries(e.checklist ?? {})
+      .filter(([, v]) => v === "fail").map(([k]) => k);
+    if (failed.length) {
+      errors.push(`RULE  ${at}: carries an order spec while checklist item(s) ${failed.join(", ")} are marked fail. The checklist gates the entry; it does not annotate it.`);
+    }
+    /* Options carry their own rulebook, and it is the one this project has already
+     * broken once — delta 0.032 against a 0.40 floor, three days to expiry. */
+    if (o.kind === "option") {
+      if (typeof o.delta !== "number") {
+        errors.push(`RULE  ${at}: option spec has no delta. The 0.40 floor cannot be checked against a missing number.`);
+      } else if (o.delta < 0.40) {
+        errors.push(`RULE  ${at}: option delta ${o.delta} is below the 0.40 floor in docs/RULES.md`);
+      }
+      const exp = new Date(o.contractExpiry);
+      if (Number.isNaN(+exp)) {
+        errors.push(`RULE  ${at}: option spec has no parseable contractExpiry`);
+      } else {
+        const days = (exp - new Date(e.date)) / 864e5;
+        if (days < 21) {
+          errors.push(`RULE  ${at}: contract expires in ${Math.round(days)} days. The rulebook floor is 3 weeks — theta on short-dated contracts can exceed the position value per week.`);
+        }
+      }
+      if (o.throughEarnings === true) {
+        errors.push(`RULE  ${at}: proposes holding an option through earnings. IV crush kills even a correct call; the rulebook forbids it outright.`);
+      }
+    }
+    const exp = new Date(o.expiresAt);
+    if (Number.isNaN(+exp)) {
+      errors.push(`RULE  ${at}: order.expiresAt is not a parseable timestamp. A proposal with no expiry is a standing instruction, which is not what a run is allowed to leave behind.`);
+    } else if (exp <= new Date(e.date)) {
+      errors.push(`RULE  ${at}: order.expiresAt is not after the entry time`);
+    }
   }
 }
 

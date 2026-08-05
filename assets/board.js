@@ -313,6 +313,36 @@
   var filter = "all";
   var whyData = { entries: [] };
 
+  /* An order spec written by a run that cannot place it. Rendered with its expiry
+     state because the dangerous version of this block is the one that still looks
+     actionable an hour after the price it was written against stopped existing. */
+  function orderSpec(o) {
+    var exp = new Date(o.expiresAt);
+    var dead = !Number.isNaN(+exp) && Date.now() > +exp;
+    var lv = function (k, v) {
+      return "<div class='level'><div class='level__k'>" + esc(k) + "</div>" +
+        "<div class='level__v'>" + esc(v) + "</div></div>";
+    };
+    return "<div class='spec" + (dead ? " spec--dead" : "") + "'>" +
+      "<div class='spec__t'>" +
+        "<span class='spec__k'>" + (dead ? "EXPIRED" : "PROPOSED") + "</span>" +
+        "<span class='spec__i'>" + esc(String(o.action || "").toUpperCase()) + " " +
+          esc(o.instrument || "") + "</span>" +
+        "<span class='spec__h'>human executes</span></div>" +
+      "<div class='levels'>" +
+        lv("Limit", money(o.limit)) +
+        lv("Target", money(o.target)) +
+        lv("Stop", money(o.stop)) +
+        lv("Time stop", o.timeStop) +
+        (o.qty != null ? lv("Size", String(o.qty)) : "") +
+        (o.delta != null ? lv("Delta", String(o.delta)) : "") +
+      "</div>" +
+      "<div class='spec__x'>" + (dead
+        ? "Expired " + esc(o.expiresAt) + ". The prices this was written against are gone — re-run the checklist rather than acting on it."
+        : "Valid until " + esc(o.expiresAt) + ". No run in this project can place an order; this is a specification for a person to execute or discard.") +
+      "</div></div>";
+  }
+
   function renderWhy() {
     var list = whyData.entries.filter(function (e) { return filter === "all" || e.kind === filter; });
     if (!list.length) {
@@ -335,11 +365,12 @@
       var grade = e.grade
         ? "<div class='wy__g'><b>" + esc(e.grade.by) + "</b> \u2014 " + esc(e.grade.text) + "</div>"
         : (e.kind === "did" ? "<div class='wy__p'>Not yet graded.</div>" : "");
+      var order = e.order ? orderSpec(e.order) : "";
       return "<article class='wy wy--" + esc(e.kind) + "'><div class='wy__t'>" +
         "<span class='wy__k'>" + (e.kind === "did" ? "DID" : "WILL") + "</span>" +
         "<span class='wy__h'>" + esc(e.head) + "</span>" +
         "<span class='wy__d'>" + esc(e.date) + "</span></div>" +
-        "<p class='wy__b'>" + esc(e.body) + "</p>" + chips + grade + "</article>";
+        "<p class='wy__b'>" + esc(e.body) + "</p>" + order + chips + grade + "</article>";
     }).join("");
   }
 

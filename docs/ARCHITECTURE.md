@@ -3,29 +3,45 @@
 ## Shape
 
 ```
-   retro run (16:32 ET)  ──writes──▶
-   trading runs (unwired)            data/*.json  ──renders──▶  index.html  ──deploys──▶  static site
-                                          │
-                                          └──gated by──▶  scripts/validate.mjs
+  four scheduled runs  ──propose──▶  why.json order spec  ──human executes──▶  broker
+         │                                  │
+         └──────────writes────────▶  data/*.json  ──renders──▶  index.html  ──▶  site
+                                            │
+                                            └──gated by──▶  scripts/validate.mjs
 ```
 
-**One of the four slots is wired.** The read-only retro runs weekdays at 16:32 ET as a
-desktop scheduled task. The three trading slots are specification only — nothing fires
-them, and their writes are made by hand. `.github/workflows/validate.yml` still has no
-`schedule:` trigger; it runs on push, pull_request and workflow_dispatch.
+**All four slots are wired. None can place an order.** The runs analyse and publish an
+order specification; a person executes it or discards it. The broker arrow above is the
+only step no software in this repo performs.
 
-Two properties of that trigger matter more than the fact it exists:
+That split is the architecture, not a limitation working around one. It puts the
+reasoning — catalyst, checklist, sizing, exits — under automation and grading, where
+repetition and an outcome-blind auditor make it better over time, and keeps a human on
+the single irreversible action. It also means the **specification** is the artefact, so
+the specification is what the gate checks.
 
-- **It is not a server.** It fires only while the Claude desktop app is open. A missed
-  window runs late on next launch, which for a market-hours run is worse than not
-  running — a run acting on stale prices is the failure mode the open-slot preflight
-  exists to prevent. This is why the retro, whose inputs are settled end-of-day numbers,
-  is the safe one to schedule this way and the trading slots are not.
-- **It has no order authority.** The retro is read-only by construction. Scheduling a
-  run that *can* trade is a separate decision, and it should not be taken until the
-  preflight assertion in [SCOPE.md](SCOPE.md) exists as code rather than as prose.
+`scripts/validate.mjs` enforces [RULES.md](RULES.md) on every proposal: limit orders
+only, target above and stop below a buy, a time stop present, no failed checklist item,
+and for options delta ≥ 0.40, three weeks minimum to expiry, never through earnings. A
+proposal that breaks the rulebook fails the build rather than reaching the page to be
+argued with later. This is the same reasoning as the leak scan — the outermost layer is
+the one that does not rely on an agent behaving well.
 
-Everything from `data/*.json` rightward is real and running today.
+Two properties of the trigger matter as much as its existence:
+
+- **It is not a server.** A desktop scheduled task fires only while the Claude app is
+  open, and a missed window runs late on next launch. For a market-hours run, late is
+  worse than never: a proposal built on stale quotes still looks actionable. Each run
+  therefore compares the clock to its slot and writes no specification when it has
+  fired too late — 25 minutes for the open, 20 mid-session, and hard-stopped at 15:55
+  for the pre-close.
+- **Order authority is absent by construction, not by policy.** `order.requiresHuman`
+  must be `true` or the build fails, so a run cannot publish a spec that implies it
+  placed anything itself.
+
+`.github/workflows/validate.yml` still has no `schedule:` trigger; it runs on push,
+pull_request and workflow_dispatch. Everything from `data/*.json` rightward is real and
+running today.
 
 No server, no database, no build step beyond the validator. The site is static files;
 the "state" is JSON in git, which means every change to the board is a reviewable diff

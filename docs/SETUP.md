@@ -88,15 +88,22 @@ grep -rn "vercel.app" README.md
 
 ## 5. Wire the agent runs
 
-**Partly done.** As of 2026-08-05 the read-only retro is scheduled weekdays at 16:32 ET
-as a desktop task — it fires only while the Claude app is open, so it is not yet a
-server-side runner. The three trading slots are still unwired, and no run has recorded a
-row, which is why the board reports run health 0/5 and every runbook slot reads NEVER
-until the first retro fires.
+**Scheduled, as analysts.** As of 2026-08-05 all four slots run as desktop scheduled
+tasks — open 09:33, mid-session hourly at :17, pre-close 15:33, retro 16:30 ET, weekdays.
 
-The retro went first deliberately: it is read-only, so a misfire costs a bad grade rather
-than a bad trade. Do not put a run with order authority on a timer until the preflight
-assertion in [SCOPE.md](SCOPE.md) exists as code.
+**None of them has order authority.** They publish an order specification as a `will`
+entry; a human executes it or discards it. `order.requiresHuman` must be `true` or the
+build fails. If you later wire actual execution, do it deliberately and read
+[SCOPE.md](SCOPE.md) first — the preflight assertion there is still prose, and it should
+be code before anything places an order on a timer.
+
+These are desktop tasks, not a server: they fire only while the Claude app is open, so a
+missed window runs late on next launch. Each run guards against that by refusing to write
+a specification when it has fired too late for its quotes to be usable. A cloud runner is
+the outstanding piece.
+
+No run has recorded a row yet, so the board reports run health 0/5 and every runbook slot
+reads NEVER until the first one fires.
 
 This is the part with real consequences, so do it deliberately.
 
