@@ -28,32 +28,121 @@
       '<span class="badge badge--' + k[0] + '">' + esc(k[1]) + "</span>";
   }
 
-  /* ---------- outcome vs process ---------- */
-  function renderPair(perf) {
-    var net = perf.grossWins - perf.grossLosses;
+  /* ---------- run health ---------- */
+  /* Aggregate of the pre-file summary and the per-run rows. Kept in one place
+     because three surfaces read it and they must not disagree. */
+  function runHealth(r) {
+    var p = (r && r.priorSummary) || {};
+    var list = (r && r.runs) || [];
+    var f = function (k) { return list.filter(function (x) { return x[k]; }).length; };
+    return {
+      fired: (p.fired || 0) + f("fired"),
+      connected: (p.connected || 0) + f("connected"),
+      actions: (p.actions || 0) + list.reduce(function (n, x) { return n + (x.actions || 0); }, 0),
+      itemised: list.length
+    };
+  }
+
+  /* ---------- headline: can the agent run itself? ---------- */
+  /* Three measures of autonomy. P/L is deliberately not here \u2014 it lives in
+     Performance. An account this small cannot make its returns interesting, but
+     it can absolutely make its reliability interesting. */
+  function renderHeadline(perf, runs) {
+    var rh = runHealth(runs);
     var a = perf.adherence;
-    var thin = perf.totalTrades < (perf.minSampleForRates || 20);
-    var diverged = perf.wins > 0 && a.entriesPassed < a.entriesGraded;
+    var tot = perf.totalTrades, un = perf.agentTrades;
+    var thin = tot < (perf.minSampleForRates || 20);
 
-    $("pair").innerHTML =
-      "<section><div class='pair__k'>Net P/L</div>" +
-      "<div class='pair__v " + dir(net) + "'>" + signed(net) + "</div>" +
-      "<div class='pair__m'>" + perf.wins + "W / " + perf.losses + "L \u00b7 " +
-        perf.agentTrades + " of " + perf.totalTrades + " placed by the agent</div></section>" +
+    var cell = function (k, v, c, m) {
+      return "<section><div class='pair__k'>" + esc(k) + "</div>" +
+        "<div class='pair__v " + c + "'>" + esc(v) + "</div>" +
+        "<div class='pair__m'>" + m + "</div></section>";
+    };
 
-      "<section><div class='pair__k'>Checklist adherence</div>" +
-      "<div class='pair__v " + (a.entriesPassed === a.entriesGraded ? "up" : "down") + "'>" +
-        a.entriesPassed + "/" + a.entriesGraded + "</div>" +
-      "<div class='pair__m'>entries passing all six at entry \u00b7 exits on time " +
-        a.exitsOnTime + "/" + a.exitsTotal + "</div></section>" +
+    var h =
+      cell("Run health",
+        rh.fired ? rh.connected + "/" + rh.fired : "\u2014",
+        !rh.fired ? "flat" : rh.connected === rh.fired ? "up" : "down",
+        rh.fired ? "scheduled runs that reached the brokerage"
+                 : "no runs recorded yet") +
 
-      "<div class='verdict'>" + (diverged
-        ? "<b>Green P/L, failed process.</b> The money says nothing about whether the method works. " +
-          "This pairing is the entire point of the project: an outcome that looks like skill and a " +
-          "process that graded zero, shown at the same size so neither can hide behind the other."
-        : "<b>P/L and process agree.</b> Keep the sample growing before trusting either.") +
-      (thin ? " Sample is " + perf.totalTrades + " trade" + (perf.totalTrades === 1 ? "" : "s") +
-        " \u2014 rates stay blank until " + perf.minSampleForRates + "." : "") + "</div>";
+      cell("Unaided actions",
+        tot ? un + "/" + tot : "\u2014",
+        !tot ? "flat" : un === tot ? "up" : "down",
+        tot ? "orders placed by the agent, not by hand"
+            : "no actions recorded yet") +
+
+      cell("Checklist adherence",
+        a.entriesGraded ? a.entriesPassed + "/" + a.entriesGraded : "\u2014",
+        !a.entriesGraded ? "flat" : a.entriesPassed === a.entriesGraded ? "up" : "down",
+        "entries passing all six \u00b7 exits on time " + a.exitsOnTime + "/" + a.exitsTotal);
+
+    var v;
+    if (rh.fired && rh.connected === 0 && un === 0) {
+      v = "<b>The agent is not yet running itself.</b> " + rh.fired + " scheduled run" +
+        (rh.fired === 1 ? "" : "s") + " fired and none reached the brokerage; " +
+        (tot - un) + " of " + tot + " action" + (tot === 1 ? "" : "s") +
+        " on this board was placed by hand. Everything below describes a process a human is " +
+        "still driving. Closing that gap is the project \u2014 so it is stated at the top rather " +
+        "than left to be inferred from a ledger note.";
+    } else if (rh.connected < rh.fired) {
+      v = "<b>Partial autonomy.</b> " + rh.connected + " of " + rh.fired + " runs reached the " +
+        "brokerage. A run that fires without a connection is not a smaller success; it is a " +
+        "run that could not have enforced a stop.";
+    } else if (un < tot) {
+      v = "<b>Runs are healthy; the hand is still on the wheel.</b> Every scheduled run " +
+        "connected, but " + (tot - un) + " of " + tot + " actions were placed manually.";
+    } else {
+      v = "<b>Running unattended.</b> Every recorded run connected and every action was the " +
+        "agent's. Adherence is now the number that matters.";
+    }
+    if (thin) {
+      v += " Trade sample is " + tot + " \u2014 win rate and profit factor stay blank until " +
+        (perf.minSampleForRates || 20) + ".";
+    }
+    $("pair").innerHTML = h + "<div class='verdict'>" + v + "</div>";
+  }
+
+  /* ---------- run history ---------- */
+  function renderRuns(r) {
+    var rh = runHealth(r);
+    var list = (r.runs || []).slice().reverse();
+    var p = r.priorSummary;
+
+    var h = "<div class='tiles'>" +
+      tile("Runs fired", String(rh.fired), "scheduled firings on record", "flat") +
+      tile("Connected", rh.fired ? rh.connected + "/" + rh.fired : "\u2014",
+        "reached the brokerage", !rh.fired ? "flat" : rh.connected === rh.fired ? "up" : "down") +
+      tile("Blind runs", String(rh.fired - rh.connected),
+        "fired with no live account state", rh.fired - rh.connected ? "down" : "up") +
+      tile("Actions taken", String(rh.actions), "orders placed across all runs", "flat") +
+      "</div>";
+
+    if (!list.length) {
+      h += "<div class='empty'><strong>No per-run rows yet</strong>" +
+        "Per-run records begin " + esc(r.recordsBeginOn || "when runs start writing them") +
+        ". Until a run writes its own row, this table stays empty rather than reconstructing " +
+        "one from the log.</div>";
+    } else {
+      h += "<div class='tw'><table><thead><tr><th>Date</th><th>Slot</th><th>At</th>" +
+        "<th>Fired</th><th>Connected</th><th class='r'>Actions</th><th>Note</th></tr></thead><tbody>" +
+        list.map(function (x) {
+          var yn = function (b) {
+            return "<span class='flag flag--" + (b ? "ok" : "nofly") + "'>" + (b ? "YES" : "NO") + "</span>";
+          };
+          return "<tr><td class='num'>" + esc(x.date) + "</td>" +
+            "<td class='sym'>" + esc(x.slot) + "</td>" +
+            "<td class='num'>" + esc(x.at || "\u2014") + "</td>" +
+            "<td>" + yn(x.fired) + "</td><td>" + yn(x.connected) + "</td>" +
+            "<td class='num r'>" + esc(String(x.actions == null ? "\u2014" : x.actions)) + "</td>" +
+            "<td>" + esc(x.note || "") + "</td></tr>";
+        }).join("") + "</tbody></table></div>";
+    }
+
+    if (p && p.fired) {
+      h += "<p class='note'><b>Before " + esc(r.recordsBeginOn) + ":</b> " + esc(p.note) + "</p>";
+    }
+    $("runs").innerHTML = h;
   }
 
   /* ---------- account ---------- */
@@ -260,7 +349,9 @@
   function renderPerf(p) {
     var a = p.adherence, L = p.ledger;
     var thin = p.totalTrades < (p.minSampleForRates || 20);
+    var net = p.grossWins - p.grossLosses;
     var h = "<div class='tiles'>" +
+      tile("Net P/L", signed(net), p.wins + "W / " + p.losses + "L", dir(net)) +
       tile("Win rate", thin ? "\u2014" : ((p.wins / p.totalTrades) * 100).toFixed(0) + "%",
         p.wins + "W / " + p.losses + "L \u00b7 n=" + p.totalTrades, "flat") +
       tile("Profit factor", p.grossLosses > 0 ? (p.grossWins / p.grossLosses).toFixed(2) : "\u2014",
@@ -283,14 +374,27 @@
         "<p class='note'>Start value derived from cash plus premium held before the first fill. " +
         "Close value reconciled against the brokerage, including a $0.06 regulatory fee.</p>";
 
-    h += "<div class='sub'>Closed trades</div><table><thead><tr><th>Date</th><th>Instrument</th>" +
-      "<th class='r'>P/L</th><th class='r'>%</th><th>Placed by</th><th>Process grade</th></tr></thead><tbody>" +
-      p.closedTrades.map(function (t) {
-        return "<tr><td class='num'>" + esc(t.date) + "</td><td class='sym'>" + esc(t.sym) + "</td>" +
-          "<td class='num r " + dir(t.pl) + "'>" + signed(t.pl) + "</td>" +
-          "<td class='num r " + dir(t.plPct) + "'>" + pct(t.plPct) + "</td>" +
-          "<td>" + (t.byAgent ? "agent" : "by hand") + "</td><td>" + esc(t.grade) + "</td></tr>";
-      }).join("") + "</tbody></table>";
+    /* Fill detail is optional per trade. A dash means the fill was never recorded —
+       it is not reconstructed from P/L arithmetic, because a reconstructed price is
+       indistinguishable from a confirmed one once it is committed. */
+    var dash = function (v) { return v == null || v === "" ? "—" : v; };
+    h += "<div class='sub'>Closed trades</div>";
+    h += p.closedTrades.length
+      ? "<div class='tw'><table><thead><tr><th>Date</th><th>Instrument</th>" +
+        "<th class='r'>Entry</th><th class='r'>Exit</th><th class='r'>Held</th>" +
+        "<th class='r'>P/L</th><th class='r'>%</th><th>Placed by</th><th>Process grade</th>" +
+        "</tr></thead><tbody>" +
+        p.closedTrades.map(function (t) {
+          return "<tr><td class='num'>" + esc(t.date) + "</td><td class='sym'>" + esc(t.sym) + "</td>" +
+            "<td class='num r'>" + esc(t.entry == null ? "—" : money(t.entry)) + "</td>" +
+            "<td class='num r'>" + esc(t.exit == null ? "—" : money(t.exit)) + "</td>" +
+            "<td class='num r'>" + esc(dash(t.held)) + "</td>" +
+            "<td class='num r " + dir(t.pl) + "'>" + signed(t.pl) + "</td>" +
+            "<td class='num r " + dir(t.plPct) + "'>" + pct(t.plPct) + "</td>" +
+            "<td>" + (t.byAgent ? "agent" : "by hand") + "</td><td>" + esc(t.grade) + "</td></tr>";
+        }).join("") + "</tbody></table></div>"
+      : "<div class='empty'><strong>No closed trades</strong>Nothing has been opened and closed " +
+        "under the mandate yet.</div>";
 
     h += "<div class='sub'>Discipline ledger</div><div class='led'>" +
       [["Acted on time", L.onTime, "up"],
@@ -362,18 +466,19 @@
     });
   }
 
-  Promise.all([load("state"), load("moves"), load("why"), load("perf"), load("bench")])
+  Promise.all([load("state"), load("moves"), load("why"), load("perf"), load("bench"), load("runs")])
     .then(function (d) {
-      var state = d[0], moves = d[1], perf = d[3], bench = d[4];
+      var state = d[0], moves = d[1], perf = d[3], bench = d[4], runs = d[5];
       whyData = d[2];
       renderStamp(state);
-      renderPair(perf);
+      renderHeadline(perf, runs);
       renderAccount(state);
       renderExits(state);
       renderMoves(moves);
       renderWatch(state);
       renderCandidates(state);
       renderWhy();
+      renderRuns(runs);
       renderPerf(perf);
       renderBench(bench);
     })
@@ -394,4 +499,58 @@
       renderWhy();
     });
   });
+
+  /* ---------- tabs ----------
+     Progressive enhancement on purpose: the panels are visible in the markup and
+     only this code hides them. With JS off — or if this file fails to parse — the
+     page degrades to the single long scroll it used to be, with nothing lost.
+     The disclaimer, the stamp and the headline sit outside the panels, so they
+     stay on screen no matter which tab is open. */
+  (function tabs() {
+    var strip = document.querySelector(".tabs");
+    var btns = [].slice.call(document.querySelectorAll(".tabs button"));
+    var panels = [].slice.call(document.querySelectorAll("[data-panel]"));
+    if (!strip || !btns.length || !panels.length) return;
+
+    document.body.classList.add("tabs-on");
+
+    function show(name, focus) {
+      var known = panels.some(function (p) { return p.dataset.panel === name; });
+      if (!known) name = panels[0].dataset.panel;
+      panels.forEach(function (p) { p.hidden = p.dataset.panel !== name; });
+      btns.forEach(function (b) {
+        var on = b.dataset.tab === name;
+        b.setAttribute("aria-selected", String(on));
+        b.tabIndex = on ? 0 : -1;
+        if (on && focus) b.focus();
+      });
+      return name;
+    }
+
+    btns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        var n = show(b.dataset.tab);
+        // replaceState, not a hash assignment: switching tabs should not stack
+        // history entries the back button then has to chew through.
+        history.replaceState(null, "", "#" + n);
+      });
+    });
+
+    strip.addEventListener("keydown", function (e) {
+      var i = btns.indexOf(document.activeElement);
+      if (i < 0) return;
+      var j = e.key === "ArrowRight" ? i + 1 : e.key === "ArrowLeft" ? i - 1
+            : e.key === "Home" ? 0 : e.key === "End" ? btns.length - 1 : -1;
+      if (j < 0 && j !== 0) return;
+      e.preventDefault();
+      j = (j + btns.length) % btns.length;
+      history.replaceState(null, "", "#" + show(btns[j].dataset.tab, true));
+    });
+
+    window.addEventListener("hashchange", function () {
+      show(location.hash.replace(/^#/, ""));
+    });
+
+    show(location.hash.replace(/^#/, ""));
+  })();
 })();

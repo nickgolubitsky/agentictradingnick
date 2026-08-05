@@ -23,6 +23,12 @@ Exactly one writer per file. Two runs never edit the same block.
 | `why.json` | trading runs append; retro adds `grade` only | anyone else |
 | `perf.json` | retro | trading runs |
 | `bench.json` | retro | trading runs |
+| `runs.json` | every run appends its own row | any run editing another's row |
+
+`runs.json` is the exception to one-writer-per-file, and deliberately so: a run
+records *itself*. A run that cannot reach the broker still writes its row before it
+stops, because the difference between a run that failed and a run that never fired
+is invisible otherwise — and that difference is the whole autonomy measure.
 
 ## The retro is read-only
 

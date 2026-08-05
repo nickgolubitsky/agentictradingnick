@@ -1,13 +1,19 @@
 # Agentic Trading
 
-An open experiment: can an LLM agent follow a trading process when following it is
-inconvenient?
+An open experiment: can an LLM agent **run itself** — fire on schedule, reach the broker,
+and follow a fixed process when following it is inconvenient?
 
-The account is small on purpose — small enough that losing all of it changes nothing.
-The interesting output is not the P/L. It is the grading record: every order, every
-deliberate non-order, the reasoning written *before* the outcome was known, and a
-read-only audit that grades each one against a fixed checklist without being told
-whether the trade made money.
+The account is small on purpose — small enough that losing all of it changes nothing. An
+account this size cannot make its returns interesting. It can absolutely make its
+*reliability* interesting, and that is the thing being measured: did the scheduled runs
+fire, did they reach the brokerage, and how much of what happened did the agent do without
+a human. Alongside that, the grading record: every order, every deliberate non-order, the
+reasoning written *before* the outcome was known, and a read-only audit that grades each
+one against a fixed checklist without being told whether the trade made money.
+
+As of the first published day the honest answer is *no, not yet*: five scheduled runs fired
+and none reached the broker, and the only trade on the board was placed by hand. That number
+is the headline rather than a footnote, because it is the gap the project exists to close.
 
 **Live board:** https://agentictradingnick.vercel.app
 **Not investment advice.** See [DISCLAIMER.md](DISCLAIMER.md). Read it before you read
@@ -21,11 +27,14 @@ Most public trading records show returns. Returns off a small sample tell you al
 nothing — a coin-flip trade that pays 40% looks identical to a well-reasoned one that
 pays 40%, and the first kind kills the account eventually.
 
-So this project shows two numbers at the same size, side by side:
+So the three numbers at the top of the board are not returns:
 
-| Outcome | Process |
-|---|---|
-| Net P/L, win rate, profit factor | Checklist adherence, exits taken on time, missed setups |
+| Run health | Unaided actions | Process |
+|---|---|---|
+| Scheduled runs that reached the broker | Orders the agent placed itself, not by hand | Checklist adherence, exits on time, missed setups |
+
+Net P/L, win rate and profit factor are all still published — one tab down, under
+**Record**, at the size they deserve.
 
 The first entry in this log is the whole thesis. A trade closed **+40.8%** and graded
 **0/6** on process. The money said "skill." The checklist said the entry had a 2.3%
@@ -51,7 +60,8 @@ Each run edits only the data files it owns:
 | `data/state.json` | trading runs | Balances, positions, exit levels, entry watch, candidates |
 | `data/moves.json` | trading runs | Upcoming catalysts and the branch decided in advance |
 | `data/why.json` | trading runs append · retro grades | Reasoning for every action and non-action |
-| `data/perf.json` | retro only | Closed trades, equity curve, adherence, discipline ledger |
+| `data/runs.json` | every run appends its own row | Did this run fire, did it reach the broker, what did it do |
+| `data/perf.json` | retro only | Closed trades with fills, equity curve, adherence, discipline ledger |
 | `data/bench.json` | retro only | Account vs SPY / QQQ / SMH |
 
 `index.html` is a static page that renders those files. It computes nothing about

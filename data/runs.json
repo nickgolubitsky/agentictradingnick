@@ -1,0 +1,12 @@
+{
+  "_comment": "Every scheduled run writes one record here — including, especially, a run that could not connect. A failed run that logs is data; a failed run that stays silent is a hole in the record, and a hole is indistinguishable from a run that never fired. Record shape: { date, slot: open|hourly|preclose|retro, at, fired, connected, actions, note }. 'connected' means the brokerage connector attached and the run read live account state; a run that reasoned only from this repo's JSON is fired=true, connected=false. Per-run rows begin on recordsBeginOn. Anything earlier is carried in priorSummary as an aggregate, because those runs predate this file and the per-run detail was never written down. Do not backfill it.",
+  "recordsBeginOn": "2026-08-05",
+  "priorSummary": {
+    "through": "2026-08-04",
+    "fired": 5,
+    "connected": 0,
+    "actions": 0,
+    "note": "Five consecutive firings lost brokerage access. Carried from the discipline ledger and docs/ARCHITECTURE.md as an aggregate — this file did not exist when they ran, so there are no per-run rows to show. Counted in run health."
+  },
+  "runs": []
+}

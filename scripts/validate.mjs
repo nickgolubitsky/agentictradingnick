@@ -72,10 +72,10 @@ for (const file of walk(ROOT)) {
 
 /* ---------- 2. data sanity ---------- */
 const read = (n) => JSON.parse(readFileSync(join(ROOT, "data", n + ".json"), "utf8"));
-let state, perf, bench, moves, why;
+let state, perf, bench, moves, why, runs;
 try {
   state = read("state"); perf = read("perf"); bench = read("bench");
-  moves = read("moves"); why = read("why");
+  moves = read("moves"); why = read("why"); runs = read("runs");
 } catch (e) {
   errors.push(`DATA  could not parse: ${e.message}`);
 }
@@ -120,6 +120,47 @@ if (moves) {
     for (const b of m.branches ?? []) {
       if (!b.why) errors.push(`DATA  ${m.ticker}: a branch has no reasoning. Every action carries its reason or it does not ship.`);
     }
+  }
+}
+
+/* Run health is the headline number now, so the gate has to cover it. The
+ * failure this blocks is flattering arithmetic: a run counted as connected
+ * without having fired, or a blind run quietly dropped from the denominator. */
+if (runs) {
+  const SLOTS = ["open", "hourly", "preclose", "retro"];
+  const list = runs.runs ?? [];
+  for (const r of list) {
+    if (!SLOTS.includes(r.slot)) {
+      errors.push(`DATA  run ${r.date ?? "?"} has unknown slot '${r.slot}' (expected ${SLOTS.join(" | ")})`);
+    }
+    if (typeof r.fired !== "boolean" || typeof r.connected !== "boolean") {
+      errors.push(`DATA  run ${r.date ?? "?"} ${r.slot ?? ""}: fired and connected must both be booleans`);
+    }
+    if (r.connected && !r.fired) {
+      errors.push(`DATA  run ${r.date ?? "?"} ${r.slot ?? ""} is connected but not fired. A run cannot reach the broker without running.`);
+    }
+    if (r.actions != null && (!Number.isInteger(r.actions) || r.actions < 0)) {
+      errors.push(`DATA  run ${r.date ?? "?"} ${r.slot ?? ""}: actions must be a non-negative integer`);
+    }
+    if (!r.connected && r.actions > 0) {
+      errors.push(`DATA  run ${r.date ?? "?"} ${r.slot ?? ""} placed ${r.actions} action(s) with no broker connection. One of the two fields is wrong.`);
+    }
+    if (Number.isNaN(+new Date(r.date))) {
+      errors.push(`DATA  run has an unparseable date '${r.date}'`);
+    }
+  }
+  const p = runs.priorSummary;
+  if (p) {
+    if (p.connected > p.fired) {
+      errors.push(`DATA  runs.priorSummary claims ${p.connected} connected of ${p.fired} fired`);
+    }
+    if (!p.note) {
+      errors.push("DATA  runs.priorSummary has no note. An aggregate with no explanation is an unsourced number.");
+    }
+  }
+  const fired = (p?.fired ?? 0) + list.filter((r) => r.fired).length;
+  if (fired === 0 && (perf?.totalTrades ?? 0) > 0) {
+    warnings.push("DATA  trades exist but no run has ever been recorded — run history is not being written");
   }
 }
 

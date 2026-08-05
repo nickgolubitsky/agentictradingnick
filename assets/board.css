@@ -35,8 +35,8 @@ a{color:var(--bench)}
   padding:13px 15px;margin-bottom:18px;font-size:13px;line-height:1.6;color:var(--ink2)}
 .banner b{color:var(--ink)}
 
-/* headline pair: outcome vs process */
-.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+/* headline: run health · unaided actions · adherence */
+.pair{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px}
 .pair>section{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px}
 .pair__k{font:600 10.5px/1 var(--num);letter-spacing:.09em;text-transform:uppercase;color:var(--ink3)}
 .pair__v{font-family:var(--num);font-size:32px;font-weight:600;font-variant-numeric:tabular-nums;
@@ -45,6 +45,20 @@ a{color:var(--bench)}
 .verdict{grid-column:1/-1;background:var(--card);border:1px solid var(--line);border-radius:var(--r);
   padding:13px 15px;font-size:13px;line-height:1.6;color:var(--ink2)}
 .verdict b{color:var(--ink)}
+
+/* tabs — primary nav. Deliberately an underline rather than the pill used by
+   .filters: the pills are a control inside one card, these switch the whole page,
+   and two identical-looking controls at different altitudes read as one system. */
+.tabs{display:flex;gap:2px;flex-wrap:wrap;margin-bottom:18px;border-bottom:1px solid var(--line)}
+.tabs button{font:600 13px var(--ui);color:var(--ink3);background:transparent;border:0;
+  border-bottom:2px solid transparent;margin-bottom:-1px;padding:9px 14px;cursor:pointer}
+.tabs button:hover{color:var(--ink2)}
+.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--ink)}
+.tabs button:focus-visible{outline:2px solid var(--bench);outline-offset:-2px}
+[data-panel]:focus{outline:none}
+/* Only applied once JS runs. Without it every panel stays in flow and the page
+   is the long scroll it was before — no content is reachable only via tabs. */
+body.tabs-on [data-panel][hidden]{display:none}
 
 /* cards */
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);margin-bottom:16px}
@@ -85,6 +99,10 @@ a{color:var(--bench)}
 .level__v{font-family:var(--num);font-size:12.5px;margin-top:4px;font-variant-numeric:tabular-nums}
 
 /* tables */
+/* Wide tables scroll inside their own card rather than widening the page. The
+   trades table carries nine columns and the run log seven; neither fits a phone. */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw table{min-width:640px}
 table{width:100%;border-collapse:collapse;font-size:13px}
 th{font:600 9.5px/1 var(--num);letter-spacing:.09em;text-transform:uppercase;color:var(--ink3);
   text-align:left;padding:0 9px 10px;border-bottom:1px solid var(--line)}
@@ -174,10 +192,17 @@ footer{margin-top:28px;font-size:12px;line-height:1.7;color:var(--ink3)}
 footer strong{color:var(--ink2)}
 footer a{color:var(--ink2)}
 
+@media (max-width:860px){
+  .pair{grid-template-columns:1fr 1fr}
+  .pair>section:nth-child(3){grid-column:1/-1}
+}
 @media (max-width:720px){
   .branch{grid-template-columns:1fr;gap:9px}
   .pair{grid-template-columns:1fr}
+  .pair>section:nth-child(3){grid-column:auto}
   .stamp,.card__o,.wy__d,.pos__p,.move__w{margin-left:0}
   .pair__v{font-size:27px}
+  .tabs{gap:0}
+  .tabs button{padding:9px 11px;font-size:12.5px}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}

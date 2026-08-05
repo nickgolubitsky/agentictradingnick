@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Agentic Trading — public process log</title>
-<meta name="description" content="An open, small-stakes experiment in whether an LLM agent can follow a trading process. Every order, every deliberate non-order, and the reasoning behind both — graded outcome-blind.">
+<meta name="description" content="An open, small-stakes experiment in whether an LLM agent can run itself: fire on schedule, reach the broker, and follow a fixed rulebook unattended. Run health, unaided actions and process adherence, graded outcome-blind.">
 <meta name="robots" content="index,follow">
 <meta property="og:title" content="Agentic Trading — public process log">
-<meta property="og:description" content="Outcome and process, graded separately. Not investment advice.">
+<meta property="og:description" content="Can the agent run itself? Run health, unaided actions and process adherence — graded outcome-blind. Not investment advice.">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/board.css">
@@ -18,12 +18,15 @@
 <header class="hdr">
   <div>
     <h1>Agentic Trading <span>— public process log</span></h1>
-    <p>A small, isolated account run by an LLM agent on a fixed rulebook. The point is not
-      the P/L. The point is whether the process gets followed when it is inconvenient.</p>
+    <p>A small, isolated account run by an LLM agent on a fixed rulebook. The question is
+      whether the agent can run itself — fire on schedule, reach the broker, and follow the
+      rules unattended. The P/L is the least interesting number on this page.</p>
   </div>
   <div class="stamp" id="stamp">loading…</div>
 </header>
 
+<!-- Outside the tab panels on purpose. The disclaimer has to be visible from every
+     tab, not one click away; docs/SETUP.md makes "above the fold" an explicit check. -->
 <div class="banner">
   <b>Not investment advice, and not a signal service.</b> This is a documented experiment
   with an account small enough that losing all of it changes nothing. Nothing here is a
@@ -35,94 +38,135 @@
 
 <div class="pair" id="pair" data-slot></div>
 
-<section class="card">
-  <div class="card__h"><h2 class="card__t">Account</h2>
-    <p class="card__s">Settled cash sets position size before any thesis does</p>
-    <span class="card__o">trading runs</span></div>
-  <div class="card__b" id="account" data-slot></div>
-</section>
+<nav class="tabs" role="tablist" aria-label="Board sections">
+  <button role="tab" id="tab-now"    data-tab="now"    aria-controls="panel-now"    aria-selected="true">Now</button>
+  <button role="tab" id="tab-moves"  data-tab="moves"  aria-controls="panel-moves"  aria-selected="false">Moves</button>
+  <button role="tab" id="tab-log"    data-tab="log"    aria-controls="panel-log"    aria-selected="false">Log</button>
+  <button role="tab" id="tab-record" data-tab="record" aria-controls="panel-record" aria-selected="false">Record</button>
+  <button role="tab" id="tab-rules"  data-tab="rules"  aria-controls="panel-rules"  aria-selected="false">Rules</button>
+</nav>
 
-<section class="card">
-  <div class="card__h"><h2 class="card__t">Exit board</h2>
-    <p class="card__s">Target · stop · time stop · option no-fly — lit when a level is live</p>
-    <span class="card__o">trading runs</span></div>
-  <div class="card__b" id="exits" data-slot></div>
-</section>
+<!-- ============================= NOW ============================= -->
+<div id="panel-now" data-panel="now" role="tabpanel" aria-labelledby="tab-now" tabindex="0">
 
-<section class="card">
-  <div class="card__h"><h2 class="card__t">Anticipated moves</h2>
-    <p class="card__s">Catalysts ahead, with the branch decided before the event</p>
-    <span class="card__o">trading runs</span></div>
-  <div class="card__b" id="moves" data-slot></div>
-</section>
+  <section class="card">
+    <div class="card__h"><h2 class="card__t">Account</h2>
+      <p class="card__s">Settled cash sets position size before any thesis does</p>
+      <span class="card__o">trading runs</span></div>
+    <div class="card__b" id="account" data-slot></div>
+  </section>
 
-<section class="card">
-  <div class="card__h"><h2 class="card__t">Entry watch</h2>
-    <p class="card__s">A setup reaches this list only with its exits already written down</p>
-    <span class="card__o">trading runs</span></div>
-  <div class="card__b" id="watch" data-slot></div>
-</section>
+  <section class="card">
+    <div class="card__h"><h2 class="card__t">Exit board</h2>
+      <p class="card__s">Target · stop · time stop · option no-fly — lit when a level is live</p>
+      <span class="card__o">trading runs</span></div>
+    <div class="card__b" id="exits" data-slot></div>
+  </section>
 
-<section class="card">
-  <div class="card__h"><h2 class="card__t">Candidates</h2>
-    <p class="card__s">The chain, with each name's own earnings date</p>
-    <span class="card__o">trading runs</span></div>
-  <div class="card__b" id="candidates" data-slot></div>
-</section>
+  <section class="card">
+    <div class="card__h"><h2 class="card__t">Entry watch</h2>
+      <p class="card__s">A setup reaches this list only with its exits already written down</p>
+      <span class="card__o">trading runs</span></div>
+    <div class="card__b" id="watch" data-slot></div>
+  </section>
 
-<section class="card">
-  <div class="card__h"><h2 class="card__t">Why</h2>
-    <p class="card__s">Every order and every deliberate non-order, with its reasoning</p>
-    <span class="card__o">runs append · retro grades</span></div>
-  <div class="card__b">
-    <div class="filters" role="group" aria-label="Filter reasoning entries">
-      <button data-f="all" aria-pressed="true">All</button>
-      <button data-f="did" aria-pressed="false">Did</button>
-      <button data-f="will" aria-pressed="false">Will</button>
+  <section class="card">
+    <div class="card__h"><h2 class="card__t">Candidates</h2>
+      <p class="card__s">The chain, with each name's own earnings date</p>
+      <span class="card__o">trading runs</span></div>
+    <div class="card__b" id="candidates" data-slot></div>
+  </section>
+
+</div>
+
+<!-- ============================ MOVES ============================ -->
+<div id="panel-moves" data-panel="moves" role="tabpanel" aria-labelledby="tab-moves" tabindex="0">
+
+  <section class="card">
+    <div class="card__h"><h2 class="card__t">Anticipated moves</h2>
+      <p class="card__s">Catalysts ahead, with the branch decided before the event</p>
+      <span class="card__o">trading runs</span></div>
+    <div class="card__b" id="moves" data-slot></div>
+  </section>
+
+</div>
+
+<!-- ============================= LOG ============================= -->
+<div id="panel-log" data-panel="log" role="tabpanel" aria-labelledby="tab-log" tabindex="0">
+
+  <section class="card">
+    <div class="card__h"><h2 class="card__t">Why</h2>
+      <p class="card__s">Every order and every deliberate non-order, with its reasoning</p>
+      <span class="card__o">runs append · retro grades</span></div>
+    <div class="card__b">
+      <div class="filters" role="group" aria-label="Filter reasoning entries">
+        <button data-f="all" aria-pressed="true">All</button>
+        <button data-f="did" aria-pressed="false">Did</button>
+        <button data-f="will" aria-pressed="false">Will</button>
+      </div>
+      <div id="why" data-slot></div>
     </div>
-    <div id="why" data-slot></div>
-  </div>
-</section>
+  </section>
 
-<section class="card">
-  <div class="card__h"><h2 class="card__t">Performance</h2>
-    <p class="card__s">Outcome and process, graded separately and outcome-blind</p>
-    <span class="card__o">retro only</span></div>
-  <div class="card__b" id="perf" data-slot></div>
-</section>
+</div>
 
-<section class="card">
-  <div class="card__h"><h2 class="card__t">Benchmark</h2>
-    <p class="card__s">Account vs SPY · QQQ · SMH, rebased to the baseline session</p>
-    <span class="card__o">retro only</span></div>
-  <div class="card__b" id="bench" data-slot></div>
-</section>
+<!-- ============================ RECORD =========================== -->
+<div id="panel-record" data-panel="record" role="tabpanel" aria-labelledby="tab-record" tabindex="0">
 
-<section class="card">
-  <div class="card__h"><h2 class="card__t">Standing rules</h2>
-    <p class="card__s">Fixed in advance — changes are logged and dated</p>
-    <span class="card__o">operator sets</span></div>
-  <div class="card__b"><div class="rules">
-    <span class="rule">take profit <b>+20%</b>, not more</span>
-    <span class="rule">equity stop <b>−8%</b></span>
-    <span class="rule">option stop <b>−40%</b> of premium</span>
-    <span class="rule">time stop <b>~5 sessions</b></span>
-    <span class="rule">options: delta <b>≥ 0.40</b>, <b>3–6 weeks</b> out</span>
-    <span class="rule"><b>no</b> earnings holds on options</span>
-    <span class="rule"><b>1–2</b> positions max</span>
-    <span class="rule">quote the <b>bid</b></span>
-    <span class="rule">limit orders, except fractional</span>
-  </div>
-  <p class="note">The full rulebook, the six-item pre-trade checklist and the rule-drift
-    policy are in <a href="https://github.com/nickgolubitsky/agentictradingnick/blob/main/docs/RULES.md">docs/RULES.md</a>.</p>
-  </div>
-</section>
+  <section class="card">
+    <div class="card__h"><h2 class="card__t">Run history</h2>
+      <p class="card__s">Did the scheduled runs fire, and did they reach the broker</p>
+      <span class="card__o">every run writes</span></div>
+    <div class="card__b" id="runs" data-slot></div>
+  </section>
+
+  <section class="card">
+    <div class="card__h"><h2 class="card__t">Performance</h2>
+      <p class="card__s">Outcome and process, graded separately and outcome-blind</p>
+      <span class="card__o">retro only</span></div>
+    <div class="card__b" id="perf" data-slot></div>
+  </section>
+
+  <section class="card">
+    <div class="card__h"><h2 class="card__t">Benchmark</h2>
+      <p class="card__s">Account vs SPY · QQQ · SMH, rebased to the baseline session</p>
+      <span class="card__o">retro only</span></div>
+    <div class="card__b" id="bench" data-slot></div>
+  </section>
+
+</div>
+
+<!-- ============================ RULES ============================ -->
+<div id="panel-rules" data-panel="rules" role="tabpanel" aria-labelledby="tab-rules" tabindex="0">
+
+  <section class="card">
+    <div class="card__h"><h2 class="card__t">Standing rules</h2>
+      <p class="card__s">Fixed in advance — changes are logged and dated</p>
+      <span class="card__o">operator sets</span></div>
+    <div class="card__b"><div class="rules">
+      <span class="rule">take profit <b>+20%</b>, not more</span>
+      <span class="rule">equity stop <b>−8%</b></span>
+      <span class="rule">option stop <b>−40%</b> of premium</span>
+      <span class="rule">time stop <b>~5 sessions</b></span>
+      <span class="rule">options: delta <b>≥ 0.40</b>, <b>3–6 weeks</b> out</span>
+      <span class="rule"><b>no</b> earnings holds on options</span>
+      <span class="rule"><b>1–2</b> positions max</span>
+      <span class="rule">quote the <b>bid</b></span>
+      <span class="rule">limit orders, except fractional</span>
+    </div>
+    <p class="note">The full rulebook, the six-item pre-trade checklist and the rule-drift
+      policy are in <a href="https://github.com/nickgolubitsky/agentictradingnick/blob/main/docs/RULES.md">docs/RULES.md</a>.</p>
+    </div>
+  </section>
+
+</div>
 
 <footer>
   <strong>How this updates.</strong> Scheduled runs at the open, hourly through the session,
-  before the close, and a read-only retro after the close. The retro grades the day against
-  the rules without knowing whether the trade made money. This page shows the state as of the
-  last committed run, not live quotes.<br><br>
+  before the close, and a read-only retro after the close. Every run records whether it fired
+  and whether it reached the brokerage, so a run that failed silently is visible as a gap. The
+  retro grades the day against the rules without knowing whether the trade made money. This
+  page shows the state as of the last committed run, not live quotes.<br><br>
   <strong>What is deliberately absent.</strong> No account numbers, no broker identifiers, no
   balances for any account other than this one, no personal contact details. A CI check fails
   the build if any of those appear.<br><br>

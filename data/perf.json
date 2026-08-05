@@ -11,8 +11,11 @@
     { "date": "2026-08-04 open",  "v": 99.96,  "note": "Derived: cash plus premium before the buy" },
     { "date": "2026-08-04 close", "v": 128.90, "note": "Reconciled - includes a $0.06 regulatory fee" }
   ],
+  "_tradeFields": "entry/exit/entryAt/exitAt/held are optional. Fill them only from a fill the broker confirmed - the board renders a dash where they are absent rather than reconstructing a price from P/L arithmetic.",
   "closedTrades": [
-    { "date": "2026-08-04", "sym": "AMD 8/7 $675c", "pl": 29.00, "plPct": 40.8, "byAgent": false, "grade": "0/6 checklist - process FAIL" }
+    { "date": "2026-08-04", "sym": "AMD 8/7 $675c", "entry": 0.71, "exit": 1.00,
+      "entryAt": "2026-08-04 11:56", "exitAt": "2026-08-04 13:04", "held": "1h 08m",
+      "pl": 29.00, "plPct": 40.8, "byAgent": false, "grade": "0/6 checklist - process FAIL" }
   ],
   "adherence": { "entriesGraded": 1, "entriesPassed": 0, "exitsOnTime": 1, "exitsTotal": 1 },
   "ledger": {
