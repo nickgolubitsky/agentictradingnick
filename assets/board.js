@@ -438,7 +438,9 @@
           lv("Stop", money(o.stop)) +
           lv("Time stop", o.timeStop) +
           (o.qty != null ? lv("Size", String(o.qty)) : "") +
+          (o.bid != null && o.ask != null ? lv("Bid / ask", money(o.bid) + " / " + money(o.ask)) : "") +
           (o.delta != null ? lv("Delta", String(o.delta)) : "") +
+          (o.oi != null ? lv("Open interest", String(o.oi)) : "") +
           (o.contractExpiry ? lv("Contract expiry", o.contractExpiry) : "") +
         "</div>" + forced +
         "<p class='act__b'>" + esc(e.body) + "</p>" +

@@ -30,6 +30,12 @@ Run in order before every open. An unlogged check counts as **not done**.
 - **Expiry 3–6 weeks out minimum.** Never hold into the final week — theta on short-dated contracts can exceed the position value per week.
 - **No holding options through earnings.** IV crush kills even a correct call.
 - Spread under ~10% of mark, real open interest. Limit orders at or near the midpoint.
+- **The contract must come from the live chain, not be constructed.** Pull the chain,
+  take the broker's own contract id, and quote its actual bid, ask and open interest.
+  A plausible-looking ticker is not evidence a contract is listed: UPST expirations run
+  2026-10-16 then 2026-12-18, so an invented "11/20" contract is a genuine third Friday
+  and still does not exist. The publish gate rejects an option specification with no
+  contract id, no quoted spread, or no open interest.
 - Exit rules decided at entry, not discovered later.
 
 ## Order handling

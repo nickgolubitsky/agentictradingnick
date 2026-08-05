@@ -289,6 +289,33 @@ if (why) {
     /* Options carry their own rulebook, and it is the one this project has already
      * broken once — delta 0.032 against a 0.40 floor, three days to expiry. */
     if (o.kind === "option") {
+      /* A contract has to exist before it can be bought. The board cannot reach the
+       * broker, so it cannot confirm one — but it can refuse a specification that
+       * shows no evidence of having looked. instrumentId is the broker's own contract
+       * id: a run that pulled the chain has it, and a run that assembled a plausible
+       * ticker from a strike and a date does not.
+       *
+       * A date check would not have caught this. UPST lists 2026-10-16 and then
+       * 2026-12-18 with no November monthly, so an invented "11/20" contract is a
+       * real third Friday and still not tradeable. Only the chain knows. */
+      if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(o.instrumentId ?? "")) {
+        errors.push(`RULE  ${at}: option spec has no broker instrumentId. Pull the chain and use a contract that exists — a strike and an expiry that look plausible are not evidence the contract is listed.`);
+      }
+      const bid = o.bid, ask = o.ask;
+      if (typeof bid !== "number" || typeof ask !== "number" || !(bid > 0) || !(ask >= bid)) {
+        errors.push(`RULE  ${at}: option spec needs a quoted bid and ask from the chain, with ask >= bid > 0`);
+      } else {
+        const mark = (bid + ask) / 2;
+        if ((ask - bid) / mark > 0.10) {
+          errors.push(`RULE  ${at}: spread is ${(((ask - bid) / mark) * 100).toFixed(1)}% of mark, over the ~10% ceiling in docs/RULES.md`);
+        }
+        if (typeof o.limit === "number" && (o.limit < bid || o.limit > ask)) {
+          errors.push(`RULE  ${at}: limit ${o.limit} sits outside the quoted spread ${bid}–${ask}. A limit off the book is either a typo or unfillable.`);
+        }
+      }
+      if (!Number.isInteger(o.oi) || o.oi <= 0) {
+        errors.push(`RULE  ${at}: option spec has no open interest from the chain. Checklist item 4 is liquidity, and the entry this project already graded 0/6 had an open interest of 34.`);
+      }
       if (typeof o.delta !== "number") {
         errors.push(`RULE  ${at}: option spec has no delta. The 0.40 floor cannot be checked against a missing number.`);
       } else if (o.delta < 0.40) {
