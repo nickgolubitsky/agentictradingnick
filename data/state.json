@@ -1,21 +1,21 @@
 {
   "_comment": "Written by the trading runs (9:30a / hourly / 3:30p ET). Never contains account numbers, broker IDs, or any account other than the sandbox.",
-  "lastRefreshUtc": "2026-08-05T18:22:00Z",
+  "lastRefreshUtc": "2026-08-05T19:22:00Z",
   "accountLabel": "Sandbox account",
   "account": {
-    "total": 127.70,
+    "total": 127.50,
     "cash": 4.54,
     "deployable": 4.54,
     "unsettled": 0.00,
     "settlesOn": "nothing pending",
-    "verifiedAt": "2026-08-05 14:22 ET",
-    "note": "Cash account. Proceeds settle T+1. The balance stopped being all cash this hour. A directed fill at 13:34:59 ET put 124.36 of the 128.90 into 4 UPST at a 31.0899 average, leaving 4.54 in settled cash and nothing unsettled. Total is 127.70 against 128.90 at the last read, the difference being the position marked to market rather than any withdrawal. Deployable is now 4.54, which is below the price of a single share of anything on the candidate list, so the account is effectively fully committed regardless of what the tape offers."
+    "verifiedAt": "2026-08-05 15:22 ET",
+    "note": "Cash account. Proceeds settle T+1. Nothing settles tonight because nothing was sold. 124.36 of the balance sits in 4 UPST from the 13:34:59 ET directed fill, marked at 122.92 against the 30.73 bid, and 4.54 is settled cash. Total 127.50 against 127.70 an hour ago, the 0.20 being the position marked to market rather than any movement of funds. Deployable stays 4.54, below the price of a single share of every name on the candidate list - the cheapest is SOUN at 6.40 - so the account is fully committed and will stay that way until something is sold."
   },
   "positions": [
     {
       "sym": "UPST",
       "desc": "4 shares @ 31.0899 avg · opened 8/5 13:34:59 ET · directed",
-      "plPct": -0.80,
+      "plPct": -1.16,
       "target": "37.31",
       "stop": "28.60",
       "timeStop": "8/11 close · 5 sessions",
@@ -28,41 +28,41 @@
       "state": "dead",
       "trigger": "Reaction strong and still holding 30-60 min after the 8/5 open",
       "exits": "Target +20% / stop -8% / time stop 5 sessions",
-      "why": "Dead, and now dead for a second independent reason. AMD is bid 487.15 at 14:22 ET against a 518.58 official close, about -6.1%, a fifth-of-a-percent better than last hour and still deep inside the gap. The sequence is 491.73, 486.55, 482.06, 488.79, 485.92, 487.15 - a name chopping below a gap rather than repairing one, and six reads is enough to call that shape rather than guess at it. The second reason is mechanical and did not exist an hour ago: deployable cash is 4.54, so this setup could not be taken today even if the reaction turned strong in the next ninety minutes."
+      "why": "Dead on both reasons, and the clock has now closed it rather than the tape. AMD is bid 487.22 at 15:22 ET against a 518.58 official close, about -6.0%, seven cents better than an hour ago. The sequence is 491.73, 486.55, 482.06, 488.79, 485.92, 487.15, 487.22 - seven reads inside a five-dollar band below the gap, which is chop, not repair. The mechanical reason is unchanged: deployable cash is 4.54. And this is the last mid-session read, so 'still holding 30-60 min after the open' has no remaining hour to be tested in today. The setup does not carry forward - a day-2 continuation read on the 8/6 open is a new setup with a new trigger, not this one resumed."
     },
     {
       "setup": "Sympathy laggard",
       "state": "dead",
       "trigger": "Reaction strong but the leader is already extended",
       "exits": "Target +20% / stop -8% / time stop 5 sessions",
-      "why": "Conditional on a strong leader, and the leader is -6.1%. Two names printed green this hour - UPST at +1.7% and OKLO back to +0.1% after an hour red - so the 'nothing is green' condition of the 13:22 read has partly lifted, but neither is a leader and a 0.1% print is not a chain to find a laggard in. SMCI, the name this read pointed at, is bid 31.24, about -1.4%. Dead on the same 4.54 deployable that closes the other entry setups."
+      "why": "Conditional on a strong leader, and the leader is -6.0%. UPST at +1.4% is the only green on the list now - OKLO gave back its +0.1% and is bid 43.32, dead flat at -0.0% - and one name up 1.4% while it bleeds intraday is not a chain to hunt a laggard in. SMCI, the name this read pointed at, is bid 30.86, about -2.6%, having fallen 0.38 in the hour and become one of the weaker names on the list rather than a laggard about to catch up. Dead on the same 4.54 deployable that closes the other entry setups, and dead on the clock with this the last mid-session slot."
     },
     {
       "setup": "UPST day-2/3 pullback",
       "state": "dead",
       "trigger": "A pullback that holds on 8/6 or 8/7, not today's reaction bar",
       "exits": "Target +20% / stop -8% / time stop 5 sessions",
-      "why": "Dead as an entry, because the account is already long the name. A directed fill at 13:34:59 ET bought 4 UPST at a 31.0899 average - the reaction-day entry this setup existed to wait past - so the 8/6-8/7 pullback is no longer something this board can act on. Adding to the position on that pullback would be averaging down, which docs/RULES.md lists under 'does not fit', and there is 4.54 to do it with in any case. The setup is closed rather than satisfied: the thing it was waiting for never happened, and the position was taken by another route. UPST is bid 30.84 at 14:22 ET against a 30.32 close, about +1.7%, extending the intraday sequence to 33.81 after-hours, 32.23 open, 32.36, 32.05, 31.63, 31.26, 30.84 - seven reads, six of them consecutively lower, and now 1.39 below its own open bid. The entry sits 0.25 above the current bid as a result. Management of that position, not entry timing, is what the remaining slots are for."
+      "why": "Dead as an entry, because the account is already long the name. A directed fill at 13:34:59 ET bought 4 UPST at a 31.0899 average - the reaction-day entry this setup existed to wait past - so the 8/6-8/7 pullback is no longer something this board can act on. Adding to the position on that pullback would be averaging down, which docs/RULES.md lists under 'does not fit', and there is 4.54 to do it with in any case. UPST is bid 30.73 at 15:22 ET against a 30.32 close, about +1.4%, extending the sequence to 33.81 after-hours, 32.23 open, 32.36, 32.05, 31.63, 31.26, 30.84, 30.73 - eight reads, and every read since the 32.36 high has been lower than the one before it, five in a row. The one thing that changed this hour is the size of the step: the prior four legs were -0.31, -0.42, -0.37 and -0.42, and this one is -0.11. That is a smaller decline, not a turn, and the distinction matters because the pullback this setup wanted was a hold, not a slower bleed. The entry now sits 0.36 above the bid."
     },
     {
       "setup": "Stand aside",
       "state": "dead",
       "trigger": "Leader gapped down, most of the list red, only catalyst is a reaction-day spike",
       "exits": "-",
-      "why": "The branch the open resolved to and held for four hours, ended at 13:34:59 ET by a directed fill rather than by the tape. It is marked dead because the account is no longer flat and a board that still described itself as standing aside while holding 4 UPST would be contradicting its own exit panel. Recording what the branch was worth while it ran: it was correct on its own terms every hour it was checked, and the reaction-day spike it declined to buy has fallen from a 32.23 open bid to 30.84. It did not fail; it was overtaken. From here this slot's job is the position's levels, and the entry question does not reopen until the account has settled cash again."
+      "why": "The branch the open resolved to and held for four hours, ended at 13:34:59 ET by a directed fill rather than by the tape. It is marked dead because the account is no longer flat and a board that still described itself as standing aside while holding 4 UPST would be contradicting its own exit panel. Recording what the branch was worth while it ran: it was correct on its own terms every hour it was checked, and the reaction-day spike it declined to buy has fallen from a 32.23 open bid to 30.73. It did not fail; it was overtaken. With the mid-session slots now finished, the entry question does not reopen until the account has settled cash again, and nothing settles tonight because nothing was sold."
     }
   ],
-  "candidatesAsOf": "2026-08-05 14:22 ET, live session bids. The Last column is the official 8/4 settled close.",
-  "candidatesNote": "Bids are live and quoted as bids, never marks. Re-read at 14:22 ET by the fifth mid-session run. This list has stopped being an entry list: deployable settled cash is 4.54, which is below the price of a single share of every name on it, so it is now context for the open UPST position rather than a menu. UPST itself is the one that matters and it leaked a seventh consecutive read to a 30.84 bid, which is 0.25 below the 31.0899 the position was filled at. Last hour's 'all nine red' has partly lifted - OKLO is back to +0.1% and UPST is +1.7% - but neither is a leader and the shape of the tape is unchanged. The four names reporting tonight remain no-fly regardless of where they trade.",
+  "candidatesAsOf": "2026-08-05 15:22 ET, live session bids. The Last column is the official 8/4 settled close.",
+  "candidatesNote": "Bids are live and quoted as bids, never marks. Re-read at 15:22 ET by the sixth and last mid-session run. This is not an entry list: deployable settled cash is 4.54, below a single share of every name on it - the cheapest is SOUN at 6.40 - so it is context for the open UPST position rather than a menu. UPST is the one that matters and it leaked an eighth read to a 30.73 bid, 0.36 below the 31.0899 the position was filled at, though the step down this hour was the smallest of the day. Eight of nine names are red and OKLO gave back its +0.1% to sit exactly flat, leaving UPST the only green. The four names reporting tonight stay no-fly, and none of them is held, so the pre-close run inherits no 3:55p flatten obligation.",
   "candidates": [
-    { "sym": "AMD",  "last": 518.58, "bid": 487.15, "earnings": "8/4 after",  "flag": "watch", "note": "Reported. Bid 487.15, about -6.1%, a fraction better than last hour's 485.92 and still deep inside the gap. Sequence 491.73, 486.55, 482.06, 488.79, 485.92, 487.15 - chop below a gap, not repair. Still dead." },
-    { "sym": "UPST", "last": 30.32,  "bid": 30.84,  "earnings": "8/4 after",  "flag": "watch", "note": "Held. The account is long 4 at a 31.0899 average from a 13:34:59 directed fill. Bid 30.84, about +1.7% on the day but 0.25 under the entry. Seventh read, sixth consecutively lower, 1.39 below the 32.23 open bid. Target 37.31, stop 28.60, neither near." },
-    { "sym": "IONQ", "last": 41.72,  "bid": 40.50,  "earnings": "8/5 after",  "flag": "nofly", "note": "Reports tonight. Any position must be flat by 3:55p. Bid 40.50, about -2.9%, widening from -2.5%." },
-    { "sym": "SMR",  "last": 9.49,   "bid": 9.35,   "earnings": "8/5 after",  "flag": "nofly", "note": "Reports tonight. Any position must be flat by 3:55p. Bid 9.35, about -1.5%." },
-    { "sym": "JOBY", "last": 7.97,   "bid": 7.83,   "earnings": "8/5 after",  "flag": "nofly", "note": "Reports tonight. Any position must be flat by 3:55p. Bid 7.83, about -1.8%, unchanged from the last read." },
-    { "sym": "SOUN", "last": 6.51,   "bid": 6.45,   "earnings": "8/5 after",  "flag": "nofly", "note": "Reports tonight. Any position must be flat by 3:55p. Bid 6.45, about -0.9%." },
-    { "sym": "MARA", "last": 11.75,  "bid": 11.36,  "earnings": "8/6 after",  "flag": "watch", "note": "Earnings 8/6 after the close, so the window closes 8/6 3:55p. Bid 11.36, about -3.3%, still the widest red on the list. No catalyst before the print." },
-    { "sym": "OKLO", "last": 43.33,  "bid": 43.38,  "earnings": "8/7 before", "flag": "watch", "note": "Earnings 8/7 before the open. A BMO print gaps past every stop, so the window closes on the 8/6 close. Bid 43.38, about +0.1% - back green after one hour red, which is noise around unchanged rather than a signal in either direction." },
-    { "sym": "SMCI", "last": 31.69,  "bid": 31.24,  "earnings": "8/11 after", "flag": "watch", "note": "Earnings 8/11 after the close. Bid 31.24, about -1.4%. Notable now only because 8/11 is also where the open UPST position's five-session time stop lands, so both dates want watching in the same week." }
+    { "sym": "AMD",  "last": 518.58, "bid": 487.22, "earnings": "8/4 after",  "flag": "watch", "note": "Reported. Bid 487.22, about -6.0%, seven cents better than last hour. Sequence 491.73, 486.55, 482.06, 488.79, 485.92, 487.15, 487.22 - seven reads inside a five-dollar band under the gap. Chop, not repair. Dead for today." },
+    { "sym": "UPST", "last": 30.32,  "bid": 30.73,  "earnings": "8/4 after",  "flag": "watch", "note": "Held. The account is long 4 at a 31.0899 average from a 13:34:59 directed fill. Bid 30.73, about +1.4% on the day but 0.36 under the entry, so the position is -1.16%. Eighth read, fifth consecutively lower, but the step was -0.11 against -0.42 the hour before. Target 37.31 is 21.4% up, stop 28.60 is 6.9% down, neither near. Already reported, so no overnight earnings risk." },
+    { "sym": "IONQ", "last": 41.72,  "bid": 40.53,  "earnings": "8/5 after",  "flag": "nofly", "note": "Reports tonight. Not held, so nothing to flatten. Bid 40.53, about -2.9%, flat against the last read." },
+    { "sym": "SMR",  "last": 9.49,   "bid": 9.41,   "earnings": "8/5 after",  "flag": "nofly", "note": "Reports tonight. Not held. Bid 9.41, about -0.8%, recovering from -1.5% into the print." },
+    { "sym": "JOBY", "last": 7.97,   "bid": 7.78,   "earnings": "8/5 after",  "flag": "nofly", "note": "Reports tonight. Not held. Bid 7.78, about -2.4%, softening from -1.8%." },
+    { "sym": "SOUN", "last": 6.51,   "bid": 6.40,   "earnings": "8/5 after",  "flag": "nofly", "note": "Reports tonight. Not held. Bid 6.40, about -1.7%, from -0.9%. The cheapest name on the list and still above the 4.54 the account could pay." },
+    { "sym": "MARA", "last": 11.75,  "bid": 11.37,  "earnings": "8/6 after",  "flag": "watch", "note": "Earnings 8/6 after the close, so the window closes 8/6 3:55p. Bid 11.37, about -3.2%, still the widest red on the list. No catalyst before the print." },
+    { "sym": "OKLO", "last": 43.33,  "bid": 43.32,  "earnings": "8/7 before", "flag": "watch", "note": "Earnings 8/7 before the open. A BMO print gaps past every stop, so the window closes on the 8/6 close. Bid 43.32, about -0.0% - gave back last hour's +0.1% to sit exactly on the close. Three reads either side of unchanged is noise." },
+    { "sym": "SMCI", "last": 31.69,  "bid": 30.86,  "earnings": "8/11 after", "flag": "watch", "note": "Earnings 8/11 after the close. Bid 30.86, about -2.6%, down 0.38 in the hour and now among the weaker names rather than a laggard due to catch up. 8/11 is also where the UPST time stop lands, so both dates want watching in the same week." }
   ]
 }
