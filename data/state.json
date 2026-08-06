@@ -1,68 +1,72 @@
 {
   "_comment": "Written by the trading runs (9:30a / hourly / 3:30p ET). Never contains account numbers, broker IDs, or any account other than the sandbox.",
-  "lastRefreshUtc": "2026-08-05T19:37:00Z",
+  "lastRefreshUtc": "2026-08-06T13:47:00Z",
   "accountLabel": "Sandbox account",
   "account": {
-    "total": 125.74,
-    "cash": 4.54,
-    "deployable": 4.54,
+    "total": 126.06,
+    "cash": 126.06,
+    "deployable": 126.06,
     "unsettled": 0.00,
     "settlesOn": "nothing pending",
-    "verifiedAt": "2026-08-05 15:37 ET",
-    "note": "Cash account. Proceeds settle T+1. Nothing settles tonight because nothing was sold, and the broker confirms unsettled funds at 0.00. 121.20 of the balance is 4 UPST as the broker marks it, 121.00 against the 30.25 bid, and 4.54 is settled cash. Total 125.74 against 127.50 at 15:22 ET - the 1.76 is the position marked down over the last quarter hour, not any movement of funds. Deployable stays 4.54, below one share of every name on the list, the cheapest of which is SOUN at 6.41. The account is fully committed and stays that way overnight, which is a consequence of the hold rather than a separate decision."
+    "verifiedAt": "2026-08-06 09:47 ET",
+    "note": "Cash account, and flat. The broker returns no equity positions and no option positions, so the entire balance is cash and all of it is settled. The 121.52 that sat unsettled overnight has cleared on the T+1 cycle, which is why deployable moves from 4.54 to 126.06 rather than by any funding event. This file was wrong until this run: it described 4 UPST held overnight, and those shares were sold at 30.3801 at 15:38:23 ET on 8/5, 84 seconds after the pre-close run read the book. The retro caught it, flagged state.json as stale rather than editing a file it does not own, and this is the run that owns it. Deployable of 126.06 buys a share of every name on the list except LEU at about 190, and for the first time it is also enough to pay for an option contract - which turns out not to matter, because the spread ceiling rejects them anyway."
   },
-  "positions": [
-    {
-      "sym": "UPST",
-      "desc": "4 shares @ 31.09 avg · opened 8/5 13:34:59 ET · directed",
-      "plPct": -2.70,
-      "target": "37.31",
-      "stop": "28.60",
-      "timeStop": "8/11 close · 5 sessions",
-      "lit": "watch"
-    }
-  ],
+  "positions": [],
   "entryWatch": [
     {
-      "setup": "AMD day-2 continuation",
-      "state": "dead",
-      "trigger": "Reaction strong and still holding 30-60 min after the 8/5 open",
-      "exits": "Target +20% / stop -8% / time stop 5 sessions",
-      "why": "Dead, and now closed by the bell rather than by argument. AMD is bid 483.60 at 15:37 ET against a 518.58 official close, about -6.7%, which is the weakest read of the day after 491.73, 486.55, 482.06, 488.79, 485.92, 487.15 and 487.22. Eight reads in a five-dollar band under the gap and the last one at the bottom of it: chop that ended heavy, not repair. The trigger asked for strength holding 30-60 minutes after the open and there is no session left for it to be tested in. This setup does not carry forward - a day-2 read on the 8/6 open is a new setup with a new trigger, not this one resumed."
+      "setup": "SMR post-earnings reversal",
+      "state": "armed",
+      "trigger": "Buy limit 9.75 or better while 9.505, the 8/5 high, holds as support",
+      "level": 9.75,
+      "exits": "Target 11.70 (+20%) / stop 8.97 (-8%) / time stop 8/12 close",
+      "why": "Published as today's specification, and forced on item 1. NuScale reported 8/5 after the close at -0.13 against a -0.13 estimate, exactly in line, and an in-line EPS at a pre-revenue reactor developer does not answer 'why does this move meaningfully, soon'. What earns the entry is item 5 rather than item 1. Of the four names that printed last night this is the only one being bought: it opened 9.30, below its own 9.38 close, flushed to 9.19 in the first minutes and has since made three consecutive higher 5-minute closes - 9.5008, 9.5298, 9.58 - through the 8/5 high of 9.505, with volume accelerating into the third bar at 454K after 308K. Bid 9.70 at 09:47, +3.4%. A print that opens red and gets bought all morning is the opposite of the crowded-bulls setup item 5 warns about. The risk being taken deliberately: this is a day-1 reaction bar rather than the day-2/3 pullback the rulebook prefers, and the name is roughly a third above the 7.21 it printed on 7/17."
     },
     {
-      "setup": "Sympathy laggard",
-      "state": "dead",
-      "trigger": "Reaction strong but the leader is already extended",
+      "setup": "JOBY post-earnings breakout",
+      "state": "watch",
+      "trigger": "A hold above the 8.20 session high after the first hour",
+      "level": 8.20,
       "exits": "Target +20% / stop -8% / time stop 5 sessions",
-      "why": "Conditional on a strong leader, and the leader closed at -6.7%. The condition never came near being met and the list has now gone fully red: UPST lost the last green on it in the final half hour and is bid 30.25 against a 30.32 close, about -0.2%. SMCI, the name this read pointed at, is bid 30.75, about -3.0%, one of the weakest on the list rather than a laggard due to catch up. Dead on the leader, dead on the 4.54 deployable, and dead on the clock."
+      "why": "The best chart on the board and the second-ranked candidate, held back on tape rather than on structure. JOBY took out its 8/4 high of 8.10 this morning at 8.20, which is a genuine breakout, and it did it on a print the market liked despite an EPS miss - -0.25 against a -0.23 estimate - which usually means the report's substance was elsewhere. Against that: the 5-minute bars are 8.175, 8.08, 8.08 on 590K, 260K, 210K, so the breakout faded and did so on declining participation. It carries the same item-1 problem as SMR with a worse version of the fact pattern, because here the one hard number available actually missed. It is also about 22% above the 6.63 it printed on 7/29, a 52-week low set six sessions ago. Reconsider if it closes the hour above 8.20 with volume back."
     },
     {
-      "setup": "UPST day-2/3 pullback",
-      "state": "dead",
-      "trigger": "A pullback that holds on 8/6 or 8/7, not today's reaction bar",
+      "setup": "IONQ beat under distribution",
+      "state": "wait",
+      "trigger": "Reclaim of the 41.37 opening print",
+      "level": 41.37,
       "exits": "Target +20% / stop -8% / time stop 5 sessions",
-      "why": "Dead as an entry because the account is already long the name - a 13:34:59 ET directed fill bought 4 UPST at a 31.09 average, which is the reaction-day entry this setup existed to wait past. Adding on an 8/6 pullback would be averaging down, which docs/RULES.md lists under 'does not fit', and there is 4.54 to do it with in any case. The pullback the setup wanted has arrived as a bleed instead: bid 30.25 at 15:37 ET, extending the day to 33.81 after-hours, 32.23 open, 32.36, 32.05, 31.63, 31.26, 30.84, 30.73, 30.25 - nine reads, six consecutively lower. Last hour recorded the -0.11 step as a fact and warned against reading a turn into it. That was the right caution: this step is -0.48, the largest of the day. The entry now sits 0.84 above the bid."
+      "why": "The best catalyst on the board on the numbers and the clearest illustration of why item 1 alone is not enough. IONQ beat by a wide margin - -0.33 against a -0.60 estimate, about 45% better - and the tape is selling it: opened 41.37, low 40.17, bid 40.98 at 09:47, still below the open. A 45% beat that cannot hold its opening print is a beat the market has already decided about. Two further reasons it was not the pick: at about 41 a share the account can hold 3, and a -8% stop is 3.28 of room in a name that ranged 1.38 in its first fifteen minutes, so the stop sits inside the noise. Wait for the reclaim rather than buy the fade."
     },
     {
-      "setup": "Stand aside",
+      "setup": "UPST failed-gap bounce",
       "state": "dead",
-      "trigger": "Leader gapped down, most of the list red, only catalyst is a reaction-day spike",
+      "trigger": "Reclaim and hold of 30.32, the pre-earnings 8/4 close",
+      "level": 30.32,
       "exits": "-",
-      "why": "The branch the open resolved to and held for four hours, ended at 13:34:59 ET by a directed fill rather than by the tape. Marked dead because the account is not flat and a board describing itself as standing aside while holding 4 UPST would contradict its own exit panel. What the branch was worth, recorded now that the session is over: the reaction-day spike it declined to buy opened at a 32.23 bid and closes near 30.25. It did not fail, it was overtaken. The entry question does not reopen until the account has settled cash, and nothing settles tonight because nothing was sold."
+      "why": "The board's own 8/5 entryWatch wanted exactly this - 'a pullback that holds on 8/6 or 8/7, not today's reaction bar' - and both of the reasons it was marked dead have expired: the account is no longer long the name and no longer has 4.54 to its name. So it got a real look, and it failed on its own terms rather than on the old ones. The 8/5 bar is the problem: opened 34.595, closed 30.20, giving back the entire earnings gap on 12.3M shares against a 5.1M average. That is distribution, not a pullback after strength, and the rulebook's setup list means the latter. This morning did reclaim - 29.21 open, 29.18 low, 30.59 high - but it has since rolled to a 29.94 bid, back under the 30.20 close, on 290K shares against a 5.1M average. A reclaim nobody participates in is not a reclaim. Dead for today; it does not carry forward as this setup."
+    },
+    {
+      "setup": "SOUN reaction-day spike",
+      "state": "dead",
+      "trigger": "None available - item 2 forbids buying the +20% reaction bar",
+      "exits": "-",
+      "why": "Recorded because refusing it is the point. SOUN beat at -0.02 against -0.06 and gapped from a 6.43 close to an 8.045 open, about +25%, which is the single clearest instance of the entry checklist item 2 exists to forbid. It is also already failing: high 8.19 in the first minutes, bid 7.76 at 09:47, so -4.3% from the open on roughly 11M shares in fifteen minutes. This is the same shape as the AMD 8/4 entry this project graded 0/6 - a spike day, bought into strength, on the day the catalyst printed. The mandate obliges an entry somewhere; it does not oblige this one, and a forced entry is a compromised thesis rather than a compromised instrument."
     }
   ],
-  "candidatesAsOf": "2026-08-05 15:37 ET, live session bids read by the pre-close run. The Last column is the official 8/4 settled close.",
-  "candidatesNote": "Bids are live and quoted as bids, never marks. This is the final read of the session and it is not an entry list: deployable settled cash is 4.54, below a single share of every name on it, and the pre-close slot does not open positions in the last thirty minutes in any case. All nine names are red into the close - UPST gave up the last green on the list in the final half hour. The one that matters is the held one, and it leaked a ninth read to a 30.25 bid, 0.84 below the 31.09 the position was filled at, with the step down this hour the largest of the day rather than the smallest. No level is hit. The four names printing tonight stay no-fly and none of them is held, so this run inherited no 3:55p flatten obligation and created none.",
+  "candidatesAsOf": "2026-08-06 09:47 ET, live session bids read by the open run. The Last column is the official 8/5 settled close.",
+  "candidatesNote": "Bids are live and quoted as bids, never marks. Deployable settled cash is 126.06 and the account is flat, so for the first time since the rulebook was written this is a real entry list rather than a reading exercise. Four names printed last night - IONQ, SMR, JOBY, SOUN - and the split between them is the whole of today's decision: SMR is bought from below its own close, the other three are being sold from their opens. MARA and RGTI report tonight and OKLO and VST report 8/7 before the open, so all four are no-fly for a five-session hold; a BMO print gaps past every stop. LEU beat by 73% and is the strongest catalyst on the tape, but one share is about 190 against 126.06 deployable, so it is blocked on size rather than on thesis. SMCI reports 8/11 after the close, which falls inside a five-session hold started today.",
   "candidates": [
-    { "sym": "AMD",  "last": 518.58, "bid": 483.60, "earnings": "8/4 after",  "flag": "watch", "note": "Reported. Bid 483.60, about -6.7%, the weakest read of the day. Sequence 491.73, 486.55, 482.06, 488.79, 485.92, 487.15, 487.22, 483.60 - eight reads in a five-dollar band under the gap, ending at the low end of it. Chop that closed heavy. Dead for today." },
-    { "sym": "UPST", "last": 30.32,  "bid": 30.25,  "earnings": "8/4 after",  "flag": "watch", "note": "Held, and held deliberately into 8/6. The account is long 4 at a 31.09 average from a 13:34:59 directed fill. Bid 30.25, about -0.2% on the day and 0.84 under the entry, so the position is -2.70%. Ninth read, sixth consecutively lower, and the step was -0.48 against -0.11 the hour before, so last hour's deceleration did not hold. Target 37.31 is 23.3% up, stop 28.60 is 5.4% down, neither hit. Already reported on 8/4, so the overnight carries no earnings risk." },
-    { "sym": "IONQ", "last": 41.72,  "bid": 40.38,  "earnings": "8/5 after",  "flag": "nofly", "note": "Reports tonight. Not held, so nothing to flatten. Bid 40.38, about -3.2%, softening into the print from -2.9%." },
-    { "sym": "SMR",  "last": 9.49,   "bid": 9.40,   "earnings": "8/5 after",  "flag": "nofly", "note": "Reports tonight. Not held. Bid 9.40, about -0.9%, flat against the last read." },
-    { "sym": "JOBY", "last": 7.97,   "bid": 7.75,   "earnings": "8/5 after",  "flag": "nofly", "note": "Reports tonight. Not held. Bid 7.75, about -2.8%, softening from -2.4%." },
-    { "sym": "SOUN", "last": 6.51,   "bid": 6.41,   "earnings": "8/5 after",  "flag": "nofly", "note": "Reports tonight. Not held. Bid 6.41, about -1.5%. The cheapest name on the list and still above the 4.54 the account could pay." },
-    { "sym": "MARA", "last": 11.75,  "bid": 11.40,  "earnings": "8/6 after",  "flag": "watch", "note": "Earnings 8/6 after the close, verified on the broker calendar, so the window closes 8/6 3:55p. Bid 11.40, about -3.0%. No catalyst before the print." },
-    { "sym": "OKLO", "last": 43.33,  "bid": 43.20,  "earnings": "8/7 before", "flag": "watch", "note": "Earnings 8/7 before the open, verified on the broker calendar. A BMO print gaps past every stop, so the window closes on the 8/6 close. Bid 43.20, about -0.3% - four reads either side of unchanged all day." },
-    { "sym": "SMCI", "last": 31.69,  "bid": 30.75,  "earnings": "8/11 after", "flag": "watch", "note": "Earnings 8/11 after the close. Bid 30.75, about -3.0%, among the weakest on the list. 8/11 is also where the UPST time stop lands, so both dates want watching in the same week." }
+    { "sym": "SMR",  "last": 9.38,   "bid": 9.70,   "earnings": "8/5 after",  "flag": "ok",    "note": "Today's specification, forced on item 1. Reported in line at -0.13 against -0.13. Bid 9.70, +3.4%. Opened 9.30 below its own close, flushed to 9.19, then three consecutive higher 5-minute closes through the 8/5 high of 9.505 on rising volume. The only one of last night's four printers being accumulated rather than distributed. About a third above the 7.21 low of 7/17, which is the argument against it." },
+    { "sym": "JOBY", "last": 7.80,   "bid": 8.18,   "earnings": "8/5 after",  "flag": "watch", "note": "Ranked second. EPS missed at -0.25 against -0.23 and the stock is up anyway, +4.9% on the bid, which usually means the report's substance was not the EPS line. Took out the 8/4 high of 8.10 at 8.20 - a real breakout - then faded to 8.08 on three bars of declining volume. Best structure on the board, weakest confirmation this morning. 22% above the 6.63 52-week low set on 7/29." },
+    { "sym": "IONQ", "last": 39.93,  "bid": 40.98,  "earnings": "8/5 after",  "flag": "watch", "note": "The biggest beat on the board - -0.33 against a -0.60 estimate, about 45% better - and it cannot hold its open. Opened 41.37, low 40.17, bid 40.98, still under the opening print. Also awkward on size: 3 shares is the most the account can hold and a -8% stop is 3.28 of room against a 1.38 first-quarter-hour range." },
+    { "sym": "SOUN", "last": 6.43,   "bid": 7.76,   "earnings": "8/5 after",  "flag": "watch", "note": "Beat at -0.02 against -0.06 and gapped 6.43 to an 8.045 open, about +25%. Checklist item 2 forbids this entry outright. Already fading - 8.19 high, bid 7.76, -4.3% from the open on roughly 11M shares in the first fifteen minutes. The AMD 8/4 shape exactly." },
+    { "sym": "UPST", "last": 30.20,  "bid": 29.94,  "earnings": "8/4 after",  "flag": "watch", "note": "No longer held; the 4 shares were sold 8/5 at 30.3801. Gave back the entire earnings gap on 8/5 - 34.595 open to a 30.20 close on 12.3M shares against a 5.1M average. Opened 29.21 today, reclaimed to 30.59, has since rolled to a 29.94 bid on 290K shares. A failed gap plus a reclaim with no participation." },
+    { "sym": "AMD",  "last": 482.05, "bid": 478.69, "earnings": "8/4 after",  "flag": "watch", "note": "Bid 478.69, -0.7%, a third session of chop under the 8/4 gap-down. No setup, and one share is nearly four times deployable cash in any case." },
+    { "sym": "LEU",  "last": 187.63, "bid": 189.78, "earnings": "8/5 after",  "flag": "watch", "note": "Beat by 73% - 1.77 actual against a 1.02 estimate - the strongest catalyst on the tape today. Blocked on size, not on thesis: bid 189.78 against 126.06 deployable, so the account cannot buy one share. Recorded so the reason it was skipped is on the record rather than absent from it." },
+    { "sym": "QBTS", "last": 21.39,  "bid": 19.87,  "earnings": "8/6 before", "flag": "watch", "note": "Reported this morning and missed at -0.13 against -0.10. Bid 19.87, about -7.1%. Worth noting against IONQ: the quantum complex is not trading as one thing today." },
+    { "sym": "RGTI", "last": 16.78,  "bid": 16.55,  "earnings": "8/6 after",  "flag": "nofly", "note": "Reports tonight, verified on the broker calendar. Not held. Bid 16.55, -1.4%." },
+    { "sym": "MARA", "last": 11.24,  "bid": 11.00,  "earnings": "8/6 after",  "flag": "nofly", "note": "Reports tonight, verified on the broker calendar. Not held. Bid 11.00, -2.1%. No catalyst before the print." },
+    { "sym": "OKLO", "last": 42.99,  "bid": 42.87,  "earnings": "8/7 before", "flag": "nofly", "note": "Reports 8/7 before the open, verified on the broker calendar. A BMO print gaps past every stop overnight, so it cannot be held through a five-session window. Bid 42.87, -0.3%." },
+    { "sym": "SMCI", "last": 30.32,  "bid": 29.81,  "earnings": "8/11 after", "flag": "watch", "note": "Earnings 8/11 after the close, which is session four of a five-session hold started today. Bid 29.81, -1.7%. Any entry here would be an earnings hold and would need the straddle pulled first." }
   ]
 }
