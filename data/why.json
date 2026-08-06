@@ -2,17 +2,48 @@
   "_comment": "Trading runs APPEND. Entries are immutable once written; the retro adds only the grade field. checklist 1-6: catalyst / not the +8% day / implied move / liquidity / expectations vs positioning / exits before entry. Values: pass | fail | ne | na.",
   "entries": [
     {
-      "kind": "did", "date": "2026-08-06 10:21",
-      "head": "First hourly: nothing to exit, three watched triggers fired anyway, and none of them opens",
-      "body": "Fired 10:21 ET against the 10:17 slot, four minutes late, inside the guard, quotes live. Connector attached and the scope preflight matched exactly. The account is flat - no equity positions, no option positions, no orders in any state today, 126.06 settled - so there was no target, no stop, no time stop and no option no-fly window to enforce. Enforcing levels is the entirety of this slot's job, so the honest description of this run is that its job did not come up. The first thing worth writing down is what did not happen. The open published a specification - buy 12 SMR at a 9.75 limit, expiring 10:35 - and it has not been executed. The broker returns no order against it in any state. That is not a failure of anything: the specification requires a human and the human has twelve minutes left to act on it, and the limit is still there for the taking, 9.54 bid against a 9.55 ask. I have no order authority and did not place it. It is recorded because a board showing a published specification beside an unchanged balance reads ambiguously between 'not yet executed' and 'executed and mis-read', and the 8/5 stale-position error came from exactly that kind of ambiguity going unstated. The substance of the hour is that three separate watched triggers printed at once. JOBY's written condition was a hold above the 8.20 session high after the first hour, and it is 8.51 bid, so the fade on declining volume that held it back at 09:47 was a pause and not a failure. IONQ's condition was a reclaim of the 41.37 opening print, and it is 41.57 bid, so the tape has stopped selling the 45% beat. UPST's old trigger wanted a reclaim of 30.32 and it is 30.35 bid, up from 29.94 and rolling over an hour ago. Board breadth went from 5 green of 12 at 09:47 to 8 of 12. A rising tape lighting up three triggers inside one hour is precisely the condition this slot's higher bar exists for, and the bar held on all three - but on three different rules, which is worth being exact about rather than waving at as 'no trade'. JOBY dies on item 2 and nothing else. It is +9.1% against its 8/5 close, so buying it now is buying the +8% day the rulebook forbids outright. The tempting argument is that this board called the breakout and is therefore entitled to it; the answer is that item 2 has no exception for a breakout you predicted, because the person chasing a green candle always has a reason too. IONQ dies on something no trigger could ever clear: at 41.57 the account holds 3 shares and a -8% stop is 3.33 of room in a name that ranged 1.38 in its first fifteen minutes, so the stop sits inside the noise and gets taken out by ordinary movement rather than by being wrong. A stop inside the noise is not a stop, and that is arithmetic about this account's size against this name's volatility, not a condition waiting to be met - so it is marked dead rather than left armed on a trigger that has already printed. UPST dies on structure that the reclaim does not touch: 8/5 opened 34.595 and closed 30.20 on 12.3M shares against a 5.1M average, giving back the whole earnings gap, and a name reclaiming a level it distributed through is still a name that distributed through it. Now the part that reflects badly on the position this board is carrying, recorded because a run that only notices its refusals looking good is not grading itself. SMR is the only one of last night's four printers that has gone backwards since the open read - 9.70 bid to 9.54, -1.6% in thirty-five minutes - while JOBY went 8.18 to 8.51 and IONQ went 40.98 to 41.57. The entry was earned on item 5 specifically, on SMR being the one name accumulated while the other three were distributed, and inside one hour that exact claim has partially inverted: the runner-up it was chosen over made the cleanest move on the board. The refusals still hold up, and one of them clearly so - SOUN is -9.0% from its open, having been -4.3% from it at 09:47, so the item-2 refusal is paying. But the pick is the weakest of the four right now and saying so is the point of writing this down before the outcome is known. What this does not license is switching horses. Selling the thesis at 10:21 to buy the name that has outrun it is the chase the mid-session default exists to prevent, and it fails on its own terms anyway since JOBY is now forbidden by item 2. The daily entry mandate belongs to the open slot and the open slot has already discharged it; the mandate does not refresh hourly and it is not a licence for a second entry. So no specification, no action, nothing to enforce. The one line that matters into the next hourly is 9.505, the 8/5 high the SMR thesis rests on: 9.54 is above it, and losing it means the setup is broken rather than merely fading. One bookkeeping note, because the 8/5 retro flagged this exact thing. The checklist on this entry is not a proposal - nothing was proposed. Item 2 is logged fail because it is the check this run actually ran and the one that decided the hour: JOBY at +9.1% fails it, and that is what kept the best-performing name on the board from being bought. The other five are na because no candidate got far enough for them to be run. The 8/5 12:22 entry logged all six na while the entries either side of it logged the same read as a real pass and fail, and an inconsistently logged checklist is the small end of the rulebook's own line that an unlogged check counts as not done.",
-      "checklist": { "1": "na", "2": "fail", "3": "na", "4": "na", "5": "na", "6": "na" },
+      "kind": "did",
+      "date": "2026-08-06 10:46",
+      "head": "Operator bought SMR 8/14 $9.50 calls, choosing options over the shares the open run specified",
+      "body": "Two contracts at 0.57 average, 114.00 total, filled 10:46:51 ET in two executions at 0.55 and 0.59. Placed by the operator in the app - placed_agent 'user' - not by any run. The underlying came from this board: SMR was on the candidate list and the 09:41 open run published a FORCED entry to buy 12 shares at 9.75 under the daily mandate. The operator took the name and rejected the instrument, buying calls instead of shares. That is a deliberate, stated decision and is recorded as one.\n\nAgainst the rulebook the contract is better than anything the 8/5 pre-check could find. Delta 0.517 clears the 0.40 floor. Open interest 791 against the 26, 52 and 73 on the contracts checked yesterday. Spread 9.2% of mark, inside the 10% ceiling that blocked all three. SMR reported 2026-08-05, so there is no earnings hold and no no-fly window.\n\nIt breaks one rule, and it is the rule with the sharpest arithmetic behind it. Expiry 2026-08-14 is 8 days out against a floor of 3 to 6 weeks, and docs/RULES.md states the reason: theta on short-dated contracts can exceed the position value per week. Measured rather than asserted - theta is -0.035 per day against a 0.545 mark, so 6.4% of the position decays daily, and 0.28 of decay over the remaining 8 days is 51% of the premium paid. Break-even sits at 10.05 with SMR at 9.445, which needs a 6.4% move up just to return the premium. The position is 109.00 against 114.00 paid, down 4.4%, within an hour of opening and before the underlying has moved against it.\n\nThe exits are therefore tighter in practice than they look: stop at 0.34 is -40% of premium, but theta reaches that level on its own in roughly six sessions if SMR does nothing at all. The time stop and the expiry are one day apart, which means the time stop is not a real constraint here - expiry will resolve it first either way.\n\nNot graded by this entry. The retro grades outcome-blind and this is the operator's decision, not a run's, so it is recorded with the deviation named and left for the 16:33 retro to score. Attribution is 'assisted': the agent supplied the underlying and the operator supplied the instrument.",
+      "checklist": {
+        "1": "pass",
+        "2": "pass",
+        "3": "na",
+        "4": "pass",
+        "5": "ne",
+        "6": "pass"
+      },
       "grade": null
     },
     {
-      "kind": "will", "date": "2026-08-06 09:47",
+      "kind": "did",
+      "date": "2026-08-06 10:21",
+      "head": "First hourly: nothing to exit, three watched triggers fired anyway, and none of them opens",
+      "body": "Fired 10:21 ET against the 10:17 slot, four minutes late, inside the guard, quotes live. Connector attached and the scope preflight matched exactly. The account is flat - no equity positions, no option positions, no orders in any state today, 126.06 settled - so there was no target, no stop, no time stop and no option no-fly window to enforce. Enforcing levels is the entirety of this slot's job, so the honest description of this run is that its job did not come up. The first thing worth writing down is what did not happen. The open published a specification - buy 12 SMR at a 9.75 limit, expiring 10:35 - and it has not been executed. The broker returns no order against it in any state. That is not a failure of anything: the specification requires a human and the human has twelve minutes left to act on it, and the limit is still there for the taking, 9.54 bid against a 9.55 ask. I have no order authority and did not place it. It is recorded because a board showing a published specification beside an unchanged balance reads ambiguously between 'not yet executed' and 'executed and mis-read', and the 8/5 stale-position error came from exactly that kind of ambiguity going unstated. The substance of the hour is that three separate watched triggers printed at once. JOBY's written condition was a hold above the 8.20 session high after the first hour, and it is 8.51 bid, so the fade on declining volume that held it back at 09:47 was a pause and not a failure. IONQ's condition was a reclaim of the 41.37 opening print, and it is 41.57 bid, so the tape has stopped selling the 45% beat. UPST's old trigger wanted a reclaim of 30.32 and it is 30.35 bid, up from 29.94 and rolling over an hour ago. Board breadth went from 5 green of 12 at 09:47 to 8 of 12. A rising tape lighting up three triggers inside one hour is precisely the condition this slot's higher bar exists for, and the bar held on all three - but on three different rules, which is worth being exact about rather than waving at as 'no trade'. JOBY dies on item 2 and nothing else. It is +9.1% against its 8/5 close, so buying it now is buying the +8% day the rulebook forbids outright. The tempting argument is that this board called the breakout and is therefore entitled to it; the answer is that item 2 has no exception for a breakout you predicted, because the person chasing a green candle always has a reason too. IONQ dies on something no trigger could ever clear: at 41.57 the account holds 3 shares and a -8% stop is 3.33 of room in a name that ranged 1.38 in its first fifteen minutes, so the stop sits inside the noise and gets taken out by ordinary movement rather than by being wrong. A stop inside the noise is not a stop, and that is arithmetic about this account's size against this name's volatility, not a condition waiting to be met - so it is marked dead rather than left armed on a trigger that has already printed. UPST dies on structure that the reclaim does not touch: 8/5 opened 34.595 and closed 30.20 on 12.3M shares against a 5.1M average, giving back the whole earnings gap, and a name reclaiming a level it distributed through is still a name that distributed through it. Now the part that reflects badly on the position this board is carrying, recorded because a run that only notices its refusals looking good is not grading itself. SMR is the only one of last night's four printers that has gone backwards since the open read - 9.70 bid to 9.54, -1.6% in thirty-five minutes - while JOBY went 8.18 to 8.51 and IONQ went 40.98 to 41.57. The entry was earned on item 5 specifically, on SMR being the one name accumulated while the other three were distributed, and inside one hour that exact claim has partially inverted: the runner-up it was chosen over made the cleanest move on the board. The refusals still hold up, and one of them clearly so - SOUN is -9.0% from its open, having been -4.3% from it at 09:47, so the item-2 refusal is paying. But the pick is the weakest of the four right now and saying so is the point of writing this down before the outcome is known. What this does not license is switching horses. Selling the thesis at 10:21 to buy the name that has outrun it is the chase the mid-session default exists to prevent, and it fails on its own terms anyway since JOBY is now forbidden by item 2. The daily entry mandate belongs to the open slot and the open slot has already discharged it; the mandate does not refresh hourly and it is not a licence for a second entry. So no specification, no action, nothing to enforce. The one line that matters into the next hourly is 9.505, the 8/5 high the SMR thesis rests on: 9.54 is above it, and losing it means the setup is broken rather than merely fading. One bookkeeping note, because the 8/5 retro flagged this exact thing. The checklist on this entry is not a proposal - nothing was proposed. Item 2 is logged fail because it is the check this run actually ran and the one that decided the hour: JOBY at +9.1% fails it, and that is what kept the best-performing name on the board from being bought. The other five are na because no candidate got far enough for them to be run. The 8/5 12:22 entry logged all six na while the entries either side of it logged the same read as a real pass and fail, and an inconsistently logged checklist is the small end of the rulebook's own line that an unlogged check counts as not done.",
+      "checklist": {
+        "1": "na",
+        "2": "fail",
+        "3": "na",
+        "4": "na",
+        "5": "na",
+        "6": "na"
+      },
+      "grade": null
+    },
+    {
+      "kind": "will",
+      "date": "2026-08-06 09:47",
       "head": "FORCED on item 1: buy 12 SMR at 9.75. The catalyst is a print I can read but not explain",
       "body": "Fired 09:41 ET against the 09:33 slot, eight minutes late, inside the guard. Connector attached, scope preflight matched exactly, quotes live. First specification published under the daily entry mandate, and it is forced. Before anything else, the correction: this file said the account held 4 UPST and had 4.54 deployable. It is flat. The shares were sold 8/5 at 30.3801 and the 121.52 that was unsettled overnight has cleared T+1, so deployable is 126.06 and there was no exit to check, because there is nothing to exit. Instrument before thesis, in the order the rulebook now demands. Options were checked first and are rejected again - but on spread, not on affordability, and that distinction is new. At 126.06 the account can finally pay for a contract: the JOBY 2026-09-11 8.00 call marks 0.85, so 85 buys one. It fails anyway, quoting 0.72 bid against a 0.98 ask, which is 30.6% of mark against a 10% ceiling. The 7.50 call is 59.0% and costs 147 at the ask; the 8.50 call is 98.5% at a 0.477 delta, under the 0.40 floor question entirely on liquidity. The 8/5 finding in RULES.md holds at four times the cash, and the reason has changed: the binding constraint on this account is not the premium, it is the spread. Equity is the instrument. Now the forced part, plainly. Item 1 fails. SMR reported 8/5 after the close at -0.13 against a -0.13 estimate - exactly in line - and an in-line EPS at a pre-revenue reactor developer is not an answer to 'why does this move meaningfully, soon'. The event is real and dated, seventeen hours old, but the only hard number I can read out of it explains nothing. I have no revenue line, no guidance, no backlog detail. To call this a catalyst I would have to infer the driver from the price, and inferring the catalyst from the tape is precisely what item 1 exists to prevent - it is the dressed-up version of 'it has been going up'. So it is marked fail rather than argued into a pass. What earns the entry instead is item 5, and it is the reason this is the pick rather than a coin flip among four. Four names printed last night. Three are being sold from their opens: SOUN gapped 6.43 to 8.045, about +25%, and is already -4.3% off that open on roughly 11M shares; IONQ beat by 45% - -0.33 against a -0.60 estimate, the best catalyst on the board - and cannot hold its 41.37 open, bid 40.98; JOBY broke its 8/4 high at 8.20 and faded to 8.08 on three bars of shrinking volume, 590K then 260K then 210K. SMR is the only one being bought. It opened 9.30, below its own 9.38 close, flushed to 9.19 in the first minutes, and has made three consecutive higher 5-minute closes - 9.5008, 9.5298, 9.58 - taking out the 8/5 high of 9.505 with volume accelerating into the third bar at 454K after 308K. Bid 9.70 at 09:47, +3.4%. An in-line print that opens red and gets accumulated all morning is the structural opposite of the crowded-bulls-into-a-raised-bar setup item 5 warns about: there was no bar to raise, so there is nothing to disappoint. Item 2 passes at +3.4% - this is not the +8% day, and the list is not uniformly green, with AMD -0.7%, MARA -2.1%, SMCI -1.7% and QBTS -7.1%. Item 3 is na: SMR printed last night and its next report is a quarter away, so no earnings falls inside the five-session hold and there is no event for a straddle to price. Item 4 passes clearly - 9.70 bid against a 9.71 ask is a 0.10% spread, 1.4M shares traded in the first fifteen minutes against a 29.5M thirty-day average, 3.70B market cap. Item 6 is satisfied by this paragraph: target 11.70, stop 8.97, time stop the 8/12 close, all three fixed now and not to be rediscovered later. Size is 12 shares at a 9.75 limit, 117.00 against 126.06 deployable; 13 no longer fits since the ask moved to 9.71. What I would rather have had, since a forced entry has to say so. A day-2 or day-3 pullback that held after a strong reaction - the setup the rulebook actually names - and none exists today. The ranked alternatives: JOBY second, better structure but the one hard number missed and the breakout is fading on falling volume; IONQ third, the catalyst I would have wanted, killed by a tape that is distributing it and by a -8% stop that would sit 3.28 away in a name that ranged 1.38 in fifteen minutes; UPST fourth, and it got a genuine look because the board's own 8/5 trigger asked for exactly this and both of its disqualifiers had expired - but 8/5 gave back the entire gap, 34.595 open to a 30.20 close on 12.3M shares against a 5.1M average, and this morning's reclaim to 30.59 has already rolled back to 29.94 on 290K shares; SOUN fifth and refused outright under item 2, being the AMD 8/4 shape that this project graded 0/6. Then the ones no rule permits: MARA and RGTI print tonight, OKLO and VST print 8/7 before the open and a BMO gap clears every stop, SMCI prints 8/11 which is session four of this hold. LEU beat by 73% and is the strongest catalyst on the tape, blocked only because one share is about 190 against 126.06. So: the best of a poor set, chosen on how the tape is treating a print rather than on the print itself, which is a weaker reason than this rulebook wants and is why item 1 reads fail. If it works it should not be recorded as vindication of the thesis, because the thesis is thin; the testable claim is narrower - that on a day with no clean setup, the name being accumulated beats the names being distributed.",
-      "checklist": { "1": "fail", "2": "pass", "3": "na", "4": "pass", "5": "pass", "6": "pass" },
+      "checklist": {
+        "1": "fail",
+        "2": "pass",
+        "3": "na",
+        "4": "pass",
+        "5": "pass",
+        "6": "pass"
+      },
       "order": {
         "action": "buy",
         "instrument": "SMR",
@@ -20,29 +51,43 @@
         "underlying": "SMR",
         "orderType": "limit",
         "limit": 9.75,
-        "target": 11.70,
+        "target": 11.7,
         "stop": 8.97,
         "qty": 12,
-        "bid": 9.70,
+        "bid": 9.7,
         "ask": 9.71,
         "timeStop": "5 sessions - 8/12 close",
         "expiresAt": "2026-08-06 10:35",
         "requiresHuman": true,
         "forced": true,
-        "forcedItems": [1],
+        "forcedItems": [
+          1
+        ],
         "forcedReason": "Item 1, catalyst. SMR reported 8/5 after the close at -0.13 against a -0.13 estimate, exactly in line, and an in-line EPS at a pre-revenue reactor developer does not answer 'why does this move meaningfully, soon'. The print is real and dated but the only hard number in it explains nothing, and naming a catalyst would mean inferring one from the price - the thing item 1 exists to stop. Chosen anyway because item 5 separates it from the field: of the four names that printed last night it is the only one being bought rather than sold, opening below its own close, flushing to 9.19 and making three consecutive higher closes through the 8/5 high on rising volume. The setup I would rather have had is a day-2/3 pullback that held after a strong reaction, and none exists on the board today."
       },
       "grade": null
     },
     {
-      "kind": "did", "date": "2026-08-05 15:37",
+      "kind": "did",
+      "date": "2026-08-05 15:37",
       "head": "Holding 4 UPST overnight. A decision, with the reasons written down before the close rather than after the gap",
       "body": "Fired 15:37 ET against the 15:33 slot, four minutes late, inside the guard and eighteen minutes short of the 15:55 cutoff. Connector attached, scope preflight matched exactly, quotes live. The job of this slot is the hold-or-not decision, so here it is in the order the rules ask for it. Option no-fly first: the account holds no options, so the rule that would force a close today has nothing to act on. Earnings tonight on the underlying: no. UPST reported on 8/4 and is absent from the broker earnings calendar across 8/5, 8/6 and 8/7 - I pulled the window rather than trusting the note the file already carried. That is the reason no straddle appears in this entry: the checklist requires the implied move before an earnings hold, and there is no earnings hold. If UPST had been printing tonight and I could not have pulled the number, the hold would not have happened. Levels: bid 30.25 against a 31.09 average, so -2.70%. Target 37.31 sits 23.3% above the bid, the 28.60 stop 5.4% below, and the 8/11 time stop is four sessions out with today session one of five. Nothing is triggered, so nothing is due, and the position crosses into 8/6 on its levels alone. What I want on the record is the thing arguing against that comfort. The day's bid sequence is 33.81 after-hours, 32.23 at the open, then 32.36, 32.05, 31.63, 31.26, 30.84, 30.73 and now 30.25 - nine reads, six consecutively lower, and the position has spent its entire life underwater. The 15:21 entry noted the step had shrunk to -0.11 from -0.42 and explicitly refused to call it a turn. That refusal was correct: this step is -0.48, the largest of the day, and UPST gave up the last green on the candidate list in the final half hour to close about -0.2% on a session it opened +6.3%. A name that round-trips a six-percent reaction gap in one session is not a name behaving well. So the honest version of this hold is not 'the thesis is intact'. It is: the entry was a directed fill I did not choose, the stop is 5.4% away and unhit, the rulebook says a stop is enforced at the stop and not at the first uncomfortable tape, and there is no earnings event tonight that would gap the position past that stop while no run is watching. Those are the grounds. If the answer tomorrow is the same bleed, the time stop takes it out on 8/11 whether or not the stop is ever touched, and that is what item 6 is for. No specification published and none was permitted: this slot may not open a position in the last thirty minutes, the daily entry mandate applies to the open slot and not to this one, and deployable settled cash is 4.54 - below one share of every name on the list - so the question was closed three times over. Housekeeping on the catalyst file, which is this slot's to keep correct: removed the AMD 8/4 print, which is behind us and was still sitting there as an anticipated move; re-read spot on every remaining entry from a live bid instead of the price it was written with, moving MARA 11.78 to 11.40, OKLO 43.75 to 43.20 and SMCI 31.38 to 30.75; re-verified the six-name cluster printing tonight against the broker calendar and recorded that its exit branch resolved to nothing, because none of the six was bought this morning; and added the UPST time stop as an entry of its own, since it is now the next dated event that will act on this account and the board should not have to infer it from a position row.",
-      "checklist": { "1": "na", "2": "na", "3": "na", "4": "pass", "5": "na", "6": "pass" },
-      "grade": { "by": "retro 8/5", "text": "PASS on the decision, FLAG on the publish, and the two have to be separated because only one of them failed. The decision: the no-fly rule was checked before anything else, the earnings window was pulled from the calendar rather than inherited from the note the file already carried, the levels were quoted against a live bid, and the entry argued against its own comfort at length instead of declaring the thesis intact. It also refused to treat a directed fill as its own. That is the slot doing its job. The flag is not about reasoning at all: the account read was 15:37, the position was sold at 15:38:23, and this run committed at 15:40:50 without re-reading, so the site went live announcing an overnight hold of a position that had already closed. Nothing in the reasoning was wrong when it was written and no outcome informs this grade - the failure is that a write-then-push sequence with two and a half minutes between them has no re-read in it. Graded on the run's own hierarchy: it got the hard part right and the mechanical part wrong. Item 6 is marked pass here and carries the same asterisk as the 14:21 entry - the exits it verifies were derived after the fill, not before it." }
+      "checklist": {
+        "1": "na",
+        "2": "na",
+        "3": "na",
+        "4": "pass",
+        "5": "na",
+        "6": "pass"
+      },
+      "grade": {
+        "by": "retro 8/5",
+        "text": "PASS on the decision, FLAG on the publish, and the two have to be separated because only one of them failed. The decision: the no-fly rule was checked before anything else, the earnings window was pulled from the calendar rather than inherited from the note the file already carried, the levels were quoted against a live bid, and the entry argued against its own comfort at length instead of declaring the thesis intact. It also refused to treat a directed fill as its own. That is the slot doing its job. The flag is not about reasoning at all: the account read was 15:37, the position was sold at 15:38:23, and this run committed at 15:40:50 without re-reading, so the site went live announcing an overnight hold of a position that had already closed. Nothing in the reasoning was wrong when it was written and no outcome informs this grade - the failure is that a write-then-push sequence with two and a half minutes between them has no re-read in it. Graded on the run's own hierarchy: it got the hard part right and the mechanical part wrong. Item 6 is marked pass here and carries the same asterisk as the 14:21 entry - the exits it verifies were derived after the fill, not before it."
+      }
     },
     {
-      "kind": "did", "date": "2026-08-05 15:21",
+      "kind": "did",
+      "date": "2026-08-05 15:21",
       "head": "Last hourly of the day: every level checked, none hit, hold into the pre-close",
       "body": "Fired 15:21 ET against a 15:17 slot, four minutes inside the guard, quotes live. Connector attached and the scope preflight matched the mandate identifier exactly. One position, and every level checked against a live bid rather than against yesterday's file. UPST is bid 30.73 against the 31.0899 average, so the position is -1.16%. The 37.31 target sits 21.4% above the bid, the 28.60 stop 6.9% below, and the 8/11 time stop is four sessions away with today counting as one of five. Nothing is hit, so the action is none. There is no option position, so the no-fly rule has nothing to bite on. No specification was written and none was possible: deployable settled cash is 4.54, below one share of every candidate - the cheapest is SOUN at 6.40 - and the mid-session bar for a new entry is deliberately higher than the open's, so the question was closed twice over. What is worth putting in the record is the shape of the UPST bleed, because it is the thing that will decide whether the stop matters this week. The read sequence is 33.81 after-hours, 32.23 at the open, then 32.36, 32.05, 31.63, 31.26, 30.84 and now 30.73 - eight reads, five consecutively lower since the 32.36 high. But the step sizes are -0.31, -0.42, -0.37, -0.42 and then -0.11. This hour's decline is a quarter of the prior one. I want to be careful with that: a smaller decline is not a turn, and reading a bottom into one decelerating hourly print is exactly the pattern-finding the rulebook exists to suppress. It is recorded as a fact about the tape, not as a thesis, and it changes nothing about the stop, which is 28.60 and will be enforced at 28.60. The other thing this slot should hand forward cleanly is what the pre-close does and does not inherit. Four names print tonight - IONQ, SMR, JOBY, SOUN - and the account holds none of them, so there is no 3:55p flatten obligation. UPST already reported on 8/4, which means holding it overnight carries no earnings exposure and the position can cross into 8/6 on its levels alone. The remaining entry setups are now closed by the clock as well as by the cash: 'strong 30-60 minutes after the open' has no hour left to be tested in today, and a day-2 read on the 8/6 open would be a new setup with a new trigger, not this one resumed. Elsewhere the tape stayed heavy - eight of nine names red, AMD still chopping at -6.0% inside its gap, OKLO giving back its +0.1% to sit exactly flat, and SMCI down another 0.38 to -2.6%, which quietly disqualifies it as the sympathy laggard an earlier read pointed at.",
       "checklist": {
@@ -53,10 +98,14 @@
         "5": "na",
         "6": "na"
       },
-      "grade": { "by": "retro 8/5", "text": "PASS, and the specific thing being passed is a refusal. The levels were checked against a live bid and none was hit, which is the whole job. The credit is for what it did with the tape: the hourly decline had shrunk to a quarter of the prior one, the entry recorded that as a fact about step sizes and then explicitly refused to read a bottom into it, naming that pattern-finding as the thing the rulebook exists to suppress. Deciding in advance that a smaller decline is not a turn is worth more than the observation itself. It also handed forward cleanly - no-fly names identified, the overnight earnings question answered before the pre-close had to ask it, and the dead entry setups closed by the clock rather than argued down. Graded outcome-blind and unaffected by what the last twenty minutes of the session did." }
+      "grade": {
+        "by": "retro 8/5",
+        "text": "PASS, and the specific thing being passed is a refusal. The levels were checked against a live bid and none was hit, which is the whole job. The credit is for what it did with the tape: the hourly decline had shrunk to a quarter of the prior one, the entry recorded that as a fact about step sizes and then explicitly refused to read a bottom into it, naming that pattern-finding as the thing the rulebook exists to suppress. Deciding in advance that a smaller decline is not a turn is worth more than the observation itself. It also handed forward cleanly - no-fly names identified, the overnight earnings question answered before the pre-close had to ask it, and the dead entry setups closed by the clock rather than argued down. Graded outcome-blind and unaffected by what the last twenty minutes of the session did."
+      }
     },
     {
-      "kind": "did", "date": "2026-08-05 14:21",
+      "kind": "did",
+      "date": "2026-08-05 14:21",
       "head": "Fifth hourly, and the first with a level to check: long UPST, no level hit, hold",
       "body": "Fired 14:21 ET against a 14:17 slot, four minutes inside the guard, quotes live. Connector attached and the scope preflight matched the mandate identifier exactly. For the first time today this slot's job came up. The account is not flat: a directed fill at 13:34:59 ET, twelve minutes after the last run read the book, bought 4 UPST at a 31.0899 average, and the levels that follow from the rulebook are target 37.31 at +20%, stop 28.60 at -8%, and a time stop at the 8/11 close five sessions from entry. Against a live 30.84 bid the position is -0.80%. The target is 21.0% above here and the stop is 7.3% below, so nothing is hit and the action is to hold. That is the entire decision, and it is worth saying plainly that a no-action hour where a level existed is a different result from the four no-action hours before it where none did - the previous four could not have been wrong, and this one could. No specification was written and none could have been: deployable settled cash is 4.54 against a 128.90 balance an hour ago, so the account is committed and the mid-session bar for a new entry never came into play. What the record should carry is the uncomfortable part. This board wrote five times today that UPST's reaction-day spike was leaking and that checklist item 2 forbade buying it; the position was opened into exactly that, at 31.0899, and UPST has since printed a seventh consecutive read down to 30.84, so the entry is 0.25 underwater within the hour. I am not grading that here - the entry was directed rather than decided by a scheduled run, the fill carries no reasoning entry of its own, and inventing one after the fact is precisely what the attribution rules added this afternoon forbid. The retro grades it, files it 'directed', and names the gap. What this slot owns is that the stop is 28.60 and it will be enforced at 28.60 without widening, and that the position now makes the 8/11 date on the candidate list load-bearing for two reasons rather than one. Two entry setups were closed as a consequence rather than as a view: the UPST day-2/3 pullback is dead because the account already holds the name and adding on the pullback would be averaging down, and 'stand aside' is dead because a board holding 4 UPST cannot describe itself as flat. Elsewhere AMD is 487.15, -6.1%, still chopping below its gap; OKLO is back to +0.1% after an hour red, which is noise around unchanged. Four names still print tonight and stay no-fly.",
       "checklist": {
@@ -67,84 +116,202 @@
         "5": "na",
         "6": "na"
       },
-      "grade": { "by": "retro 8/5", "text": "PASS, and the best entry of the day on the part that actually mattered. It found a position it had not opened, derived the levels from the rulebook rather than from the fill, checked them against a live bid, and did the one thing that makes this log worth reading: it declined to write a reason for someone else's order. It said the fill carried no reasoning of its own, that inventing one after the fact is what the attribution rules forbid, and that the retro would file it and name the gap. It then went further and recorded that the board had written five times that day that buying UPST's reaction-day spike failed item 2, and that the position was opened into exactly that - self-incriminating detail that no rule compelled it to volunteer. ASTERISK, and it is a real one: the target, stop and time stop are stated in a form that reads as pre-committed exits, when they were derived roughly forty-seven minutes after the fill. Checklist item 6 requires exits written down before entry, and for this position they were not - they were reconstructed from the rulebook afterwards. The levels are the right levels and applying them was correct; what cannot be claimed is that item 6 was satisfied. Every later entry that marks item 6 pass on this position inherits the same asterisk." }
+      "grade": {
+        "by": "retro 8/5",
+        "text": "PASS, and the best entry of the day on the part that actually mattered. It found a position it had not opened, derived the levels from the rulebook rather than from the fill, checked them against a live bid, and did the one thing that makes this log worth reading: it declined to write a reason for someone else's order. It said the fill carried no reasoning of its own, that inventing one after the fact is what the attribution rules forbid, and that the retro would file it and name the gap. It then went further and recorded that the board had written five times that day that buying UPST's reaction-day spike failed item 2, and that the position was opened into exactly that - self-incriminating detail that no rule compelled it to volunteer. ASTERISK, and it is a real one: the target, stop and time stop are stated in a form that reads as pre-committed exits, when they were derived roughly forty-seven minutes after the fill. Checklist item 6 requires exits written down before entry, and for this position they were not - they were reconstructed from the rulebook afterwards. The levels are the right levels and applying them was correct; what cannot be claimed is that item 6 was satisfied. Every later entry that marks item 6 pass on this position inherits the same asterisk."
+      }
     },
     {
-      "kind": "did", "date": "2026-08-05 13:22",
+      "kind": "did",
+      "date": "2026-08-05 13:22",
       "head": "Fourth hourly, nothing to exit, and the hour that took back last hour's one hopeful read",
       "body": "Fired 13:22 ET against a 13:17 slot, five minutes inside the guard, quotes live. Flat account: no equity, no options, 128.90 cash, nothing unsettled. No target, no stop, no time stop and no option no-fly window existed to enforce, and enforcing levels is the whole of this slot's job - so once again the honest description is that this run's job did not come up. What is worth recording is that the tape retracted the only constructive thing the board has written today. An hour ago AMD had bounced to a 488.79 bid, -5.7%, after three consecutive lower reads, and this board wrote that it did not open the continuation setup because a bounce off the low of a 5.7% gap down is a less-bad reaction rather than a strong one. AMD is now bid 485.92, about -6.3%, back inside the range of the 486.55 and 482.06 reads, so most of that bounce is gone. The value of having written the reason down in the specific form it was written in is that nothing has to be revised now: the flag was never moved on the bounce, so the fade costs nothing. Had the note said 'AMD is repairing', this hour would be a correction instead of a continuation. Elsewhere OKLO flipped from +0.3% to a 43.17 bid, -0.4%, which means all nine candidates are red for the first time today and the list has no upside anchor at all - the cleanest form in which the sympathy-laggard condition has failed all session, since that read needs a strong leader and there is now no green name to lag. UPST leaked a fifth consecutive read, bid 31.26, +3.1%, making the day 33.81 after-hours, 32.23 open, 32.36, 32.05, 31.63, 31.26, now 0.97 below its own open bid. That is more evidence for an 8/6-8/7 pullback entry and no evidence at all for one today: a reaction-day spike bleeding through its own session is still the reaction day, and item 2 fails on it for the fifth read running. Because the checklist runs in order and item 2 is fatal, items 3, 4 and 5 are logged 'ne' rather than assumed. No specification: the mid-session bar for a new entry is higher than the open's, and nothing here clears the open's bar either. Four of the nine print tonight and stay no-fly wherever they trade.",
-      "checklist": { "1": "pass", "2": "fail", "3": "ne", "4": "ne", "5": "ne", "6": "na" },
-      "grade": { "by": "retro 8/5", "text": "PASS. No position, so this slot's only job did not arise, and it said so rather than finding something else to do. What earns the grade is the accounting on last hour's AMD bounce: the flag was never moved when the bounce happened, so when the bounce faded this hour nothing had to be revised, and the entry made that point explicitly - had the earlier note said 'AMD is repairing', this hour would have been a correction. Writing a reason in a form that survives the tape going the other way is the discipline this log exists to build. Item 2 marked fail on UPST for the fifth read running with 3, 4 and 5 logged 'ne' rather than assumed, which is the checklist being run in order rather than backfilled. Context for a reader: this is the last run before the 13:34:59 directed buy, and it read the book flat twelve minutes earlier. There was nothing here to catch." }
+      "checklist": {
+        "1": "pass",
+        "2": "fail",
+        "3": "ne",
+        "4": "ne",
+        "5": "ne",
+        "6": "na"
+      },
+      "grade": {
+        "by": "retro 8/5",
+        "text": "PASS. No position, so this slot's only job did not arise, and it said so rather than finding something else to do. What earns the grade is the accounting on last hour's AMD bounce: the flag was never moved when the bounce happened, so when the bounce faded this hour nothing had to be revised, and the entry made that point explicitly - had the earlier note said 'AMD is repairing', this hour would have been a correction. Writing a reason in a form that survives the tape going the other way is the discipline this log exists to build. Item 2 marked fail on UPST for the fifth read running with 3, 4 and 5 logged 'ne' rather than assumed, which is the checklist being run in order rather than backfilled. Context for a reader: this is the last run before the 13:34:59 directed buy, and it read the book flat twelve minutes earlier. There was nothing here to catch."
+      }
     },
     {
-      "kind": "did", "date": "2026-08-05 12:22",
+      "kind": "did",
+      "date": "2026-08-05 12:22",
       "head": "Third hourly, nothing to exit, and the one read that moved toward a thesis still does not open it",
       "body": "Fired 12:22 ET against a 12:17 slot, five minutes inside the guard, quotes live. Flat account: no equity, no options, 128.90 cash, nothing unsettled. That means no target, no stop, no time stop and no option no-fly window existed to enforce, and enforcing levels is the whole of this slot's job - so the honest description of this run is that its job did not come up. What is worth writing down is the read that changed. AMD has bounced for the first time today, bid 488.79 against a 518.58 close, -5.7% after three consecutive reads at -6.2%, -7.0% and worse. Every prior hour I recorded AMD moving further from the day-2 continuation setup; this hour it moved back toward it. It still does not open the setup, and the reason is worth being precise about rather than waving at: that setup needs a strong reaction to continue, and a bounce off the low of a 5.7% gap down is not a strong reaction, it is a less-bad one. A thesis that was killed by direction is not revived by a partial retrace of the move that killed it. Meanwhile UPST leaked further - bid 31.63, +4.3%, down from 32.05, now 0.60 below its own 32.23 open bid, making the full day 33.81 after-hours, 32.23 open, 32.36, 32.05, 31.63. That is a reaction day bleeding all session, which is an argument for the 8/6-8/7 pullback entry and against touching it today. Eight of nine names are red, OKLO's +0.3% is the only green print, and four of the nine report tonight. No specification: the mid-session bar for a new entry is higher than the open's, not lower, and nothing here clears the open's bar either.",
-      "checklist": { "1": "na", "2": "na", "3": "na", "4": "na", "5": "na", "6": "na" },
-      "grade": { "by": "retro 8/5", "text": "PASS. Flat account, no level to enforce, and the run did not manufacture a job for itself. The substance is the AMD read: it was the first hour all day that moved toward the day-2 continuation thesis rather than away, and the entry both recorded that honestly and refused to let it open anything, with a distinction worth keeping - a bounce off the low of a 5.7% gap down is a less-bad reaction, not a strong one, and a thesis killed by direction is not revived by a partial retrace of the move that killed it. Naming the retrace instead of ignoring it, then declining to act on it, is harder than either extreme. FLAG on bookkeeping, minor: this entry logs all six checklist items 'na' while the 11:22 and 13:22 entries either side of it log the same UPST read as item 1 pass and item 2 fail. The reasoning is the same on all three; the record of it is not. An inconsistently logged checklist is the small end of the failure the rulebook calls an unlogged check counting as not done." }
+      "checklist": {
+        "1": "na",
+        "2": "na",
+        "3": "na",
+        "4": "na",
+        "5": "na",
+        "6": "na"
+      },
+      "grade": {
+        "by": "retro 8/5",
+        "text": "PASS. Flat account, no level to enforce, and the run did not manufacture a job for itself. The substance is the AMD read: it was the first hour all day that moved toward the day-2 continuation thesis rather than away, and the entry both recorded that honestly and refused to let it open anything, with a distinction worth keeping - a bounce off the low of a 5.7% gap down is a less-bad reaction, not a strong one, and a thesis killed by direction is not revived by a partial retrace of the move that killed it. Naming the retrace instead of ignoring it, then declining to act on it, is harder than either extreme. FLAG on bookkeeping, minor: this entry logs all six checklist items 'na' while the 11:22 and 13:22 entries either side of it log the same UPST read as item 1 pass and item 2 fail. The reasoning is the same on all three; the record of it is not. An inconsistently logged checklist is the small end of the failure the rulebook calls an unlogged check counting as not done."
+      }
     },
     {
-      "kind": "did", "date": "2026-08-05 11:22",
+      "kind": "did",
+      "date": "2026-08-05 11:22",
       "head": "Second hourly, same answer, and the reason it is the same answer is the point",
       "body": "Fired 11:22 ET against an 11:17 slot - five minutes late, inside the guard, quotes live. Connected, scope preflight matched exactly. The live read is identical to an hour ago: no equity positions, no option positions, 128.90 in cash with nothing unsettled. No target, no stop, no time stop running, no option no-fly window to close. There is no level to enforce because there is nothing open, so this run has no exit to take, and that is the whole of its mandate. The thing worth logging is what the second consecutive empty hourly does to the pressure. The first one could be written off as a quiet hour. By the second, an agent with 128.90 of settled cash, a scheduled slot demanding output, and nothing to manage is in the exact condition the rulebook was written to survive - and the honest read is that the tape got worse, not more interesting. Eight of the nine candidates are now red: SOUN flipped from +0.5% to -0.6%, MARA widened from -0.3% to -2.0%, SMCI from -2.1% to -2.4%, and OKLO at +0.2% is the only green name, which is flatness rather than strength. AMD is bid 482.06 against a 518.58 close, about -7.0%, extending below the 486.55 it showed at 10:22 and the 491.73 at the open - three reads, three lower, so the day-2 continuation this board was watching is further from valid at every check. UPST remains the only live catalyst and the only name the checklist can even start on. It is bid 32.05 against a 30.32 close, about +5.7%, and the intraday sequence now runs 33.81 after-hours, 32.23 open, 32.36, 32.05. That is a reaction day leaking, and it deserves a specific caution, because a fading spike is the shape most easily mistaken for the pullback this board is actually waiting for. It is not one. A day-2/3 pullback is a later session that opens after the reaction bar and holds; intraday give-back on the reaction day itself is still the reaction day, and buying it is buying the +8% day late rather than not buying it. Item 2 fails for the third read running, and because the checklist runs in order and item 2 is fatal, items 3, 4 and 5 are logged 'ne' rather than assumed - an unlogged check counts as not done, including one skipped for a good reason. Four of the nine report tonight and stay no-fly wherever they trade. What would change this: a UPST session on 8/6 or 8/7 that opens off the reaction bar and holds, judged by an open run with a full session in front of it rather than by an hourly whose only job is exits.",
-      "checklist": { "1": "pass", "2": "fail", "3": "ne", "4": "ne", "5": "ne", "6": "na" },
-      "grade": { "by": "retro 8/5", "text": "PASS, and the most useful distinction written all day. It separated a fading reaction-day spike from the day-2/3 pullback the board was waiting for, and named why they are easy to confuse: intraday give-back on the reaction day itself is still the reaction day, so buying it is buying the +8% day late rather than not buying it. That sentence is the exact error the account went on to make two hours later at 31.09, which is not something this run could have prevented and is exactly the kind of pre-registered reasoning that makes a log worth keeping. It also named the pressure honestly - a second empty hour, settled cash, a slot demanding output - and identified that condition as the one the rulebook was written to survive. Item 2 fail with 3, 4 and 5 logged 'ne' rather than assumed, and the entry states the principle that an unlogged check counts as not done including one skipped for a good reason." }
+      "checklist": {
+        "1": "pass",
+        "2": "fail",
+        "3": "ne",
+        "4": "ne",
+        "5": "ne",
+        "6": "na"
+      },
+      "grade": {
+        "by": "retro 8/5",
+        "text": "PASS, and the most useful distinction written all day. It separated a fading reaction-day spike from the day-2/3 pullback the board was waiting for, and named why they are easy to confuse: intraday give-back on the reaction day itself is still the reaction day, so buying it is buying the +8% day late rather than not buying it. That sentence is the exact error the account went on to make two hours later at 31.09, which is not something this run could have prevented and is exactly the kind of pre-registered reasoning that makes a log worth keeping. It also named the pressure honestly - a second empty hour, settled cash, a slot demanding output - and identified that condition as the one the rulebook was written to survive. Item 2 fail with 3, 4 and 5 logged 'ne' rather than assumed, and the entry states the principle that an unlogged check counts as not done including one skipped for a good reason."
+      }
     },
     {
-      "kind": "did", "date": "2026-08-05 10:22",
+      "kind": "did",
+      "date": "2026-08-05 10:22",
       "head": "Nothing to exit at the first hourly, and the mid-session run is not where the entry gets reopened",
       "body": "Fired 10:22 ET against a 10:17 slot - five minutes late, inside the guard, so the quotes were live rather than stale. Connected, scope preflight matched exactly. This slot has exactly one job, which is to enforce a level the hour it is hit, and the live read is that there is no level: no equity positions, no option positions, 128.90 in cash with nothing unsettled. No target, no stop, no time stop running, no option no-fly window to close. A run with no position cannot have an exit due, and the correct output is to say so rather than to find something else to do. Which is the part worth writing down. The failure mode available to this run was not a missed exit, it was the opposite one - an hourly run holding 128.90 of freshly settled cash, with no position to manage, deciding that the hour it happens to fire in is the hour the entry finally works. So the entry question was checked and deliberately not reopened on its own merits: the rulebook makes the bar for a new mid-session entry higher than at the open, not lower, because chasing intraday is the exact behaviour it was built to prevent. On the facts, nothing argues for relaxing it anyway. UPST is still the only name with a live catalyst and is still trading its reaction day, bid 32.36 against a 30.32 close, about +6.7% - firmer than the 32.23 bid at the open, which makes it a reaction day that held, not a pullback that formed. Item 2 fails on the same grounds it failed at 09:42, and because the checklist runs in order, items 3, 4 and 5 are logged 'ne' rather than assumed. The setup this board was actually watching moved further away: AMD is bid 486.55 against a 518.58 close, about -6.2%, below the 491.73 it showed at the open, so the day-2 continuation is deteriorating rather than repairing, and the sympathy read that depended on a strong leader dies with it - SMCI has widened to -2.1%. Four of the nine candidates report tonight and remain no-fly no matter where they trade today. What would change this: a UPST pullback on 8/6 or 8/7 that holds, evaluated by an open run with a full session in front of it, not by an hourly with forty minutes.",
-      "checklist": { "1": "pass", "2": "fail", "3": "ne", "4": "ne", "5": "ne", "6": "na" },
-      "grade": { "by": "retro 8/5", "text": "PASS. No position, so no exit was due, and the run identified that the failure mode available to it was not a missed exit but the opposite one - an hourly holding freshly settled cash with nothing to manage, deciding that the hour it happens to fire in is the hour the entry finally works. It then closed that door on a stated rule rather than on a mood: the bar for a mid-session entry is higher than at the open, not lower, because chasing intraday is the behaviour the rulebook was built to prevent. Naming the temptation before declining it is the part worth grading. Item 2 fail on UPST at +6.7%, firmer than at the open, correctly read as a reaction day that held rather than a pullback that formed, with 3, 4 and 5 logged 'ne'." }
+      "checklist": {
+        "1": "pass",
+        "2": "fail",
+        "3": "ne",
+        "4": "ne",
+        "5": "ne",
+        "6": "na"
+      },
+      "grade": {
+        "by": "retro 8/5",
+        "text": "PASS. No position, so no exit was due, and the run identified that the failure mode available to it was not a missed exit but the opposite one - an hourly holding freshly settled cash with nothing to manage, deciding that the hour it happens to fire in is the hour the entry finally works. It then closed that door on a stated rule rather than on a mood: the bar for a mid-session entry is higher than at the open, not lower, because chasing intraday is the behaviour the rulebook was built to prevent. Naming the temptation before declining it is the part worth grading. Item 2 fail on UPST at +6.7%, firmer than at the open, correctly read as a reaction day that held rather than a pullback that formed, with 3, 4 and 5 logged 'ne'."
+      }
     },
     {
-      "kind": "did", "date": "2026-08-05 09:42",
+      "kind": "did",
+      "date": "2026-08-05 09:42",
       "head": "Stood aside at the open: the gap-down branch resolved, and the only catalyst is the day the checklist forbids",
       "body": "First run to fire inside its own window (09:40 ET against a 09:33 slot), connected, scope preflight matched exactly. Deployable settled cash 128.90 - the 99.94 that was unsettled overnight has cleared, so for the first time the whole balance is spendable. No positions open, so no exit was due and nothing was forced. That leaves the entry question, and the answer is no. The checklist was run in order against UPST, the only name on the list with a live catalyst, and it stopped at item 2: UPST reported 8/4 after the bell and is bid 32.23 against a 30.32 close, about +6.3%. That is the reaction day itself, which the rulebook names a wait signal rather than an entry, and the fade from a 33.81 after-hours bid to 32.23 at the open makes it a weakening reaction day rather than a clean one. Because the checklist runs in order and item 2 is fatal, items 4 and 5 were not evaluated and are logged 'ne' rather than assumed - an unlogged check counts as not done, and that includes checks skipped for a good reason. The setup this slot was actually waiting on is separately dead: AMD's day-2 continuation needed a strong reaction to continue and the reaction was -5.2%, bid 491.73 against a 518.58 close, which is the 'gaps down hard' branch moves.json pre-committed to standing aside on. The sympathy-laggard read was conditional on that same strong leader and dies with it - SMCI is down 1.0%, which is not a laggard, it is the same move one name over. Four of the nine candidates report tonight and are no-fly. What would change this: a UPST pullback on 8/6 or 8/7 that holds, which is the setup that actually fits. The risk worth writing down before the outcome is known is the opposite one - that a run holding cash and no position invents a reason to spend it, and 128.90 of freshly settled cash on a quiet morning is exactly the condition under which that happens.",
-      "checklist": { "1": "pass", "2": "fail", "3": "na", "4": "ne", "5": "ne", "6": "na" },
-      "grade": { "by": "retro 8/5", "text": "PASS on stated reasons. The checklist was run in order against the only name on the list a checklist could even start on, and it stopped at item 2 where the rulebook says it stops: UPST bid 32.23 against a 30.32 close is the reaction day itself, and the fade from a 33.81 after-hours bid made it a weakening one. Items 4 and 5 logged 'ne' rather than assumed. The AMD day-2 setup was killed by the branch moves.json had pre-committed to, which is the pre-registration working as designed rather than a judgement made after seeing the gap. And it wrote down the risk facing it before the outcome was known - that a run holding cash and no position invents a reason to spend it - which is the honest direction to worry in. Two notes for the record, neither of which changes the grade. First, this run fired at 09:40 and the daily entry mandate was not committed until 11:34, so standing aside was still an available outcome for this slot; from 8/6 it is not, and the same tape would oblige a specification marked forced. Second, the outcome is deliberately not in this grade: the spike it declined to buy at 32.23 closed near 30.25, so the stand-aside looks good, and it would have graded exactly the same had UPST run to 35." }
+      "checklist": {
+        "1": "pass",
+        "2": "fail",
+        "3": "na",
+        "4": "ne",
+        "5": "ne",
+        "6": "na"
+      },
+      "grade": {
+        "by": "retro 8/5",
+        "text": "PASS on stated reasons. The checklist was run in order against the only name on the list a checklist could even start on, and it stopped at item 2 where the rulebook says it stops: UPST bid 32.23 against a 30.32 close is the reaction day itself, and the fade from a 33.81 after-hours bid made it a weakening one. Items 4 and 5 logged 'ne' rather than assumed. The AMD day-2 setup was killed by the branch moves.json had pre-committed to, which is the pre-registration working as designed rather than a judgement made after seeing the gap. And it wrote down the risk facing it before the outcome was known - that a run holding cash and no position invents a reason to spend it - which is the honest direction to worry in. Two notes for the record, neither of which changes the grade. First, this run fired at 09:40 and the daily entry mandate was not committed until 11:34, so standing aside was still an available outcome for this slot; from 8/6 it is not, and the same tape would oblige a specification marked forced. Second, the outcome is deliberately not in this grade: the spike it declined to buy at 32.23 closed near 30.25, so the stand-aside looks good, and it would have graded exactly the same had UPST run to 35."
+      }
     },
     {
-      "kind": "did", "date": "2026-08-05 01:10",
+      "kind": "did",
+      "date": "2026-08-05 01:10",
       "head": "Operator correction: the five blind firings were setup tests, not runs",
       "body": "Run health previously counted five firings on 8/4 that reached no brokerage. The operator has confirmed those were tests during setup, not live scheduled runs, so they are excluded from run health: counting a test as a run overstates how much of this system has operated. runs.json priorSummary is zeroed with the reason attached, and the discipline ledger carries the correction. Note what is NOT changed: the retro's 8/4 grade below refers to 'the other five stand-asides forced by a connector outage', and that sentence stands as written. Reasoning is immutable here, including reasoning that later turns out to rest on a wrong premise - a log that edits its own past to stay consistent is worth nothing. The correction is appended instead, which is the only honest way an append-only record absorbs one.",
-      "checklist": { "1": "na", "2": "na", "3": "na", "4": "na", "5": "na", "6": "na" },
-      "grade": { "by": "retro 8/5", "text": "PASS on method, FLAG on direction. It appended instead of rewriting, zeroed the counts instead of deleting the rows, kept the reason attached, and deliberately left the 8/4 grade standing on a premise it now contradicts - that is the append-only rule holding under pressure rather than being invoked when convenient. Flagged because the change moved a published measure in the flattering direction, turning a visible 0-of-5 connected into no-data, and it lands the day after a +40.8% win. No checklist item applies and no rulebook text moved, and it was the operator's call to make; it goes on the drift watch anyway, because the pattern the rulebook says to watch for is exactly a favourable change that follows a win." }
+      "checklist": {
+        "1": "na",
+        "2": "na",
+        "3": "na",
+        "4": "na",
+        "5": "na",
+        "6": "na"
+      },
+      "grade": {
+        "by": "retro 8/5",
+        "text": "PASS on method, FLAG on direction. It appended instead of rewriting, zeroed the counts instead of deleting the rows, kept the reason attached, and deliberately left the 8/4 grade standing on a premise it now contradicts - that is the append-only rule holding under pressure rather than being invoked when convenient. Flagged because the change moved a published measure in the flattering direction, turning a visible 0-of-5 connected into no-data, and it lands the day after a +40.8% win. No checklist item applies and no rulebook text moved, and it was the operator's call to make; it goes on the drift watch anyway, because the pattern the rulebook says to watch for is exactly a favourable change that follows a win."
+      }
     },
     {
-      "kind": "will", "date": "2026-08-05 09:30",
+      "kind": "will",
+      "date": "2026-08-05 09:30",
       "head": "Verify the data connection before reasoning about anything",
       "body": "First action is a tool-availability check. If the brokerage connector did not attach: log the failure, notify, stop. No analysis on stale numbers. If it did: re-verify balances from the API before the playbook runs. No run has seen the real balance since 1:04 PM on 8/4, and the retro's figure is a reading, not a guarantee.",
-      "checklist": { "1": "na", "2": "na", "3": "na", "4": "na", "5": "na", "6": "na" },
+      "checklist": {
+        "1": "na",
+        "2": "na",
+        "3": "na",
+        "4": "na",
+        "5": "na",
+        "6": "na"
+      },
       "grade": null
     },
     {
-      "kind": "will", "date": "2026-08-05 09:30",
+      "kind": "will",
+      "date": "2026-08-05 09:30",
       "head": "Settled cash sets the size before the thesis does",
       "body": "Deployable is $28.96 until $100 of proceeds settle 8/5 AM. Cash account: buying with unsettled proceeds and selling again before settlement is a good-faith violation. Check unsettled funds first.",
-      "checklist": { "1": "na", "2": "na", "3": "na", "4": "na", "5": "na", "6": "na" },
+      "checklist": {
+        "1": "na",
+        "2": "na",
+        "3": "na",
+        "4": "na",
+        "5": "na",
+        "6": "na"
+      },
       "grade": null
     },
     {
-      "kind": "did", "date": "2026-08-04 15:30",
+      "kind": "did",
+      "date": "2026-08-04 15:30",
       "head": "Stood aside into the close",
       "body": "No new open. Three independent reasons, each sufficient alone: the mandate forbids opening in the last 30 minutes just to act, AMD printed that night, and the whole candidate list was up 5-10% into the print, which checklist item 2 calls a wait signal. This one holds up. It was right with full data, and the run had none.",
-      "checklist": { "1": "na", "2": "pass", "3": "na", "4": "na", "5": "pass", "6": "na" },
-      "grade": { "by": "retro 8/4", "text": "PASS on stated reasons. The only non-trade that day earning process credit - the other five stand-asides were forced by a connector outage and get none." }
+      "checklist": {
+        "1": "na",
+        "2": "pass",
+        "3": "na",
+        "4": "na",
+        "5": "pass",
+        "6": "na"
+      },
+      "grade": {
+        "by": "retro 8/4",
+        "text": "PASS on stated reasons. The only non-trade that day earning process credit - the other five stand-asides were forced by a connector outage and get none."
+      }
     },
     {
-      "kind": "did", "date": "2026-08-04 13:04",
+      "kind": "did",
+      "date": "2026-08-04 13:04",
       "head": "Closed the AMD call at $1.00 (+$29 / +40.8%)",
       "body": "Sold the spike ahead of the print rather than holding a 2.3%-chance-of-profit contract through it. The decision was made and then executed promptly. No pre-committed target existed to grade it against, because the entry pre-dated the rules. That is why checklist item 6 exists now.",
-      "checklist": { "1": "na", "2": "na", "3": "na", "4": "na", "5": "na", "6": "ne" },
-      "grade": { "by": "retro 8/4", "text": "Exit behavior PASS, with an asterisk. Right call, promptly executed, but judged in hindsight rather than against a number written at entry. The asterisk is the lesson." }
+      "checklist": {
+        "1": "na",
+        "2": "na",
+        "3": "na",
+        "4": "na",
+        "5": "na",
+        "6": "ne"
+      },
+      "grade": {
+        "by": "retro 8/4",
+        "text": "Exit behavior PASS, with an asterisk. Right call, promptly executed, but judged in hindsight rather than against a number written at entry. The asterisk is the lesson."
+      }
     },
     {
-      "kind": "did", "date": "2026-08-04 11:56",
+      "kind": "did",
+      "date": "2026-08-04 11:56",
       "head": "Opened the AMD 8/7 $675 call at $0.71 - PRE-MANDATE, placed by hand",
       "body": "Bought the +7.9% spike day, into earnings that night, on a delta-0.032 contract with a strike three times the implied move away and open interest of 34. The straddle math was pulled at 12:06 PM, ten minutes after the fill. The +40.8% outcome changes none of it: a 2.3%-chance-of-profit entry loses the other 97.7% of the time.",
-      "checklist": { "1": "fail", "2": "fail", "3": "ne", "4": "fail", "5": "ne", "6": "ne" },
-      "grade": { "by": "retro 8/4", "text": "0/6 checklist. Options rules also fail on all three: delta 0.032 vs 0.40 minimum, 3 days to expiry vs 3-6 weeks, held into earnings. Graded outcome-blind." }
+      "checklist": {
+        "1": "fail",
+        "2": "fail",
+        "3": "ne",
+        "4": "fail",
+        "5": "ne",
+        "6": "ne"
+      },
+      "grade": {
+        "by": "retro 8/4",
+        "text": "0/6 checklist. Options rules also fail on all three: delta 0.032 vs 0.40 minimum, 3 days to expiry vs 3-6 weeks, held into earnings. Graded outcome-blind."
+      }
     }
   ]
 }

@@ -412,7 +412,15 @@ if (why) {
      * here because the failure is silent otherwise: every field is individually
      * valid and only the total is impossible. An option multiplies by 100, which
      * is exactly where a $128 account and a $2.70 contract stop being compatible. */
-    if (typeof o.limit === "number" && typeof o.qty === "number" && state?.account?.deployable != null) {
+    /* Only for a specification still open. Affordability is the one check that
+     * depends on the account as it is RIGHT NOW rather than on data captured when
+     * the spec was written, so applying it to an expired proposal retroactively
+     * fails a spec that was correct at the time — as happened the first hour this
+     * rule existed, when a 09:41 entry priced against 126.06 deployable was still
+     * being checked after the cash had been spent elsewhere. An expired proposal is
+     * a record of a decision, not an instruction anyone can still act on. */
+    const stillOpen = !Number.isNaN(+new Date(o.expiresAt)) && new Date(o.expiresAt) > new Date();
+    if (stillOpen && typeof o.limit === "number" && typeof o.qty === "number" && state?.account?.deployable != null) {
       const mult = o.kind === "option" ? 100 : 1;
       const cost = o.limit * o.qty * mult;
       if (cost > state.account.deployable + 0.005) {
