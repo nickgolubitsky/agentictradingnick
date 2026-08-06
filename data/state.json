@@ -1,6 +1,6 @@
 {
   "_comment": "Written by the trading runs (9:30a / hourly / 3:30p ET). Never contains account numbers, broker IDs, or any account other than the sandbox.",
-  "lastRefreshUtc": "2026-08-06T17:22:30Z",
+  "lastRefreshUtc": "2026-08-06T18:22:21Z",
   "accountLabel": "Sandbox account",
   "account": {
     "total": 119.98,
@@ -8,8 +8,8 @@
     "deployable": 11.98,
     "unsettled": 0,
     "settlesOn": "nothing pending",
-    "verifiedAt": "2026-08-06 13:22 ET",
-    "note": "Cash account. Proceeds settle T+1. The account figure is the broker's, struck on the 0.54 option mark; on the 0.51 bid the position is worth 102.00 and the account 113.98. Deployable is 11.98 and unchanged for a fourth hour - it buys no contract at all, so a second position stays arithmetically closed off rather than declined."
+    "verifiedAt": "2026-08-06 14:22 ET",
+    "note": "Cash account. Proceeds settle T+1. The account figure is the broker's, struck on a 0.54 option mark; on the live 0.56 mark the position is worth 112.00 and the account 123.98, and on the 0.53 bid the rulebook quotes it is worth 106.00 and the account 117.98. Deployable is 11.98 and unchanged for a fifth hour - it buys no contract at all, so a second position stays arithmetically closed off rather than declined."
   },
   "positions": [
     {
@@ -17,14 +17,14 @@
       "desc": "2 contracts @ 0.57 · long call · opened 10:46 ET by the operator",
       "qty": 2,
       "avgPrice": 0.57,
-      "bid": 0.51,
-      "plPct": -10.5,
+      "bid": 0.53,
+      "plPct": -7,
       "target": "0.68 (+20%)",
       "stop": "0.34 (-40% of premium)",
       "timeStop": "5 sessions, 2026-08-13 — one day before expiry",
-      "noFly": "None. Re-pulled live from the earnings calendar at 13:22 ET rather than carried forward: 1,518 events across 8/6–8/15 and SMR appears in none of them, so no print lands before the 8/14 expiry.",
+      "noFly": "None. Re-pulled live from the earnings calendar at 14:22 ET rather than carried forward: 1,518 events across 8/6-8/15 and SMR appears in none of them, so no print lands before the 8/14 expiry.",
       "lit": "watch",
-      "note": "No level hit at 13:22. Target 0.684 needs the bid up 34.1%, the 0.342 stop needs it down 32.9%, and the position is at -10.5% on the bid — the first hour today it has moved toward the target rather than the stop. Time stop is session one of five. Last hour's finding is the one that reversed: the loss had turned from decay into direction, and this hour direction gave it back. SMR went 9.28 to 9.45 bid, +0.17 and +1.8%, and at a ~0.50 delta that is +0.085 of contract against an hour's theta of about -0.005; the mark moved 0.46 to 0.535, so the underlying explains effectively all of it. The contract is now within a rounding error of the 9.445 SMR traded at when it was bought, though still under the 9.505 8/5 high the thesis rested on. Delta has recovered 0.4728 to 0.5189, theta -0.0348 is 6.5% of mark a day, IV 99.2%, break-even 10.04 needs SMR +6.2% in eight days. The number that got worse is the spread: 0.51/0.56 is 9.3% of mark against 4.3% an hour ago, just inside the 10% ceiling the rulebook applies to entries, on 491 traded into 791 open interest — so the exit is materially more expensive to take than it was, which matters because the pre-close may have to take it. That dated item is unchanged and now urgent: 8/14 is 8 days out today and 7 tomorrow, so the final week the rulebook says never to hold into begins at tomorrow's open, and today's 15:33 run is the last that can act inside the rule."
+      "note": "No level hit at 14:22. Target 0.684 needs the bid up 29.1%, the 0.342 stop needs it down 35.5%, and the position is at -7.0% on the 0.53 bid and -1.8% on the 0.56 mark - a second consecutive hour moving toward the target rather than the stop. Time stop is session one of five. What changed is the driver, not the direction. Last hour the underlying explained effectively the whole move; this hour it explains almost none of it. SMR went 9.45 to 9.46 bid, +0.01 and +0.1%, while the mark went 0.535 to 0.56. Implied volatility rose 99.2% to 102.1%, and at a vega of 0.0056 those 2.9 points are worth about +0.016 of contract, against roughly +0.005 from delta and -0.005 of theta. The hour's gain is volatility expansion on a contract that has to be sold, which is the more fragile of the two ways to be up: IV giveth and IV crusheth, and the underlying is doing none of the work. SMR at 9.46 still sits under the 9.505 8/5 high the thesis rested on, so the broken structural line is still broken. Delta 0.5227, theta -0.0359 is 6.4% of mark a day, break-even 10.06 needs SMR +6.3% in eight days, and against the official 0.66 close the contract is -15.2% on the mark. The spread crossed its line this hour: 0.53/0.59 is 0.06 wide and 10.7% of mark, against 9.3% an hour ago and 4.3% two hours ago, now outside the 10% ceiling the rulebook applies to entries, on 565 traded into 791 open interest. Rising IV and a widening spread are one fact seen twice. The pre-close should read that as an exit made dearer, not one made impermissible - the ceiling governs entries, and a wide market is never a reason to refuse an exit that is due. The dated item is now at its deadline: 8/14 is 8 days out today and 7 tomorrow, so the final week the rulebook says never to hold into begins at tomorrow's open, and today's 15:33 run is the last that can act inside the rule."
     }
   ],
   "entryWatch": [
