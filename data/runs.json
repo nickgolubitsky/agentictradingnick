@@ -151,6 +151,17 @@
       "connected": true,
       "actions": 0,
       "note": "Fired 09:41 ET against the 09:33 slot, eight minutes late, inside the 25-minute staleness guard in both directions. Connector attached and the scope preflight matched the mandate identifier exactly. The retro was right and the board was wrong: the account is flat. No equity positions, no option positions, and the 121.52 that was unsettled overnight has settled T+1, so deployable is the whole 126.06 rather than the 4.54 state.json still carried. No exit was due because there is nothing to exit. First specification published under the daily entry mandate, and it is FORCED on item 1: buy 12 SMR at a 9.75 limit, target 11.70, stop 8.97, time stop the 8/13 close. SMR reported 8/5 after the close at -0.13 against a -0.13 estimate - exactly in line - and an in-line EPS is not an answer to 'why does this move meaningfully, soon'. I can read the print but not the driver, so naming a catalyst here would mean inferring one from the price, which is the thing item 1 exists to stop. Items 2, 4, 5 and 6 pass and item 3 is na. It is the pick because of item 5: of the four names that printed last night, SMR is the only one being bought. It opened 9.30, below its own 9.38 close, flushed to 9.19 and has made three consecutive higher closes through the 8/5 high on accelerating volume. SOUN gapped +25% and is -4.3% from its open on 11M shares in fifteen minutes, IONQ has given back 1.8% of a 45% EPS beat, JOBY faded off 8.20 on three declining-volume bars. Options were checked before the thesis, as the rulebook now requires, and rejected again - but on spread, not affordability, which is new: at 126.06 the account can finally pay for a contract, and the JOBY 9/11 $8.00 call at a 0.85 mark still quotes 0.72/0.98, 30.6% of mark against a 10% ceiling."
+    },
+    {
+      "date": "2026-08-06",
+      "slot": "hourly",
+      "at": "10:21 ET",
+      "trigger": "scheduled",
+      "declined": false,
+      "fired": true,
+      "connected": true,
+      "actions": 0,
+      "note": "Fired 10:21 ET against the 10:17 slot, four minutes late, inside the guard with live quotes. Connector attached and the scope preflight matched exactly. Account flat - no equity, no options, no orders in any state today, 126.06 settled - so no target, stop, time stop or option no-fly window existed to enforce, which is the whole of this slot's job. The open's SMR specification is unexecuted and still live until 10:35; this run has no order authority and did not place it. Three watched triggers printed inside the hour - JOBY held above 8.20, IONQ reclaimed 41.37, UPST reclaimed 30.32 - and none opens: JOBY is now the +9.1% day item 2 forbids, IONQ's -8% stop sits inside its own first-quarter-hour range at 3 shares, UPST distributed through the line it reclaimed. Standing aside. Recorded against the pick: SMR faded 9.70 to 9.54 while the board's breadth went from 5 green of 12 to 8."
     }
   ],
   "_rowFields": "trigger: 'scheduled' when the scheduler fired this run in its own window, 'manual' when a human invoked it. Only scheduled rows count toward run health - a manual invocation proves the code path works, not that the system runs. declined: true when the run deliberately stopped on a guard (fired outside its window, or the mandate was unset) and therefore never attempted to reach the broker. A decline is correct behaviour, not a connection failure, and it is excluded from the run-health denominator rather than counted against it.",
