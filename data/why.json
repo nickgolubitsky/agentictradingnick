@@ -3,6 +3,20 @@
   "entries": [
     {
       "kind": "did",
+      "date": "2026-08-07 14:21",
+      "head": "Last hourly of the day on a flat book: no level to enforce, and the day is now settled as a no-entry day",
+      "body": "Fired four minutes into the 14:17 window, connected, scope preflight matched exactly. The broker returns no option positions, no equity positions and 109.88 settled, so there was no target, stop, time stop or no-fly window to check and nothing went unenforced. Third live flat read today, taken rather than inherited, which is the point of the slot. No specification published: this run is exits-only and does not inherit the open slot entry mandate, undischarged today since the open fired 143 minutes late. This is the final hourly - the cadence ends at 15:00 ET - and the 15:33 pre-close may not open in the last thirty minutes, so 2026-08-07 closes without an entry and that is now a fact rather than an open question. The finding continues from 13:21 rather than replacing it: the closed SMR 8/14 9.50 calls are 0.65 bid against a 0.68 ask, a 4.5% spread against 7.2% an hour ago and 13.9% two hours ago, the ask having tightened on both reads while the bid drifted down with the underlying. So the improvement is the offer side, not demand. Liquidity passes comfortably; the calendar refuses alone for a second hour, 8/14 being 7 days out and inside the banned final week. Named again because a rule tested only while a second rule agreed with it has not been tested, and it has now carried the refusal by itself twice. Nothing acted on: this slot opens nothing regardless. Breadth 10 green of 12 for a fourth read, strengthening into the close with four leaders extending - the wait signal in its strongest form, and the one thing that makes the missed open slot cost less than it might have.",
+      "checklist": {
+        "1": "na",
+        "2": "na",
+        "3": "na",
+        "4": "na",
+        "5": "na",
+        "6": "na"
+      }
+    },
+    {
+      "kind": "did",
       "date": "2026-08-07 13:21",
       "head": "Second hourly on a flat book: no level to enforce, and a refusal that quietly lost one of its two legs",
       "body": "Fired four minutes into the 13:17 window, connected, scope preflight matched exactly. The broker returns no option positions, no equity positions and 109.88 settled, so there was no target, stop, time stop or no-fly window to check and nothing went unenforced. Re-read rather than inherited from the 12:24 row, which is the whole point of the slot. No specification published: this run is exits-only and does not inherit the open slot's entry mandate, undischarged today since the open fired 143 minutes late. The finding is on the closed SMR 8/14 9.50 calls, re-quoted live at 0.67/0.72 - a 7.2% spread against 13.9% an hour ago, the ask having tightened while the bid did not move. An hour ago a re-entry was refused on liquidity AND calendar; liquidity now passes and only the calendar refuses, 8/14 being 7 days out and inside the banned final week. Named because a rule tested only while a second rule agreed with it has not been tested. Nothing acted on: this slot opens nothing regardless.",
