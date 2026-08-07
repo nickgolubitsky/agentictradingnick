@@ -1,6 +1,6 @@
 {
   "_comment": "Written by the trading runs (9:30a / hourly / 3:30p ET). Never contains account numbers, broker IDs, or any account other than the sandbox.",
-  "lastRefreshUtc": "2026-08-07T19:22:25Z",
+  "lastRefreshUtc": "2026-08-07T19:36:23Z",
   "accountLabel": "Sandbox account",
   "account": {
     "total": 109.88,
@@ -8,138 +8,138 @@
     "deployable": 109.88,
     "unsettled": 0,
     "settlesOn": "nothing pending",
-    "verifiedAt": "2026-08-07 15:22 ET",
-    "note": "FLAT, verified live by this run. The mid-session slot fired 15:21 ET against its 15:17 window, four minutes late, inside the guard - the fourth consecutive hourly to fire four minutes late, which is the scheduler being consistent. The scope preflight matched the target account exactly and the broker returns zero option positions, zero equity positions, 109.88 of settled cash and 109.88 of buying power with nothing unsettled. Fourth identical read in a row, and it is taken rather than copied: the rule this slot is built on is that positions come from the broker and never from this file, so a flat read is only worth something if a call was actually made. With no position there is no target, no stop, no time stop and no option no-fly window, so nothing was due and nothing went unenforced. The balance still comes from the SMR round trip closed 8/6 at 15:38 ET: bought 2 at 0.55 and 0.59 for 114.00, sold at 0.49 for 98.00, -16.00 or -14.0%, settled today. Recorded, not re-graded - grading is the retro's slot.",
-    "closingNote": "Not a closing read. This is the 15:17 mid-session slot firing at 15:21 ET with the account flat. It corrects the previous read on one point: the 14:22 board called that run the final hourly of the session, and it was not. The :17 cadence runs 10:00-15:00 ET, so 15:17 is a slot within it and THIS is the last hourly - 8/6 ran a 15:21 hourly on the identical schedule, which should have settled the question an hour ago. Nothing operational turned on the error, because the account was flat across both hours and no level existed to go unchecked in between. The mid-session run enforces exits and does not open positions: the daily entry mandate belongs to the open slot and is not inherited by this one, so the absence of a specification below is this slot working as designed rather than a staleness decline. The open slot's mandate remains undischarged for 2026-08-07 and no run left today can discharge it - the 15:33 pre-close is the last run of the session and may not open a position in the last thirty minutes. That conclusion never depended on which hourly was last, which is why it survives the correction unchanged."
+    "verifiedAt": "2026-08-07 15:36 ET",
+    "note": "FLAT into the close, verified live by this run. The pre-close slot fired 15:34 ET against its 15:33 window, one minute late and comfortably inside the guard - the first run today to land on its own slot after five consecutive four-minute misses. The scope preflight matched the target account exactly against the connector list and every other account was discarded unread. The broker returns zero option positions, zero equity positions, 109.88 of settled cash and 109.88 of buying power with nothing unsettled. Fifth identical read in a row, and it was taken rather than copied: the rule this slot rests on is that positions come from the broker and never from this file, and a flat read is only worth something if a call was actually made. The balance still comes from the SMR round trip closed 8/6 at 15:38 ET: bought 2 at 0.55 and 0.59 for 114.00, sold at 0.49 for 98.00, -16.00 or -14.0%, settled today. Recorded, not re-graded - grading is the retro's slot.",
+    "closingNote": "THIS IS THE CLOSING READ and the hold decision is the whole of it: THE ACCOUNT GOES INTO THE WEEKEND FLAT, and that is a decision rather than an accident. Written down explicitly because a hold with no entry in the log is an accident that happened to work, and the same is true of a flat book. What was checked, so the absence of an exit is a finding and not a silence: there is no option position, so no expiry no-fly window closes today and none closes before Monday; there is no position of any kind, so no target, no stop and no time stop existed to be enforced, and nothing went unenforced; there is no underlying held into a print tonight, so item 3 never engaged and no straddle was owed. Nothing triggered because there was nothing to trigger on. THE DAY CLOSES WITH NO ENTRY. The 09:33 open slot fired at 11:57, 143 minutes late, and stopped at the staleness guard, so the daily entry mandate is undischarged for 2026-08-07 and no run left today could discharge it - this slot may not open a position in the last thirty minutes, and the mandate binds the open slot alone. That is the cost of the miss stated plainly: the account had 109.88 deployable, the first balance in a week that could afford a contract, and the only slot entitled to use it was too late to be allowed to. Going into a weekend, and into an 8/11 print on the one name here with a catalyst ahead, flat is the position the rulebook would have argued for anyway - but it is being recorded as an outcome that fell out of a missed slot, not as one this board chose on the merits."
   },
   "positions": [],
   "entryWatch": [
     {
-      "setup": "Board-wide: no entry published today",
+      "setup": "Board-wide: the weekend hold is flat, by decision",
       "state": "dead",
-      "trigger": "None available - the open slot stopped at the staleness guard, and the mid-session slot is exits-only and does not inherit the entry mandate",
-      "why": "First thing a reader should see, and it is not a view about any name. The 09:33 open slot fired at 11:57, 143 minutes late, and the staleness guard forbids resting a specification on quotes struck that far from the slot, so the daily entry mandate is undischarged for 2026-08-07. None of the four midday hourlies repaired that and none could. This slot enforces levels the hour they are hit; its bar for a new entry is explicitly higher than the open's rather than lower, and the mandate that makes an entry compulsory applies to the open slot alone. A run that read an undischarged mandate as licence to go shopping at 15:21, with 39 minutes left in the session, would be inventing authority the rulebook withholds - a worse failure than the missed slot it would be covering. What it costs is stated rather than buried: the account went from 11.98 deployable to 109.88 overnight, the first read in a week where a contract was affordable at all, and the slot entitled to use it was too late to be allowed to. This is the last hourly of the session, correcting the 14:22 board which claimed that title for the hour before - the :17 cadence includes 15:17. The 15:33 pre-close may not open a position in the last thirty minutes either, so the day closes without an entry. Nothing below is armed; the names carry live 15:22 quotes so the board is accurate, not so it reads as a shopping list."
-    },
-    {
-      "setup": "SMR post-earnings continuation",
-      "state": "dead",
-      "trigger": "Position closed 8/6 at 15:38 ET - nothing to manage, and re-entry is forbidden on the calendar",
-      "level": 9.88,
-      "why": "Dead because the position is gone, not because the thesis failed. SMR is 9.88 bid, +4.3%, firming from 9.83 an hour ago and holding above the 9.505 8/5 high the original thesis wanted reclaimed for a fifth consecutive read. The closed 8/14 9.50 calls were re-quoted live again, and the spread - the number that had moved three reads running in the same direction - turned. They are 0.66 bid against a 0.71 ask: 0.05 wide and 7.3% of the 0.685 mark, where 14:22 read 4.5%, 13:23 read 7.2% and 12:24 read 13.9%. The ask backed up 0.03 while the bid firmed 0.01 with the underlying, so what improved over two hours was the offer side and what has now given it back is the same side. The correction matters more than the level: this board spent two hours recording that liquidity had stopped being an objection and that the calendar was carrying the refusal alone. As of this read the liquidity objection is back inside its own margin - 7.3% against a 10% ceiling is a pass, but it is not the comfortable pass 4.5% was, and a two-hour trend in a single offer was never the structural change it was written up as. Liquidity otherwise: 1,016 open interest, 707 traded, delta 0.6580. What refuses a re-entry outright is the calendar, and it refuses absolutely - 8/14 is 7 days out, inside the final week the rulebook bans and far short of the 3-6 week floor. This slot opens nothing in any case."
-    },
-    {
-      "setup": "OKLO post-earnings reaction",
-      "state": "dead",
-      "trigger": "Reported 8/7 before the open and gapped - item 2 forbids buying the reaction bar",
-      "level": 49.16,
-      "why": "Reported this morning: -0.28 actual against a -0.16 estimate, verified on the live calendar. A miss, and the stock is 49.16 bid and +16.5%, the best mover on the board and extending for a fourth consecutive read into the final 39 minutes - 13.8% at 11:57, 14.2% at 13:23, 15.2% at 14:22, 16.5% now. That combination is exactly what item 2 exists to refuse: this is the reaction day, the gap is already paid for, and +16.5% is far above the top of the range the rule tolerates. Day 2 is Monday and this setup does not carry to it as written. At 49.16 a share it is also 45% of the account in one position, which fails concentration before the tape is argued about."
+      "trigger": "Nothing to hold - the book is empty on a live 15:36 read, and this slot may not open a position in the last thirty minutes",
+      "why": "The first thing a reader should see, and it is the pre-close's actual job rather than a view about any name. Every open position gets decided explicitly at this slot; there are zero, so the decision is that the account goes into the weekend flat and here is the record of it. No option no-fly window closes today because no option is held. No level was hit because no level exists. No earnings hold is being taken tonight because nothing is held into a print. The entry mandate went undischarged today - the 09:33 open fired 143 minutes late and stopped at the staleness guard - and this slot cannot repair that, because the mandate applies to the open and the last thirty minutes are closed to new positions in any case. A run that read an undischarged mandate as licence to buy something at 15:36 would be inventing authority the rulebook withholds, which is a worse failure than the missed slot it would be covering. Nothing below is armed. The names carry live 15:35 bids so the board is accurate into the bell, not so it reads as a shopping list."
     },
     {
       "setup": "SMCI pre-earnings",
       "state": "dead",
       "trigger": "None - the 8/11 print sits inside any five-session hold and no straddle has been pulled",
-      "level": 31.22,
-      "why": "Still the only name on the list with a catalyst ahead, and the only one where item 3 is a live question rather than a moot one. SMCI is 31.22 bid, +6.3%, and has firmed on every read today - 30.52 at 12:24, 30.70 at 13:23, 31.13 at 14:22, 31.22 now - reporting 8/11 after the close against a 0.69 estimate. A hold opened Monday runs to the print, so the print is inside it, so the at-the-money straddle has to be pulled and the implied move written down before any size is set. No straddle has been pulled, and the mid-session slot is not the one that would pull it - this run enforces exits and does not build entries. Dead for today; the item stays open for Monday's open slot, the last one that could act before the print. Its moves.json row carries spot 30.80 from the 11:57 read against 31.22 now, a 1.4% drift the pre-close is the slot that re-reads."
+      "level": 30.94,
+      "why": "The only name on this board with a catalyst still ahead, and the one open item this run hands forward. SMCI is 30.94 bid, +5.3%, easing from 31.22 at 15:22 after firming on every previous read today. It reports 8/11 after the close against a 0.69 estimate, re-verified on the live broker calendar by this run: timing pm, verified true, no actual. A hold opened Monday runs to the print, so the print is inside it, so the at-the-money straddle has to be pulled and the implied move written down before any size is set. No straddle has been pulled. That is stated as an open checklist item rather than guessed at, and the rule it answers to is absolute: no straddle pulled means no earnings hold. The item belongs to Monday's open slot, the last run that sits between this name and the report. Its moves.json spot has been re-read to the live bid by this run, closing the 1.4% drift the 11:57 figure had accumulated."
+    },
+    {
+      "setup": "SMR post-earnings continuation",
+      "state": "dead",
+      "trigger": "Position closed 8/6 at 15:38 ET - nothing to manage, and re-entry is forbidden on the calendar",
+      "level": 9.75,
+      "why": "Dead because the position is gone, not because the thesis failed. SMR is 9.75 bid, +3.0%, giving back the 9.88 of 15:22 but still holding above the 9.505 8/5 high the original thesis wanted reclaimed, for a sixth consecutive read. The closed 8/14 9.50 calls were re-quoted live one final time and both sides came off with the underlying: 0.57 bid against a 0.61 ask, where 15:22 read 0.66 and 0.71. The spread is 0.04 and 6.8% of the 0.59 mark, against 7.3% at 15:22, 4.5% at 14:22, 7.2% at 13:23 and 13.9% at 12:24, on 1,016 open interest, 755 traded and delta 0.6064. The percentage tightened while the contract lost 0.095 of mark in fourteen minutes, which is the reading that matters: a spread ratio improving because the mark fell is not liquidity improving, and it is the second time today this board has had to correct a story it was building out of one side of a quote. What refuses a re-entry outright is the calendar, and it refuses absolutely - 8/14 is 7 days out, inside the final week the rulebook bans and far short of the 3-6 week floor. This slot opens nothing in any case."
+    },
+    {
+      "setup": "OKLO post-earnings reaction",
+      "state": "dead",
+      "trigger": "Reported 8/7 before the open and gapped - item 2 forbids buying the reaction bar",
+      "level": 48.47,
+      "why": "Reported this morning: -0.28 actual against a -0.16 estimate, verified on the live calendar. A miss, and the stock is 48.47 bid and +14.9%, still the best mover on the board but easing off the 49.16 of 15:22 after extending on four straight reads. That combination is exactly what item 2 exists to refuse: this is the reaction day, the gap is already paid for, and +14.9% is far above the top of the range the rule tolerates. Day 2 is Monday and this setup does not carry to it as written. At 48.47 a share it is also 44% of the account in one position, which fails concentration before the tape is argued about."
     }
   ],
-  "candidatesAsOf": "2026-08-07 15:22 ET, live session bids re-struck by the last mid-session run of the day, 39 minutes from the bell. The Last column is the official 8/6 settled close. These are mid-session quotes, not closing marks.",
-  "candidatesNote": "The account is flat with 109.88 of settled cash and no entry is published or pending. Read the list with that in mind: these are quotes carried so the board is accurate, not candidates worked up and refused on their merits. No entry was published at the open because that slot fired 143 minutes late and stopped at the staleness guard, and none is published now because the mid-session slot enforces exits and does not open positions. Breadth is 10 green of 12, the fifth consecutive read at that count and the same two red names. What is underneath it still has not settled, and it did not fade into the close - it extended: OKLO to +16.5%, SOUN to +14.3%, IONQ to +10.7% and SMR to +4.3%, while MARA deteriorated to -6.4% and JOBY and UPST reversed their midday easing to finish firm. So the whole-list-green condition item 2 calls a wait signal has held for five reads and was strengthening at the last one taken, which is the version of it the rule is most pointed about - a list whose leaders are still extending 39 minutes from the bell is not offering the day-2 pullback the rulebook buys. SMCI on 8/11 after the close is the only catalyst still ahead on this list; every other name has reported, so no no-fly flags remain from the 8/5-8/6 cluster.",
+  "candidatesAsOf": "2026-08-07 15:36 ET, live session bids struck by the pre-close run about 24 minutes from the bell. The Last column is the official 8/6 settled close. These are late-session quotes, not closing marks - the official 8/7 closes are not printed yet and this board does not guess at them.",
+  "candidatesNote": "The account is flat with 109.88 of settled cash, no entry is published or pending, and none will be today. Read the list with that in mind: these are quotes carried so the board is accurate into the bell, not candidates worked up and refused on their merits. No entry was published at the open because that slot fired 143 minutes late and stopped at the staleness guard, and none is published now because the pre-close may not open a position in the last thirty minutes. Breadth is 10 green of 12 for a sixth consecutive read with the same two red - but the direction underneath it finally turned, and that is the one new thing in this read. For five straight reads the leaders extended into the close; in the final fourteen minutes eleven of the twelve names eased or deteriorated. OKLO came off +16.5% to +14.9%, SOUN +14.3% to +13.4%, SMCI +6.3% to +5.3%, SMR +4.3% to +3.0%, while MARA got worse again at -7.2% and AMD slipped to -2.0%. So the fade the whole session refused to give arrived too late to be tradeable by anything, which is the honest way to record it rather than as a signal. Item 2 still calls this list a wait rather than a buy. SMCI on 8/11 after the close is the only catalyst ahead on any of these names; every other 8/4-8/7 print has landed, so no no-fly flags remain from that cluster.",
   "candidates": [
-    {
-      "sym": "SMR",
-      "last": 9.47,
-      "bid": 9.88,
-      "earnings": "8/5 after",
-      "flag": "watch",
-      "note": "9.88 bid, +4.3%, firming from 9.83 an hour ago and holding above the 9.505 8/5 high the original thesis wanted reclaimed for a fifth consecutive read. Not held - the 8/14 9.50 calls were closed 8/6 at 15:38 ET for 0.49. Re-quoted live again: 0.66 bid against a 0.71 ask, a 7.3% spread on the 0.685 mark, against 4.5% at 14:22, 7.2% at 13:23 and 13.9% at 12:24, on 1,016 open interest, 707 traded and delta 0.6580. The three-read tightening reversed - the ask backed up 0.03 while the bid firmed 0.01 with the underlying - so the improvement that was building was in the offer alone and has largely gone back. Liquidity still passes at 7.3% against a 10% ceiling, but not comfortably, and the two-hour stretch in which the calendar was carrying the refusal by itself has ended. The calendar refuses regardless and absolutely: 8/14 is 7 days out, inside the banned final week and short of the 3-6 week floor."
-    },
     {
       "sym": "OKLO",
       "last": 42.19,
-      "bid": 49.16,
+      "bid": 48.47,
       "earnings": "8/7 before",
       "flag": "watch",
-      "note": "49.16 bid, +16.5%, the best mover on the board and extending for a fourth consecutive read - 13.8%, 14.2%, 15.2%, 16.5% - on a miss of -0.28 against -0.16, verified live this morning. No longer no-fly: the print has landed. Refused on item 2 rather than on the miss, because this is the reaction bar and +16.5% is far above the range the rule tolerates. At 49.16 one share is 45% of the account."
+      "note": "48.47 bid, +14.9%, still the best mover on the board but easing off 49.16 at 15:22 after four consecutive reads of extending - the first give-back of the session, on a miss of -0.28 against -0.16 verified live this morning. No longer no-fly: the print has landed. Refused on item 2 rather than on the miss, because this is the reaction bar and +14.9% is far above the range the rule tolerates. At 48.47 one share is 44% of the account."
     },
     {
       "sym": "SOUN",
       "last": 7.08,
-      "bid": 8.09,
+      "bid": 8.03,
       "earnings": "8/5 after",
       "flag": "watch",
-      "note": "8.09 bid, +14.3%, extending again from 7.95 at 14:22 and now the second-best name on the board, well clear of the 8/6 reaction-day damage it was working back through at midday. The 8/6 refusal was right on the day and is being handed back on day 3, which is the honest way to record it. Still refused today on breadth - a +14.3% session inside a 10-of-12 green board is not the day-2 pullback the rulebook buys, it is the bar it was written to refuse."
+      "note": "8.03 bid, +13.4%, second-best on the board and easing from 8.09 at 15:22 rather than extending as it had on the four reads before. Well clear of the 8/6 reaction-day damage it was working back through at midday, so the 8/6 refusal was right on the day and is being handed back on day 3, which is the honest way to record it. Still refused today on breadth - a +13.4% session inside a 10-of-12 green board is not the day-2 pullback the rulebook buys."
     },
     {
       "sym": "IONQ",
       "last": 39.72,
-      "bid": 43.98,
+      "bid": 43.92,
       "earnings": "8/5 after",
       "flag": "watch",
-      "note": "43.98 bid, +10.7%, extending for a second consecutive read and finishing near the day's firmest. Affordable at 109.88 deployable where it was not at 11.98, so the objection is structural rather than arithmetic: one share is 40% of the account and an -8% stop is 3.52 of room in a name that has travelled several dollars in a session. That is the stop-inside-the-noise problem, and it is what killed the earlier IONQ setup for a different reason."
-    },
-    {
-      "sym": "SMCI",
-      "last": 29.38,
-      "bid": 31.22,
-      "earnings": "8/11 after",
-      "flag": "watch",
-      "note": "31.22 bid, +6.3%, firmer on every read today - 30.52, 30.70, 31.13, 31.22. The only name here with a catalyst ahead - 8/11 after the close, 0.69 estimate. Any hold opened Monday contains the print, so item 3 binds and the at-the-money straddle has to be pulled first. It has not been pulled, and the mid-session slot is not the one that would pull it. The item carries to Monday's open."
-    },
-    {
-      "sym": "JOBY",
-      "last": 8.23,
-      "bid": 8.65,
-      "earnings": "8/5 after",
-      "flag": "watch",
-      "note": "8.65 bid, +5.1%, reversing the midday easing and finishing above the 8.64 of 13:23 and the 8.20 line it crossed back and forth four times on 8/6. The line held on the retest and the name has not given it back in two sessions, which is still the first thing here resembling structure rather than chop - but the hour that mattered gave the pullback back rather than deepening it, so what looked like the start of one at 14:22 did not become one. Affordable at 12 shares. Not proposed - this slot opens nothing, and no specification was published at the open either. Worth Monday's open slot looking at first."
-    },
-    {
-      "sym": "UPST",
-      "last": 29.71,
-      "bid": 30.91,
-      "earnings": "8/4 after",
-      "flag": "watch",
-      "note": "30.91 bid, +4.0%, reversing the midday easing to finish above both the 30.20 close and the 30.32 pre-earnings line it failed at on 8/6. The structural objection is unchanged and is about 8/5, not today: an open at 34.595 to a 30.20 close on 12.3M shares against a 5.1M average gave back the entire earnings move, and one green day does not repair that."
-    },
-    {
-      "sym": "QBTS",
-      "last": 19.405,
-      "bid": 20.65,
-      "earnings": "8/6 before",
-      "flag": "watch",
-      "note": "20.65 bid, +6.4%, extending from 20.40 and holding the reclaim of the 20 line it lost yesterday. It reported 8/6 before the open at -0.13 against a -0.10 estimate - a miss - and is bouncing with the board rather than on anything of its own. A miss is not a catalyst and a sympathy bounce is not a setup."
-    },
-    {
-      "sym": "RGTI",
-      "last": 16.53,
-      "bid": 17.61,
-      "earnings": "8/6 after",
-      "flag": "watch",
-      "note": "17.61 bid, +6.5%, firming from 17.31 but unchanged in character across four reads. Reported 8/6 after the close, so the no-fly flag it carried is spent and it stays on watch. Not held through the print and never proposed into it. Nothing here beyond participation in a green tape."
+      "note": "43.92 bid, +10.6%, essentially flat against the 43.98 of 15:22 and the steadiest of the leaders into the bell. Affordable at 109.88 deployable where it was not at 11.98, so the objection is structural rather than arithmetic: one share is 40% of the account and an -8% stop is 3.51 of room in a name that has travelled several dollars in a session. That is the stop-inside-the-noise problem, and it is what killed the earlier IONQ setup for a different reason."
     },
     {
       "sym": "LEU",
       "last": 178.03,
-      "bid": 189.43,
+      "bid": 189.81,
       "earnings": "8/5 after",
       "flag": "watch",
-      "note": "189.43 bid, +6.4%, a fourth read off the bottom after a six-read run as the worst name on the board, and now firming faster than the board rather than merely recovering. The 73% beat that sold off for two sessions is still being bought back on day 3. Unreachable regardless - one share is 172% of the account."
+      "note": "189.81 bid, +6.6%, the only name on the board to firm into the final quarter hour, a fifth read off the bottom after a six-read run as the worst name here. The 73% beat that sold off for two sessions is still being bought back on day 3. Unreachable regardless - one share is 173% of the account."
     },
     {
-      "sym": "MARA",
-      "last": 10.65,
-      "bid": 9.97,
+      "sym": "RGTI",
+      "last": 16.53,
+      "bid": 17.59,
       "earnings": "8/6 after",
       "flag": "watch",
-      "note": "9.97 bid, -6.4%, the weakest name on the board and deteriorating again after holding flat through the previous hour, losing the 10 line in the process. Reported 8/6 after the close, so the no-fly flag is spent. Selling off after its print and refusing to participate on a day when the leaders extended into the bell is information, and it is the wrong sign for a long."
+      "note": "17.59 bid, +6.4%, unchanged in character across five reads and holding its level while the leaders faded. Reported 8/6 after the close, so the no-fly flag it carried is spent and it stays on watch. Not held through the print and never proposed into it. Nothing here beyond participation in a green tape."
+    },
+    {
+      "sym": "QBTS",
+      "last": 19.405,
+      "bid": 20.58,
+      "earnings": "8/6 before",
+      "flag": "watch",
+      "note": "20.58 bid, +6.1%, easing a shade from 20.65 but holding the reclaim of the 20 line it lost yesterday. It reported 8/6 before the open at -0.13 against a -0.10 estimate - a miss - and is bouncing with the board rather than on anything of its own. A miss is not a catalyst and a sympathy bounce is not a setup."
+    },
+    {
+      "sym": "SMCI",
+      "last": 29.38,
+      "bid": 30.94,
+      "earnings": "8/11 after",
+      "flag": "watch",
+      "note": "30.94 bid, +5.3%, easing from 31.22 after firming on all four earlier reads - 30.52, 30.70, 31.13, 31.22. The only name here with a catalyst ahead: 8/11 after the close, 0.69 estimate, re-verified live by this run. Any hold opened Monday contains the print, so item 3 binds and the at-the-money straddle has to be pulled first. It has not been pulled. The item carries to Monday's open, the last slot between this name and the report."
+    },
+    {
+      "sym": "JOBY",
+      "last": 8.23,
+      "bid": 8.58,
+      "earnings": "8/5 after",
+      "flag": "watch",
+      "note": "8.58 bid, +4.3%, easing from 8.65 and finishing near the 8.64 of 13:23, still well above the 8.20 line it crossed back and forth four times on 8/6. The line held on the retest and has not been given back in two sessions, which remains the first thing here resembling structure rather than chop. Affordable at 12 shares. Not proposed - this slot opens nothing, and no specification was published at the open either. Worth Monday's open slot looking at first."
+    },
+    {
+      "sym": "UPST",
+      "last": 29.71,
+      "bid": 30.74,
+      "earnings": "8/4 after",
+      "flag": "watch",
+      "note": "30.74 bid, +3.5%, easing from 30.91 but still above both the 30.20 close and the 30.32 pre-earnings line it failed at on 8/6. The structural objection is unchanged and is about 8/5, not today: an open at 34.595 to a 30.20 close on 12.3M shares against a 5.1M average gave back the entire earnings move, and one green day does not repair that."
+    },
+    {
+      "sym": "SMR",
+      "last": 9.47,
+      "bid": 9.75,
+      "earnings": "8/5 after",
+      "flag": "watch",
+      "note": "9.75 bid, +3.0%, giving back the 9.88 of 15:22 but holding above the 9.505 8/5 high the original thesis wanted reclaimed for a sixth consecutive read. Not held - the 8/14 9.50 calls were closed 8/6 at 15:38 ET for 0.49. Re-quoted live one last time: 0.57 bid against a 0.61 ask, a 6.8% spread on the 0.59 mark, against 7.3% at 15:22, 4.5% at 14:22, 7.2% at 13:23 and 13.9% at 12:24, on 1,016 open interest, 755 traded and delta 0.6064. Both sides fell with the underlying and the mark lost 0.095 in fourteen minutes, so the ratio improved while the contract got cheaper - which is not liquidity improving, and is the second correction today to a story built out of one side of a quote. The calendar refuses a re-entry regardless and absolutely: 8/14 is 7 days out, inside the banned final week and short of the 3-6 week floor."
     },
     {
       "sym": "AMD",
       "last": 489.28,
-      "bid": 480.31,
+      "bid": 479.58,
       "earnings": "8/4 after",
       "flag": "watch",
-      "note": "480.31 bid, -1.8%, the other red name and the only large-cap here, easing a shade from the 481.70 of 14:22 and still below its close. One share is more than four times the account. Carried for context on breadth, not as a candidate."
+      "note": "479.58 bid, -2.0%, one of the two red names and the only large-cap here, slipping further from 480.31 at 15:22 and still below its close. One share is more than four times the account. Carried for context on breadth, not as a candidate."
+    },
+    {
+      "sym": "MARA",
+      "last": 10.65,
+      "bid": 9.88,
+      "earnings": "8/6 after",
+      "flag": "watch",
+      "note": "9.88 bid, -7.2%, the weakest name on the board and deteriorating on every read since midday, now well below the 10 line it lost this afternoon. Reported 8/6 after the close, so the no-fly flag is spent. Selling off after its print and making new lows into the bell on a day the rest of the board was green is information, and it is the wrong sign for a long."
     }
   ]
 }
