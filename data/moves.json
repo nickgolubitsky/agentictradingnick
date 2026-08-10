@@ -1,16 +1,32 @@
 {
   "_comment": "Written by the trading runs. impliedMove is a decimal or null. null means the straddle was not pulled - an open checklist item, not a placeholder to guess at. This file is a list of what is AHEAD: the pre-close run prunes catalysts once their date has passed and re-reads spot from a live quote, because a reference price carried from the day it was written makes every implied range wrong.",
-  "prunedAt": "2026-08-07 15:36 ET",
-  "prunedNote": "Pre-close prune. Nothing removed and nothing added, which is the right outcome rather than a skipped step: the file holds one row, SMCI on 8/11, and 8/11 is still ahead. The date check was run against every row rather than assumed from the last prune - the 11:57 open run had already removed the three landed catalysts (the SMR 8/14 expiry, which was a clock on a position the account no longer holds; MARA and OKLO, both spent prints), so there was no passed date left to catch. The work this run actually did is the spot re-read, and it was overdue. SMCI's spot has been 30.80 since 11:57 while the name traded to 31.22 at 15:22 and 30.94 now - a drift that reached 1.4% intraday and would have made any implied range struck off this row wrong in the direction that flatters it. It is now the live 15:35 bid. The calendar itself was re-verified against the broker rather than carried: 8/11, timing pm, verified true, estimate 0.69, no actual. The forward calendar was also swept for the other eleven watched names and none has a catalyst in the window - every 8/4 to 8/7 print on this board has landed - so SMCI is the only row this file should contain, not merely the only one left over. impliedMove stays null and stays an open item rather than a moot one: the account is flat with 109.88 of settled cash, so an entry here is affordable, which means item 3 is the thing standing between this name and a position rather than the balance being it.",
+  "prunedAt": "2026-08-10 09:47 ET",
+  "prunedNote": "Open-slot pass rather than a prune - nothing removed and nothing added, because the file holds one row, SMCI on 8/11, and 8/11 is still ahead. What this run did to it is the thing the row existed for: impliedMove goes from null to 0.142. The straddle was pulled live and the number is 14.2% on tomorrow night's print, which turns this row from an open checklist item into a settled refusal. Also re-read: spot to the live 09:46 bid of 32.52 from the 30.94 Friday left, a 5.1% drift over a weekend that would have made any implied range struck off the stale figure wrong in the flattering direction; and the calendar itself, where the estimate now reads 0.88 against the 0.69 carried since 8/7. The forward calendar was swept again for the other eleven watched names and none has a catalyst in the window, so SMCI remains the correct entire contents of this file rather than the only leftover - and that fact is what forced today's entry, because a board with exactly one forward catalyst that the rules refuse is a board on which item 1 cannot be passed.",
   "moves": [
     {
-      "ticker": "SMCI", "event": "Earnings", "when": "2026-08-11, after close",
-      "spot": 30.94, "impliedMove": null, "hold": false,
-      "source": "Re-verified on the live broker earnings calendar at 15:35 ET on 8/7: timing 'pm', verified true, estimate 0.69, no actual. spot is the live bid at 15:35 ET on 8/7, replacing the 30.80 struck at 11:57 - the same re-read this row got at the open, done again because the name moved 1.4% between the two and a reference price is only worth carrying for one session. This is the only catalyst ahead of the account on any watched name, confirmed by sweeping the forward calendar rather than by elimination. The account goes into the weekend flat, so nothing is held into this print and no decision is owed before Monday; what is owed on Monday is the straddle.",
+      "ticker": "SMCI",
+      "event": "Earnings",
+      "when": "2026-08-11, after close",
+      "spot": 32.52,
+      "impliedMove": 0.142,
+      "hold": false,
+      "source": "Straddle pulled live at 09:45 ET on 8/10 by the open run, discharging the item Friday's pre-close handed to this slot by name. The SMCI 2026-08-14 32 call marks 2.51 (2.47 bid / 2.55 ask, 2,399 open interest) and the 32 put marks 2.05 (2.00 bid / 2.10 ask, 645 open interest), a 4.56 straddle against a 32.21 spot at the moment it was struck - 14.2%, recorded here as 0.142. spot is the live 09:46 bid of 32.52, replacing the 30.94 carried from Friday's close. Calendar re-verified live: 8/11, timing pm, verified true, no actual. The estimate now reads 0.88, correcting the 0.69 this board carried since 8/7 - the live calendar is the authority and the row moved to it rather than the other way round. impliedMove is no longer null and this row is no longer an open item.",
       "branches": [
-        { "cond": "Any entry considered on 8/10 or later", "act": "Pull the at-the-money straddle and write the implied move down before sizing", "why": "A five-session hold opened Monday runs through the 8/11 print, so the print is inside the hold and item 3 binds without exception. Holding through a report is a coin flip on the implied move, taken deliberately with the number written down or not taken at all. No straddle pulled means no earnings hold - that is the rule, and it is why this row survives every prune while the landed ones do not." },
-        { "cond": "An option is considered on this name", "act": "Refused outright while the hold would cross 8/11", "why": "The rulebook forbids holding an option through a print. IV crush kills even a correct call, and a 3-6 week expiry from here necessarily spans 8/11. An option on SMCI is not available to this rulebook before the print regardless of what the straddle says." },
-        { "cond": "Position open into the 8/11 close", "act": "Close it, or write the hold down with the implied move attached", "why": "An equity hold through a print gets pre-decided with the number in hand or it does not happen. The decision belongs to the 8/11 pre-close run, which is the last one that sits between the position and the report." }
+        {
+          "cond": "An equity entry considered on SMCI before the 8/11 close",
+          "act": "Refused. The number is in hand and it refuses the trade.",
+          "why": "The straddle is now pulled, so item 3 is satisfied and it decides against the hold rather than merely permitting it to be considered. A 14.2% implied move against the rulebook's -8% equity stop means the stop sits entirely inside the event: the realistic bad case gaps through it rather than filling at it, so the exit written before entry would not be the exit taken. That is a mechanical refusal, not a view on whether the report is good."
+        },
+        {
+          "cond": "An option considered on this name at any time before the print",
+          "act": "Refused outright, and it was never reachable",
+          "why": "The rulebook forbids holding an option through a print - IV crush kills even a correct call - and any 3-6 week expiry from here necessarily spans 8/11. The straddle does not enter into it; this branch closes on the calendar alone."
+        },
+        {
+          "cond": "SMCI still wanted after the print",
+          "act": "Re-approach from 8/12, on the reaction bar rather than into it",
+          "why": "The post-print session is the first point at which this name is available to the rulebook at all, and item 2 will then govern: the reaction day is not the entry, the day-2/3 pullback that holds is. Recorded now so a post-print entry is a decision made in advance rather than a reflex on the day."
+        }
       ]
     }
   ]
