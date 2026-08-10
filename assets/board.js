@@ -238,7 +238,11 @@
       tile("Deployable now", money(a.deployable), "settled cash", a.deployable < a.total ? "down" : "flat") +
       tile("Unsettled", money(a.unsettled), "settles " + a.settlesOn, "flat") +
       tile("Open positions", String((state.positions || []).length), (state.positions || []).length ? "see exit board" : "flat", "flat") +
-      "</div><p class='note'>" + esc(a.note) + "</p>";
+      "</div><p class='note'>" + esc(a.note) + "</p>" +
+      /* Kept visibly separate from a.note: that paragraph is a run's live read, this
+         one is the operator overruling or answering it, and blending the two would
+         make it impossible to tell which decisions the system reached by itself. */
+      (a.operatorNote ? "<p class='note'><b>Operator:</b> " + esc(a.operatorNote) + "</p>" : "");
   }
   function tile(k, v, m, c) {
     return "<div class='tile'><div class='tile__k'>" + esc(k) + "</div>" +

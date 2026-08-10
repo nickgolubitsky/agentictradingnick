@@ -267,6 +267,11 @@ if (runs) {
  * That makes the spec the thing worth gating, so docs/RULES.md is enforced here
  * rather than trusted to a run that has read it. A proposal that breaks the
  * rulebook does not get to reach the page and be argued with later. */
+/* Every still-open specification, collected so the book can be checked as a book.
+ * Under the 2026-08-10 four-position rule the dangerous failure is no longer a single
+ * bad spec — it is four individually valid ones that cannot coexist. */
+const openSpecs = [];
+
 if (why) {
   for (const e of why.entries ?? []) {
     if (!["did", "will"].includes(e.kind)) errors.push(`DATA  why entry has kind '${e.kind}'`);
@@ -420,11 +425,23 @@ if (why) {
      * being checked after the cash had been spent elsewhere. An expired proposal is
      * a record of a decision, not an instruction anyone can still act on. */
     const stillOpen = !Number.isNaN(+new Date(o.expiresAt)) && new Date(o.expiresAt) > new Date();
-    if (stillOpen && typeof o.limit === "number" && typeof o.qty === "number" && state?.account?.deployable != null) {
+    if (stillOpen && typeof o.limit === "number" && typeof o.qty === "number") {
       const mult = o.kind === "option" ? 100 : 1;
       const cost = o.limit * o.qty * mult;
-      if (cost > state.account.deployable + 0.005) {
+      openSpecs.push({ at, spec: o, cost });
+      if (state?.account?.deployable != null && cost > state.account.deployable + 0.005) {
         errors.push(`RULE  ${at}: costs ${cost.toFixed(2)} against ${state.account.deployable.toFixed(2)} deployable. Settled cash sets the size before the thesis does.`);
+      }
+      /* 2026-08-10: no name is the account. At a four-position ceiling the natural
+       * size is 25%, and 40% is the room to be uneven without one spec owning it. */
+      const acct = state?.account?.total;
+      if (acct != null && acct > 0) {
+        const share = cost / acct;
+        if (share > 0.40 + 1e-9) {
+          errors.push(`RULE  ${at}: ${cost.toFixed(2)} is ${(share * 100).toFixed(1)}% of the ${acct.toFixed(2)} account, over the 40% single-name ceiling in docs/RULES.md`);
+        } else if (share < 0.10) {
+          warnings.push(`RULE  ${at}: ${cost.toFixed(2)} is ${(share * 100).toFixed(1)}% of the account — a full +20% winner on this adds ${(share * 20).toFixed(1)}%, which cannot move the day and costs the same attention as a real position`);
+        }
       }
     }
 
@@ -433,6 +450,53 @@ if (why) {
       errors.push(`RULE  ${at}: order.expiresAt is not a parseable timestamp. A proposal with no expiry is a standing instruction, which is not what a run is allowed to leave behind.`);
     } else if (exp <= new Date(e.date)) {
       errors.push(`RULE  ${at}: order.expiresAt is not after the entry time`);
+    }
+  }
+}
+
+/* ---------- 2c. the book as a book ----------
+ * Added 2026-08-10 with the four-position rule. Every check here passes trivially on a
+ * one-position book, which is exactly why none of them existed before and why they have
+ * to exist now: each specification below can be individually valid while the set of them
+ * is impossible. An open spec is a claim on the same settled cash as a filled position,
+ * so specs and positions are counted together throughout. */
+{
+  const positions = state?.positions ?? [];
+  const book = [
+    ...positions.map((p) => ({ label: `position ${p.sym ?? "?"}`, complex: p.complex, cost: null })),
+    ...openSpecs.map((s) => ({ label: s.at, complex: s.spec.complex, cost: s.cost }))
+  ];
+
+  const CEILING = 4;
+  if (book.length > CEILING) {
+    errors.push(`RULE  the book would be ${book.length} names (${positions.length} open, ${openSpecs.length} proposed) against a ceiling of ${CEILING} in docs/RULES.md. A published spec is a claim on the same cash as a fill and is counted like one.`);
+  }
+
+  /* The failure the per-spec check cannot see: four affordable specs that are not
+   * affordable together. Positions are already paid for and are not in this sum. */
+  const committed = openSpecs.reduce((n, s) => n + s.cost, 0);
+  if (openSpecs.length > 1 && state?.account?.deployable != null && committed > state.account.deployable + 0.005) {
+    errors.push(`RULE  ${openSpecs.length} open specifications commit ${committed.toFixed(2)} against ${state.account.deployable.toFixed(2)} deployable. Each one fits; together they do not, and a cash account cannot fill the second half.`);
+  }
+
+  /* Two names in one complex is a position and a hedge against nothing; three is one
+   * position at triple size paying three spreads, whose stops all gap together. The
+   * field is required rather than inferred — a taxonomy this gate guessed at would be
+   * the gate deciding what is correlated, which is the run's job to state and defend. */
+  if (book.length > 1) {
+    const byComplex = new Map();
+    for (const b of book) {
+      const c = String(b.complex ?? "").trim().toLowerCase();
+      if (!c) {
+        errors.push(`RULE  ${b.label}: no complex named. With more than one name in the book every entry states which complex it belongs to, because the concentration limit is per complex and cannot be checked against a blank.`);
+        continue;
+      }
+      byComplex.set(c, [...(byComplex.get(c) ?? []), b.label]);
+    }
+    for (const [c, members] of byComplex) {
+      if (members.length > 2) {
+        errors.push(`RULE  ${members.length} names in the '${c}' complex (${members.join(", ")}), over the limit of 2 in docs/RULES.md. Correlated names are not diversification — the stops gap together.`);
+      }
     }
   }
 }
