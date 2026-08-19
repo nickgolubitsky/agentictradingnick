@@ -1,6 +1,6 @@
 {
   "_comment": "Written by the trading runs (9:30a / hourly / 3:30p ET). Never contains account numbers, broker IDs, or any account other than the sandbox.",
-  "lastRefreshUtc": "2026-08-18T19:37:21Z",
+  "lastRefreshUtc": "2026-08-19T13:46:23Z",
   "accountLabel": "Sandbox account",
   "account": {
     "total": 1009.16,
@@ -8,131 +8,202 @@
     "deployable": 1009.16,
     "unsettled": 0,
     "settlesOn": "nothing pending",
-    "verifiedAt": "2026-08-18 15:36 ET",
-    "note": "RE-PULLED LIVE AT 15:36 ET BY THE PRE-CLOSE AND NOT CARRIED FORWARD: 1009.16 total, 1009.16 cash, zero equity value, zero options value, zero pending deposits and ZERO unsettled - unchanged from the 09:43, 10:22, 11:22, 14:22 and 15:22 reads because nothing has traded all session, and the full balance is settled. THE BOOK IS FLAT AND GOES INTO THE BELL FLAT AS A DECISION RATHER THAN A LEFTOVER. Equity and option position lists were BOTH queried live at 15:36 and BOTH ARE EMPTY, so no exit of any kind is due, no option no-fly window can close today, no straddle is owed because nothing is held into a print, and NOTHING IS HELD OVERNIGHT. That last one is this slot's entire job and it is written down rather than assumed. ZERO equity orders and ZERO option orders exist for the whole session, so today's 33.86 AS specification was NEVER EXECUTED, expired unfilled at 10:30 on its own written terms, and its 338.60 is unspent. NO SPECIFICATION SURVIVES THE BELL: there was no unexpired 'will' entry at 15:33 to expire, kill or carry, and the 15:30 window today's rule change created closed with nothing standing in it. It is not re-struck for tomorrow - tomorrow's open writes tomorrow's entry on tomorrow's quotes. Fired 15:35 against the 15:33 slot, two minutes late, twenty minutes clear of the 15:55 cutoff. The scope preflight matched the mandate identifier EXACTLY against the connector list; every other account was discarded unread. The clock was cross-checked against the broker rather than trusted: venue_bid_time reads 19:37:21.420 UTC against a local 15:35 ET, confirming the -4 EDT offset the guard was measured with."
+    "verifiedAt": "2026-08-19 09:43 ET",
+    "note": "PULLED LIVE AT 09:43 ET AND NOT CARRIED FORWARD: 1009.16 total, 1009.16 cash, zero equity value, zero options value, zero pending deposits and ZERO unsettled - unchanged from every read since 8/18 because nothing has traded, and the entire balance is settled. Equity and option position lists were BOTH queried live at 09:43 and BOTH ARE EMPTY, so no exit of any kind is due, no target, stop, time stop or option no-fly window exists to be reached, and nothing was inherited overnight. ZERO equity orders and ZERO option orders exist with a created_at floor of 2026-08-18, confirming yesterday's 33.86 AS specification was never executed by anyone and agentTrades stays 0. TODAY'S ENTRY IS PUBLISHED AND NOT FORCED: 11 shares of AS at a 33.87 limit, 372.57 or 36.9% of the account, target 40.64, stop 31.16, time stop the 8/25 close, expiring 15:30 ET today, six of six on the checklist with item 3 not applicable. 11 shares is the largest size that clears the 40% single-name ceiling; 12 would be 40.3% and fail the gate. Fired 09:41 against the 09:33 slot, eight minutes late and seventeen minutes inside the 25-minute guard. The scope preflight matched the mandate identifier EXACTLY against the connector list; every other account was discarded unread. The clock was cross-checked against the broker rather than trusted: venue_bid_time reads 13:46:21.925 UTC against a local 09:46 ET, confirming the -4 EDT offset the guard was measured with."
   },
   "positions": [],
   "entryWatch": [
     {
-      "setup": "AS post-earnings day-1 continuation - the 100% EPS beat specified at a 33.86 limit this morning, expired unfilled at 10:30, and now trading below the session low its own entry named in advance as the early warning",
-      "state": "dead",
-      "level": 33.86,
-      "trigger": "DEAD, AND ITS OWN WRITTEN EARLY WARNING IS STILL TRIGGERED AT THE CLOSE. AS is 33.26 bid / 33.28 ask at 19:37:21.106Z on a 0.06% spread, last trade 33.270, +2.12% on the bid against the 32.57 close. THE 09:49 ENTRY WROTE TWO INVALIDATION LEVELS BEFORE THE OUTCOME. The earlier - failure to hold above the 33.41 session low - triggered at 15:22 and has NOT been repaired: AS recovered 0.25 off the 33.01 low but is still beneath 33.41. The later - a close back below the 32.57 pre-print close, which voids the thesis outright - did NOT trigger, and AS finishes GREEN on the day. So the thesis half-broke: the 100% beat was real, the gap faded most of the way, and the level that would have said abandon it entirely was never reached. That is precisely what tomorrow's open inherits, recorded tonight rather than rediscovered in the morning. The seven-read bid series is 33.81 at 09:48, 33.90 at 10:22, 33.29 at 11:22, 33.24 at 13:21, 33.49 at 14:22, 33.01 at 15:22 and 33.26 now. The 33.28 ask is 0.58 BELOW the dead 33.86 limit. IT IS NOT REVIVED AND IT IS NOT CARRIED - not raised when the tape ran six cents through it, not re-struck cheaper when the tape sat 0.57 and 0.62 beneath it, not revived when it closed back toward it from below, and now not carried into tomorrow, which is the refusal that matters most: a specification carried overnight is a standing instruction resting on a tape that no longer exists. The cost of the 10:21 refusal closes at 330.10 against 338.60 for ten shares, -8.50 or -2.51% at the 15:22 low and -5.90 or -1.74% now. Any re-entry is tomorrow's decision on tomorrow's quotes, and the day-2 pullback this rulebook actually prefers becomes reachable for the first time then.",
-      "why": "THE FOURTH CONSECUTIVE SPECIFICATION TO EXPIRE UNEXECUTED, AND THE COUNT IS THE FINDING RATHER THAN THIS ONE ORDER. JOBY at 8.85, SMCI at 38.24 twice, now AS at 33.86: four published theses, none executed, agentTrades still 0. A process whose output nobody executes is not being tested, however good the reasoning reads. What this entry got RIGHT is worth separating from what happened to it: item 1 passed on a dated event for the first time in five sessions, the field was widened to names printing that morning rather than the bar lowered, the option was refused on a spread that doubled in four minutes, and the limit was struck AT the ask precisely to avoid the three prior expiries. It still expired - not because the limit was too low, but because it was never marketable to a human who was not there at 10:30. THE DAY-1 TIMING THE OPEN FLAGGED AGAINST ITSELF IS THE PART THE TAPE ARGUED WITH. The open wrote that a grader should mark the day-1 entry even though no checklist item failed it, because the rulebook prefers the day-2/3 pullback. Six cents of unfilled limit later, AS has given back more than half its move and the preferred setup - a level struck AFTER the fade, on lighter volume, with a written invalidation - is the one that cannot exist until tomorrow. That is the rulebook's own reasoning arriving on schedule, and it is the reason this is not re-entered now."
+      "setup": "AS post-earnings DAY-2 continuation - the 100% EPS beat of 8/18, whose gap faded and whose close held, specified today at a 33.87 limit for 11 shares",
+      "state": "armed",
+      "level": 33.87,
+      "trigger": "ARMED AND LIVE UNTIL 15:30 ET. AS is 33.82 bid / 33.87 ask at 13:46:21.925Z on a 0.148% spread, last trade 33.88, +0.60% against the 33.62 close. The limit is struck AT the ask. Session so far: opened 33.85, high 34.47, low 33.70, and the 34.06 bid read at 13:42:55Z has since faded 0.24 - so the entry is being struck on the pullback rather than on the session high, which is the whole difference between this and yesterday's day-1 attempt. TWO INVALIDATION LEVELS ARE WRITTEN BEFORE THE OUTCOME AND BOTH SIT ABOVE THE 31.16 STOP. The earlier warning is a trade below 33.70, today's session low and the higher-low the day-2 structure rests on. The outright void is a close below 33.41, yesterday's session low - if that goes on a closing basis the thesis is wrong rather than merely weak, and the position comes off without waiting for the stop. An hourly re-reading this at 13:00 needs only the tape and those two numbers plus the 15:30 expiry.",
+      "why": "YESTERDAY'S PRE-CLOSE READ ITS OWN INVALIDATION WRONG AND THAT IS CORRECTED HERE BEFORE IT COULD BE INHERITED. The 8/18 record states the 33.41 warning triggered and was not repaired into the bell, measured on a 33.26 BID timestamped 19:37:21Z, twenty-three minutes before the close. The official settled close is 33.62, ABOVE 33.41. The invalidation did NOT trigger and the 32.57 outright-void level was never approached, so the thesis this board wrote in advance survived the session intact. The 8/18 retro flagged that bid-for-close substitution as eight sessions old and running in the direction that flatters this board's discipline; this is the first time it has been caught before being acted on, and had it stood, today's run would have refused a name whose own written test it had actually passed. THE OPTION ROUTE WAS PRICED AND REFUSED ON A NEW GROUND. The AS 2026-09-18 32.50 call quoted 2.55/2.60 at 13:45:01.722Z - a 1.94% spread, delta 0.672, 7,857 open interest, 260.00 a contract - clearing every option gate in docs/RULES.md outright for the first time in this board's record. 82 seconds later it quoted 2.45/2.70, a 9.71% spread, five times wider; yesterday the same strike ran 6.45% to 20.0% in four minutes. Under a 15:30 fuse a fill may be five hours from the quote the limit was reasoned on, so an unstable spread is a worse defect now than it was under the old 40-minute window. Equity quoted 0.148% at the same instant."
     },
     {
-      "setup": "SMCI post-print pullback - the twice-forced thesis this board specified yesterday and did not fill, now dropping through the level it was struck at",
+      "setup": "TGT post-print gap-down reversal to a 52-week high - ranked second today, refused on item 2, and named in advance as tomorrow's better day-2 candidate if it holds",
+      "state": "watch",
+      "level": 159.94,
+      "trigger": "NOT BOUGHT TODAY AND THE REASON IS MECHANICAL. TGT is 160.45 bid / 160.63 ask at 13:46:23.977Z, +5.23% against the 152.48 close, on a 2.46 against 2.25 EPS beat this morning. The structure is the most striking on the board: it OPENED 148.285, below the prior close, and reversed to 159.94 - a new 52-week high, the old one taken out today - on 2.16M shares in thirteen minutes against a 4.28M two-week average. Item 2 refuses it: buying 160.45 is buying 9.7% off a session low set fourteen minutes earlier, at a fresh 52-week high, on day 1. WHAT WOULD MAKE IT A SETUP, WRITTEN NOW SO TOMORROW CANNOT DISCOVER IT CONVENIENTLY: a day-2 hold above today's close on lighter volume, with an entry struck after the fade rather than at the high. On that test it is a better candidate tomorrow than AS is today - bigger name, bigger beat, deeper liquidity.",
+      "why": "IT IS ON THE BOARD BECAUSE IT IS THE STRONGEST THING THIS RUN REFUSED, AND A RANKING THAT ONLY RECORDS THE WINNER IS NOT A RANKING. The mandate obliges an entry every day; it does not oblige the entry to be the loudest name on the tape. AS and TGT differ on exactly one axis - AS is on day 2 and TGT is on day 1 - and that axis is what item 2 is about. Holding both visible means the retro can grade whether the day-2 preference actually earned anything, or whether this board passed on the better trade for a rule that only sounds prudent."
+    },
+    {
+      "setup": "SMCI post-print pullback - the twice-forced thesis this board specified on 8/17 and did not fill, refused for a twelfth time",
       "state": "dead",
       "level": 38.24,
-      "trigger": "DEAD ON AN ELEVENTH TEST AND STILL MARKETABLE, WHICH STILL CHANGES NOTHING. SMCI is 37.50 bid / 37.52 ask at 19:37:21.831Z, a 0.05% spread and again among the tightest quotes on the board, -2.03% against the 38.28 close and up 0.03 on the bid from the 37.47 read at 15:22. The 37.52 ask is 0.72 BELOW the 38.24 limit that expired unfilled on 8/17 - that order would still fill nearly three quarters of a dollar better than it asked. It is not revived and it is not carried overnight. A specification that expired by its own terms is not restored by the tape reaching it, generously or otherwise; its thesis was FORCED on items 1 and 5, the 8/11 print is six sessions back, and SMCI appears nowhere in the live 8/18-to-8/26 earnings calendar re-pulled this run. Had seven shares filled at 38.24 for 267.68 they would close at 262.50, -5.18 or -1.94% - the eleventh print in a series that has run from -0.1% to -4.76% and has never once been green.",
-      "why": "NOT REVIVED, AND THE REASON IS UNCHANGED RATHER THAN NEWLY CONVENIENT. Yesterday's entry was forced on items 1 and 5: no catalyst, with the 8/11 print then four sessions back and now five, and its own written buy condition unmet. Neither has been repaired by the price falling - a cheaper entry into a thesis with no catalyst is a cheaper entry into a thesis with no catalyst. SMCI appears nowhere in the live 8/18-to-8/26 calendar. It keeps its place on the board only for liquidity, which remains the best here at a 0.05% spread on 24.4B, and it is passed over today for a name whose item 1 passes outright."
+      "trigger": "DEAD ON A TWELFTH TEST AND STILL MARKETABLE, WHICH STILL CHANGES NOTHING. SMCI is 36.75 bid / 36.77 ask at 13:42:56.984Z, a 0.05% spread and again the tightest quote on the board, -1.76% against the 37.41 close. The 36.77 ask is 1.49 BELOW the 38.24 limit that expired unfilled on 8/17 - that order would still fill a dollar and a half better than it asked, and it is not revived. Had seven shares filled at 38.24 for 267.68 they would read 257.25, -10.43 or -3.90%, the worst print of the twelve-read series.",
+      "why": "NOT REVIVED, AND THE REASON IS UNCHANGED RATHER THAN NEWLY CONVENIENT. That entry was forced on items 1 and 5: no catalyst, with the 8/11 print now six sessions back, and its own written buy condition unmet. Neither is repaired by the price falling - a cheaper entry into a thesis with no catalyst is a cheaper entry into a thesis with no catalyst. SMCI appears nowhere in the live 8/19-to-8/26 calendar re-pulled this run. It keeps its place for liquidity alone, which is still the best here, and it is passed over for a name whose item 1 passes outright."
     },
     {
-      "setup": "KLAR post-print collapse - a beat that lost a fifth of the company, held here as a watch item and explicitly NOT bought",
+      "setup": "KLAR post-print collapse - a beat that lost a fifth of the company, now on day 2 with still no base",
       "state": "wait",
-      "level": 15.75,
-      "trigger": "CLOSING ON ITS LOWS SIX HOURS AFTER THE PRINT, AND STILL NOT A SETUP. KLAR is 15.12 bid / 15.13 ask at 19:37:21.118Z, -22.50% against the 19.51 close, level with the 15.12 read at 15:22 and well below the 15.75 the open read. The gap has not begun to base into the bell, and a base is the precondition any entry here would need - the first print of a 22% gap is not a support level and no setup in this rulebook covers it. It is not bought today and it is not held overnight in any form. It keeps its place on the board as the live counterexample that stops item 1 decaying into 'a number came out': two EPS beats printed this morning, and one closes +2.1% while the other closes -22.5%.",
-      "why": "IT IS ON THE BOARD BECAUSE IT IS THE CLEANEST LIVE COUNTEREXAMPLE TO TODAY'S OWN THESIS AND SHOULD BE VISIBLE NEXT TO IT. AS and KLAR both beat this morning; AS is +3.8% and KLAR is -19.3%. An EPS beat is not a catalyst on its own, and holding the two side by side is what stops item 1 from decaying into 'a number came out'. What would make KLAR a setup rather than a falling knife: a day-2 or day-3 base that holds a level struck AFTER the gap, on lighter volume, with a written invalidation - none of which can exist before tomorrow."
+      "level": 14.62,
+      "trigger": "STILL FALLING ON DAY 2 AND STILL NOT A SETUP. KLAR is 14.62 bid / 14.64 ask at 13:42:57.286Z, -2.92% against the 15.06 close and below every read taken yesterday. The precondition any entry here would need is a base that holds a level struck AFTER the gap, on lighter volume, with a written invalidation. A second consecutive down day is the opposite of that, and the day-2 argument that promotes AS today explicitly does not transfer to a name whose day 1 was -22.5%.",
+      "why": "IT IS ON THE BOARD AS THE LIVE COUNTEREXAMPLE THAT STOPS ITEM 1 DECAYING INTO A NUMBER CAME OUT, AND ON DAY 2 IT IS DOING THAT JOB BETTER THAN IT DID ON DAY 1. AS and KLAR both beat on 8/18. AS is +0.6% today after closing +3.2%; KLAR is -2.9% today after closing -22.5%. Two beats, two sessions, opposite outcomes - which is the whole argument for requiring that a catalyst be read together with positioning rather than counted on its own."
     }
   ],
-  "candidatesAsOf": "2026-08-18 09:48 ET",
-  "candidatesNote": "All twelve rows are bids from ONE quote call at 13:48:32 UTC, so the board reads on a single timestamp rather than blending reads taken minutes apart. AS was added today and the eleven others carried forward. ELEVEN OF TWELVE ARE RED and AS is the only green name, which is the tape this entry is being made into.",
+  "candidatesAsOf": "2026-08-19 09:43 ET",
+  "candidatesNote": "The twelve carried-forward rows are bids from ONE quote call at 13:42:5x UTC and the six names added today are from a second call at 13:43:1x-13:43:2x UTC, so each row is a real timestamped bid rather than a blend. AS and TGT were RE-QUOTED at 13:46:2x when the limit was struck and both numbers are given on those rows. The field was widened rather than the bar lowered: eleven names reported between 8/18 and this morning and all of them are priced here, including the three beats the tape sold, which are the evidence item 5 passed on.",
   "candidates": [
     {
       "sym": "AS",
-      "last": 32.57,
-      "bid": 33.81,
+      "last": 33.88,
+      "bid": 33.82,
       "earnings": "8/18 before",
       "flag": "ok",
-      "note": "33.81 bid, +3.81% against the 32.57 close, and THE NAME SPECIFIED TODAY at a 33.86 limit for 10 shares - the first NOT-forced entry in this board's recent record. Reported this morning at 0.22 EPS against a 0.11 estimate, a 100% beat, verified on the live calendar and hours old, which is item 1 passing on a dated event rather than on a valuation number standing in for one. Liquidity is real: 19.44B market cap, 4.85M thirty-day average, 2.33M shares already done, and a 0.148% spread. Positioning into the print was de-risked rather than crowded - five red sessions and -10.0% from 36.17 on 8/10 to a 32.08 low yesterday - which is why item 5 passes. Session: opened 33.84, high 34.6974, low 33.41, dip bought. THE ONLY GREEN NAME OF TWELVE, and green on its own news rather than on the tape. What is NOT claimed: this is a day-1 entry and the rulebook prefers the day-2/3 pullback, so the timing is the weakest part of it. Its 9/18 32.5 call cleared every option gate at 13:43:58Z on a 6.45% spread and had blown out to 20.0% by 13:47:29Z, which is why the instrument is equity."
+      "note": "34.06 bid at 13:42:55Z and RE-QUOTED 33.82 bid / 33.87 ask at 13:46:21Z, +0.60% against the 33.62 close - THE NAME SPECIFIED TODAY at a 33.87 limit for 11 shares, the second consecutive not-forced entry. Reported 8/18 before the open at 0.22 EPS against 0.11, a 100% beat, verified live. This is the DAY-2 continuation the rulebook names first under setups that fit, and the objection yesterday's open raised against itself - day-1 timing - is spent. Session: opened 33.85, high 34.47, low 33.70; the entry is struck on the 0.24 pullback off the 13:42 read rather than at the high. Liquidity real: 19.71B cap, 5.24M thirty-day average, 452,739 shares in thirteen minutes, 0.148% spread. Its 9/18 32.5 call cleared EVERY option gate at 13:45:01Z on a 1.94% spread with 0.672 delta and 7,857 OI, then quoted 9.71% at 13:46:23Z - refused on that instability, which is why the instrument is equity."
+    },
+    {
+      "sym": "TGT",
+      "last": 160.45,
+      "bid": 160.45,
+      "earnings": "8/19 before",
+      "flag": "watch",
+      "note": "159.44 bid at 13:43:21Z and 160.45 at 13:46:23Z, +5.23% on a 2.46 against 2.25 beat this morning. Opened 148.285 BELOW the 152.48 close and reversed to a 159.94 fifty-two-week high on 2.16M shares against a 4.28M two-week average. RANKED SECOND AND REFUSED ON ITEM 2 - buying here is buying 9.7% off a session low fourteen minutes old, at a new high, on day 1. Named in advance as the better day-2 candidate tomorrow if it holds this close on lighter volume."
+    },
+    {
+      "sym": "EL",
+      "last": 98.15,
+      "bid": 97.59,
+      "earnings": "8/19 before",
+      "flag": "watch",
+      "note": "97.59 bid, +15.81% on a 0.39 against 0.32 beat. THE +8% DAY item 2 exists to refuse, and by a factor of two. Opened 93.97 and has not traded below it. Not a candidate at any price today; a day-2 or day-3 entry after this digests is the only shape that could ever qualify."
+    },
+    {
+      "sym": "TJX",
+      "last": 148.93,
+      "bid": 148.73,
+      "earnings": "8/19 before",
+      "flag": "watch",
+      "note": "148.73 bid, -1.40% on a 1.22 against 1.19 BEAT. One of three names today that beat and sold off, and part of the live evidence item 5 passed on for AS: crowded expectations mean a merely-good report sells off. Not bought - buying the down half of a print is not a setup here."
+    },
+    {
+      "sym": "ADI",
+      "last": 373.44,
+      "bid": 373.44,
+      "earnings": "8/19 before",
+      "flag": "watch",
+      "note": "373.44 bid, -0.85% on a 3.45 against 3.34 BEAT. Second of today's three sold beats. Also refused mechanically before any view is formed: one share is 37.0% of the account, so a single share is nearly the whole 40% single-name ceiling and there is no room to be wrong about size."
+    },
+    {
+      "sym": "KEYS",
+      "last": 333.35,
+      "bid": 332.36,
+      "earnings": "8/18 after",
+      "flag": "watch",
+      "note": "332.36 bid, -2.53% on a 3.07 against 2.42 beat - a 27% beat sold off the next morning, the sharpest of today's three and the cleanest single illustration of item 5 on the board. Not bought."
     },
     {
       "sym": "SMCI",
-      "last": 38.28,
-      "bid": 37.35,
+      "last": 36.77,
+      "bid": 36.75,
       "earnings": "8/11 after",
       "flag": "watch",
-      "note": "37.35 bid, -2.43%, and 0.89 BELOW the 38.24 limit that expired unfilled yesterday. The twice-forced thesis is not revived: a cheaper price does not supply the catalyst item 1 wanted, the 8/11 print is now five sessions back, and SMCI is absent from the live 8/18-8/26 calendar. Not filling has cost this board money on six prints and saved it 6.23 on the seventh, which is recorded with the same weight. Best liquidity on the board at a 0.05% spread on 24.4B."
+      "note": "36.75 bid, -1.76%, and 1.49 BELOW the 38.24 limit that expired unfilled on 8/17. Twelfth test, still marketable, still not revived: a lower price does not supply the catalyst item 1 wanted, the 8/11 print is six sessions back, and SMCI is absent from the live 8/19-8/26 calendar. Best liquidity on the board at a 0.05% spread."
     },
     {
       "sym": "KLAR",
-      "last": 19.51,
-      "bid": 15.75,
+      "last": 14.64,
+      "bid": 14.62,
       "earnings": "8/18 before",
       "flag": "watch",
-      "note": "15.75 bid, -19.27%, on an EPS BEAT of 0.01 against -0.06. Not bought. The first print of a 19% gap is not a support level, and no setup in the rulebook covers it. Kept on the board as the live counterexample to today's AS thesis: two beats this morning, one +3.8% and one -19.3%, which is what stops item 1 from decaying into 'a number came out'."
+      "note": "14.62 bid, -2.92%, a second consecutive down day after an EPS beat of 0.01 against -0.06. No base has formed, which is the precondition any entry here would need. Kept as the counterexample to today's own thesis: two 8/18 beats, and on day 2 one is +0.6% and the other is -2.9% on top of -22.5%."
+    },
+    {
+      "sym": "JKHY",
+      "last": 161.42,
+      "bid": 160.64,
+      "earnings": "8/18 after",
+      "flag": "watch",
+      "note": "160.64 bid, +4.91% on a 1.57 against 1.44 beat after yesterday's close. Ranked third. Refused on the same item 2 ground as TGT: an after-hours print reacting the next morning is effectively day 1, and this is the first session's move."
     },
     {
       "sym": "BIDU",
-      "last": 104.12,
-      "bid": 95.1,
+      "last": 92.87,
+      "bid": 92.83,
       "earnings": "8/18 before",
       "flag": "watch",
-      "note": "95.10 bid, -8.66%, on an EPS MISS of 1.06 against a 1.35 estimate. A dated catalyst that resolved against the name. Not a candidate - buying the down half of a print is not one of this board's setups, and item 2's instruction to prefer the pullback after strength has no application to a name with no strength."
+      "note": "92.83 bid, +2.16% - bouncing after an 8.66% drop on a 1.06 against 1.35 EPS MISS. A dated catalyst that resolved against the name, and a day-2 bounce off a miss is not the day-2 continuation this rulebook buys. The setup requires the print to have been GOOD."
     },
     {
       "sym": "UPST",
-      "last": 29.75,
-      "bid": 29.19,
+      "last": 30.01,
+      "bid": 29.97,
       "earnings": "8/4 after",
       "flag": "watch",
-      "note": "29.19 bid, -1.88%, and now a full point beneath the 30.20/30.32 shelf whose loss this board wrote as the invalidation in advance. Ten sessions past its print with nothing dated ahead. The expired 30.59 limit stays dead and is 4.8% above the bid."
+      "note": "29.97 bid, +2.95%, back at the 30.20/30.32 shelf whose loss this board wrote as the invalidation in advance - reclaimed from below rather than defended. Eleven sessions past its print with nothing dated ahead, so item 1 refuses it regardless of the level. The expired 30.59 limit stays dead."
+    },
+    {
+      "sym": "SQM",
+      "last": 76.3,
+      "bid": 76.09,
+      "earnings": "8/19 before",
+      "flag": "watch",
+      "note": "76.09 bid, +2.18% on a 2.31 against 2.04 beat this morning. A real beat with a modest reaction, which is the least objectionable of today's fresh prints after TGT. Passed over for AS on the day-1 versus day-2 axis alone, and noted so the ranking is legible."
     },
     {
       "sym": "IONQ",
-      "last": 46.84,
-      "bid": 45.17,
+      "last": 43.17,
+      "bid": 43.16,
       "earnings": "8/5 after",
       "flag": "watch",
-      "note": "45.17 bid, -3.57%. Nine sessions past its print with nothing dated ahead and no second argument in the catalyst's place. Item 1 refuses it."
+      "note": "43.16 bid, -2.18%. Ten sessions past its print with nothing dated ahead and no second argument in the catalyst's place. Item 1 refuses it."
     },
     {
       "sym": "RGTI",
-      "last": 18.67,
-      "bid": 18.13,
+      "last": 17.24,
+      "bid": 17.25,
       "earnings": "8/6 after",
       "flag": "watch",
-      "note": "18.13 bid, -2.89%. Eight sessions past its print, nothing dated ahead, and part of the quantum complex that unwound together on 8/17 - the correlation the 2026-08-10 rule was written about."
+      "note": "17.25 bid, -2.60%. Nine sessions past its print, nothing dated ahead, and part of the quantum complex that unwound together on 8/17 - the correlation the 2026-08-10 rule was written about."
     },
     {
       "sym": "SOUN",
-      "last": 7.04,
-      "bid": 7.01,
+      "last": 6.94,
+      "bid": 6.94,
       "earnings": "8/6 after",
       "flag": "watch",
-      "note": "7.01 bid, -0.43%, the flattest name on the board and the closest thing to green after AS. Eight sessions past its print with nothing dated ahead. Item 1 refuses it on the same ground as the rest."
+      "note": "6.94 bid, -0.72%. Nine sessions past its print with nothing dated ahead. Item 1 refuses it on the same ground as the rest of the carried-forward board."
     },
     {
       "sym": "OKLO",
-      "last": 43.88,
-      "bid": 41.81,
+      "last": 40.9,
+      "bid": 40.82,
       "earnings": "n/a this window",
       "flag": "watch",
-      "note": "41.81 bid, -4.72%, the weakest of the nuclear names and the second weakest on the board. Nothing dated ahead. Named in the 8/10 rule as one of the four that led hardest and unwound hardest."
+      "note": "40.82 bid, -1.31%. Nothing dated ahead. Named in the 8/10 rule as one of the four that led hardest and unwound hardest."
     },
     {
       "sym": "SMR",
-      "last": 9.19,
-      "bid": 8.93,
+      "last": 8.66,
+      "bid": 8.65,
       "earnings": "n/a this window",
       "flag": "watch",
-      "note": "8.93 bid, -2.83%. Nothing dated ahead, and the name this account closed at -14.0% on 8/6. Same complex as OKLO, so two of them would be the concentration limit rather than diversification."
+      "note": "8.65 bid, +0.12%. Nothing dated ahead, and the name this account closed at -14.0% on 8/6. Same complex as OKLO, so two of them would be the concentration limit rather than diversification."
     },
     {
       "sym": "JOBY",
-      "last": 7.91,
-      "bid": 7.67,
+      "last": 7.59,
+      "bid": 7.58,
       "earnings": "8/6 after",
       "flag": "watch",
-      "note": "7.67 bid, -3.03%. Eight sessions past its print with nothing dated ahead. The 8.85 limit from the 8/10 forced entry expired unfilled and is 15.4% above the bid - dead, and not re-struck cheaper for the same reason SMCI is not."
+      "note": "7.58 bid, -0.92%. Nine sessions past its print with nothing dated ahead. The 8.85 limit from the 8/10 forced entry is 16.9% above the bid - dead, and not re-struck cheaper for the same reason SMCI is not."
     },
     {
       "sym": "AMD",
-      "last": 506,
-      "bid": 485.87,
+      "last": 475.37,
+      "bid": 475.58,
       "earnings": "8/4 after",
       "flag": "watch",
-      "note": "485.87 bid, -3.98%. One share is 48.2% of the account against the 40% single-name ceiling, so it is refused by an explicit mechanical limit before any view is formed. The ratio improved only because AMD fell."
+      "note": "475.58 bid, -1.82%. One share is 47.1% of the account against the 40% single-name ceiling, so it is refused by an explicit mechanical limit before any view is formed. NVDA reports 8/26, six sessions out, and is the dated event this complex actually turns on."
+    },
+    {
+      "sym": "ZIM",
+      "last": 27.3,
+      "bid": 27.25,
+      "earnings": "8/19 before",
+      "flag": "watch",
+      "note": "27.25 bid, -4.35% on a 0.64 against 1.08 EPS MISS, the largest miss on today's calendar. Priced here so the morning's field is recorded whole rather than only its green half. Not a candidate."
     }
   ]
 }
