@@ -48,6 +48,17 @@ Run in order before every open. An unlogged check counts as **not done**.
 
 - Limit orders only, except fractional shares in mega-liquid names (fractional is market-order-only, regular hours only).
 - Cash account: proceeds settle T+1. Buying with unsettled proceeds and selling again before settlement is a good-faith violation. Check settled cash before every open.
+- **A specification lives until 15:30 ET on the day it was written, and never past the
+  16:00 bell.** Changed 2026-08-18 from a 30–60 minute window; see the rule change below.
+  The gate enforces both halves — a same-day date and a 16:00 ceiling — because a proposal
+  that outlives its session is a standing instruction resting on a tape that no longer exists.
+- **Every hour a specification stays open, the hourly run re-quotes it and either confirms
+  or kills it.** A limit that has not been checked against live quotes this hour is not
+  actionable, whatever the expiry says. Killing is done by appending, never by editing.
+- **A specification that is not delivered does not exist.** The run that publishes one
+  notifies the operator on the same pass, with side, size, name, limit, stop, target and
+  expiry in a single line. Four consecutive entries expired unexecuted before this was
+  written down, because publishing to a git commit and a static page is not telling anyone.
 
 ## Size before instrument — checked 2026-08-05
 
@@ -211,6 +222,44 @@ swallows an 8% stop, options refused because 36% of mark is not 10%, JOBY not re
 because it was 9.05 bid against an 8.85 limit. The other half of the same rule, already
 enforced by the gate: **a number that was not pulled does not exist.** No inferred price,
 no assumed fill, no derived balance, no straddle described without having been quoted.
+
+### 2026-08-18 — Specifications live to the close. Runs notify the operator. Operator decision.
+
+**The drift check goes first.** Naming it: this is the fifth logged loosening, and it
+widens the window in which a published entry can be executed from roughly forty minutes
+to roughly five and a half hours.
+
+It does **not** follow a win — the account is flat and the last closed trade was OKLO on
+8/14 at −0.72. It follows four consecutive specifications expiring unexecuted: SMCI on
+8/13, UPST on 8/14, SMCI again on 8/17, and AS on 8/18, the last of these the first
+not-forced entry in the recent record.
+
+**And the honest counterweight, which cuts against the change: two of those four misses
+saved money.** The board's own hourly notes record 8/17 and 8/18 as sessions where not
+filling was the profitable outcome, and 8/18's AS traded 1.8% below its own limit within
+the hour. Of the unexecuted set only the forced JOBY entry of 8/10 is recorded as one
+that would have been green. So the P/L case for this change is somewhere between weak
+and negative, and it is **not** the case being made.
+
+The case being made is a process one: an entry that cannot be acted on is not a decision
+the record can grade. A 09:49 specification with a 10:30 fuse, published to a git commit
+and a static page and announced to nobody, tests whether the operator happened to be at a
+desk — not whether the reasoning was any good. That is the wrong thing to be measuring.
+
+What is given up is real and is not hidden: a fill at 14:00 is **not** the entry the 09:49
+reasoning described, and the retro grades it as the different thing it is. Three
+constraints are attached to keep that from becoming a licence:
+
+1. The 16:00 ceiling and the same-day rule are enforced by `scripts/validate.mjs`, not by
+   a run remembering them.
+2. The hourly runs must re-quote every open specification and confirm or kill it. A
+   specification nobody re-checked is dead by neglect.
+3. **The limit may never be raised to chase a name that got away.** Re-striking a dead
+   level higher is the behaviour this board has refused most often and it stays refused.
+   Widening the *time* is not permission to widen the *price*.
+
+Order authority is unchanged and remains with the operator. `allowOrderPlacement` stays
+false and no run in this project may place, modify, or cancel an order.
 
 ## Rule-drift policy
 

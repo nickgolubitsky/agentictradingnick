@@ -451,6 +451,27 @@ if (why) {
     } else if (exp <= new Date(e.date)) {
       errors.push(`RULE  ${at}: order.expiresAt is not after the entry time`);
     }
+    /* The session ceiling. Added 2026-08-18 alongside the operator's decision to let a
+     * specification live to 15:30 ET instead of dying 30-60 minutes after it was written,
+     * which had killed four consecutive entries unexecuted. Widening the window without a
+     * ceiling would quietly recreate the thing the check above exists to forbid: a proposal
+     * that outlives its own session is a standing instruction resting on a tape that no
+     * longer exists, and the next morning's gap is exactly where that becomes expensive.
+     *
+     * Compared as naked strings rather than through Date, on purpose. Both fields are naive
+     * ET wall-clock text, and parsing them lands them in whatever zone the machine believes
+     * it is in - the same class of bug as TZ=America/New_York silently returning UTC under
+     * Git Bash on the operator's box, which already cost this project a run. String compare
+     * cannot drift. */
+    const dayOf = (s) => String(s ?? '').trim().slice(0, 10);
+    const hhmmOf = (s) => (String(s ?? '').match(/\b(\d{2}):(\d{2})\b/) ?? [])[0] ?? null;
+    if (dayOf(o.expiresAt) && dayOf(e.date) && dayOf(o.expiresAt) !== dayOf(e.date)) {
+      errors.push(`RULE  ${at}: order.expiresAt is dated ${dayOf(o.expiresAt)} against an entry written ${dayOf(e.date)}. A specification may not outlive the session it was reasoned on — tomorrow's open writes tomorrow's entry on tomorrow's quotes.`);
+    }
+    const expHhmm = hhmmOf(o.expiresAt);
+    if (expHhmm && expHhmm > '16:00') {
+      errors.push(`RULE  ${at}: order.expiresAt is ${expHhmm} ET, past the 16:00 close. An expiry after the bell is a standing instruction the operator cannot act on and the next run cannot withdraw.`);
+    }
   }
 }
 
