@@ -1,6 +1,6 @@
 {
   "_comment": "Written by the trading runs (9:30a / hourly / 3:30p ET). Never contains account numbers, broker IDs, or any account other than the sandbox.",
-  "lastRefreshUtc": "2026-08-21T19:36:28Z",
+  "lastRefreshUtc": "2026-08-24T13:46:24Z",
   "accountLabel": "Sandbox account",
   "account": {
     "total": 1009.16,
@@ -8,294 +8,262 @@
     "deployable": 1009.16,
     "unsettled": 0,
     "settlesOn": "nothing pending",
-    "verifiedAt": "2026-08-21 15:36 ET",
-    "note": "RE-PULLED LIVE AT 15:36 ET BY THE PRE-CLOSE RUN AND NOT CARRIED FORWARD FROM THE 15:22 HOURLY THAT REPORTS THE SAME FIGURES. Portfolio, equity positions and option positions were each queried live against the mandated account and all three returned first time: 1009.16 total, 1009.16 cash, zero equity value, zero options value, zero pending deposits and ZERO unsettled, so the entire balance is settled and the whole of it is deployable, with buying_power reading 1009.16 to match. THE BOARD GOES INTO THE WEEKEND FLAT AND THAT IS A DECISION, NOT AN ABSENCE. Both position lists were queried live and BOTH ARE EMPTY, so every step 2 question has the same answer for the same reason: no option no-fly window closes today because no contract is held, no earnings-tonight exposure exists because no underlying is held, no target, stop or time stop is reachable because no position carries one, and there is no overnight hold to justify because there is nothing held. No straddle is owed - item 3 binds only before an earnings hold. NOTHING IS CARRIED PAST THE BELL. why.json holds exactly one will entry dated today, the 09:48 FUTU limit at 117.90 with a 15:30 fuse, and it was WITHDRAWN at 11:21 by appending, four hours before it could expire. So no specification was alive at 15:30, no expiry entry is owed, and the step 3b duty is discharged and empty. NOTHING IS PROPOSED: the pre-close may not open a position in the last thirty minutes, and the daily entry mandate binds the open slot, which was discharged at 09:48. The catalyst file was pruned against a live calendar covering 2026-08-21 to 2026-08-27 - nothing had passed, the single NVDA row was re-verified for 2026-08-26 pm, its spot was refreshed 217.21 to 215.01 bid, and the first branch was widened to cover the MRVL print on 8/27 alongside it."
+    "verifiedAt": "2026-08-24 09:43 ET",
+    "note": "PULLED LIVE AT 09:43 ET AGAINST THE MANDATED ACCOUNT AND NOT CARRIED FORWARD FROM FRIDAY, even though every figure is identical to the 15:36 pre-close reading - identical because nothing traded over the weekend, which is a conclusion drawn from a fresh pull rather than an assumption that let the pull be skipped. Portfolio, equity positions and option positions were each queried live and all three returned first time: 1009.16 total, 1009.16 cash, zero equity value, zero options value, zero pending deposits and ZERO unsettled, with buying_power reading 1009.16 to match. The entire balance is settled, so the whole of it is deployable and no good-faith violation is reachable. BOTH POSITION LISTS ARE EMPTY, which is what discharges step 3 rather than excusing it: no target, stop or time stop is reachable because no position carries one, and no option no-fly window closes today because no contract is held. The board opened the week flat, as the 8/21 pre-close decided in writing. TODAY DEPLOYS 389.40 OF IT if the BJ limit fills - 38.6% of the account against a 40% single-name ceiling, leaving 619.76 uncommitted and room for up to three more names under the four-position limit."
   },
   "positions": [],
   "entryWatch": [
     {
-      "setup": "FUTU post-earnings day-2 continuation off the 8/20 gap-up - SPECIFIED at 09:48 at a 117.90 limit for 3 shares, confirmed at 10:22 with a drought test written in advance, and WITHDRAWN at 11:21 when that test fired",
+      "setup": "BJ post-earnings day-2 continuation off the 8/21 beat - SPECIFIED at 09:46 at a 97.35 limit for 4 shares, struck into the pullback off a 98.35 session high rather than at it",
+      "state": "armed",
+      "level": 97.35,
+      "trigger": "LIVE UNTIL 15:30 ET TODAY. Fiscal Q2 reported 8/21 before the open, 1.360 actual against 1.190 estimate, a 14.3% beat verified on a live calendar pull. Day 1 closed 96.42, up 5.6%, on 4,180,945 shares against a 1.5-2.2M run rate. Today BJ printed 98.35 in the 09:35 bar - 1.47 above Friday's 96.88 high - and eased back to a 97.48 last on a 97.22 bid / 97.87 ask at 13:46:06Z. The limit sits inside that spread and 0.13 under the last. THREE WRITTEN INVALIDATIONS, so an hourly run that was not here at 09:46 can check this against a tape it did not see: a five-minute close below 96.42 kills it by appending, the day-2 continuation having given back the whole day-1 close; a five-minute close below 96.895, today's session low, is a warning to re-examine rather than a kill on its own; and a bid above 99.00 at any re-quote means the level has been left behind, in which case it goes UNFILLED AND DIES AT 15:30 - THE LIMIT IS NOT RAISED.",
+      "why": "THE DAILY ENTRY MANDATE IS SATISFIED WITHOUT BEING LEANED ON, which is the thing worth recording. This is the fifth consecutive not-forced entry: five items pass and item 3 is not applicable because no earnings hold is contemplated. The case is that BJ went into its own print with expectations being CUT - marked down from 96.20 on 8/10 to an 88.22 low on 8/20, an eight-session low the day before it reported - and then beat by 14.3%. That is the favourable side of item 5 rather than the adverse one, and it is the item this board declined BJ on last week, so it carries the entry. The corroboration is relative strength that is not free: BJ is green while QQQ is down 1.23% and the high-beta complex is down 5-6%. THE HONEST WEAKNESSES, NAMED HERE SO THE RETRO DOES NOT HAVE TO FIND THEM. The spread is 0.67% of the midpoint against the 0.09-0.16% the rulebook cites for equity - opening-auction width on a mid-cap, survivable only because this is a limit order. BJ is riding a crowded defensive THEME even though the NAME was not crowded, so if the value-retail bid unwinds the beat will not save it. And it is not the largest beat available: UI beat by 19.4% and BEKE by 50%. BJ is the one whose beat, tape, size and complex all clear at once."
+    },
+    {
+      "setup": "FUTU - the 117.90 limit this board published on 8/21 and WITHDREW at 11:21 the same day, now back within half a dollar of the level it was killed at",
       "state": "dead",
       "level": 117.9,
-      "trigger": "KILLED AT 11:21 BY APPENDING, ON A TEST WRITTEN AT 10:21 BEFORE THE ANSWER WAS KNOWN. Twelve consecutive five-minute bars cover 09:55 to 10:55 ET with lows of 118.330, 120.290, 120.2948, 120.300, 120.030, 119.795, 120.115, 121.870, 120.570, 120.260, 120.060 and 121.470 - NOT ONE at or below 117.90, and the lowest of them 0.43 above it, so the sixty-minute drought completed without ever threatening to reset. It has since run to eighty-six minutes on lows of 122.510, 123.210, 122.570, 122.180 and 121.690. FUTU is 122.01 bid / 122.15 ask at 15:21:53.740416507Z, last 122.145, +8.23% against the 112.73 settled close, on a 0.14 spread that is 0.115% of mark - the tightest quote of its session. THE 117.90 LIMIT IS 4.11 UNDER THE BID, a 3.37% retrace to a fill, against 0.16 ABOVE the bid when it was struck at 09:46 and 1.90 under it at 10:22. RE-GRADED AT 12:21: FUTU is 122.75 bid / 123.06 ask at 16:22:12.264467558Z, last 122.94, +8.89% against the 112.73 close, on a 0.31 spread that is 0.252% of mark. THE DEAD 117.90 LIMIT IS NOW 4.85 UNDER THE BID - it has receded another 0.74 in an hour, has still not traded since the 09:50-09:55 bar, and on the 3 shares specified represents 14.55 of gain the board did not take. The 11:21 prediction that this would grade worse than the 8/20 TGT kill is so far holding, and it is being scored hourly rather than at the retro so that what gets graded is a pre-commitment. RE-GRADED AT 13:21: FUTU is 123.03 bid / 123.36 ask at 17:21:26.173573688Z, last 123.20, +9.14% against the 112.73 close, on a 0.33 spread that is 0.268% of mark. THE DEAD 117.90 LIMIT IS NOW 5.13 UNDER THE BID - it has receded another 0.28 in an hour, has still not traded since the 09:50-09:55 bar, and on the 3 shares specified represents 15.39 of gain the board did not take. Third consecutive hour of grading a pre-commitment rather than a rationalisation, and the 11:21 prediction that this would grade worse than the 8/20 TGT kill continues to hold. RE-GRADED AT 14:21 AND THE RECESSION HAS STOPPED FOR THE FIRST TIME TODAY: FUTU is 123.01 bid / 123.14 ask at 18:22:08.04724958Z, last 123.07, +9.12% against the 112.73 close, on a 0.13 spread that is 0.106% of mark. THE DEAD 117.90 LIMIT IS 5.11 UNDER THE BID, against 5.13 an hour ago - it has come back 0.02 rather than receding further, which is the first hour since the 09:46 strike in which the gap did not widen. On the 3 shares specified that is 15.33 of gain the board did not take, against 15.39 an hour ago. The level has still never traded since the 09:50-09:55 bar printed a 117.000 low, and the lowest five-minute print of the last hour is 122.340, 4.44 above it. The 11:21 prediction that this kill would grade worse than the 8/20 TGT kill still holds, and the fourth consecutive hour of scoring it is recorded on the hour rather than at the retro.",
-      "why": "KILLED WHILE WINNING, WHICH IS THE ONLY CONDITION UNDER WHICH THE TEST MEANS ANYTHING. Every other limb still fails: the 114.92 day-2 higher low is untouched and nothing has printed below 116.83, the 112.73 close was never approached, the 108.47 stop is 13.54 below the bid, and the day-2 reclaim thesis has extended 4.34 beyond the 117.81 day-1 high it rested on. FUTU is the best-performing name this board ranked today. It dies anyway, because the only limb that ever applied to an away-side breach was limb two - the limit no longer inside the spread - and the 10:21 run refused to decide that off a single instant's quote, converting it into a tape test with a deadline and naming the 11:17 run as the one that would execute the answer. That run is this one and it was left no discretion. THE PRECEDENT IS CITED WITH ITS COST ATTACHED: the identical device fired on TGT at 14:22 on 8/20, this board honoured it, and the killed level then printed on fourteen of the nineteen bars afterwards - priced as sixty cents behind at 15:22, sixty-two cents in front at 15:36, and 2.18 behind on the official close. FUTU will probably grade worse, because unlike TGT it never came back at all, and that is written down BEFORE the outcome is in. THE LIMIT IS NOT RAISED AND FUTU IS DEAD FOR TODAY AT ANY PRICE. Re-striking here would be the exact behaviour docs/RULES.md refuses most often, four hours after this board's own open run refused TGT at 161.92 on that same rule - and a rule honoured only against names this board does not own is not a rule."
+      "trigger": "DEAD AND DELIBERATELY LEFT DEAD. FUTU is 118.39 bid at 13:42:23Z, down 4.14% from a 123.64 close - 0.49 ABOVE the withdrawn limit and the closest it has come back since the kill. That is precisely the temptation the 2026-08-18 rule exists to refuse: a level this board killed in writing does not become live again because the tape returned to it, and the 15:22 finding on 8/21 that the drought test which killed it was pointed at the wrong window is a reason to fix the TEST, not a licence to re-enter the trade six cents from where it died. Not re-struck, not entered, and named here so no later run has to rediscover the reasoning.",
+      "why": "LEFT DEAD DELIBERATELY, AT THE MAXIMUM OF TEMPTATION, AND THAT IS THE POINT OF THE ROW. A level this board killed in writing does not become live again because the tape wandered back to it. The 15:22 run on 8/21 established that the drought test which killed this specification was pointed at the wrong window - 9,381 shares traded below the 117.90 limit in the three and a half minutes after it went live, and the test began measuring 45 seconds after the last sub-limit print. That finding is a reason to repair the TEST, not a licence to buy the trade back. If the board exempted the one name it could prove it had killed wrongly, the 2026-08-18 rule against re-striking a dead level would be worth nothing the first morning it cost something. Today's entry buys a name this board merely DECLINED and refuses a name this board KILLED, and that distinction is the whole of the rule."
     },
     {
-      "setup": "TGT day-3 continuation at a new 52-week high - the best structure and the best liquidity on the board today, REFUSED on the chase rule",
+      "setup": "BEKE post-earnings day-2 - the largest beat on the board and the candidate today's entry came closest to taking",
+      "state": "watch",
+      "level": 17.96,
+      "trigger": "DECLINED ON ITS TAPE, NOT ON ITS NUMBER. Q2 0.42 against 0.28, a 50% beat - larger than BJ's 14.3% - on a 0.17% spread far tighter than BJ's, and 22 shares would size to 39.3% inside the ceiling. What refuses it: Friday it gapped to 17.935 and sold all the way to 16.960, THROUGH the prior close, before closing 17.75; today it opened 18.055, printed 18.47 inside five minutes and gave every cent back, with the 09:40 bar low at 17.960 and an 18.02 bid at 13:43:07Z. A 50% beat that cannot hold an opening pop on two consecutive sessions is a beat the market has already priced. Becomes interesting again only on a five-minute close back above 18.47 on volume.",
+      "why": "THE STRONGEST NUMBER ON THE BOARD ATTACHED TO THE WEAKEST TAPE, which is why it is on the watch list rather than in the order. A 50% beat is more than three times BJ's, the spread is a quarter of BJ's, and the size fits. Every static measure favours BEKE. What refuses it is behaviour rather than measurement: a name that gaps up and sells through its prior close on the print day, then gaps up and gives back a 0.45 pop within fifteen minutes the next session, is telling you who is using the strength. The 2026-08-10 tiebreak says that when a quoted number and a written thesis disagree, the number decides - and here the numbers disagree with each other, the beat against the tape. The tape is the one measured after the beat was known, so it is the one carrying the newer information."
+    },
+    {
+      "setup": "UI post-earnings - the biggest beat of the cohort and the cleanest item 5 failure available",
       "state": "dead",
-      "level": 159.36,
-      "trigger": "REFUSED AT 161.92 BID, WHICH IS 2.56 ABOVE THE LEVEL THIS BOARD KILLED YESTERDAY. TGT is 161.92 bid / 162.37 ask at 13:45:52.660Z, last 162.36, +2.32% against the 158.25 settled close, on a 0.278% spread. It set a NEW 52-WEEK HIGH of 162.205 this morning and its structure is the cleanest here - three ascending session lows at 146.21, 154.50 and 160.23. The dead level is the 159.36 limit withdrawn by appending at 14:22 yesterday, and it is NOT revived. RE-GRADED AT 12:21: TGT is 164.11 bid / 164.19 ask at 16:22:17.22369506Z, +3.70% against the 158.25 close - 2.19 above the 161.92 this board refused at 09:46 and 4.75 above the 159.36 level it killed yesterday, which is 9.50 on the 2 shares that specification carried. THE REFUSAL IS COSTING AND THE LEVEL IS STILL NOT REVIVED, because the rule that forbids raising a limit to chase a name that got away contains no exception for names that kept going. RE-GRADED AT 13:21 AND THE GAP HAS NARROWED FOR THE FIRST TIME: TGT is 163.13 bid / 163.18 ask at 17:22:08.067096689Z, +3.08% against the 158.25 close, on a 0.031% spread - the tightest quote on the board. That is 1.21 above the 161.92 this board refused at 09:46, DOWN from 2.19 above an hour ago, having given back 0.98 from the 164.11 the 12:21 run recorded. Against the 159.36 level killed yesterday it is 3.77 above, worth 7.54 on the 2 shares that spec carried against 9.50 an hour ago. THE REFUSAL IS COSTING LESS THAN IT WAS AND THE LEVEL IS STILL NOT REVIVED, because a name drifting back toward a level the board already declined is not a new entry on new quotes - it is the same thesis waiting for permission, and the rule contains no exception for names that come partway back either. RE-GRADED AT 14:21 AND THE NARROWING DID NOT CONTINUE: TGT is 163.22 bid / 163.30 ask at 18:22:08.256633764Z, last 163.255, +3.14% against the 158.25 close, on a 0.049% spread. That is 1.30 above the 161.92 refusal, back UP from 1.21 an hour ago after 2.19 at 12:21, and 3.86 above the 159.36 level killed yesterday, worth 7.72 on the 2 shares that spec carried against 7.54 an hour ago. AND THE FULL-SESSION CHECK THIS BOARD HAD NOT RUN UNTIL NOW SAYS THE HOURLY SNAPSHOTS WERE HONEST ON THIS NAME: TGT's lowest post-refusal print is 161.9701, in the 10:30-11:00 ET bar, five cents ABOVE the 161.92 it was refused at. The refusal has cost something in every hour sampled and it never once became free in between. The level is still not revived.",
-      "why": "THIS IS THE REFUSAL THAT COST SOMETHING AND IT IS RECORDED WHERE THE RETRO CAN GRADE IT. On the tape alone TGT is the best entry on this board today: better structure than FUTU, a verified 9.3% beat where FUTU's consensus cannot even be pulled, and a 0.278% spread against FUTU's 0.449%. It is refused anyway. docs/RULES.md, in the 2026-08-18 change, says the limit may never be raised to chase a name that got away and that re-striking a dead level higher is the behaviour this board has refused most often. Yesterday this board wrote 159.36, killed it deliberately at 14:22 on a drought test, and watched the 15:22 run report that the kill had cost sixty cents before the 15:36 run reported that the same kill had saved sixty-two. Today the stock is 2.56 through that level. Writing TGT now at 161.92 is not a new entry on new quotes - it is the same thesis at a higher price after the name moved away, which is the definition of the thing the rule forbids. YESTERDAY'S OWN STATE FILE SAID TOMORROW'S OPEN MAY WRITE TGT AGAIN ON TOMORROW'S QUOTES, AND THAT SENTENCE LOSES TO THE RULEBOOK, which is authority and is categorical. A test that binds only when honouring it is free is not a test, and the AS row on this same board has refused a revival four sessions running on exactly this reasoning. If TGT runs from here the record will show this board named it, ranked it second, and declined it on a written rule rather than missing it."
+      "level": 534.13,
+      "trigger": "REFUSED BY A MECHANICAL LIMIT BEFORE ANY VIEW REACHES IT: one share at 534.13 bid is 52.9% of a 1009.16 account against the 40% single-name ceiling, so no quantity of UI is buyable here. The tape says the same thing independently - it beat by 19.4%, 4.73 against 3.96, then opened 8/21 at 597.00 which was the HIGH OF THE DAY, sold to 515.00, closed 559.00, and is down another 4.4% today. A 19% beat that opens at its high and loses 13.7% intraday is the textbook crowded-bulls unwind item 5 describes.",
+      "why": "A MECHANICAL REFUSAL AND A THESIS REFUSAL POINTING THE SAME WAY, recorded because they are independent and either alone would be enough. The ceiling is arithmetic and needs no judgement: 534.13 against 1009.16 is 52.9%, so there is no quantity of UI that fits under 40%, and the question of whether UI is a good trade is never reached. Had it been reached, item 5 answers it - this is the cleanest crowded-bulls unwind on the board, a 19.4% beat that opened AT the high of the day and lost 13.7% intraday before losing another 4.4% today. Kept on the list as the counter-example that makes today's entry legible: the biggest beat of the cohort produced the worst tape, which is exactly what item 5 predicts and exactly why the size of a beat is not the ranking."
     },
     {
-      "setup": "ROST post-earnings day 1 off a 46% EPS beat - the largest verified beat on the 8/19-8/21 calendar, ranked third and passed over on item 2",
+      "setup": "WMT post-earnings day-3 - the best liquidity on the board, declined on arithmetic",
       "state": "watch",
-      "level": 238.38,
-      "trigger": "QUOTED 238.38 bid / 238.90 ask at 13:45:54.376Z, last 239.00, +4.10% against the 228.99 settled close, on a 0.218% spread - the tightest on the board. Reported 8/20 AFTER the close at 2.66 EPS against a 1.82 estimate, a 46.2% beat, verified live. IT IS DAY 1 AND IT IS ALREADY FADING: it opened 243.85, made its high at 243.86 in the first minutes, and has given back 5.48 to trade 238.38 - so the entry available now is below the open on a session that is rolling over rather than extending. RE-GRADED AT 13:21: ROST is 241.26 bid / 241.37 ask at 17:22:06.541696561Z, +5.36% against the 228.99 close, on a 0.046% spread. It is now 2.88 above the 238.38 it was refused at, against 1.77 an hour ago, and it has recovered nearly the whole of the day-1 fade the 09:46 note rested on - 2.60 below the 243.86 session high against 5.48 below it at the refusal. THAT WEAKENS ONE OF THE TWO ORIGINAL OBJECTIONS AND IS RECORDED AS DOING SO: the fade-in-progress reading has not held. Item 2 is unchanged, because today is still the spike day, and item 5 is unchanged, because four retail beats sold this week is a fact about the tape rather than about ROST's price. A day-2 or day-3 entry after this digests remains the only shape that could qualify. RE-GRADED AT 14:21, AND THE HOURLY SNAPSHOT HAS BEEN OVERSTATING THIS ONE ALL DAY. ROST is 241.44 bid / 241.52 ask at 18:22:09.399430374Z, last 241.43, +5.44% against the 228.99 close, on a 0.033% spread - 3.06 above the 238.38 refusal against 2.88 an hour ago and 1.77 at 12:21, so on the samples it looks like a refusal getting steadily more expensive. THE BARS BETWEEN THE SAMPLES SAY OTHERWISE: ROST printed a 234.500 low in the 10:00-10:30 ET bar, which is 3.88 BELOW the price it was refused at, and it traded under 238.38 for the better part of two hours before recovering. So the honest reading is that this refusal was free and then some in the middle of the session and is expensive only at the moments this board happens to look. Item 2 is unchanged - today is still the spike day - and item 5 is unchanged, because four retail beats sold this week is a fact about the tape rather than about ROST's price. A day-2 or day-3 entry after this digests remains the only shape that could qualify.",
-      "why": "TWO INDEPENDENT REASONS, AND THE SECOND IS THE ONE THAT DECIDED IT. Item 2 refuses it first: today IS the spike day, the rulebook says in as many words that better entries are the day-2/3 pullback after strength rather than the spike, and a gap-up that has already surrendered 5.48 off its own opening print is a fade in progress, not a continuation. The gap is also into overhead supply - ROST traded 248.25 on 8/12 and fell eight straight sessions into this print, so every buyer from the last two weeks is above today's price. ITEM 5 IS THE STRONGER OBJECTION AND IT IS THE LESSON OF THIS ENTIRE WEEK. ROST is the fifth retail beat on this tape in three sessions and the first four were sold: WMT beat by 9.5% and fell 8.59%, AAP beat by 27% and lost a fifth of the company, TJX beat and fell two consecutive sessions, LOW beat by two cents and faded. TGT is the only retail beat that has paid. A 46% beat is not evidence the tape will pay for it when the four most recent comparables in the same complex were all sold - that is precisely the mechanism item 5 exists to name. Recorded as the strongest alternative on catalyst and liquidity and the weakest on setup, so a day-2 or day-3 entry after this digests is the only shape that could ever qualify."
+      "level": 105.38,
+      "trigger": "NOT A DISLIKE, AN ARITHMETIC REFUSAL. WMT beat 0.81 against 0.74 on 8/20, is up 1.63% at a 105.38 bid into a red tape, and quotes a 0.019% spread - the tightest on this list by an order of magnitude. What kills it is the exit framework: a +20% target off 105.38 is 126.46 inside five sessions, which is not a move this name produces, so target, stop and time stop would all be decoration rather than levels. Kept on watch because the relative strength is real and would matter to a rulebook with a smaller profit target.",
+      "why": "THE RULEBOOK REFUSING A GOOD SETUP ON ITS OWN ARITHMETIC, which is worth logging rather than quietly passing over. Everything about WMT is right except the exit framework: real beat, day 3, best liquidity on the board by an order of magnitude, green into a red tape. But take-profit is fixed at +20% and the time stop at about five sessions, and 126.46 by 8/28 is not a number this name produces. An entry whose target cannot realistically be hit is an entry whose exits are decoration, and the 2026-08-10 note is explicit that the 10%-a-day objective may not waive a checklist item or lengthen a time stop to make a trade work. So the refusal is recorded as what it is - a constraint of this rulebook meeting a name it is not built for, not a judgement that WMT is a bad hold."
     },
     {
-      "setup": "BJ post-earnings day 1 off a 14.3% beat - reported before the open this morning, ranked fourth",
-      "state": "watch",
-      "level": 95.08,
-      "trigger": "QUOTED 95.08 bid / 95.74 ask at 13:45:54.383Z, last 95.48, +4.14% against the 91.30 settled close. Reported TODAY before the open at 1.36 EPS against 1.19, a 14.3% beat, verified live. The 0.66 spread is 0.692% of mark, the widest of the four names ranked today and more than double FUTU's 0.449%. RE-GRADED AT 13:21: BJ is 95.59 bid / 95.81 ask at 17:22:02.066598933Z, +4.70% against the 91.30 close, on a 0.230% spread. That is 0.51 above the 95.08 refusal, DOWN from 0.95 above an hour ago, having given back 0.44 from the 96.03 the 12:21 run recorded - the smallest gap of the four and narrowing. Still refused on both original grounds, which are about the setup and the complex rather than the price. RE-GRADED AT 14:21 AND THIS IS THE NAME THE CORRECTION IS ABOUT. BJ is 95.21 bid / 95.27 ask at 18:22:08.25692416Z, last 95.16, +4.28% against the 91.30 close, on a 0.06 spread that is 0.063% of mark - a tenfold tightening from the 0.692% that made it the widest quote of the shortlist this morning. That is 0.13 above the 95.08 refusal, DOWN from 0.51 an hour ago and 0.95 at 12:21: the smallest gap of the four names and a third consecutive hour of narrowing, so on the samples alone BJ is about to retire the cost of its own refusal. THE SAMPLES MISSED THE POINT ENTIRELY. BJ printed a 93.1093 low in the 11:00-11:30 ET bar and a 93.960 low in the 10:30-11:00 bar, so it traded as much as 1.97 BELOW the price it was refused at, hours before it came back to within thirteen cents of it. This refusal did not narrow toward being free; it was free by a wide margin in the middle of the day and has since walked back up. Still refused on both original grounds, which are about the setup and the complex rather than the price, and BJ is still day 1.",
-      "why": "REFUSED ON THE SAME TWO GROUNDS AS ROST AND MORE CHEAPLY ON BOTH. It is day 1, which item 2 refuses, and it is a warehouse-club retailer printing into the week that sold WMT, AAP, TJX and LOW, which item 5 refuses. Its liquidity is also the thinnest of the shortlist on the measure that matters here: 652,233 shares in the first twelve minutes against a 1,899,033 two-week average, a slower start relative to its own book than either ROST or FUTU. Priced and recorded so the morning's field is whole rather than only the half that supports the entry."
-    },
-    {
-      "setup": "SQM post-earnings day 3 - the name passed over on liquidity on 8/20 that then won the day outright",
-      "state": "watch",
-      "level": 83.51,
-      "trigger": "RE-QUOTED 83.51 bid / 83.87 ask, +6.45% against the 78.45 settled close and now +10.8% across two sessions. Volume is 261,169 in the first twelve minutes against a 778,563 two-week average, which is a real improvement on the 51,087-against-896,905 that got it passed over, and the 0.36 spread is 0.431% against the 0.52% of yesterday.",
-      "why": "THE LIQUIDITY OBJECTION HAS LARGELY REPAIRED ITSELF AND ITEM 2 NOW REFUSES IT INSTEAD, WHICH IS A DIFFERENT AND MORE FINAL PROBLEM. A name up 6.45% today on day 3, having already run 10.8% in two sessions and trading 5.06 above the 78.45 close and 7.24 above the 76.27 day-2 high the 8/20 open recorded, is being bought after the move by any reading of the rule. THE HONEST PART GOES ON THE RECORD REGARDLESS: this board ranked SQM second on 8/20, passed it over, and it has now beaten the chosen name on every single check across two days. That is written here rather than quietly dropped, because a ranking that reports only its flattering hours is not a record. The process half is unchanged and is not revised by the outcome - a thin book on the day of the decision was a thin book, and item 2 refuses it independently today at a price 5.06 higher."
-    },
-    {
-      "setup": "AS post-earnings continuation - specified on 8/18 and again on 8/19, both expired unexecuted, broken on its own written level and not revived",
-      "state": "dead",
-      "level": 33.7,
-      "trigger": "QUOTED 32.54 bid / 32.56 ask, +0.03% against the 32.53 settled close - flat, and going nowhere for a second session. That is 1.16 BELOW the 33.70 early warning the 8/19 entry wrote in advance and 1.33 below the 33.87 limit that expired unexecuted.",
-      "why": "FIFTH CONSECUTIVE SESSION OF THE SAME ANSWER AND IT IS THE ROW THAT MAKES TODAY'S TGT REFUSAL CREDIBLE RATHER THAN CONVENIENT. The higher low the day-2 thesis rested on broke at 33.70 and nothing since has rebuilt it; the stock has now spent two sessions flat on the floor instead of basing. A level may not be revived because the name came back toward it after the structure broke - and today the same principle was applied to TGT pointed the other way, refusing a level because the name ran AWAY from it. Both are the board declining to let subsequent price action rewrite a decision it already made in writing, and a board that applied that only when the refusal was free would be applying nothing."
-    },
-    {
-      "setup": "KLAR post-print collapse - a beat that lost a fifth of the company, now on day 4 with a first green session",
+      "setup": "PDD - reported this morning before the open, day 1",
       "state": "wait",
-      "level": 14.32,
-      "trigger": "QUOTED 14.44 bid / 14.46 ask, +3.14% against the 14.00 settled close - the FIRST up session after three consecutive down days, and the first print back above the 14.32 level this row has carried all week. Volume is 1,429,585 in twelve minutes against a 9,621,267 two-week average.",
-      "why": "ONE GREEN DAY IS NOT A BASE AND THIS ROW IS NOT UPGRADED ON IT. The precondition written here every session has been a base, and a single reclaim of a level on the fourth day after a 22.5% collapse is the first candidate for one, not the thing itself. It stays on the board as the live counterexample that stops item 1 decaying into a number came out: KLAR beat on 8/18 and lost a fifth of the company, AS beat the same morning and is flat five sessions later, WMT and AAP beat this week and were sold hard. Four beats, no follow-through - which is the evidence item 5 rests on and the reason FUTU was tested against positioning rather than waved through on its print."
+      "level": 88.61,
+      "trigger": "THE SPIKE DAY ITEM 2 EXISTS TO REFUSE, judged on the least informative fifteen minutes of tape in the week. Q2 2.85 actual against 2.77, a 2.9% beat - the smallest of the cohort - and the stock is 88.61 bid at 13:42:27Z, up just 0.26% from an 88.38 close. Its options were pulled as the alternative instrument and are the worst quoted today: the 9/18 88 call is 3.60 / 6.10 on a 4.85 mark, a 51.5% spread with ZERO open interest. Re-examine on 8/25 as a day-2 candidate if the reaction holds.",
+      "why": "DAY 1 IS THE ONE DAY ITEM 2 NAMES OUTRIGHT, and the beat is the smallest of the cohort at 2.9%, so there is no tension to resolve here. The row exists mostly to carry the option evidence: PDD was the best remaining candidate for an actual options entry - deep liquid chain, three expirations inside the 3-6 week window, and no earnings inside any of them now that it has reported - and its quotes are the worst on the board. Two ATM strikes with ZERO open interest and spreads over 47%, and the only contract with real depth still at 26.9%. That is the strongest available refutation of the idea that the option finding was ever about the account being small."
     },
     {
-      "setup": "SMCI post-print pullback - the twice-forced thesis specified on 8/17 and never filled",
+      "setup": "The AI, semiconductor and nuclear complex into NVDA on 8/26 and MRVL on 8/27",
       "state": "dead",
-      "level": 38.24,
-      "trigger": "REFUSED FOR A TWENTY-FIFTH TIME. QUOTED 37.14 bid / 37.17 ask, +1.75% against the 36.50 settled close. The dead 38.24 limit is 1.07 above the offer. Best spread on the board at 0.081%.",
-      "why": "THE PRICE COMING BACK WAS NEVER THE CATALYST RETURNING, AND TWENTY-FIVE READINGS HAVE NOW SUPPLIED THE PROOF IN EVERY DIRECTION - through the limit, far below it, and everywhere between. That entry was forced on items 1 and 5, with the 8/11 print now eight sessions back and its own written buy condition unmet, and SMCI appears nowhere in the live 8/19-8/26 calendar. It keeps its place on the board for liquidity alone."
+      "level": null,
+      "trigger": "REFUSED BY THE moves.json BRANCH WRITTEN SIX SESSIONS IN ADVANCE, and today is the session that branch was written for. The complex is being sold hard - SMCI down 5.8% at 35.09, IONQ down 5.3% at 42.48, OKLO down 5.2% at 39.85, SMR down 5.2% at 8.90, SOUN down 3.2%, ADI down 1.4%, KEYS down 2.5% - and a name that is down 5% into an event is exactly what a sympathy entry looks like when it is rationalised as a discount. The branch refuses entries in this complex on 8/25, 8/26 and 8/27 into either print, and the arithmetic behind it is unchanged: a -8% stop does not survive an event whose implied move is wider than 8%. AMD remains separately refused on the single-name ceiling.",
+      "why": "WRITTEN SIX SESSIONS BEFORE IT BOUND AND BINDING NOW, which is the test of whether writing branches in advance does anything. The arithmetic has not changed: a -8% stop does not survive an event whose implied move is wider than 8%, so the realistic bad case gaps through the exit rather than filling at it - the same reasoning that refused SMCI at a 14.4% implied move. What today adds is the correlation evidence in live form. OKLO is down 5.32% and SMR is down 5.32%, identical to the second decimal, and IONQ and SMCI are within half a point of both. Four names off this list is not four positions; it is one position at four times the size, paying four spreads, with a stop all four gap through together. Today's entry is deliberately outside this complex, and BJ being held across both prints is a decision stated in the specification rather than an oversight."
+    },
+    {
+      "setup": "KLAR - bouncing off 14.00 after collapsing on its own 8/18 beat",
+      "state": "dead",
+      "level": 14.51,
+      "trigger": "A FALLING KNIFE RATHER THAN A SETUP THIS BOOK BUYS. KLAR beat on 8/18, 0.01 against a -0.06 estimate, and the stock fell 22.8% that session - 19.51 close to 15.06 - on 34.5 million shares against a 3 million run rate, then kept going to 14.00 by 8/20. It is 14.51 bid today, up 1.3%. Whatever the market objected to in that report is not visible in the EPS line, and buying the third bounce off the low of a 26% four-session decline is averaging into a name the tape has already judged. Not a candidate at any price until it makes a higher low.",
+      "why": "THE SETUP THAT LOOKS MOST LIKE THIS BOOK'S FAVOURITE AND IS ACTUALLY ITS OPPOSITE. A recent beat and a bounce off a round number reads as a post-earnings pullback entry, and it is not one: the pullback this rulebook buys is a day-2/3 pause after strength, whereas KLAR has fallen 26% in four sessions FROM its beat. Whatever the market objected to in that report is not in the EPS line, and 34.5 million shares against a 3 million run rate says the objection was held with conviction. Buying the third bounce off the low is averaging into a name the tape has already judged, which the rulebook lists under 'does not fit' by name. Not a candidate at any price until it makes a higher low."
     }
   ],
-  "candidatesAsOf": "2026-08-21 09:46 ET",
-  "candidatesNote": "Twenty-eight names, every row a real timestamped bid rather than a blend. Fourteen day-1, day-2 and day-3 reporters were quoted in one call at 13:42:0xZ and fourteen carried-forward and context names in a second call at 13:41:2x-13:42:0xZ. FUTU, ROST, TGT and BJ were RE-QUOTED at 13:45:4x-13:45:5xZ when the limit was struck and those numbers are the ones on their rows. The field was widened rather than the bar lowered: every name on the live 8/19-8/21 calendar with a tradeable quote is priced here, including the five beats the tape sold, which are the evidence item 5 passed on.",
+  "candidatesAsOf": "2026-08-24 09:43 ET",
+  "candidatesNote": "Twenty-four names, every row a real timestamped bid pulled between 13:42:20Z and 13:46:16Z rather than a blend or a carried price. THE SHAPE OF THE MORNING IS A ROTATION, NOT A SELLOFF, AND THAT IS WHAT PICKED TODAY'S ENTRY. The index is only modestly lower - SPY 762.87, down 0.37% - but QQQ is 704.65, down 1.23%, and underneath it the high-beta complex is being liquidated: SMCI -5.8%, IONQ -5.3%, OKLO -5.2%, SMR -5.2%, FUTU -4.1%, SOUN -3.2%, JOBY -3.2%. Every green name on this list is a recent reporter in consumer, retail or staples - WMT +1.6%, BEKE +1.6%, DE +1.1%, BJ +0.8%, VIK +0.5%, KLAR +1.3% - and every deep red one is an AI, quantum or nuclear name with no dated catalyst of its own. That is the eleventh consecutive session in which a live pull has floored the watch list on the catalyst question rather than ranking it: not one of AS, SMCI, KLAR, SQM, UPST, AMD, IONQ, RGTI, SOUN, OKLO, SMR or JOBY has a dated event anywhere in the window. FOURTEEN REPORTERS FROM THE 8/18-8/24 WINDOW WERE PRICED AND RANKED. BJ was specified. The three that beat it on the size of the beat were each refused for a stated reason - UI on the 40% ceiling at 534.13 a share, BEKE on a tape that has now failed to hold an opening pop twice, PDD on being day 1 of its own print. Item 2's wait signal is a list uniformly GREEN 5-10%; this one is uniformly RED outside the reporters, which is the opposite condition and is why a green day-2 name is worth something today rather than nothing.",
   "candidates": [
     {
-      "sym": "FUTU",
-      "last": 117.9052,
-      "bid": 117.74,
-      "earnings": "8/20 before",
-      "flag": "ok",
-      "note": "117.39 bid at 13:41:58Z and RE-QUOTED 117.74 bid / 118.27 ask at 13:45:47Z, +4.44% against the 112.73 close - THE NAME SPECIFIED TODAY at a 117.90 limit for 3 shares, the fourth consecutive not-forced entry. Q2 EPS 3.393 reported 8/20 before the open, verified live: a record across the trailing eight quarters, beating the prior 3.13 high of Q4 2025 and up 41.4% on the 2.400 of Q2 2025. NO CONSENSUS ESTIMATE EXISTS FOR THIS NAME IN ANY OF THE EIGHT QUARTERS THE CONNECTOR CARRIES, so no beat-versus-consensus figure is claimed anywhere in this entry - item 1 rests on the growth, which was pulled, and on the tape's response, which was measured. Day 1 opened 117.65, flushed to 107.27 through the 109.42 prior close, and closed 112.73 on 4,310,118 shares against a 1,222,072 average, 3.5x. Day 2 opened 115.18 and printed 119.57, ABOVE the 117.81 day-1 high. 16.49B cap, 429,375 shares in twelve minutes, 0.449% spread. Its 9/18 options were checked FIRST and refused on spread - 12.9% on the 117.45 call, 29.8% on the 112.45, 50.9% on the 115 - and on size, the cheapest qualifying contract costing 73% of the account. That is why the instrument is equity."
-    },
-    {
-      "sym": "TGT",
-      "last": 162.36,
-      "bid": 161.92,
-      "earnings": "8/19 before",
-      "flag": "watch",
-      "note": "160.85 bid at 13:42:00Z and RE-QUOTED 161.92 bid / 162.37 ask at 13:45:52Z, +2.32% against the 158.25 close. RANKED SECOND AND REFUSED ON THE CHASE RULE. Set a NEW 52-week high of 162.205 this morning and carries the cleanest structure on the board - session lows ascending 146.21, 154.50, 160.23 - plus the best liquidity, 546,159 shares in twelve minutes against a 5,158,107 average on a 0.278% spread. It is refused because this board killed a 159.36 TGT limit at 14:22 yesterday and 161.92 is 2.56 above it; docs/RULES.md forbids raising a limit to chase a name that got away."
-    },
-    {
-      "sym": "ROST",
-      "last": 239,
-      "bid": 238.38,
-      "earnings": "8/20 after",
-      "flag": "watch",
-      "note": "238.75 bid at 13:42:01Z and RE-QUOTED 238.38 bid / 238.90 ask at 13:45:54Z, +4.10% against the 228.99 close. RANKED THIRD. 2.66 EPS against 1.82, a 46.2% beat and the largest verified beat on the calendar. Refused on item 2 - day 1, opened 243.85 and already 5.48 off its own high - and on item 5, as the fifth retail beat of the week after WMT, AAP, TJX and LOW were all sold. Tightest spread on the board at 0.218%."
-    },
-    {
       "sym": "BJ",
-      "last": 95.48,
-      "bid": 95.08,
+      "last": 97.48,
+      "bid": 97.22,
       "earnings": "8/21 before",
-      "flag": "watch",
-      "note": "94.21 bid at 13:41:59Z and RE-QUOTED 95.08 bid / 95.74 ask at 13:45:54Z, +4.14% against the 91.30 close. RANKED FOURTH. 1.36 against 1.19, a 14.3% beat this morning. Day 1, and 0.692% spread on 652,233 shares against a 1,899,033 average."
-    },
-    {
-      "sym": "SQM",
-      "last": 83.7,
-      "bid": 83.51,
-      "earnings": "8/19 before",
-      "flag": "watch",
-      "note": "83.51 bid, +6.45% and +10.8% across two sessions. Passed over on liquidity on 8/20 and has beaten the chosen name on every check since - recorded rather than buried. Item 2 refuses it today at a price 5.06 above the close it was ranked against."
-    },
-    {
-      "sym": "NTES",
-      "last": 128.82,
-      "bid": 128.78,
-      "earnings": "8/20 before",
-      "flag": "watch",
-      "note": "128.78 bid, +7.49% - the largest move on today's board, and it is a day-2 BOUNCE off a 1.77 against 2.28 EPS MISS. Not a candidate: the day-2 continuation this rulebook buys requires the print to have been good. Priced here because it is half of the split China ADR tape that qualifies the FUTU entry."
-    },
-    {
-      "sym": "BABA",
-      "last": 121.695,
-      "bid": 121.66,
-      "earnings": "8/20 before",
-      "flag": "watch",
-      "note": "121.66 bid, -6.80% on a 1.26 against 1.85 MISS, extending day 1. The other half of the split China complex - BABA down 6.80% while NTES is up 7.49% on the same kind of miss, which is why the FUTU entry claims no complex support in either direction."
-    },
-    {
-      "sym": "DE",
-      "last": 616.85,
-      "bid": 616.38,
-      "earnings": "8/20 before",
-      "flag": "watch",
-      "note": "616.38 bid, -0.73% on day 2 after a 5.10 against 4.72 beat. REFUSED MECHANICALLY BEFORE ANY VIEW IS FORMED: one share is 61.1% of the account against a 40% single-name ceiling, so there is no size at which it can be owned. Fading on day 2 in any case."
-    },
-    {
-      "sym": "OSIS",
-      "last": 196.06,
-      "bid": 195.01,
-      "earnings": "8/20 after",
-      "flag": "watch",
-      "note": "195.01 bid, -10.58% on a 3.78 against 3.77 print - an in-line quarter that lost a tenth of the company overnight. A day-1 break is the opposite end of the setup this rulebook buys."
-    },
-    {
-      "sym": "SCSC",
-      "last": 54.698,
-      "bid": 54.52,
-      "earnings": "8/20 before",
-      "flag": "watch",
-      "note": "54.52 bid, -3.32% on day 2 after +24.14% on day 1. The +8% day item 2 refused yesterday by a factor of three, now giving it back - the outcome that rule is built to expect. A 0.67 spread is 1.22%, which fails item 4 independently."
-    },
-    {
-      "sym": "NMM",
-      "last": 88.165,
-      "bid": 87.35,
-      "earnings": "8/20 before",
-      "flag": "watch",
-      "note": "87.35 bid, +2.38% on a 4.65 against 4.32 beat, at a 52-week high. Fails item 4 outright: 19,225 shares in twelve minutes against a 123,805 average, on a 1.05 spread that is 1.19% of mark."
-    },
-    {
-      "sym": "BEKE",
-      "last": 17.05,
-      "bid": 17.04,
-      "earnings": "8/21 before",
-      "flag": "watch",
-      "note": "17.04 bid, +0.29% on an 0.42 against 0.28 beat this morning - a 50% beat the tape has so far ignored, after opening 17.935 and fading to 16.96. A print that moved nothing is not a catalyst that can carry a five-session hold."
-    },
-    {
-      "sym": "BKE",
-      "last": 43.2,
-      "bid": 43.29,
-      "earnings": "8/21 before",
-      "flag": "watch",
-      "note": "43.29 bid, +1.52% on an 0.87 against 0.90 MISS. Not a candidate on the print, and a 0.63 spread at 1.44% fails item 4 on its own."
-    },
-    {
-      "sym": "ATAT",
-      "last": 34.43,
-      "bid": 34.36,
-      "earnings": "8/20 before",
-      "flag": "watch",
-      "note": "34.36 bid, +0.32% on an 0.60 against 0.57 beat. Flat on day 2 - a stall rather than a continuation."
-    },
-    {
-      "sym": "ATHM",
-      "last": 22.06,
-      "bid": 21.89,
-      "earnings": "8/20 before",
-      "flag": "watch",
-      "note": "21.89 bid, -1.04% on an 0.36 against 0.27 beat, now a second down session. A 0.27 spread is 1.23%, which fails item 4."
-    },
-    {
-      "sym": "DAO",
-      "last": 16.91,
-      "bid": 16.58,
-      "earnings": "8/20 before",
-      "flag": "watch",
-      "note": "16.58 bid, -1.66%. A 0.92 spread is 5.40% of mark, which fails item 4 by a factor of five before any thesis is considered."
-    },
-    {
-      "sym": "AAP",
-      "last": 43.4095,
-      "bid": 43.19,
-      "earnings": "8/20 before",
-      "flag": "watch",
-      "note": "43.19 bid, +1.89% - a dead-cat bounce the session after a 27% beat lost a fifth of the company. The single loudest illustration of item 5 this board has recorded, and the reason item 5 refused ROST today."
+      "flag": "ok",
+      "note": "97.22 bid / 97.87 ask at 13:46:06Z, last 97.48, +1.10% against a 96.42 close - THE NAME SPECIFIED TODAY at a 97.35 limit for 4 shares, the fifth consecutive not-forced entry. Q2 EPS 1.360 against a 1.190 estimate reported 8/21 before the open, verified on a live calendar pull: a 14.3% beat. Day 1 closed +5.6% on 4,180,945 shares, two to three times the run rate. Today it printed 98.35 in the 09:35 bar, 1.47 above Friday's 96.88 high, then eased back - and the limit is struck into that fade rather than at the high. Pre-print positioning is what carries item 5: the name was marked down from 96.20 on 8/10 to an 88.22 low on 8/20, sold to an eight-session low the day before its own report, so expectations were being cut into it rather than raised."
     },
     {
       "sym": "WMT",
-      "last": 103.54,
-      "bid": 103.51,
+      "last": 105.39,
+      "bid": 105.38,
       "earnings": "8/20 before",
+      "flag": "ok",
+      "note": "105.38 bid / 105.40 ask at 13:43:08Z, +1.63% against a 103.70 close, on a 0.019% spread - the tightest quote on this board by an order of magnitude. Beat 0.81 against 0.74 on 8/20, day 3. Intraday it has gone one way: 104.191 open, 105.53 high, 105.29 on the 09:40 bar. DECLINED ON ARITHMETIC, NOT ON THE SETUP - a +20% target is 126.46 inside five sessions and this name does not produce that, so the whole exit framework would be decoration."
+    },
+    {
+      "sym": "BEKE",
+      "last": 18.03,
+      "bid": 18.02,
+      "earnings": "8/21 before",
+      "flag": "ok",
+      "note": "18.02 bid / 18.05 ask at 13:43:07Z, +1.58% against a 17.75 close, 0.17% spread. Q2 0.42 against 0.28 - a 50% beat, THE LARGEST ON THIS BOARD. The closest thing to a rival for today's entry and declined on tape rather than number: Friday it gapped to 17.935 and sold to 16.960, through the prior close, before closing 17.75; today it opened 18.055, hit 18.47 within five minutes and gave all of it back, the 09:40 bar low printing 17.960. Two consecutive sessions of failing to hold an opening pop."
+    },
+    {
+      "sym": "UI",
+      "last": 535.66,
+      "bid": 534.13,
+      "earnings": "8/21 before",
+      "flag": "nofly",
+      "note": "534.13 bid / 540.21 ask at 13:42:52Z, -4.45% against a 559.00 close. Beat 4.73 against 3.96, up 19.4%, the biggest of the cohort. REFUSED ON THE 40% SINGLE-NAME CEILING BEFORE ANY VIEW IS REACHED: one share is 52.9% of the account. The tape refuses it independently - 8/21 opened 597.00 which was the day's HIGH, sold to 515.00, closed 559.00, down another 4.4% today. A 19% beat that opens at its high and loses 13.7% intraday is the crowded-bulls unwind item 5 describes."
+    },
+    {
+      "sym": "DE",
+      "last": 654.6,
+      "bid": 652.45,
+      "earnings": "8/20 before",
+      "flag": "nofly",
+      "note": "652.45 bid / 654.98 ask at 13:43:07Z, +1.10% against a 647.47 close. Beat 5.10 against 4.72 on 8/20. REFUSED ON THE 40% CEILING: one share is 64.7% of the account. Recorded because its strength is part of the same defensive-rotation evidence that supports BJ, not because it is buyable."
+    },
+    {
+      "sym": "PDD",
+      "last": 88.67,
+      "bid": 88.61,
+      "earnings": "8/24 before",
       "flag": "watch",
-      "note": "103.51 bid, -0.32%, still going nowhere the session after a 9.5% BEAT sold off 8.59%. Second of the retail beats the tape refused to pay for."
+      "note": "88.61 bid / 88.76 ask at 13:42:27Z, +0.26% against an 88.38 close. Reported THIS MORNING: 2.85 actual against 2.77, a 2.9% beat, the smallest of the cohort. Day 1 and therefore the spike day item 2 refuses, judged on the least informative tape of the week. Its 9/18 options were pulled as the alternative instrument and are the worst quoted today - the 88 call 3.60 / 6.10 on a 4.85 mark, 51.5%, with ZERO open interest; the 90 call the only one with real depth at 22,195 and a 0.477 delta, and still 26.9%."
+    },
+    {
+      "sym": "ROST",
+      "last": 237.15,
+      "bid": 237.02,
+      "earnings": "8/20 after",
+      "flag": "ok",
+      "note": "237.02 bid / 237.37 ask at 13:43:06Z, -0.84% against a 239.04 close. Beat 2.66 against 1.82 on 8/20 after the close. Fading on day 2 in the same cohort BJ is extending in, which is the direct comparison that makes BJ's relative strength meaningful rather than assumed - two value retailers, two beats, one holding and one giving back."
     },
     {
       "sym": "TJX",
-      "last": 141.74,
-      "bid": 141.73,
+      "last": 139.66,
+      "bid": 139.51,
       "earnings": "8/19 before",
-      "flag": "watch",
-      "note": "141.73 bid, +0.74% after two consecutive down sessions on a 1.22 against 1.19 beat. Third retail beat sold this week."
-    },
-    {
-      "sym": "LOW",
-      "last": 217.18,
-      "bid": 217.06,
-      "earnings": "8/19 before",
-      "flag": "watch",
-      "note": "217.06 bid, -0.13% on a 4.40 against 4.38 beat - two cents, which is not a catalyst. TGT's direct comparable, flat while TGT makes a 52-week high."
-    },
-    {
-      "sym": "ADI",
-      "last": 375.67,
-      "bid": 375.13,
-      "earnings": "8/19 before",
-      "flag": "watch",
-      "note": "375.13 bid, +1.32% on day 3 after a 3.45 against 3.34 beat. Refused mechanically: one share is 37.2% of the account, nearly the whole 40% ceiling, so there is no room to be wrong about size."
-    },
-    {
-      "sym": "NDSN",
-      "last": 334.535,
-      "bid": 334.54,
-      "earnings": "8/19 after",
-      "flag": "watch",
-      "note": "334.54 bid, -0.05% on day 2 after a 3.25 against 3.09 beat carried it up roughly 5% yesterday. Stalled on day 2, and one share is 33.2% of the account."
-    },
-    {
-      "sym": "BILL",
-      "last": 47.59,
-      "bid": 47.52,
-      "earnings": "8/19 after",
-      "flag": "watch",
-      "note": "47.52 bid, +0.25% - a 35% beat that has now moved the stock essentially nowhere for two sessions. A print the tape ignored is not a catalyst."
+      "flag": "ok",
+      "note": "139.51 bid / 139.74 ask at 13:43:07Z, -0.73% against a 140.53 close. Beat 1.22 against 1.19 on 8/19. Day 4 and rolling over - the small beat in the cohort behaving like a small beat."
     },
     {
       "sym": "VIK",
-      "last": 91.5,
-      "bid": 91.18,
+      "last": 93.25,
+      "bid": 93.27,
       "earnings": "8/19 before",
-      "flag": "watch",
-      "note": "91.18 bid, +0.72% on a 1.31 against 1.24 beat. A print that has stopped mattering three sessions on."
+      "flag": "ok",
+      "note": "93.27 bid / 93.41 ask at 13:43:05Z, +0.52% against a 92.79 close. Beat 1.31 against 1.24 on 8/19. Green but day 4, past the day-2/3 window this book buys."
     },
     {
-      "sym": "FLNG",
-      "last": 32.555,
-      "bid": 32.32,
-      "earnings": "8/19 before",
+      "sym": "BILL",
+      "last": 47.99,
+      "bid": 47.95,
+      "earnings": "8/19 after",
+      "flag": "ok",
+      "note": "47.95 bid / 48.14 ask at 13:43:05Z, +0.35% against a 47.82 close. Beat 0.84 against 0.62 on 8/19 after the close - a 35% beat that has produced almost no follow-through in three sessions, which is its own answer."
+    },
+    {
+      "sym": "KEYS",
+      "last": 308.74,
+      "bid": 308.09,
+      "earnings": "8/18 after",
       "flag": "watch",
-      "note": "32.32 bid, +0.81% on an 0.79 against 0.61 beat. A 29% beat with almost no reaction across three sessions, on a 1.05% spread that fails item 4."
+      "note": "308.09 bid / 309.57 ask at 13:43:00Z, -2.54% against a 316.13 close. Beat 3.07 against 2.42 on 8/18, a 27% beat now unwinding. One share is 30.5% of the account so size is not the blocker; day 5 and a falling tape are."
+    },
+    {
+      "sym": "ADI",
+      "last": 368.02,
+      "bid": 368,
+      "earnings": "8/19 before",
+      "flag": "nofly",
+      "note": "368.00 bid / 368.37 ask at 13:43:03Z, -1.36% against a 373.09 close. Beat 3.45 against 3.34. REFUSED BY THE SEMICONDUCTOR BRANCH regardless of the beat, and one share is 36.5% of the account before that."
     },
     {
       "sym": "KLAR",
-      "last": 14.455,
-      "bid": 14.44,
+      "last": 14.52,
+      "bid": 14.51,
       "earnings": "8/18 before",
-      "flag": "watch",
-      "note": "14.44 bid, +3.14% - a FIRST green session after three consecutive down days, and a first reclaim of the 14.32 level. One day is not a base."
+      "flag": "nofly",
+      "note": "14.51 bid / 14.59 ask at 13:42:24Z, +1.33% against a 14.33 close. Beat 0.01 against -0.06 on 8/18 and fell 22.8% the same session on 34.5M shares against a 3M run rate, then to 14.00 by 8/20. Third bounce off the low of a 26% four-session decline. Not a candidate at any price until it makes a higher low."
     },
     {
       "sym": "AS",
-      "last": 32.52,
-      "bid": 32.54,
+      "last": 32.16,
+      "bid": 32.14,
       "earnings": "8/18 before",
       "flag": "watch",
-      "note": "32.54 bid, +0.03% - flat for a second session, 1.16 below the 33.70 invalidation the 8/19 entry wrote in advance. Dead and not revived."
+      "note": "32.14 bid / 32.17 ask at 13:42:27Z, -1.50% against a 32.63 close. Beat 0.22 against 0.11 on 8/18, a 100% beat. THE 8/18 SPECIFICATION AT 33.86 EXPIRED UNFILLED and the name is now 1.72 BELOW that limit - which is not an argument to re-enter cheaper: four sessions below the entry level says the continuation thesis failed rather than went on sale."
+    },
+    {
+      "sym": "FUTU",
+      "last": 118.55,
+      "bid": 118.39,
+      "earnings": "8/20 before",
+      "flag": "nofly",
+      "note": "118.39 bid / 118.69 ask at 13:42:23Z, -4.14% against a 123.64 close. THE DEAD LEVEL, 0.49 ABOVE THE 117.90 LIMIT THIS BOARD WITHDREW ON 8/21 and the closest it has returned since. Not re-struck and not entered. The 15:22 finding that the drought test which killed it measured the wrong window is a reason to repair the test, not a licence to buy the trade back six cents from where it died."
     },
     {
       "sym": "SMCI",
-      "last": 37.1501,
-      "bid": 37.14,
-      "earnings": "8/11 after",
+      "last": 35.1,
+      "bid": 35.09,
+      "earnings": "none in window",
+      "flag": "nofly",
+      "note": "35.09 bid / 35.11 ask at 13:42:29Z, -5.77% against a 37.24 close. The hardest-hit name on the board. No dated catalyst of its own and refused by the semiconductor branch into NVDA and MRVL."
+    },
+    {
+      "sym": "IONQ",
+      "last": 42.5,
+      "bid": 42.48,
+      "earnings": "none in window",
+      "flag": "nofly",
+      "note": "42.48 bid / 42.50 ask at 13:42:29Z, -5.31% against a 44.86 close. No dated catalyst. Quantum trades as one instrument with the AI complex and is refused with it."
+    },
+    {
+      "sym": "OKLO",
+      "last": 39.89,
+      "bid": 39.85,
+      "earnings": "none in window",
+      "flag": "nofly",
+      "note": "39.85 bid / 39.93 ask at 13:42:28Z, -5.32% against a 42.09 close. No dated catalyst. The nuclear complex is down in lockstep - the 2026-08-10 finding about four names off one list being one position at four times the size, visible in real time."
+    },
+    {
+      "sym": "SMR",
+      "last": 8.91,
+      "bid": 8.9,
+      "earnings": "none in window",
+      "flag": "nofly",
+      "note": "8.90 bid / 8.91 ask at 13:42:28Z, -5.32% against a 9.40 close. Down the same 5.32% as OKLO to the second decimal, which is the correlation argument stated more precisely than any note could."
+    },
+    {
+      "sym": "SOUN",
+      "last": 7.09,
+      "bid": 7.08,
+      "earnings": "none in window",
       "flag": "watch",
-      "note": "37.14 bid, +1.75%, with the dead 38.24 limit 1.07 above the offer. Twenty-fifth test, still not revived: eight sessions past the print and absent from the live calendar. Best spread on the board at 0.081%."
+      "note": "7.08 bid / 7.09 ask at 13:42:29Z, -3.28% against a 7.32 close. No dated catalyst, ninth consecutive session floored on item 1."
+    },
+    {
+      "sym": "JOBY",
+      "last": 7.29,
+      "bid": 7.28,
+      "earnings": "none in window",
+      "flag": "watch",
+      "note": "7.28 bid / 7.29 ask at 13:42:28Z, -3.19% against a 7.53 close. No dated catalyst."
+    },
+    {
+      "sym": "UPST",
+      "last": 29.95,
+      "bid": 29.92,
+      "earnings": "none in window",
+      "flag": "watch",
+      "note": "29.92 bid / 29.97 ask at 13:42:29Z, -1.25% against a 30.30 close. No dated catalyst. Its chain is the one the rulebook cites for skipping 2026-11-20 entirely; not re-examined today because item 1 floors it first."
+    },
+    {
+      "sym": "SPY",
+      "last": 762.88,
+      "bid": 762.87,
+      "earnings": "n/a",
+      "flag": "watch",
+      "note": "762.87 bid at 13:43:08Z, -0.37% against a 765.72 close. The index is only modestly lower, which is what makes this a rotation rather than a selloff."
+    },
+    {
+      "sym": "QQQ",
+      "last": 704.7,
+      "bid": 704.65,
+      "earnings": "n/a",
+      "flag": "watch",
+      "note": "704.65 bid at 13:43:08Z, -1.23% against a 713.44 close. Down more than three times SPY. The whole story of the morning is in the gap between these two rows."
     }
   ]
 }
