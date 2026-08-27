@@ -1,6 +1,6 @@
 {
   "_comment": "Written by the trading runs (9:30a / hourly / 3:30p ET). Never contains account numbers, broker IDs, or any account other than the sandbox.",
-  "lastRefreshUtc": "2026-08-26T19:35:15Z",
+  "lastRefreshUtc": "2026-08-27T13:50:35Z",
   "accountLabel": "Sandbox account",
   "account": {
     "total": 1009.16,
@@ -8,101 +8,101 @@
     "deployable": 1009.16,
     "unsettled": 0,
     "settlesOn": "nothing pending",
-    "verifiedAt": "2026-08-26 15:35 ET",
-    "note": "PULLED LIVE AT 15:35 ET AGAINST THE MANDATED ACCOUNT BY THE PRE-CLOSE RUN, TWENTY-FIVE MINUTES BEFORE THE BELL. Portfolio, equity positions and option positions were each queried live and all three returned first time: 1009.16 total, 1009.16 cash, zero equity value, zero options value, zero pending deposits and ZERO unsettled, with buying_power reading 1009.16 to match. BOTH POSITION LISTS ARE EMPTY, which discharges the exit step rather than excusing it: no target, stop or time stop is reachable because no position carries one, and NO OPTION NO-FLY WINDOW IS REACHABLE because no contract is held. THE WHOLE BALANCE IS SETTLED, so the whole of it is deployable and no good-faith violation is reachable. THE 09:49 SMTC SPECIFICATION IS DEAD. It expired unexecuted on its 15:30 fuse - 2 shares at a 138.50 limit - and non-execution is established by the BROKER rather than by the empty position list: ZERO equity orders on a created_at floor of 2026-08-22. It is the fifteenth consecutive unexecuted entry on this board, and IT DIED MARKETABLE, which is the finding and is not softened. The 15:29 bar closed 137.860 and the 15:30 bar opened 137.870, so at the instant the fuse burned a BUY limit at 138.50 sat 0.63 ABOVE the tape and was immediately fillable at the offer. Inside that same 15:30 minute SMTC traded UP THROUGH the limit to a 138.680 high on 23,861 shares, the heaviest minute of the afternoon, and it has not come back: 138.46 bid / 138.71 ask at 19:35:15.248841502Z, last 138.640, +8.58% on the bid against a 127.520 close, on a 0.18% spread. THE LEVEL WAS AVAILABLE ALL AFTERNOON AND THE NAME LEFT THROUGH THE TOP OF IT AS THE CLOCK RAN OUT - a delivery failure and not a thesis failure, with all three pre-registered invalidations untripped at every one of the six hourly re-quotes and the operator notified at 12:21, 13:21, 14:21 and 15:21. THE SPECIFICATION IS NOT RE-STRUCK, IN EITHER DIRECTION: not carried at 138.50, because a spec that outlives its session is a standing instruction resting on a tape that no longer exists and would carry the position through the very NVDA print its own forced marking named as failure number two; and not lifted to 138.46 to catch where the name now is, which is the FUTU and BJ refusal and the one this board made against its own BZ entry this morning. NO NEW POSITION WAS OPENED. The daily entry mandate binds the open slot and explicitly not this one, and opening into a print with twenty-five minutes left would be acting in order to have acted. THE OVERNIGHT DECISION IS THAT THERE IS NOTHING TO HOLD, AND THAT IS A DECISION: the book goes into tonight's NVDA print FLAT, which is the outcome moves.json branch one committed to on 8/21, six sessions early, and it is now actual rather than anticipated. No straddle was pulled and none was owed - item 3 binds before an earnings hold, and there is no hold."
+    "verifiedAt": "2026-08-27 09:44 ET",
+    "note": "PULLED LIVE AT 09:44 ET AGAINST THE MANDATED ACCOUNT BY THE OPEN RUN, AFTER A SCOPE PREFLIGHT THAT MATCHED THE MANDATE IDENTIFIER EXACTLY against the connector list. Portfolio, equity positions and option positions were each queried live and all three returned first time: 1009.16 total, 1009.16 cash, zero equity value, zero options value, zero pending deposits and ZERO unsettled, with buying_power reading 1009.16 to match. BOTH POSITION LISTS ARE EMPTY, which discharges the exit step rather than excusing it: no target, stop or time stop is reachable because no position carries one, and NO OPTION NO-FLY WINDOW IS REACHABLE because no contract is held. THE WHOLE BALANCE IS SETTLED, so the whole of it is deployable and no good-faith violation is reachable. A SPECIFICATION IS LIVE AND IT IS THE FIRST UNFORCED ONE SINCE 8/18: 11 BOX at a 34.50 limit, 379.50, which is 37.6% of the account against the 40% single-name ceiling and leaves 629.66 uncommitted. Six of six checklist items are logged and none is marked fail. The 09:49 SMTC specification of 8/26 is dead - it expired unexecuted on its 15:30 fuse having died marketable, the fifteenth consecutive unexecuted entry - and it was NOT re-struck this morning: SMTC is 144.20 bid, 3.90% ABOVE the limit that went unfilled, and buying it here is re-striking a dead level higher, which is the FUTU 117.90 and twice-made BJ 97.35 refusal. It is also refused a second time and independently by moves.json branch one, which covers the semiconductor complex through 8/27."
   },
   "positions": [],
   "entryWatch": [
     {
-      "setup": "SMTC post-earnings day 1 - reported 8/25 after the close, SPECIFIED at 09:49 at a 138.50 limit for 2 shares, FORCED on items 2 and 3, RE-QUOTED AND CONFIRMED six times, EXPIRED UNEXECUTED at 15:30",
+      "setup": "BOX post-earnings DAY-2 continuation - reported 8/25 after the close, a 17.6% EPS beat, day one gapped and FADED below its own pre-print close and still finished green, and day two has taken out the day-one high on expanding volume. SPECIFIED at 09:50 at a 34.50 limit for 11 shares, CLEAN - no checklist item marked fail",
+      "state": "armed",
+      "level": 34.5,
+      "trigger": "BUY 11 BOX at a 34.50 LIMIT, struck at the retest of the 34.50 day-one high and DELIBERATELY BELOW THE MARKET rather than at the 34.78 ask. Quotes behind the limit were pulled at 09:50 ET: 34.73 bid / 34.78 ask at 13:50:35.457965037Z, last 34.750, +4.07% on the bid against a 33.390 settled close, on a 0.057% spread. WHY 34.50 AND NOT THE MARKET. The 8/26 reaction bar ran 32.6637 to 34.50 and closed 33.39; 34.50 is its high and the pivot the day-two thesis rests on. Today's tape based 33.7603 to 34.47 for fourteen minutes on 300 to 5,000 shares a minute, then broke out: the 09:44 bar traded 14,465, the 09:46 bar 20,972 and cleared 34.50, the 09:47 bar 9,860 with a low of exactly 34.500 - the level tested and held on the way through - and the 09:48 bar 12,037 to a 34.835 high. THE LIMIT IS NOT LIFTED AS THE NAME EXTENDS. The 2026-08-18 change widened the TIME a specification lives, not the PRICE it may be struck at, and its third attached constraint says the limit may never be raised to chase. The accepted cost is stated rather than discovered later: BOX may never trade 34.50 again today and this expires unfilled like the fifteen before it. THREE PRE-REGISTERED INVALIDATIONS, each checkable against a later tape by a run that was not here at 09:50. FIRST, a print below 33.76 - today's 09:36 session low - which makes this a failed breakout rather than a pullback. SECOND, a completed five-minute close below 34.00, which puts the name back inside the base the breakout came out of. THIRD, BOX trading above 37.95 - +10% against the 33.39 close - while still unfilled, at which point the pullback entry this reasoning describes no longer exists; the specification is then KILLED by appending, never re-struck higher. Exits struck off the limit before publication: stop 31.74 at -8%, target 41.40 at +20%, time stop 2026-09-02, five sessions counting today as session one. Dies 15:30 ET today.",
+      "why": "Item 1 is a dated number, not a chart: BOX reported fiscal Q2 2027 on 2026-08-25 after the close, EPS 0.40 against a 0.34 estimate, a 17.6% beat, verified on a live earnings-calendar pull covering 2026-08-24 to 2026-08-27. Item 2 passes on both limbs - BOX is +4.07% and the entry is struck at +3.32%, nowhere near the +8% line, and the day-one reaction bar is behind it, which is exactly the day-2/3 continuation the rulebook prefers over the spike. The second limb of item 2, the whole-list-green wait signal, was tested rather than waved through: the tape is broadly green but it is NOT uniform, with BBY -4.69%, HQY -13.72%, HPQ -7.90%, HRL -6.54%, BBWI -5.19%, DLTR -2.65%, INTU -2.78% and BURL -1.87% all red on their own numbers, and BOX is not part of the AI complex that is doing the leading. Item 3 does not bind and is logged na rather than skipped: BOX's next report is roughly late November, verified as no upcoming dated event inside the five-session window, so there is no earnings hold for a straddle to precede. Item 4 is the strongest reading on the board - a 0.057% spread on 5.96M shares yesterday against 1.4-4.3M in the week before. Item 5 reads the right way: BOX traded 31.93 to 33.79 for the two weeks into the print and was not run up, and on day one the sellers got a 32.6637 print BELOW the pre-print close and the name still closed green. Item 6 is discharged here in writing before entry."
+    },
+    {
+      "setup": "SMTC day-2 after the 8/25 print - the name this board specified at 138.50 on 8/26 and never got filled on",
       "state": "dead",
       "level": 138.5,
-      "trigger": "EXPIRED ON THE FUSE AT 15:30, AND IT DIED MARKETABLE - THE WORST SHAPE AVAILABLE AND THE ONE THAT IS NOT SOFTENED. Non-execution is established by the BROKER and not by the empty shelf: ZERO equity orders on the account on a created_at floor of 2026-08-22. At the instant of expiry SMTC was trading 137.87 - the 15:29 bar closed 137.860, the 15:30 bar opened 137.870 - so a BUY limit at 138.50 sat 0.63 ABOVE the tape and was immediately fillable at the offer. It was not a resting bid hoping for a give-back. An operator who pressed the button at 15:29:59 was filled. INSIDE THE SAME 15:30 MINUTE THE NAME TRADED UP THROUGH THE LIMIT to a 138.680 high on 23,861 shares, the heaviest minute of the afternoon, and it has not come back since: 138.470 at 15:32, a 138.570 high at 15:33, a 138.620 high at 15:34, and 138.46 bid / 138.71 ask at 19:35:15.248841502Z, last 138.640, +8.58% on the bid and +8.72% on the last, on a 0.18% spread. THE LIMIT IS NOW BELOW THE BID. This is the fifteenth consecutive unexecuted entry on this board and the first to die with its named level having traded at length, on volume, and in the closing minutes - a DELIVERY failure, not a thesis failure. Six hourly runs re-quoted it and confirmed it, all three pre-registered invalidations were tested mechanically at every one and not one ever tripped, the limit was refused downward at 136.50 and 135.56 and upward at 139.16, and the operator was notified at 12:21, 13:21, 14:21 and 15:21. IT IS NOT RE-STRUCK IN EITHER DIRECTION. Not carried at 138.50: a specification that outlives its session is a standing instruction resting on a tape that no longer exists, and this one would carry the position straight through tonight's NVDA print - the exact event its own forced marking named as failure number two. Not lifted to 138.46 to catch where the name actually is: that is re-striking a dead level higher, which is the FUTU 117.90 refusal, the BJ 97.35 refusal made twice, and the refusal this board made this morning against its own BZ entry. Widening the time is not permission to widen the price. Tomorrow's open writes tomorrow's entry on tomorrow's quotes, with NVDA's number known.",
-      "why": "The 09:49 entry was FORCED on items 2 and 3 and clean on the other four, and every one of those markings stands as struck. Item 1 was a 24.6% beat, Q2 EPS 0.71 against 0.57 on a live calendar pull. Item 5 was the strongest reading on the board: SMTC marked DOWN 21.6% into its own print, 154.22 on 8/17 to a 120.91 close on 8/24, on 8,904,562 shares on 8/25 against a ~2.3M average. Item 4 passed on a 0.17% spread. Item 2 failed outright at +13.90% with the whole board green alongside it, and item 3 failed because NVDA reports tonight, inside the five-session window. The forced marking was never revised by a later tape in either direction - the item 2 reading crossed the +8% line four times across six hours, from +13.47% down to +7.97% and back - because a marking struck at publication is not re-graded by the market moving. What killed this entry was not any of that. It was the clock."
-    },
-    {
-      "setup": "BZ post-earnings day 2 - the 8/25 specification at 15.95 expired unexecuted and is NOT re-struck",
-      "state": "dead",
-      "level": 15.95,
-      "trigger": "REFUSED TODAY ON THIS BOARD'S OWN MOST-REFUSED BEHAVIOUR, AND IT READS DIFFERENTLY NOW THAT THE SMTC ENTRY HAS DIED THE SAME DEATH. BZ was 18.73 bid / 18.77 ask at 2026-08-26T13:53:00.508516304Z, last 18.760, +15.16% against the 16.290 close, on a 0.21% spread. Yesterday's thesis was RIGHT and delivery is what failed: a fill at 15.95 would be +2.81 a share, +17.6%. That did not make BZ buyable at 18.73, because buying it there is re-striking a dead 15.95 limit 17.4% higher to chase a name that got away - the FUTU 117.90 and BJ 97.35 refusal applied to this board's own entry, which is the harder version and the one that counts. TWO CONSECUTIVE SESSIONS HAVE NOW ENDED WITH A CORRECT THESIS AND NO POSITION, which is the pattern the record should be read on rather than either day alone.",
-      "why": "The 8/25 entry was FORCED on item 2, confirmed six times by the hourly runs with all three pre-registered invalidations tested at each and none ever tripped, and it died on its 15:30 fuse with the closing bid 16.225 against the 15.95 limit - the fourteenth consecutive unexecuted entry. It was not carried overnight because a specification that outlives its session is a standing instruction resting on a tape that no longer exists. Today's tape vindicated the reasoning and changed nothing about the rule: the level is dead, and a dead level does not come back to life because the name went up. The identical judgement is applied to SMTC one row above, one day later, on a name that closed ABOVE its limit rather than below it."
+      "trigger": "NOT RE-STRUCK, AND REFUSED TWICE OVER ON INDEPENDENT GROUNDS. SMTC is 144.20 bid / 144.49 ask at 13:41:56.037586273Z, last 144.290, +2.48% against a 140.800 close and 3.90% ABOVE the 138.50 limit that expired unexecuted at 15:30 yesterday. FIRST REFUSAL, the one this board has made most often: buying it here is re-striking a dead level higher, which is the FUTU 117.90 refusal, the BJ 97.35 refusal made twice, the BZ refusal made yesterday morning, and the refusal made against this board's own live SMTC entry at 14:21 yesterday when raising to 139.16 would have bought the high of the afternoon. Widening the time is not permission to widen the price, and that rule does not stop applying because the level got away. SECOND REFUSAL, independent of the first and decided on 2026-08-21: moves.json branch one refuses any entry in the AI or semiconductor complex on 8/27 into the MRVL print, which is tonight. Either one alone kills it. Yesterday's thesis is unchanged and is not re-argued - a 24.6% beat on a name marked down 21.6% into its own print - and the fifteenth consecutive unexecuted entry remains a DELIVERY failure rather than a thesis failure, which is the finding the retro already carries.",
+      "why": "The 8/26 entry was FORCED on items 2 and 3 and every marking stands as struck. It was re-quoted and confirmed six times, all three pre-registered invalidations were tested mechanically at every hour and not one ever tripped, and the limit was refused downward at 136.50 and 135.56 and upward at 139.16. It died marketable and the miss cost 2.35 a share against the 140.85 bell. None of that makes 144.20 an entry."
     }
   ],
-  "candidatesAsOf": "2026-08-26 15:35 ET",
-  "candidatesNote": "Re-quoted at 15:35 ET on 8/26 by the pre-close run for the names carrying a live decision - SMTC, whose specification expired at 15:30, and the semiconductor complex that tonight's print runs through. The other rows still carry their 09:52-09:53 open-run quotes and are labelled as of that time in their own notes; they were not re-pulled because no decision at this hour rests on them. THE ONE-LINE READ: the 09:49 SMTC specification EXPIRED UNEXECUTED AT 15:30 AND DIED MARKETABLE, with the tape at 137.87 and the limit 0.63 above it, then traded UP THROUGH 138.50 to a 138.680 high inside that same minute on the heaviest volume of the afternoon and is 138.46 bid now - the fifteenth consecutive unexecuted entry and a delivery failure rather than a thesis failure, NOT re-struck in either direction. The book is FLAT into tonight's NVDA print at 210.60 bid, -1.15%, which is the outcome branch one committed to on 8/21.",
+  "candidatesAsOf": "2026-08-27 09:50 ET",
+  "candidatesNote": "QUOTED LIVE THIS MORNING, ROUGHLY SIXTY NAMES, AND THE RANKING IS RECORDED SO THAT THE PUBLISHED ENTRY CAN BE GRADED AGAINST WHAT IT WAS CHOSEN OVER. The published entry is BOX. The BEST candidate on the tape was ANET and it was refused by this board's own dated branch rather than by a checklist item - see the ANET row below and moves.json. The three cleanest sympathy laggards in the chain, AMD at -0.45%, AMAT at -0.04% and MU at +0.25% on a session where NVDA is +7.33%, are each blocked by the 40% single-name ceiling before any view reaches them: one share is 47.4%, 47.6% and 93.3% of the account respectively. TSM at 41.8% and SNPS at 42.7% miss the same ceiling by under three points. This is the shape of a 1009.16 account rather than three unlucky picks, and it is the 2026-08-05 size-before-instrument finding reappearing on the equity side.",
   "candidates": [
     {
+      "sym": "BOX",
+      "last": 34.75,
+      "bid": 34.73,
+      "earnings": "8/25 after",
+      "flag": "ok",
+      "note": "PUBLISHED - THIS IS THE LIVE SPECIFICATION. 34.73 bid / 34.78 ask at 13:50:35.457965037Z, last 34.750, +4.07% on the bid against a 33.390 close, on a 0.057% spread - the tightest reading of the morning. Q2 FY2027 EPS 0.40 against 0.34, a 17.6% beat, reported 8/25 after the close on a live calendar pull. DAY ONE GAPPED AND FADED AND STILL CLOSED GREEN: open 34.30, high 34.50, low 32.6637 - BELOW the 33.00 pre-print close - close 33.39. DAY TWO TOOK OUT THAT HIGH ON VOLUME: based 33.7603-34.47 for fourteen minutes on 300-5,000 shares a minute, then 14,465 at 09:44, 20,972 at 09:46 clearing 34.50, 9,860 at 09:47 with a low of exactly 34.500, 12,037 at 09:48 to a 34.835 high. Specified at a 34.50 limit for 11 shares - 379.50, 37.6% of the account - stop 31.74, target 41.40, time stop 2026-09-02, dies 15:30 ET. CLEAN: no checklist item marked fail. The 2026-09-18 $34 call was pulled and REFUSED at a 25.4% spread against the 10% ceiling despite passing on delta 0.626, OI 229 and 22 days."
+    },
+    {
+      "sym": "ANET",
+      "last": 203.485,
+      "bid": 203.09,
+      "earnings": "8/4 after",
+      "flag": "nofly",
+      "note": "THE BEST SETUP ON THE TAPE AND REFUSED BY THIS BOARD'S OWN PRE-REGISTERED BRANCH, NOT BY A CHECKLIST ITEM. 203.09 bid / 203.30 ask at 13:46:54.235014795Z, last 203.485, +0.42% against a 202.250 close, on a 0.103% spread - the tightest of roughly sixty names quoted this morning. The setup: a day-2 continuation of ANET's own 8/26 breakout, which closed 202.25 AT the session high on 7,664,556 shares against 4.2-5.7M in the four sessions before it, out of the 183.75-190.94 base it had built since 8/20; today it opened 205.155, printed a 206.10 high, based 201.39-203.73 and was rebuilding. Earnings 2026-11-03 on a live pull, so no event inside the time stop. Item 2 passes at +0.42%. THE REFUSAL: moves.json branch one, written 2026-08-21 and widened on that same date to include 8/27 precisely so this morning could not fall through the gap, refuses any entry in the AI or semiconductor complex on 8/27 into the MRVL print, which is tonight. The entire ANET thesis is that it is the NVDA datacenter read-through, so it cannot be a sympathy name for the thesis and not one for the refusal. A five-session hold opened today wears the MRVL gap and a -8% stop cannot be honoured across it. The intended entry, recorded so the refusal can be graded: 1 share at a 202.25 limit - the retest of the 8/26 breakout close - stop 186.07, target 242.70. Note the size finding: the 40% ceiling permits 2 shares only at a limit of 201.83 or below, 42 cents under the level the thesis names, so the level was kept and the size given up."
+    },
+    {
+      "sym": "AVGO",
+      "last": 364.723,
+      "bid": 364.67,
+      "earnings": "9/2 after",
+      "flag": "nofly",
+      "note": "364.67 bid / 364.86 ask at 13:41:59.041695876Z, +2.57% against a 355.590 close on a 0.05% spread. The most affordable of the mega-cap AI laggards - one share is 36.2% of the account, INSIDE the 40% ceiling, where AMD, AMAT, MU, TSM and SNPS all fail it. Refused on a separate and independent ground: AVGO reports 2026-09-02 after the close on a live earnings pull, which falls INSIDE the five-session time stop, so the hold carries its own dated print. That is item 3 and the moves.json event-gap arithmetic, not a view about the number. It is also refused a second time by branch one as a semiconductor name on 8/27."
+    },
+    {
+      "sym": "AMD",
+      "last": 478.78,
+      "bid": 478.77,
+      "earnings": "8/4 after",
+      "flag": "nofly",
+      "note": "478.77 bid / 479.13 ask at 13:41:58.783773471Z, -0.45% against a 480.930 close. THE CLEANEST SYMPATHY LAGGARD IN THE CHAIN AND BLOCKED BY ARITHMETIC BEFORE ANY VIEW REACHES IT: NVDA is +7.33% and AMD is RED, which is the textbook has-not-moved read the rulebook's sympathy-laggard setup asks for, and one share is 47.4% of a 1009.16 account against the 40% single-name ceiling. AMAT at -0.04% is 47.6% and MU at +0.25% is 93.3%; TSM at +0.97% is 41.8%. All four are blocked the same way. Branch one would refuse them again on 8/27 in any case."
+    },
+    {
+      "sym": "NVDA",
+      "last": 224.3856,
+      "bid": 224.39,
+      "earnings": "8/26 after",
+      "flag": "nofly",
+      "note": "224.39 bid / 224.41 ask at 13:45:17.001971557Z, +7.03% against a 209.660 close on a 0.01% spread. The catalyst itself: fiscal Q2 2027 EPS 2.22 against a 2.09 estimate, reported last night, verified true on a live calendar pull. Refused on three grounds, any one sufficient. Item 2 - the session high of 225.03 is +7.33%, a tenth of a point off the +8% line, and this is the day-one reaction bar, which the rulebook says is not the entry. Structure - 225 is the TOP of the 8/10-8/17 congestion, whose highs run 224.14, 225.10, 227.23, 227.49 and 227.92, so the gap lands directly into overhead rather than into clear air. And branch one refuses the complex on 8/27 into tonight's MRVL print regardless. Two shares would also be 44.5% against the 40% ceiling, so the position would be one share at 22.2% in any event."
+    },
+    {
+      "sym": "NTNX",
+      "last": 67.83,
+      "bid": 67.76,
+      "earnings": "8/26 after",
+      "flag": "nofly",
+      "note": "67.76 bid / 68.16 ask at 13:42:21.344152061Z, +3.63% against a 65.390 close on a 0.59% spread. A 39.5% EPS beat - 0.60 against 0.43 - and refused on the SHAPE OF THE TAPE rather than the number, which is numbers-over-narrative pointing the unusual way. It opened 71.61, printed 74.42 in the 09:32 minute and has fallen in EIGHT CONSECUTIVE MINUTES since, 74.42 to 67.70 by 09:42, giving back the entire gap on rising volume. That is a day-one gap-and-fade in progress, not the day-2 pullback the rulebook buys, and there is no shelf to strike a limit at because the name has not stopped going down. BOX is the same trade one day further along and with the fade already behind it, which is why BOX was taken and this was not."
+    },
+    {
+      "sym": "ZM",
+      "last": 97.12,
+      "bid": 97.11,
+      "earnings": "8/25 after",
+      "flag": "nofly",
+      "note": "97.11 bid / 97.15 ask at 13:48:27.047766393Z, +3.50% against a 93.830 close on a 0.04% spread. Same slot as BOX - reported 8/25 after the close, and it BEAT, 1.55 against 1.38, up 12.3%. Refused because the day-one reaction was a 7.0% DECLINE: 8/25 closed 100.92, 8/26 opened 95.20 and closed 93.83 on 7.28M shares. A beat the market sold is a guidance or a mix problem this run cannot see, and today's +3.5% is a bounce off that decline rather than a continuation of anything. BOX is the same calendar slot with the opposite day-one shape - faded and still closed green - and that difference is the entire reason one was published and the other was not."
+    },
+    {
+      "sym": "DG",
+      "last": 128.9199,
+      "bid": 128.42,
+      "earnings": "8/27 before",
+      "flag": "watch",
+      "note": "128.42 bid / 128.91 ask at 13:48:28.085820098Z, +4.59% against a 122.780 close on a 0.38% spread. Beat 2.48 against 1.99, a 24.6% beat, reported this morning before the open. The best of today's day-one reaction bars and NOT taken, for two reasons. It is day ONE, and the rulebook says the reaction day is not the entry, the day-2 or day-3 pullback that holds is. And the read-across cuts against it: every other retail name that beat this morning is being SOLD - BBY -4.69% on a 1.47 against 1.37, DLTR -2.65% on a 1.39 against 1.03, BURL -1.87% on a 2.37 against 1.98 - so DG is the exception in a group the tape is rejecting, which is a reason to want the second day rather than the first. Worth the 8/28 open's attention if it holds."
+    },
+    {
       "sym": "SMTC",
-      "last": 138.64,
-      "bid": 138.46,
-      "earnings": "8/25 after",
-      "flag": "watch",
-      "note": "RE-QUOTED AT 15:35 BY THE PRE-CLOSE RUN, AFTER ITS SPECIFICATION HAD ALREADY EXPIRED: 138.46 bid / 138.71 ask at 19:35:15.248841502Z, last 138.640, +8.58% on the bid and +8.72% on the last against a 127.520 close, on a 0.18% spread. THE 09:49 SPECIFICATION - 2 shares at a 138.50 limit, FORCED on items 2 and 3, CONFIRMED SIX TIMES - EXPIRED UNEXECUTED ON ITS 15:30 FUSE, established by the broker's ZERO equity orders since 8/22 rather than by the empty position list. IT DIED MARKETABLE: the 15:29 bar closed 137.860 and the 15:30 bar opened 137.870, so the limit sat 0.63 ABOVE the tape and was fillable at the offer at the moment the clock ran out, and inside that same 15:30 minute the name traded through it to a 138.680 high on 23,861 shares - the heaviest minute of the afternoon - and has held above the limit since. The limit is now UNDER the bid. Fifteenth consecutive unexecuted entry, a DELIVERY failure rather than a thesis failure, and NOT RE-STRUCK: not carried at 138.50 into tonight's NVDA print, which is the event item 3 failed on this morning, and not lifted to 138.46 to chase, which is the FUTU, BJ and BZ refusal. The thesis is unchanged and was not re-argued: Q2 EPS 0.710 against 0.570, a 24.6% beat, on a name marked DOWN 21.6% into its own print. Tomorrow's open owns whether there is a day-2 entry here, on tomorrow's quotes and with NVDA's number known."
-    },
-    {
-      "sym": "ANF",
-      "last": 140.09,
-      "bid": 139.76,
-      "earnings": "8/26 before",
-      "flag": "nofly",
-      "note": "139.76 bid / 140.40 ask at 13:53:01.472625787Z, last 140.085, +28.64% against a 108.900 close on a 0.46% spread. THE STRONGEST TAPE ON THE BOARD AND REFUSED ON NUMBERS OVER NARRATIVE. It gapped, ran to 141.92, gave back 3.7% to 136.59 and rebuilt to the highs - a genuine intraday pullback-and-reclaim, the healthiest structure here. The refusal is that a 2.42 against 2.37 EPS beat, up 2.1%, cannot be reconciled with a 28.6% move from any number this run pulled: the driver is guidance or comps I cannot see, so buying it means buying a story rather than an arithmetic. It is also a new three-month high, well above the 119.92 high of 8/11, so item 5 reads the wrong way - this is not a name recovering from a markdown, it is one being re-rated into clear air."
-    },
-    {
-      "sym": "BZ",
-      "last": 18.76,
-      "bid": 18.73,
-      "earnings": "8/25 before",
-      "flag": "nofly",
-      "note": "18.73 bid / 18.77 ask at 13:53:00.508516304Z, last 18.760, +15.16% against a 16.290 close on a 0.21% spread. Day 2 of the print this board specified yesterday at 15.95, and REFUSED because buying it now is re-striking a dead limit 17.4% higher - the FUTU and BJ refusal applied to this board's own entry. Yesterday's reasoning was right: a fill at 15.95 would be +17.6% now. Delivery failed, not the thesis, and the rule that follows is that widening the time is not permission to widen the price."
-    },
-    {
-      "sym": "SJM",
-      "last": 130.73,
-      "bid": 130.49,
-      "earnings": "8/26 before",
-      "flag": "watch",
-      "note": "130.49 bid / 130.89 ask at 13:52:58.538298541Z, last 130.730, +4.05% against a 125.450 close on a 0.31% spread. Q1 3.24 against 2.22, a 45.9% beat - the largest on the board that the tape did not reject - and the only large-beat name that passes item 2 literally. REFUSED ON ITEM 5: it went INTO the print at the top of a month-long grind, 117.50 on 8/3 to a 125.87 close on 8/24, so expectations were raised into this report rather than cut. The WMT arithmetic applies on top: +20% is 156.88 inside five sessions, which a staples name does not produce, so the exits would be decoration. Faded from a 134.85 open to 130.49, which is the tape agreeing."
-    },
-    {
-      "sym": "PLAB",
-      "last": 30.59,
-      "bid": 30.53,
-      "earnings": "8/26 before",
-      "flag": "nofly",
-      "note": "30.53 bid / 30.73 ask at 13:53:01.316029278Z, last 30.590, +4.13% against a 29.320 close on a 0.65% spread. A 25% beat (0.50 against 0.40) and THE CLEAREST DISTRIBUTION DAY ON THE BOARD: it opened 37.48, printed 37.91, and has fallen 19.3% from that high with no floor established - a fresh low at 09:41 and lower again by 09:53. Buying it is catching a knife on print day, and it carries the same NVDA event gap as every other semi-cap name into tonight."
-    },
-    {
-      "sym": "KSS",
-      "last": 16.53,
-      "bid": 16.51,
-      "earnings": "8/26 before",
-      "flag": "nofly",
-      "note": "16.51 bid / 16.55 ask at 13:52:58.304121771Z, last 16.530, -6.50% against a 17.680 close on a 0.24% spread. EPS 1.28 against 0.55, a 133% beat, AND THE STOCK IS DOWN - it spiked to 17.77 in the second minute and was sold to 16.02. This is item 5 firing the other way: the beat was not the story and the tape said so within two minutes. A beat the market rejects is not a catalyst, it is a warning."
-    },
-    {
-      "sym": "BBWI",
-      "last": 17.58,
-      "bid": 17.56,
-      "earnings": "8/26 before",
-      "flag": "watch",
-      "note": "17.56 bid / 17.61 ask at 13:53:03.19769886Z, last 17.5805, +0.00% against a 17.580 close on a 0.28% spread. EPS 0.62 against 0.21, a 195% beat, and the stock is EXACTLY unchanged. Looked at as a sympathy laggard against ANF's +28.6% in the same complex and refused: it is not a name that has not been looked at, it is a name that was looked at and priced. The tape confirms it - opened 18.26, printed 18.73, and bled all morning to 17.43. Not moving would be one thing; going down on a 195% beat is another."
-    },
-    {
-      "sym": "INTU",
-      "last": 344.43,
-      "bid": 344.23,
+      "last": 144.29,
+      "bid": 144.2,
       "earnings": "8/25 after",
       "flag": "nofly",
-      "note": "344.23 bid / 344.65 ask at 13:53:01.68357106Z, last 344.430, -3.65% against a 357.460 close on a 0.12% spread. EPS 4.03 against 3.29, a 22.5% beat, and it is DOWN 3.65% and making session lows - crowded bulls into a print meeting a merely-good report, which is item 5 in the textbook shape. One share is also 34.1% of the account, so a two-share position is impossible inside the 40% ceiling regardless of the view."
-    },
-    {
-      "sym": "BNS",
-      "last": 94.42,
-      "bid": 94.39,
-      "earnings": "8/25 before",
-      "flag": "watch",
-      "note": "94.39 bid / 94.43 ask at 13:53:03.204780357Z, last 94.420, +1.42% against a 93.100 close on a 0.04% spread - the tightest quote on this board. Day 2, a genuine grinding continuation off a 7.8% beat, and THE ONLY NAME HERE THAT PASSES ITEM 2 BOTH LITERALLY AND IN SPIRIT. Refused twice over: the WMT arithmetic (+20% is 113.27 on a Canadian bank inside five sessions, which is not a number it produces) and consistency - this board refused BNS in writing yesterday at 89.52 and it is 5.4% higher today, so re-entering is the same dead-level-higher error being refused at BZ."
+      "note": "144.20 bid / 144.49 ask at 13:41:56.037586273Z, +2.48% against a 140.800 close. The name this board specified at 138.50 yesterday and never got filled on; it is now 3.90% ABOVE that limit. Refused twice over - re-striking a dead level higher is the FUTU, BJ and BZ refusal, and branch one refuses the semiconductor complex on 8/27 into tonight's MRVL print regardless. See the entryWatch row."
     }
   ],
-  "verifiedAt": "2026-08-26 15:35 ET"
+  "verifiedAt": "2026-08-27 09:50 ET"
 }
