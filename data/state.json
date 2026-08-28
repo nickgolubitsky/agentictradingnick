@@ -1,6 +1,6 @@
 {
   "_comment": "Written by the trading runs (9:30a / hourly / 3:30p ET). Never contains account numbers, broker IDs, or any account other than the sandbox.",
-  "lastRefreshUtc": "2026-08-28T15:30:28Z",
+  "lastRefreshUtc": "2026-08-28T15:37:14Z",
   "accountLabel": "Sandbox account",
   "account": {
     "total": 1009.16,
@@ -28,8 +28,8 @@
       "why": "The 8/26 entry was FORCED on items 2 and 3 and every marking stands as struck. It was re-quoted and confirmed six times, all three pre-registered invalidations were tested mechanically at every hour and not one ever tripped, and the limit was refused downward at 136.50 and 135.56 and upward at 139.16. It died marketable and the miss cost 2.35 a share against the 140.85 bell. None of that makes 144.20 an entry."
     }
   ],
-  "candidatesAsOf": "2026-08-28 11:29 ET",
-  "candidatesNote": "STALE - NOT RE-QUOTED BY THE 8/28 OPEN, AND LABELLED RATHER THAN CARRIED AS CURRENT. Every row below still holds the quote the 8/27 runs wrote at 13:4x-15:35 ET and must be read as of that time, not as of now. This run declined its entry at the staleness guard 116 minutes outside its window and therefore ran no screen and re-quoted no candidate: the guard's instruction is to refresh state and publish nothing, and a freshly-built candidate slate is the evidence for a specification this run is not permitted to write. The reason this is labelled instead of quietly left is the AMD lesson this board already paid for - AMD sat here at 522.95 the morning it traded at 486, and a reference price carried from the day it was written makes every range built on it wrong. MRVL is today's worked example of exactly that decay: it closed 241.45 and is 222.50 bid this morning, so any row quoting it from yesterday is wrong by 7.85% before anyone reasons about it. THE NEXT RUN THAT INTENDS TO PUBLISH MUST RE-QUOTE FROM SCRATCH. Nothing below is actionable.",
+  "candidatesAsOf": "2026-08-28 11:37 ET",
+  "candidatesNote": "THIS HEADER WAS CORRECTED AT 11:37 ET AND THE CORRECTION GOES FIRST. The 11:29 version of this note claimed that neither the 09:33 open slot nor the 10:17 hourly had written anything and that the board had produced nothing all session. THAT WAS FALSE. The open run fired at 11:29 - the same minute as the mid-session run - and DECLINED AT THE STALENESS GUARD, 116 minutes late against its slot, with the lateness confirmed against venue_bid_time and the daily entry mandate correctly held not to override the guard. A decline is correct behaviour and is excluded from run health by runs.json's own field documentation; it is not an outage. why.json is append-only and carries the full correction as its own entry rather than a rewrite. THE CONCLUSION IS UNCHANGED AND THE REASON IS NOT: there is still no live specification today and the daily entry mandate is still undischarged with the session half gone, but because the open slot correctly refused to act on two-hour-old quotes. THE REAL FINDING IS THE SCHEDULER - the 09:33 open and the 10:17 and 11:17 hourlies all arrived inside the same 11:29 minute, three slots collapsed into one roughly two hours late, with the 10:17 hourly leaving no row at all, and two runs consequently wrote these files concurrently. NOW THE STANDING FACTS. THIS IS NOT A SURVEY AND THE MID-SESSION SLOT DOES NOT RUN ONE; ONLY THE BOX ROW WAS RE-QUOTED LIVE. Every other row still carries yesterday's 09:4x-15:35 quote and timestamp and must be read as of those times, NOT as of now. NO EXIT WAS DUE: equity and option positions were both queried live and both returned empty, so no target, stop, time stop or option no-fly window is reachable, and there is no unexpired entry dated today to confirm or kill. The mandate binds the OPEN slot by its own text and is NOT transferred to this one, which remains exits-only with a higher bar; this run proposes nothing. BOX IS THE NUMBER THAT CUTS AGAINST THIS BOARD: yesterday's expired 34.50 is 36.11 bid, and it is NOT RE-STRUCK - see its row and its entryWatch entry, including the fact that the 34.50 level never traded again today at all.",
   "candidates": [
     {
       "sym": "BOX",
@@ -104,5 +104,5 @@
       "note": "144.20 bid / 144.49 ask at 13:41:56.037586273Z, +2.48% against a 140.800 close. The name this board specified at 138.50 yesterday and never got filled on; it is now 3.90% ABOVE that limit. Refused twice over - re-striking a dead level higher is the FUTU, BJ and BZ refusal, and branch one refuses the semiconductor complex on 8/27 into tonight's MRVL print regardless. See the entryWatch row."
     }
   ],
-  "verifiedAt": "2026-08-28 11:29 ET"
+  "verifiedAt": "2026-08-28 11:37 ET"
 }
