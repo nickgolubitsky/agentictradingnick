@@ -1911,6 +1911,17 @@
       "connected": true,
       "actions": 0,
       "note": "Fired 09:40, seven minutes after the 09:33 slot and well inside the 25-minute staleness guard. Scope preflight matched the mandate identifier exactly as a string against the connector list - one match, every other account discarded unread. Live: 1011.15 total against 1011.15 cash, unsettled 0.0000, both position lists empty and both order lists empty on a 2026-08-26 floor, so no exit level of any kind was reachable and yesterday's DG spec is confirmed unexecuted rather than resting. Published a CLEAN daily entry: BUY 4 MDT at a 93.07 limit, the day-2 continuation after the 9/1 beat-and-raise, struck AT the offer rather than under the bid. Actions 0, no order authority exercised."
+    },
+    {
+      "date": "2026-09-02",
+      "slot": "hourly",
+      "at": "10:21 ET",
+      "trigger": "scheduled",
+      "declined": false,
+      "fired": true,
+      "connected": true,
+      "actions": 0,
+      "note": "Fired 10:21, four minutes after the 10:17 slot and well inside the 20-minute staleness guard. Scope preflight matched the mandate identifier exactly as a string against the connector list - one match, every other account discarded unread and none summarised, totalled or mentioned anywhere. Live: 1011.15 total against 1011.15 cash and 1011.15 buying power, unsettled 0.0000, equity_value 0 and options_value 0, both position lists empty and both order lists empty on a 2026-08-26 floor - so no +20% target, no -8% equity stop, no -40% option stop, no ~5 session time stop and no option no-fly window was reachable, each checked live rather than skipped. THE 09:45 MDT SPECIFICATION IS RE-QUOTED AND CONFIRMED, NOT KILLED: MDT 93.88 bid / 93.92 ask at 2026-09-02T14:21:50.527444949Z, +2.00% against a 92.04 settled close, all four named invalidations untouched and the sector counterweight FLIPPED IN THE ENTRY'S FAVOUR - MDT now leads every medtech peer and XLV, having lagged four of five at 09:45. The limit is NOT raised and will not be: at 93.07 it now sits 0.86% BELOW the bid, so the spec has stopped being the marketable order it was published as and is a resting pullback limit, which is recorded as a change in what the trade is rather than repaired by re-striking it. The bars say the limit was reachable for about ten minutes after the strike and has not been touched since 13:55Z, so this is an execution gap and not a mis-struck level. No new entry - default is no trade, the mid-session bar is higher than the open's, and the daily mandate belongs to the open slot and was discharged at 09:45. Actions 0, no order authority exercised."
     }
   ],
   "_rowFields": "trigger: 'scheduled' when the scheduler fired this run in its own window, 'manual' when a human invoked it. Only scheduled rows count toward run health - a manual invocation proves the code path works, not that the system runs. declined: true when the run deliberately stopped on a guard (fired outside its window, or the mandate was unset) and therefore never attempted to reach the broker. A decline is correct behaviour, not a connection failure, and it is excluded from the run-health denominator rather than counted against it.",
