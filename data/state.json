@@ -1,6 +1,6 @@
 {
   "_comment": "Written by the trading runs (9:30a / hourly / 3:30p ET). Never contains account numbers, broker IDs, or any account other than the sandbox.",
-  "lastRefreshUtc": "2026-09-03T17:22:17Z",
+  "lastRefreshUtc": "2026-09-03T18:22:21Z",
   "accountLabel": "Sandbox account",
   "account": {
     "total": 1011.15,
@@ -8,119 +8,85 @@
     "deployable": 1011.15,
     "unsettled": 0,
     "settlesOn": "nothing pending",
-    "verifiedAt": "2026-09-03 13:21 ET",
-    "note": "RE-PULLED LIVE AT 13:21 ET BY THE MID-SESSION HOURLY, against the mandated account after a scope preflight that matched the mandate identifier EXACTLY AS A STRING against the connector list - one match, agentic-permitted, type cash; no first-account default, no nickname match, no balance heuristic. Every other account was discarded unread and none is summarised, totalled or mentioned in this file, in runs.json, in why.json, in the commit message or in the operator report. Portfolio, equity positions, option positions and both order lists were each queried live and all returned first time: 1011.15 total against 1011.15 cash, buying power 1011.15, equity_value 0, options_value 0, futures 0, crypto 0, pending_deposits 0, unsettled 0.0000. THE TWENTIETH CONSECUTIVE IDENTICAL READ, unchanged from the 9/2 close, from this morning's open and from the 10:21, 11:21 and 12:21 hourlies. The 1.99 credit first flagged by the 9/1 open remains STABLE and remains FLAGGED rather than explained; this run found no endpoint asserting a cause and does not assert one. DEPLOYABLE IS THE FULL 1011.15 and nothing is committed against it: the 09:47 MDT specification was withdrawn at 10:21 and no run since has proposed a replacement, so no open specification and no position claims settled cash. BOTH POSITION LISTS ARE EMPTY, so no +20% target, no -8% equity stop, no -40% option stop, no ~5 session time stop and NO OPTION NO-FLY WINDOW is reachable - each tested live at 13:22 rather than inherited from the 12:21 hourly. ZERO equity and ZERO option orders on a 2026-09-01 created_at floor confirm the flatness is not a stale read and confirm the withdrawn specification was never resting at the broker."
+    "verifiedAt": "2026-09-03 14:21 ET",
+    "note": "RE-PULLED LIVE AT 14:21-14:23 ET BY THE MID-SESSION HOURLY, against the mandated account after a scope preflight that matched the mandate identifier EXACTLY AS A STRING against the connector list - one match, agentic-permitted, type cash; no first-account default, no nickname match, no balance heuristic. Every other account was discarded unread and none is summarised, totalled or mentioned in this file, in runs.json, in why.json, in the commit message or in the operator report. Portfolio, equity positions, option positions and both order lists were each queried live and all returned first time: 1011.15 total against 1011.15 cash, buying power 1011.15, equity_value 0, options_value 0, futures 0, crypto 0, pending_deposits 0, unsettled 0.0000. THE TWENTY-FIRST CONSECUTIVE IDENTICAL READ, unchanged from the 9/2 close, from this morning's open and from the 10:21, 11:21, 12:21 and 13:21 hourlies. The 1.99 credit first flagged by the 9/1 open remains STABLE and remains FLAGGED rather than explained; this run found no endpoint asserting a cause and does not assert one. DEPLOYABLE IS THE FULL 1011.15 and nothing is committed against it: the 09:47 MDT specification was withdrawn at 10:21 and no run since has proposed a replacement, so no open specification and no position claims settled cash. BOTH POSITION LISTS ARE EMPTY, so no +20% target, no -8% equity stop, no -40% option stop, no ~5 session time stop and NO OPTION NO-FLY WINDOW is reachable - each tested live at 14:22 rather than inherited from the 13:21 hourly. Both order lists were queried on a 2026-09-03 floor and returned empty, so no order exists behind this run or any other today."
   },
   "positions": [],
   "entryWatch": [
     {
-      "setup": "MDT day-3 pullback INTO the post-earnings base - THE SPECIFICATION WAS WITHDRAWN AT 10:21 AND THE SHELF IT WAS BUILT ON HAS NOW RECLAIMED. Re-quoted hourly because the kill, not the entry, is the open question, and this is the hour the tape argued hardest against it.",
+      "setup": "MDT day-3 pullback INTO the post-earnings base - THE SPECIFICATION WAS WITHDRAWN AT 10:21 AND REMAINS DEAD. Re-quoted hourly because the kill, not the entry, is this board's open question. This is the hour the tape stopped arguing against it.",
       "state": "dead",
       "level": null,
-      "trigger": "DEAD BY WITHDRAWAL, NOT BY EXPIRY, AND THE LEVEL IS NOT RE-STRUCK. The 09:47 buy of 4 MDT at a 92.01 limit was killed by the 10:21 hourly on two of its own five published invalidations, five hours before its 15:30 fuse. RE-QUOTED LIVE THIS RUN: MDT 92.72 bid / 92.74 ask at 2026-09-03T17:22:17.953808167Z, last 92.735, +0.60% against a 92.18 settled close, on a 0.02 spread that is 0.022% of mark. IT HAS NOW RECLAIMED BOTH SHELF CLOSES - 92.04 on 9/1 and 92.18 on 9/2 - so the 91.47 break that fired invalidation one reads on this evidence as a FALSE BREAK of a shelf that held. The kill landed within one bar of the session low: the low was 90.965 in the 14:10Z bar covering 10:10-10:20 ET and the withdrawal was written at 10:21. MDT has gone 92.34 bid at 11:21, 92.49 at 12:21 and 92.72 now - a 1.755 rally off the low extending into a third consecutive hour, on an orderly grind of 24,000-to-45,000-share ten-minute bars rather than a thrust. COST OF THE KILL, WITH ARITHMETIC AND UPDATED: the 10:21 offer was 91.13 and the 92.01 limit was marketable through it, so an execution then fills near 91.13; against the 92.72 bid now that is 1.59 a share, 6.36 on four shares, +1.745% on the 364.52 it would have cost, +0.629% of the account - against 5.44 and +0.54% an hour ago and 4.84 and +0.48% the hour before. THE 92.01 LIMIT IS NOW 0.73 BELOW THE 92.74 OFFER, wider than the 0.49 at 12:21 and the 0.37 at 11:21.",
-      "why": "THIS IS THE HOUR THE TAPE HANDED THIS BOARD THE BEST ARGUMENT AGAINST ITS OWN KILL, AND IT IS WRITTEN DOWN AT FULL STRENGTH RATHER THAN SOFTENED. The 09:47 thesis was a two-session shelf - closes of 92.04 and 92.18, twelve cents apart on decaying volume - resolving upward. MDT is now above both. On that evidence the 90.965 flush was a false break of a shelf that held, and the withdrawal was written eleven minutes after its low. THE KILL STANDS ANYWAY, AND ONLY ONE REASON SURVIVES THAT: the entry published five invalidations in advance, with nothing at stake, so that no later run would have to judge the trade by how the price felt. Invalidation one was a trade below 91.47; it fired, repeatedly, and 90.965 is permanent. Reclassifying a fired invalidation as a false break AFTER the recovery is the same move as widening a stop because the position came back, and this board would refuse that instantly under its own name. A pre-registered test is worth something only when it is honoured on the occasions it looks wrong. If the test was badly specified - the prior session low may be too tight a trigger on a shelf whose floor is being probed - the place to fix it is the NEXT entry's invalidation list, written before the fact, not this one's disposition after it. THE COUNTERWEIGHT, RECORDED NOT USED: invalidation four has un-fired further and XLV has itself gone green at +0.139%, so MDT's +0.463-point edge is partly the sector recovering rather than the name leading. THE LEVEL IS NOT RE-STRUCK, TWICE OVER: withdrawn on a fired invalidation, and at 0.73 below the offer, reaching the tape would mean raising a dead level to chase. THE COUNTERFACTUAL IS WORTH ONLY WHAT IT IS: sixteen delivery misses and four consecutive unexecuted specifications say the 6.36 assumes a fill that probably never happens. Recorded at increasing cost for a third hour because a board that publishes its kills only when they are vindicated is running an advertisement, and this one is not being vindicated."
-    },
-    {
-      "setup": "OLLI day-2 after the 9/2 am print - THE CANDIDATE THIS BOARD PRE-REGISTERED YESTERDAY, AND IT FAILED ITS OWN PRE-REGISTERED TEST",
-      "state": "dead",
-      "level": null,
-      "trigger": "REFUSED ON STRUCTURE, NOT ON THE BEAT. OLLI is 71.11 bid / 71.37 ask at 2026-09-03T13:42:46.561401548Z, last 71.1988, -3.62% against a 73.87 settled close. That is BELOW BOTH its 72.34 pre-print close AND the 73.02 low of its own reaction bar. The reaction bar opened 76.00, ran 78.69, and closed 73.87 on 4,832,306 shares against roughly 1.2M typical - it gave back nearly the whole gap on the day, and today took out the rest. This is the completed round trip that killed SAIC and NTNX, arriving on day 2.",
-      "why": "THIS IS WHAT A PRE-REGISTERED TEST IS FOR. The 9/2 file wrote that OLLI was worth the 9/3 and 9/4 opens' attention IF IT BUILT A SHELF, on the same terms SAIC was given and failed and MDT was given and passed. The test was written yesterday with nothing at stake, applied this morning, and it DISQUALIFIED THE NAME THIS BOARD EXPECTED TO BUY. A 22.4% beat - 1.42 against 1.16 - is not the question; the question was whether the gap held its pre-print close, and it did not. Recorded prominently because the alternative reading, that the board went looking for a reason to prefer the name it already owned an opinion on, is the failure this row exists to rule out."
-    },
-    {
-      "setup": "MDT options - the standing spread finding, RE-TESTED ON THE STRONGEST CASE THIS BOARD CAN CONSTRUCT",
-      "state": "dead",
-      "level": null,
-      "trigger": "REFUSED ON SPREAD, BY 3.4x, ON A 117.6 BILLION DOLLAR BLUE CHIP. MDT's 11/17 print clears a 3-6 week expiry outright, so for once the no-earnings-hold rule did not settle the question first and the spread had to answer it. The 10/09 weeklies are unusable: 90c 2.80/5.00, mark 3.90, 56.4% of mark, OI 8; 91c 2.25/3.90, mark 3.075, 53.7%, OI 25; 92c 1.84/3.60, mark 2.72, 64.7%, OI 2 - all volume 0. THE LIQUID 10/16 MONTHLY WAS THEN TESTED RATHER THAN SKIPPED: 92.5c 2.51/3.55, mark 3.03, 34.3% of mark, OI 843, delta 0.514; 90c 3.85/5.40, mark 4.625, 33.5%, OI 1550, delta 0.635. All quoted live at 13:46Z.",
-      "why": "THIS IS A STRONGER STATEMENT OF THE FINDING THAN THE SMALL-CAP VERSIONS IT HAS RESTED ON. Affordability PASSES - 303 and 463 against 1011.15 deployable. Delta PASSES - 0.514 and 0.635 against a 0.40 floor. Expiry PASSES. Earnings-clearance PASSES. Open interest PASSES at 843 and 1550. ONLY SPREAD FAILS, and it fails by more than three times the ceiling on a mega-cap's most liquid monthly. The 2026-08-10 rule change said the deposit answered the affordability half of the option finding and none of the spread half, and that options become available when a chain quotes inside 10% rather than when the account grows. This is that claim tested properly rather than assumed: no balance narrows a 34% spread, and equity on the identical name quotes 0.141%. Refusing options without checking the expiry that actually carries the open interest would have been a weak test, so the monthly was pulled."
-    },
-    {
-      "setup": "DELL day-2 after the 9/1 pm print - refused twice over, and the second refusal is MECHANICAL",
-      "state": "dead",
-      "level": null,
-      "trigger": "REFUSED. DELL is 499.20 bid / 500.00 ask at 2026-09-03T13:42:50.623482394Z, last 499.60, +1.50% against a 492.20 settled close - EXTENDING after a +15.8% reaction bar rather than pulling back from it, which is the chase the rulebook lists under does-not-fit. AND IT IS BLOCKED BY ARITHMETIC INDEPENDENTLY OF ANY VIEW: one single share at 499.20 is 49.4% of the 1011.15 account, over the 40% single-name ceiling, so the SMALLEST POSITION THAT EXISTS is unbuyable. A 44.3% beat, 7.04 against 4.88, and it does not matter.",
-      "why": "Kept because the mechanical half is the more interesting one and is easy to forget: at this account size a 500 dollar share price puts a name out of reach entirely, and no thesis can argue with that. It is the same shape as the 2026-08-05 option finding - the universe's arithmetic rather than three unlucky picks. Worth re-reading the next time a run builds a case for a high-priced name before checking whether one share fits."
-    },
-    {
-      "setup": "GTLB day-2 after the 9/1 pm print - the +10% hold that is not a shelf",
-      "state": "dead",
-      "level": null,
-      "trigger": "REFUSED TWICE. GTLB is 49.70 bid / 49.82 ask at 2026-09-03T13:42:50.309120199Z, +0.36% against a 49.59 settled close, on a tight 0.24% spread. The 84.6% beat is not the problem. Its REACTION BAR OPENED 55.20, RAN 55.55 AND CLOSED 49.59 - 0.48 off its own 49.1101 low, on 28,993,570 shares. A gap that is sold from the first print to the last is a REJECTED gap, not strength for a day 2 to pull back from. And ZS, DOCU, PATH, IOT, ASAN, GWRE and AMBA ALL REPORT TONIGHT into the same enterprise-software complex, inside any five-session hold opened today.",
-      "why": "The distinction this row records is between a faded gap and a rejected one. MDT's 9/1 bar faded from 95.41 to 92.04 and still closed 1.53% ABOVE its pre-print close; GTLB's closed at its low. Both are 'gave back most of the gap' and only one leaves a shelf. This is the same test that separated MDT from SAIC, applied to a name whose beat was four times larger."
-    },
-    {
-      "setup": "SAIC post-earnings reversal - the control case has RECLAIMED its pre-print close, and the row is updated in the direction that is less flattering to this board",
-      "state": "watch",
-      "level": null,
-      "trigger": "STILL REFUSED, AND THE ROW TURNS BACK THE OTHER WAY THIS HOUR. SAIC is 126.78 bid / 127.00 ask at 2026-09-03T17:21:46.013174388Z, last 126.83, -0.275% against a 127.18 settled close - it has now slipped BELOW that close after reading essentially flat at 12:21, while still holding above the 125.96 pre-print line it lost for three sessions. Its spread has tightened again to 0.173% of mark, from 0.31% an hour ago and 1.23% this morning, which removes the liquidity half of the refusal entirely and leaves only the structural half: three lower sessions followed by two days of recovery is not a base. Re-quoted at 13:21 rather than inherited.",
-      "why": "KEPT AT WATCH AND UPDATED IN BOTH DIRECTIONS, WHICH IS THE POINT OF THE ROW. SAIC was this board's control case: a 30.9% beat that round-tripped its pre-print close on day 2 and kept going, cited repeatedly as the reason MDT was bought instead. It was moved from dead to watch at 12:21 precisely on the hour its recovery weakened that comparison. This hour it has given a little of that back, and saying so is the same discipline as saying the first part - a control case is only evidence if it is re-read on a schedule rather than when it helps. The test itself is unchanged: it is about what the tape does with the gap, and SAIC did lose its line for three sessions before reclaiming it, a different and worse path than never losing it."
-    },
-    {
-      "setup": "The 9/2 pm cluster - nine reporters, every one on its REACTION BAR today",
-      "state": "dead",
-      "level": null,
-      "trigger": "ALL REFUSED ON ITEM 2, WITHOUT EXCEPTION AND WITHOUT A VIEW ON ANY OF THEM. Quoted live at 13:42Z: SNOW 367.15 bid, +20.2% against a 305.84 close, on a 0.62 beat against 0.26; AVGO 346.34 bid, -5.68% against 367.24, a 3.32 against 3.16 BEAT SOLD; HPE 49.66 bid, -4.14%, a 1.11 against 0.91 beat sold; NTAP 177.70 bid, -1.53%, a 2.58 against 2.04 beat sold; FIVE 244.00 bid, +0.64%, a 1.68 against 1.16 beat barely moved; PVH 73.34 bid / 74.39 ask, +2.49% on a 1.42% spread, a 3.70 against 2.62 beat.",
-      "why": "Recorded as a block because the pattern is the finding: FOUR of the six large beats here were SOLD, and the rulebook's item 2 refuses all of them anyway on the day-1 rule rather than needing to sort the good reactions from the bad. That is the item earning its place - a run picking among nine reaction bars by judgement would have had to be right about which beats stick, and the rule removes the question. The 9/4 and 9/8 opens own whichever of these builds a shelf above its pre-print close, on exactly the terms OLLI was given and failed this morning."
+      "trigger": "DEAD BY WITHDRAWAL, NOT BY EXPIRY, AND THE LEVEL IS NOT RE-STRUCK. The 09:47 buy of 4 MDT at a 92.01 limit was killed by the 10:21 hourly on two of its own five published invalidations, five hours before its 15:30 fuse. RE-QUOTED LIVE THIS RUN: MDT 92.64 bid / 92.66 ask at 2026-09-03T18:22:21.679118955Z, last 92.65, +0.499% against a 92.18 settled close, on a 0.02 spread that is 0.022% of mark. THE COUNTERFACTUAL NARROWED FOR THE FIRST TIME SINCE THE KILL - 6.04 on four shares against 6.36 an hour ago, having peaked at 6.88 when MDT printed 92.85 in the 17:30Z bar. Both shelf closes, 92.04 and 92.18, remain reclaimed, so the 13:21 finding that the 91.47 break reads as a false break of a shelf that held STILL STANDS AS THE STRONGEST CASE AGAINST THIS BOARD'S OWN KILL, and the kill still stands anyway: a published invalidation that fired is not reclassified after the price recovers, and a 90.965 print below the 91.47 low is a permanent fact. THE 13:21 COUNTERWEIGHT IS WITHDRAWN ON ITS OWN NEXT QUOTE: that run qualified MDT's edge by noting XLV had gone green, so part of the outperformance was sector rather than name. On this hour's quotes that no longer holds - every one of the four medtech peers is red and all four are WORSE than an hour ago, SYK -1.227%, ZBH -0.663%, BSX -2.357%, ABT -1.829%, while MDT is +0.499%, FIRST of five and the only green one. XLV's +0.069% is being carried by something other than devices, so MDT's edge is name-specific after all. Written down because it cuts against the previous hour's own qualification, and the file updates in both directions or it is worth nothing. The 92.01 limit sits 0.65 below the 92.66 offer, narrower than 0.73, and is still not re-struck - a dead level does not become live by the tape drifting back toward it.",
+      "why": "TWO CORRECTIONS THIS HOUR, POINTING IN OPPOSITE DIRECTIONS, AND BOTH ARE PUBLISHED BECAUSE A BOARD THAT ISSUES ONLY THE CORRECTION THAT FLATTERS IT IS NOT RUNNING A PROCESS. FIRST, AGAINST THIS BOARD: the counterfactual cost of the kill has stopped growing. Three consecutive runs reported it widening - 4.84, 5.44, 6.36 on four shares - and this hour it is 6.04, having PEAKED AT 6.88 on a 92.85 print in the 17:30Z bar around 13:35 ET. MDT stalled there and has closed lower in four consecutive ten-minute bars. The worst moment of the withdrawal has already happened and is receding, and that is written down on the hour the direction turned rather than on the hour it becomes comfortable. SECOND, AGAINST THE PREVIOUS RUN'S OWN CAVEAT: the 13:21 note softened MDT's outperformance by observing that XLV had gone green at +0.139%, so part of the 0.463-point edge was sector rather than name. That does not survive its own next quote. XLV is +0.069% while every medtech peer is red and every one is worse than an hour ago - SYK -1.227%, ZBH -0.663%, BSX -2.357%, ABT -1.829% - with MDT +0.499%, first of five and the only green one. The index's gain is coming from elsewhere in healthcare, so the edge is name-specific after all and the caveat is withdrawn. THE KILL STANDS ANYWAY, AND ONLY ONE REASON SURVIVES ALL OF THAT: the entry published five invalidations in advance, with nothing at stake, precisely so that no later run would have to judge the trade by how the price felt. Invalidation one was a trade below 91.47; it fired, repeatedly, and 90.965 is permanent. Both shelf closes, 92.04 and 92.18, are still reclaimed, so the false-break reading remains the strongest case against the kill - and reclassifying a fired invalidation as a false break AFTER the recovery is the same move as widening a stop because the position came back, which this board would refuse instantly under its own name. A pre-registered test is worth something only when it is honoured on the occasions it looks wrong. If the test was badly specified - the prior session low may be too tight a trigger on a shelf whose floor is being probed - the place to fix it is the NEXT entry's invalidation list, written before the fact, not this one's disposition after it. THE LEVEL IS NOT RE-STRUCK, AND THIS HOUR THE REFUSAL FACES THE OPPOSITE ARGUMENT FROM LAST HOUR'S: the gap has NARROWED to 0.65 below the 92.66 offer from 0.73, and closing distance is no more a reason to reach for a dead level than widening distance was. It is dead by withdrawal, not by distance. THE COUNTERFACTUAL IS WORTH ONLY WHAT IT IS: sixteen delivery misses and four consecutive unexecuted specifications say the 6.04 assumes a fill that probably never happens."
     }
   ],
-  "candidatesAsOf": "2026-09-03 13:21-13:22 ET for MDT, XLV, SPY and SAIC, each re-quoted live this run with its venue timestamp carried, plus MDT ten-minute bars from 16:00Z. Every other row is INHERITED FROM THE 09:47 OPEN or the 12:21 hourly and is labelled as such rather than presented as current - this slot re-quotes what it must and does not refresh a screen it is not acting on.",
-  "candidatesNote": "MID-SESSION, 13:21-13:22 ET. FLAT BOOK CONFIRMED LIVE - both position lists and both order lists empty on a 2026-09-01 floor, 1011.15 all settled, twentieth consecutive identical read - so NO exit level of any kind was reachable and that is a tested result rather than a skipped step. NO LIVE SPECIFICATION EXISTS TO RE-VALIDATE, AND THAT WAS CHECKED IN THE FILE RATHER THAN INHERITED FROM A COMMIT MESSAGE: why.json holds exactly one will entry dated today and the 10:21 hourly withdrew it by appending, and every earlier will entry is dead by the same-day rule the gate enforces. NOTHING PROPOSED - the daily mandate binds the OPEN slot and was discharged at 09:47, and the bar for a new mid-session entry is higher than at the open. THE HOUR'S FINDING IS THAT THE TAPE HAS PRODUCED THE STRONGEST ARGUMENT YET AGAINST THIS BOARD'S OWN KILL AND THE KILL STILL STANDS: MDT at 92.72 bid has RECLAIMED BOTH SHELF CLOSES, 92.04 and 92.18, so the 91.47 break that fired invalidation one reads as a false break of a shelf that held, and the withdrawal was written eleven minutes after the low. It stands because a published invalidation that fired is not reclassified after the price recovers - that is a widened stop wearing a different name - and if the trigger was too tight, the fix belongs in the NEXT entry's invalidation list, written before the fact. THE KILL NOW COSTS 6.36 ON FOUR SHARES, +1.745% on cost and +0.629% of the account, a third consecutive hour of getting worse. THE LIMIT IS NOT RE-STRUCK, TWICE OVER: withdrawn on a fired invalidation, and at 0.73 below the 92.74 offer reaching the tape would mean raising a dead level to chase. XLV has itself gone GREEN, so part of MDT's outperformance is the sector rather than the name and that qualifier is stated. NO OPERATOR NOTIFICATION WAS SENT and the reason is written down rather than left to inference: nothing was published, nothing was killed, nothing is expiring, no level was hit, and the run neither declined on staleness nor failed to connect. A ping on a routine no-exit hour is the one that teaches someone to ignore the rest.",
+  "candidatesAsOf": "2026-09-03 14:21-14:23 ET for MDT, XLV, SPY, SAIC and the four medtech peers, each re-quoted live this run with its venue timestamp carried, plus MDT ten-minute bars from 17:20Z. Every other row is INHERITED FROM THE 09:47 OPEN and is labelled as such rather than presented as current - this slot re-quotes what it must and does not refresh a screen it is not acting on.",
+  "candidatesNote": "MID-SESSION, 14:21-14:23 ET. FLAT BOOK CONFIRMED LIVE - both position lists and both order lists empty, 1011.15 all settled, twenty-first consecutive identical read - so NO exit level of any kind was reachable and that is a tested result rather than a skipped step. NO LIVE SPECIFICATION EXISTS TO RE-VALIDATE, AND THAT WAS CHECKED IN THE FILE RATHER THAN INHERITED FROM A COMMIT MESSAGE: why.json holds exactly one will entry dated today and the 10:21 hourly withdrew it by appending, and every earlier will entry is dead by the same-day rule the gate enforces. NOTHING PROPOSED - the daily mandate binds the OPEN slot and was discharged at 09:47, and the bar for a new mid-session entry is higher than at the open. THIS HOUR'S FINDING RUNS THE OTHER WAY FROM THE LAST THREE AND IS PUBLISHED AS SUCH: the kill got CHEAPER, 6.04 on four against 6.36, after peaking at 6.88 on a 92.85 print around 13:35 ET - MDT stalled there and has drifted lower for four consecutive ten-minute bars. THE 13:21 RUN'S OWN COUNTERWEIGHT IS ALSO WITHDRAWN ON THIS HOUR'S EVIDENCE: it qualified MDT's edge as partly sector because XLV had gone green, and that no longer holds - all four medtech peers are red and all four are worse than an hour ago, MDT is first of five and the only green one, so the edge is name-specific after all. Two corrections, opposite directions, same hour. The kill stands regardless, on the same ground it has stood on since 10:21: invalidation one fired on a permanent 90.965 print, and honouring a published invalidation is what makes publishing five of them worth anything. THE LIMIT IS NOT RE-STRUCK in either direction. SAIC, THE CONTROL CASE, HAS NOW LOST ITS PRE-PRINT LINE ON THE BID - 125.76 bid against the 125.96 line, though the 126.065 last print is still above it, and both are written rather than the flattering one - on a spread that has widened back out to 0.508% from 0.173%. Options remain refused on spread. Actions 0.",
   "candidates": [
     {
       "sym": "MDT",
-      "last": 92.735,
-      "bid": 92.72,
+      "last": 92.65,
+      "bid": 92.64,
       "earnings": "9/1 before",
       "flag": "watch",
-      "note": "THE WITHDRAWN SPECIFICATION, RE-QUOTED FOR THE THIRD HOUR, AND THIS IS THE HOUR IT ARGUES BACK. 92.72 bid / 92.74 ask at 2026-09-03T17:22:17.953808167Z, last 92.735, +0.60% against a 92.18 settled close, on a 0.02 spread that is 0.022% of mark. IT HAS RECLAIMED BOTH SHELF CLOSES, 92.04 and 92.18, which makes the 91.47 break that fired invalidation one look like a false break of a shelf that held - the strongest case against the 10:21 kill yet, and the kill stands anyway because a published invalidation that fired is not re-read after the price recovers. The 92.01 limit IS NOT RE-STRUCK and now sits 0.73 BELOW the offer, wider than 0.49 at 12:21. SESSION: opened 93.04, high 93.72, LOW 90.965 in the 14:10Z bar one bar before the kill; 92.34 bid at 11:21, 92.49 at 12:21, 92.72 now - a 1.755 rally off the low, ground out in orderly 24k-45k ten-minute bars rather than thrust. The kill has cost 1.59 a share, 6.36 on four, against the 91.13 offer live when it was written. NEXT EARNINGS 2026-11-17, so no straddle is owed and no option no-fly applies; options remain refused on spread at 33.5% to 64.7% of mark across the five contracts quoted live at the open."
+      "note": "THE WITHDRAWN SPECIFICATION, RE-QUOTED FOR THE FOURTH HOUR, AND THIS IS THE HOUR THE COUNTERFACTUAL GOT CHEAPER RATHER THAN DEARER. 92.64 bid / 92.66 ask at 2026-09-03T18:22:21.679118955Z, last 92.65 at 18:22:18.902185050Z, +0.499% against a 92.18 settled close, on a 0.02 spread that is 0.022% of mark. THE KILL NARROWED FOR THE FIRST TIME IN FOUR HOURS: 1.51 a share, 6.04 on four against the 91.13 offer live at the withdrawal, +1.657% on the 364.52 it would have cost and +0.597% of the account, DOWN from 6.36, +1.745% and +0.629% at 13:21. Recorded because the three prior hours all reported it widening, and a board that refreshes a number only while it moves one way is running an advertisement. THE HIGH WATER MARK IS PUBLISHED TOO rather than buried: MDT printed 92.85 in the 17:30Z bar, roughly 13:30-13:40 ET, where the counterfactual was 6.88 - so the kill's worst moment has already passed and is receding, not compounding. SESSION PATH THIS HOUR, closes by ten-minute bar: 92.80, 92.7801, 92.665, 92.630, 92.680, 92.705, on 26k-41k volume - the rally off the 90.965 low stalled at 92.85 and has drifted sideways-to-lower for four bars. Both shelf closes, 92.04 and 92.18, are STILL RECLAIMED. The 92.01 limit IS NOT RE-STRUCK and now sits 0.65 below the offer, narrower than 0.73 at 13:21 - and narrowing is not a reason to reach for it either, because the level is dead by withdrawal rather than by distance. NEXT EARNINGS 2026-11-17, so no straddle is owed and no option no-fly applies; options remain refused on spread at 33.5% to 64.7% of mark on the five contracts quoted at the open."
     },
     {
       "sym": "XLV",
-      "last": 173.19,
-      "bid": 173.18,
+      "last": 173.07,
+      "bid": 173.07,
       "earnings": "not applicable",
       "flag": "watch",
-      "note": "173.18 bid / 173.20 ask at 2026-09-03T17:22:19.450696726Z, last 173.19, GREEN at +0.139% against a 172.95 settled close. THE COUNTERWEIGHT HAS NOT MERELY UNWOUND, IT HAS CROSSED: healthcare was -0.87% at the 09:47 strike, -0.74% when it fired invalidation four at 10:21, -0.13% at 11:21, -0.06% at 12:21 and is now positive. MDT at +0.602% leads it by 0.463 points on last and 0.453 on the bids, wider than the +0.41 an hour ago and past the +0.54 that existed at entry. The honest qualifier goes here: a sector that has recovered its whole gap means part of MDT's move is XLV rather than MDT, so the relative-strength leg is restored but is carrying less weight than the headline suggests. Recorded because this row is the one that killed the trade."
+      "note": "THE SECTOR LEG OF THE WITHDRAWN THESIS, RE-QUOTED. 173.07 bid / 173.08 ask at 2026-09-03T18:22:21.310405221Z, +0.069% against a 172.95 settled close - still green, but less so than the +0.139% the 13:21 run recorded. Invalidation four, MDT's session return falling below XLV's, remains UN-FIRED at a +0.43 point edge, narrowed from +0.463. It cannot resurrect the specification: invalidation one fired on a permanent print and one un-firing leg does not undo it. WHAT CHANGED THIS HOUR is what XLV's green is made of - every medtech peer is red and worsening, so the index's gain is coming from elsewhere in healthcare, and the 13:21 qualification that MDT's edge was partly sector does not survive its own next quote."
     },
     {
       "sym": "SPY",
-      "last": 772.195,
-      "bid": 772.18,
+      "last": 773.71,
+      "bid": 773.71,
       "earnings": "not applicable",
       "flag": "watch",
-      "note": "772.18 bid / 772.21 ask at 2026-09-03T17:22:20.178005709Z, last 772.195, +0.919% against a 765.16 settled close, easing from +0.99% at 12:21 and +0.88% at 11:21 while healthcare crossed into the green. The rotation-out-of-healthcare read that framed this morning's entry is now fully closed rather than merely narrowing - XLV is outperforming SPY on the hour - and it is stated because the entry leaned on that rotation as a negative."
+      "note": "BROAD TAPE, for context only - no position, no candidacy. 773.71 bid at 2026-09-03T18:23:02.309115339Z, +1.117% against a 765.16 settled close. Healthcare is again the laggard: XLV +0.069% against SPY +1.117% is a 1.05-point sector drag, so MDT's +0.499% is being produced against a sector the index is leaving behind - a named negative for a long medtech entry at the open, and still one."
+    },
+    {
+      "sym": "SAIC",
+      "last": 126.065,
+      "bid": 125.76,
+      "earnings": "8/31 before",
+      "flag": "watch",
+      "note": "THE CONTROL CASE, AND IT HAS NOW LOST THE LINE ON THE BID. 125.76 bid / 126.40 ask at 2026-09-03T18:22:20.653775130Z, last 126.065 at 18:22:17.023553290Z, -1.117% on the bid against a 127.18 settled close, against -0.275% an hour ago. The 125.96 pre-print line is BROKEN ON THE BID AND HELD ON THE LAST PRINT, and both are stated rather than whichever suits the argument - the rulebook says quote the bid, so on this board's own convention SAIC is through it. The spread has widened back out to 0.64, 0.508% of mark, from 0.173% at 13:21. Carried because SAIC is the round-trip failure MDT was measured against at the open, and the gap between them has widened to 1.62 points of session return today."
     },
     {
       "sym": "SYK",
-      "last": 309.125,
-      "bid": 308.96,
+      "last": 308.45,
+      "bid": 308.36,
       "earnings": "not this window",
       "flag": "watch",
-      "note": "308.96 bid / 309.30 ask at 2026-09-03T15:23:44.548757267Z, last 309.125, -0.98% against a 312.19 settled close. WAS THE STRONGEST OF THE FIVE AT THE OPEN at +0.71% and is now the second weakest - the medtech leadership board has reshuffled again inside the session, which is the context for MDT’s move to first."
+      "note": "MEDTECH PEER, re-quoted. 308.36 bid at 18:22:52.648753029Z, -1.227% against a 312.19 close, worse than the -0.98% at 11:21. Second of five."
     },
     {
       "sym": "ZBH",
-      "last": 99.005,
-      "bid": 98.95,
+      "last": 98.85,
+      "bid": 98.84,
       "earnings": "not this window",
       "flag": "watch",
-      "note": "98.95 bid / 99.03 ask at 2026-09-03T15:23:40.531550196Z, last 99.005, -0.50% against a 99.50 settled close. Second of five at the open at +0.18% and now red. Second of five again on the way down."
+      "note": "MEDTECH PEER, re-quoted. 98.84 bid at 18:22:27.556667029Z, -0.663% against a 99.50 close, worse than -0.50% at 11:21. Third of five."
     },
     {
       "sym": "BSX",
-      "last": 47.41,
-      "bid": 47.4,
+      "last": 47.23,
+      "bid": 47.23,
       "earnings": "not this window",
       "flag": "watch",
-      "note": "47.40 bid / 47.42 ask at 2026-09-03T15:23:51.557077034Z, last 47.41, -1.98% against a 48.37 settled close. THE WEAKEST OF THE FIVE, from -0.25% at the open. It led this complex for most of 9/2."
+      "note": "MEDTECH PEER, re-quoted. 47.23 bid at 18:23:02.848062252Z, -2.357% against a 48.37 close, worse than -1.98% at 11:21 and the weakest of the five."
     },
     {
       "sym": "ABT",
-      "last": 108.85,
-      "bid": 108.83,
+      "last": 108.47,
+      "bid": 108.45,
       "earnings": "not this window",
       "flag": "watch",
-      "note": "108.83 bid / 108.87 ask at 2026-09-03T15:23:51.629272497Z, last 108.85, -1.47% against a 110.47 settled close, from -0.89% at the open. Fourth of five and still worse than the sector."
+      "note": "MEDTECH PEER, re-quoted. 108.45 bid at 18:23:00.257476293Z, -1.829% against a 110.47 close, worse than -1.47% at 11:21. Fourth of five."
     },
     {
       "sym": "OLLI",
@@ -219,14 +185,6 @@
       "note": "325.42 bid / 326.02 ask at 2026-09-03T13:42:49.905611427Z, -0.84% against a 328.48 settled close. Day 2 of a -9.11% break and still going down. A 15.9% beat sold nine percent remains the cleanest item-5 failure on this week's tape, and it is somebody else's. ZS prints tonight into the same security complex."
     },
     {
-      "sym": "SAIC",
-      "last": 126.83,
-      "bid": 126.78,
-      "earnings": "8/31 before",
-      "flag": "watch",
-      "note": "126.78 bid / 127.00 ask at 2026-09-03T17:21:46.013174388Z, last 126.83, -0.275% against a 127.18 settled close. THE CONTROL CASE GAVE A LITTLE BACK THIS HOUR and the row is updated for it, having been moved from dead to watch at 12:21 on the hour its recovery weakened this board's own argument. It has slipped below its settled close while still holding the 125.96 pre-print line it lost for three sessions, and its spread has tightened again to 0.173% of mark from 0.31%. The liquidity half of the refusal is gone; the structural half - three lower sessions then two of recovery is not a base - is unchanged and is the whole of the refusal now."
-    },
-    {
       "sym": "DG",
       "last": 131.925,
       "bid": 131.56,
@@ -259,5 +217,5 @@
       "note": "148.33 bid / 148.40 ask at 2026-09-03T13:49:50.3273918Z, last 148.3912, +1.81% against a 145.75 settled close. ADDED TO moves.json THIS RUN as the forward branch, with ADBE the same evening at 289.06 bid, +3.31%. Neither is a candidate today - both are pre-print, refused on the date rather than on a view - and the row exists so that any enterprise-software entry considered between now and 9/10 meets the branch already written rather than one improvised on the morning it binds."
     }
   ],
-  "verifiedAt": "2026-09-03 13:21 ET"
+  "verifiedAt": "2026-09-03 14:21 ET"
 }
