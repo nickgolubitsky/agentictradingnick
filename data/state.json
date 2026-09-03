@@ -1,6 +1,6 @@
 {
   "_comment": "Written by the trading runs (9:30a / hourly / 3:30p ET). Never contains account numbers, broker IDs, or any account other than the sandbox.",
-  "lastRefreshUtc": "2026-09-03T14:22:24Z",
+  "lastRefreshUtc": "2026-09-03T15:22:42Z",
   "accountLabel": "Sandbox account",
   "account": {
     "total": 1011.15,
@@ -8,17 +8,17 @@
     "deployable": 1011.15,
     "unsettled": 0,
     "settlesOn": "nothing pending",
-    "verifiedAt": "2026-09-03 10:21 ET",
-    "note": "RE-PULLED LIVE AT 10:21 ET BY THE MID-SESSION HOURLY, against the mandated account after a scope preflight that matched the mandate identifier EXACTLY AS A STRING against the connector list - one match, no first-account default, no nickname match, no balance heuristic. Every other account was discarded unread and none is summarised, totalled or mentioned in this file, in runs.json, in why.json, in the commit message or in the operator report. Portfolio, equity positions and option positions were each queried live and all three returned first time: 1011.15 total against 1011.15 cash, buying power 1011.15, equity_value 0, options_value 0, futures 0, crypto 0, pending_deposits 0, unsettled 0.0000. THE SEVENTEENTH CONSECUTIVE IDENTICAL READ and unchanged from the 9/2 close and from this morning's open. The 1.99 credit first flagged by the 9/1 open remains STABLE and remains FLAGGED rather than explained; this run found no endpoint asserting a cause and does not assert one. DEPLOYABLE RETURNS TO THE FULL 1011.15: today's 09:47 MDT specification was WITHDRAWN by this run at 10:21 on two of its own named invalidations, so the 368.04 it claimed is released and nothing is now committed against settled cash. BOTH POSITION LISTS ARE EMPTY, so no +20% target, no -8% equity stop, no -40% option stop, no ~5 session time stop and NO OPTION NO-FLY WINDOW is reachable - each tested live at 10:21 rather than inherited from the open. ZERO equity orders on a 2026-09-01 created_at floor confirm the flatness is not a stale read and confirm the withdrawn specification was never resting at the broker."
+    "verifiedAt": "2026-09-03 11:21 ET",
+    "note": "RE-PULLED LIVE AT 11:21 ET BY THE MID-SESSION HOURLY, against the mandated account after a scope preflight that matched the mandate identifier EXACTLY AS A STRING against the connector list - one match, no first-account default, no nickname match, no balance heuristic. Every other account was discarded unread and none is summarised, totalled or mentioned in this file, in runs.json, in why.json, in the commit message or in the operator report. Portfolio, equity positions, option positions and both order lists were each queried live and all returned first time: 1011.15 total against 1011.15 cash, buying power 1011.15, equity_value 0, options_value 0, futures 0, crypto 0, pending_deposits 0, unsettled 0.0000. THE EIGHTEENTH CONSECUTIVE IDENTICAL READ, unchanged from the 9/2 close, from this morning’s open and from the 10:21 hourly. The 1.99 credit first flagged by the 9/1 open remains STABLE and remains FLAGGED rather than explained; this run found no endpoint asserting a cause and does not assert one. DEPLOYABLE IS THE FULL 1011.15 and nothing is committed against it: the 09:47 MDT specification was withdrawn at 10:21 and this run proposes no replacement, so no open specification and no position claims settled cash. BOTH POSITION LISTS ARE EMPTY, so no +20% target, no -8% equity stop, no -40% option stop, no ~5 session time stop and NO OPTION NO-FLY WINDOW is reachable - each tested live at 11:22 rather than inherited from the 10:21 hourly. ZERO equity and ZERO option orders on a 2026-09-01 created_at floor confirm the flatness is not a stale read and confirm the withdrawn specification was never resting at the broker."
   },
   "positions": [],
   "entryWatch": [
     {
-      "setup": "MDT day-3 pullback INTO the post-earnings base - THE LIVE SPECIFICATION. Medtronic reported fiscal Q1 2027 on 2026-09-01 am: EPS 1.45 against 1.39, a 4.3% beat, revenue 9.756B against 9.545B, FY27 EPS guidance raised to 5.94-6.00 and organic growth guidance raised to 7.25-7.75%. The base is two sessions old and real - 9/1 gapped to 94.00, ran 95.41, flushed to 90.80 and closed 92.04 on 18,840,839 shares against roughly 6.5M typical; 9/2 opened 92.25, ran 94.605, printed 91.47 and closed 92.18 on 9,161,918. Two closes twelve cents apart, both about 1.4 above the 90.65 pre-print close, on decaying volume. Today opened 93.04, ran 93.72, and has faded thirteen straight minutes to a re-pulled 91.8035 low. SPECIFIED at 09:47 at a 92.01 limit for 4 shares, struck AT THE OFFER, FORCED ON ITEM 1.",
-      "state": "armed",
-      "level": 92.01,
-      "trigger": "LIVE AND MARKETABLE AT THE MOMENT STRUCK, dying 15:30 ET. MDT 91.88 bid / 92.01 ask at 2026-09-03T13:47:27.699560082Z, last 91.97, -0.33% against a 92.18 settled close, on a 0.13 spread that is 0.141% of mark. The limit is struck AT the 92.01 offer so it is executable immediately - the same correction the 9/2 entry made and which the retro judged to have worked mechanically while still expiring unfilled, moving the remaining constraint onto delivery rather than price. Cost 368.04 at the limit, 36.40% of the 1011.15 account, inside the 40% single-name ceiling and wholly settled so no good-faith violation is reachable. Five invalidations named, four of them intraday-checkable: a trade below 91.47, a trade below 90.80, any close below 90.65, and MDT's session return falling below XLV's. The fifth - MDT red on a day XLV closes green - resolves at 16:00, AFTER the 15:30 fuse, so it can never kill this spec and binds only a filled position.",
-      "why": "THE ENTRY IS FORCED AND SAYS SO. Item 1 fails: the beat-and-raise is two sessions old, the next dated MDT event is 2026-11-17 - ten weeks past the 9/10 time stop - and the tape has sold every rally off the raise for three consecutive sessions, 95.41 to 92.04, 94.605 to 92.18, and 93.72 to 91.88 today. A base that may resolve upward is a technical read, not a catalyst. THE TAPE MOVED AGAINST THE THESIS DURING THE RUN AND THE ENTRY IS WRITTEN ON THE LATER NUMBERS: at 09:42 MDT was 92.42 bid and GREEN at +0.26%; by 09:47 it was 91.88 and RED, and a 91.90 session low recorded at 09:43 HAD ALREADY BEEN BROKEN - so the invalidation set was re-struck rather than published already-fired. MDT is now BELOW BOTH post-print closes, 92.04 and 92.18, for the first time, and the 13:47Z minute traded 71,356 shares, the heaviest bar of the session, into the decline. WHAT SURVIVES: the 90.65 pre-print close is intact 1.23 below and has never been threatened, so MDT has NOT round-tripped - the single distinction between this setup and the SAIC, NTNX and now OLLI refusals. THE ONE LIVE LEG IS SECTOR-RELATIVE AND IT CUTS BOTH WAYS: MDT -0.33% against XLV -0.87% is outperformance, but XLV against SPY +0.62% means healthcare is being rotated out of on a green tape, which is a real negative for a long medtech entry. Peers put MDT fourth of five. THE TARGET WILL NOT BE HIT and that is written before the outcome: 110.41 is +20% as the rulebook fixes it, and it sits ABOVE MDT's 106.33 52-week high, so the realistic end is the 9/10 time stop or the 84.65 stop."
+      "setup": "MDT day-3 pullback INTO the post-earnings base - THE SPECIFICATION WAS WITHDRAWN AT 10:21 AND THE TAPE HAS SINCE REVERSED. This row was still published as armed at level 92.01 an hour after the kill; corrected at 11:21.",
+      "state": "dead",
+      "level": null,
+      "trigger": "DEAD BY WITHDRAWAL, NOT BY EXPIRY, AND THE LEVEL IS NOT RE-STRUCK. The 09:47 buy of 4 MDT at a 92.01 limit was killed by the 10:21 hourly on two of its own five published invalidations, five hours before its 15:30 fuse. RE-QUOTED LIVE THIS RUN: MDT 92.34 bid / 92.38 ask at 2026-09-03T15:22:42.517011493Z, last 92.36, +0.20% against a 92.18 settled close, on a 0.04 spread that is 0.043% of mark. THE KILL LANDED WITHIN ONE BAR OF THE SESSION LOW: the low was 90.965 in the 14:10Z bar covering 10:10-10:20 ET and the withdrawal was written at 10:21, since when MDT has rallied 1.375 - a 91.08-91.67 base through 14:30Z to 14:50Z, then 91.63 to 92.10 on 143,662 shares in the 15:00Z bar, then 92.08 to 92.4679 with a 92.48 high in the 15:10Z bar. COST OF THE KILL, WITH ARITHMETIC: the 10:21 offer was 91.13 and the 92.01 limit was marketable through it, so an execution then fills near 91.13; against the 92.34 bid now that is 1.21 a share, 4.84 on four shares, +1.33% on the 364.52 it would have cost, +0.48% of the account. The 92.01 limit is now UNFILLABLE, 0.37 BELOW the offer, having gone through inside the 15:00Z bar whose high was 92.10 - so the window in which the kill cost anything ran roughly 10:06 to 11:05 ET and has shut.",
+      "why": "THE KILL STANDS AS CORRECT PROCESS AND IT STILL COST 4.84, AND BOTH HALVES ARE WRITTEN DOWN. Invalidation four - MDT session return below XLV - HAS FULLY UN-FIRED: MDT +0.20% against XLV -0.13% is a +0.33 point edge restored from the -0.35 that fired it, and MDT is now FIRST of five medtech peers and the only green one, SYK -0.98%, ZBH -0.50%, BSX -1.98%, ABT -1.47%, against fourth of five when the entry was struck and second of five when it was killed. Invalidation one CANNOT un-fire: it was a trade below the 91.47 session low and a 90.965 print is a permanent fact that no recovery edits. That asymmetry is the whole answer. An entry that publishes five invalidations against itself and then declines to honour a fired one is not running a process, and 4.84 on this particular hour is what honouring it was worth. THE LEVEL IS NOT RE-STRUCK AND THE REFUSAL IS DOUBLE: it was withdrawn on a fired invalidation, and it now sits below the offer, so reaching the tape would mean raising a dead level to chase a name that got away - the behaviour the 2026-08-18 rule change names as the one this board has refused most often. THE COUNTERFACTUAL IS ALSO WORTH ONLY WHAT IT IS: with sixteen recorded delivery misses and four consecutive specifications expiring unexecuted, the 4.84 assumes an execution this board’s own record says probably would not have happened. That is a caveat, not an excuse - the price arithmetic is unchanged either way. Recorded prominently because a board that publishes its kills only when they are vindicated is running an advertisement, and the 8/31 SJM kill was vindicated in a number fourteen minutes later while this one is not."
     },
     {
       "setup": "OLLI day-2 after the 9/2 am print - THE CANDIDATE THIS BOARD PRE-REGISTERED YESTERDAY, AND IT FAILED ITS OWN PRE-REGISTERED TEST",
@@ -63,64 +63,64 @@
       "why": "Recorded as a block because the pattern is the finding: FOUR of the six large beats here were SOLD, and the rulebook's item 2 refuses all of them anyway on the day-1 rule rather than needing to sort the good reactions from the bad. That is the item earning its place - a run picking among nine reaction bars by judgement would have had to be right about which beats stick, and the rule removes the question. The 9/4 and 9/8 opens own whichever of these builds a shelf above its pre-print close, on exactly the terms OLLI was given and failed this morning."
     }
   ],
-  "candidatesAsOf": "2026-09-03 09:42-09:50 ET, every row quoted live this run. MDT, XLV, SPY and the four medtech peers were re-pulled at 13:47Z specifically, because the specification was struck on that pull rather than on the 13:42Z one and the entry must carry the numbers it was actually written on - MDT was GREEN at 92.42 bid at 13:42 and RED at 91.88 by 13:47. ORCL and ADBE were quoted at 13:49Z for the moves.json row added this run. No row here is inherited from the 9/2 pre-close.",
-  "candidatesNote": "MARKET OPEN, 09:41-09:50 ET. FLAT BOOK CONFIRMED LIVE - both position lists and both order lists empty on a 2026-08-28 floor, 1011.15 all settled, sixteenth consecutive identical read - so NO exit level of any kind was reachable and that is a tested result rather than a skipped step. THE DAILY MANDATE IS DISCHARGED WITH A FORCED ENTRY: BUY 4 MDT at a 92.01 limit struck at the offer, target 110.41, stop 84.65, time stop the 9/10 close, dying 15:30 ET, FORCED ON ITEM 1 because the 9/1 beat-and-raise is two sessions old, has no dated event inside the window, and has been sold on every rally for three straight sessions. Items 2, 4, 5 and 6 pass; item 3 is na. THE ENTRY IS THE BEST OF A GENUINELY POOR SET AND THE SET IS RANKED IN why.json. THE TAPE MOVED AGAINST IT MID-RUN AND THE LATER NUMBERS ARE THE ONES PUBLISHED: MDT went from 92.42 bid and green at 09:42 to 91.88 bid and red at 09:47, faded thirteen straight minutes off a 93.72 high, broke the 91.90 low this run had recorded at 09:43 BEFORE the entry was written - the re-pull caught it and the invalidations were re-struck rather than published already-fired - and is now below BOTH post-print closes on the heaviest minute of the session. THE PRE-REGISTERED CANDIDATE FAILED ITS OWN TEST: OLLI at 71.11 is below both its 72.34 pre-print close and its 73.02 reaction-bar low, the SAIC round trip, and is refused on structure rather than on a 22.4% beat. THE OPTION FINDING IS RE-TESTED ON ITS STRONGEST CASE AND HOLDS: five MDT contracts quoted live, the 10/09 weeklies at 53.7% to 64.7% of mark on open interest of 8, 25 and 2, and THE LIQUID 10/16 MONTHLY at 34.3% and 33.5% on open interest of 843 and 1550 with deltas of 0.514 and 0.635, both affordable outright - so affordability, delta, expiry, earnings-clearance and open interest ALL pass and only SPREAD fails, by 3.4x, on a 117.6 billion dollar blue chip. moves.json PRUNED: AVGO removed, its print having happened, and ORCL 9/10 added with a live spot and a forward branch. HEALTHCARE IS BEING ROTATED OUT OF - XLV -0.87% against SPY +0.62% - which is the honest counterweight to this entry's only live leg.",
+  "candidatesAsOf": "2026-09-03 11:21-11:24 ET for MDT, XLV, SPY and the four medtech peers, each re-quoted live this run with its venue timestamp carried. Every other row is INHERITED FROM THE 09:47 OPEN and is labelled as such rather than presented as current - this slot re-quotes what it must and does not refresh a screen it is not acting on. MDT’s intraday path was re-derived from the 10-minute series this run pulled, not from the open’s note.",
+  "candidatesNote": "MID-SESSION, 11:21-11:24 ET. FLAT BOOK CONFIRMED LIVE - both position lists and both order lists empty on a 2026-09-01 floor, 1011.15 all settled, eighteenth consecutive identical read - so NO exit level of any kind was reachable and that is a tested result rather than a skipped step. NO LIVE SPECIFICATION EXISTS TO RE-VALIDATE: why.json holds exactly one will entry dated today and the 10:21 hourly withdrew it by appending, so there is no unexpired limit the operator can act on. NOTHING PROPOSED - the daily mandate binds the OPEN slot and was discharged at 09:47, and the bar for a new mid-session entry is higher than at the open. THE HOUR’S FINDING IS THAT THE 10:21 KILL LANDED ONE BAR OFF THE SESSION LOW AND HAS COST 4.84: MDT bottomed at 90.965 in the 14:10Z bar covering 10:10-10:20 ET, the withdrawal was written at 10:21, and MDT is now 92.34 bid and GREEN at +0.20%, a 1.375 rally off the low, FIRST of five medtech peers and the only green one against fourth of five at the strike. Invalidation four has fully un-fired - MDT +0.20% against XLV -0.13% restores a +0.33 point edge from the -0.35 that fired it. Invalidation one CANNOT un-fire, because a 90.965 print below the 91.47 low is a permanent fact, and that asymmetry is why the kill stands as correct process while still costing money. THE LIMIT IS NOT RE-STRUCK, TWICE OVER: it was withdrawn on a fired invalidation, and at 0.37 below the 92.38 offer reaching the tape would mean raising a dead level to chase a name that got away. A STALE PUBLISHED ROW IS CORRECTED THIS RUN: entryWatch still carried the MDT setup as state armed at level 92.01 with a trigger reading LIVE AND MARKETABLE, because the 10:21 run updated the account block and this note but not that row - so the live site published a withdrawn specification as an armed one for an hour. Now dead, level null, with the withdrawal and the reversal both written into it; the 09:47 will entry is untouched.",
   "candidates": [
     {
       "sym": "MDT",
-      "last": 91.97,
-      "bid": 91.88,
+      "last": 92.36,
+      "bid": 92.34,
       "earnings": "9/1 before",
-      "flag": "ok",
-      "note": "THE LIVE SPECIFICATION. 91.88 bid / 92.01 ask at 2026-09-03T13:47:27.699560082Z, last 91.97, -0.33% against a 92.18 settled close, on a 0.13 spread that is 0.141% of mark - the tightest book on this screen by an order of magnitude. BUY 4 at a 92.01 limit, struck AT THE OFFER so it is marketable on arrival; target 110.41, stop 84.65, time stop the 9/10 close, dying 15:30 ET. Cost 368.04, 36.40% of the account, inside the 40% cap. SESSION: opened 93.04, high 93.72 at 13:34Z, low RE-PULLED at 91.8035, volume 512,070 against an 8,757,733 two-week average. IT HAS FADED THIRTEEN CONSECUTIVE MINUTES and the 13:47Z bar traded 71,356 shares, the heaviest of the session, into the decline - so the entry is a pullback INTO the base rather than a continuation off strength, and MDT is BELOW BOTH post-print closes of 92.04 and 92.18 for the first time. Market cap 117,559,840,957, PE 22.72, 52-week range 73.31 to 106.33 - note the 110.41 target sits ABOVE the 52-week high, which is why the realistic end of this trade is the time stop. NEXT EARNINGS 2026-11-17, ten weeks past the time stop, so no straddle is owed and no option no-fly applies; the 9/25 ex-dividend is also outside the hold. Options refused on spread at 33.5% to 64.7% of mark across five live quotes."
+      "flag": "watch",
+      "note": "THE WITHDRAWN SPECIFICATION, RE-QUOTED. 92.34 bid / 92.38 ask at 2026-09-03T15:22:42.517011493Z, last 92.36, GREEN at +0.20% against a 92.18 settled close, on a 0.04 spread that is 0.043% of mark. The 09:47 buy of 4 at a 92.01 limit was killed at 10:21 on two fired invalidations and IS NOT RE-STRUCK - the limit now sits 0.37 BELOW the offer, so reaching the tape would mean raising a dead level to chase. SESSION: opened 93.04, high 93.72, LOW 90.965 in the 14:10Z bar covering 10:10-10:20 ET, one bar before the kill; then a 91.08-91.67 base, then 91.63 to 92.10 on 143,662 shares in the 15:00Z bar, then 92.08 to 92.4679 with a 92.48 high in the 15:10Z bar - a 1.375 rally off the low. Now FIRST of five medtech peers and the only green one, against fourth of five at the strike. The kill cost 1.21 a share, 4.84 on four shares, on the 91.13 offer that was live when it was written. NEXT EARNINGS 2026-11-17, so no straddle is owed and no option no-fly applies; options remain refused on spread at 33.5% to 64.7% of mark across the five contracts quoted live at the open."
     },
     {
       "sym": "XLV",
-      "last": 171.47,
-      "bid": 171.45,
+      "last": 172.725,
+      "bid": 172.71,
       "earnings": "not applicable",
       "flag": "watch",
-      "note": "171.45 bid / 171.48 ask at 2026-09-03T13:47:27.127074871Z, last 171.47, -0.87% against a 172.95 settled close. THIS IS THE HONEST COUNTERWEIGHT TO THE MDT ENTRY AND IT IS A REAL NEGATIVE. Healthcare is being SOLD on a day SPY is +0.62% - a 1.49-point relative gap - which means the sector is being rotated out of, and a long medtech entry is being opened into that. MDT at -0.33% is outperforming it by 0.54 points, and that outperformance is the ONLY live leg of today's thesis, which is why invalidation four is written as MDT's session return falling below XLV's. Yesterday this row inverted against the trade in the afternoon, reaching 0.68x; today the ratio starts positive and the sector starts weak."
+      "note": "172.71 bid / 172.74 ask at 2026-09-03T15:22:42.554415379Z, last 172.725, -0.13% against a 172.95 settled close. THE COUNTERWEIGHT HAS LARGELY UNWOUND: healthcare was -0.87% at the 09:47 strike and -0.74% when it fired invalidation four at 10:21, and it is now -0.13%. MDT at +0.20% is ahead of it by 0.33 points, so the relative-strength leg the 09:47 entry called its only live one is restored - after the invalidation written against it had already fired. Recorded because this row is the one that killed the trade."
     },
     {
       "sym": "SPY",
-      "last": 769.8963,
-      "bid": 769.88,
+      "last": 771.855,
+      "bid": 771.84,
       "earnings": "not applicable",
       "flag": "watch",
-      "note": "769.88 bid / 769.90 ask at 2026-09-03T13:47:27.688269404Z, last 769.8963, +0.62% against a 765.16 settled close. The index is GREEN and healthcare is red, which is the rotation this entry is being opened against and the reason the XLV row is flagged rather than treated as neutral background. MDT outperforming a falling sector on a rising tape is a weaker signal than MDT outperforming a falling sector on a falling tape, and the distinction is recorded now rather than argued later."
+      "note": "771.84 bid / 771.86 ask at 2026-09-03T15:22:42.80506453Z, last 771.855, +0.88% against a 765.16 settled close, up from +0.62% at the open. The index has extended and healthcare has closed most of its gap to it, so the rotation-out-of-healthcare read that framed this morning’s entry is weaker at 11:21 than it was at 09:47 - stated because the entry leaned on it as a negative."
     },
     {
       "sym": "SYK",
-      "last": 314.4201,
-      "bid": 314.41,
+      "last": 309.125,
+      "bid": 308.96,
       "earnings": "not this window",
       "flag": "watch",
-      "note": "314.41 bid / 315.37 ask at 2026-09-03T13:47:25.63294227Z, +0.71% against a 312.19 settled close. THE STRONGEST OF THE FIVE MEDTECH NAMES TODAY and the reason MDT's peer rank is fourth of five rather than better. Not a candidate itself - no print in this window, so no catalyst and no setup - but quoted because a peer-rank claim needs its peers on the same clock."
+      "note": "308.96 bid / 309.30 ask at 2026-09-03T15:23:44.548757267Z, last 309.125, -0.98% against a 312.19 settled close. WAS THE STRONGEST OF THE FIVE AT THE OPEN at +0.71% and is now the second weakest - the medtech leadership board has reshuffled again inside the session, which is the context for MDT’s move to first."
     },
     {
       "sym": "ZBH",
-      "last": 99.96,
-      "bid": 99.68,
+      "last": 99.005,
+      "bid": 98.95,
       "earnings": "not this window",
       "flag": "watch",
-      "note": "99.68 bid / 99.96 ask at 2026-09-03T13:47:25.292348053Z, +0.18% against a 99.50 settled close, on a 0.28% spread. Second of the five medtech names and ahead of MDT. Green while the sector is down 0.87%."
+      "note": "98.95 bid / 99.03 ask at 2026-09-03T15:23:40.531550196Z, last 99.005, -0.50% against a 99.50 settled close. Second of five at the open at +0.18% and now red. Second of five again on the way down."
     },
     {
       "sym": "BSX",
-      "last": 48.28,
-      "bid": 48.25,
+      "last": 47.41,
+      "bid": 47.4,
       "earnings": "not this window",
       "flag": "watch",
-      "note": "48.25 bid / 48.31 ask at 2026-09-03T13:47:27.69953831Z, -0.25% against a 48.37 settled close. Third of five and marginally ahead of MDT's -0.33%. Yesterday this name led the complex; today it is merely less bad than the sector."
+      "note": "47.40 bid / 47.42 ask at 2026-09-03T15:23:51.557077034Z, last 47.41, -1.98% against a 48.37 settled close. THE WEAKEST OF THE FIVE, from -0.25% at the open. It led this complex for most of 9/2."
     },
     {
       "sym": "ABT",
-      "last": 109.55,
-      "bid": 109.49,
+      "last": 108.85,
+      "bid": 108.83,
       "earnings": "not this window",
       "flag": "watch",
-      "note": "109.49 bid / 109.56 ask at 2026-09-03T13:47:25.411368654Z, -0.89% against a 110.47 settled close. LAST of the five and the only peer worse than the sector itself. It led the complex for most of 9/2 at +1.82%, so the medtech leadership board has fully reshuffled overnight - which is the context for reading MDT's fourth-of-five as a mixed field rather than a verdict."
+      "note": "108.83 bid / 108.87 ask at 2026-09-03T15:23:51.629272497Z, last 108.85, -1.47% against a 110.47 settled close, from -0.89% at the open. Fourth of five and still worse than the sector."
     },
     {
       "sym": "OLLI",
@@ -259,5 +259,5 @@
       "note": "148.33 bid / 148.40 ask at 2026-09-03T13:49:50.3273918Z, last 148.3912, +1.81% against a 145.75 settled close. ADDED TO moves.json THIS RUN as the forward branch, with ADBE the same evening at 289.06 bid, +3.31%. Neither is a candidate today - both are pre-print, refused on the date rather than on a view - and the row exists so that any enterprise-software entry considered between now and 9/10 meets the branch already written rather than one improvised on the morning it binds."
     }
   ],
-  "verifiedAt": "2026-09-03 09:47 ET"
+  "verifiedAt": "2026-09-03 11:21 ET"
 }
