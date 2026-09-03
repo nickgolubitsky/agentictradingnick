@@ -1,6 +1,6 @@
 {
   "_comment": "Written by the trading runs (9:30a / hourly / 3:30p ET). Never contains account numbers, broker IDs, or any account other than the sandbox.",
-  "lastRefreshUtc": "2026-09-02T19:35:41Z",
+  "lastRefreshUtc": "2026-09-03T13:47:27Z",
   "accountLabel": "Sandbox account",
   "account": {
     "total": 1011.15,
@@ -8,185 +8,256 @@
     "deployable": 1011.15,
     "unsettled": 0,
     "settlesOn": "nothing pending",
-    "verifiedAt": "2026-09-02 15:35 ET",
-    "note": "RE-PULLED LIVE AT 15:35 ET BY THE PRE-CLOSE, against the mandated account after a scope preflight that matched the mandate identifier EXACTLY AS A STRING against the connector list - one match, no first-account default, no nickname match, no balance heuristic. Every other account was discarded unread and none is summarised, totalled or mentioned in this file, in runs.json, in why.json, in the commit message or in the operator report. Portfolio, equity positions and option positions were each queried live and all three returned first time: 1011.15 total against 1011.15 cash, buying power 1011.15, equity_value 0, options_value 0, futures 0, crypto 0, pending_deposits 0, unsettled 0.0000. THE BALANCE IS UNCHANGED FROM EVERY READ TODAY AND FROM THE 9/1 CLOSE - the fifteenth consecutive identical read. The 1.99 credit the 9/1 open flagged as an unexplained non-trading item remains STABLE and remains FLAGGED rather than explained; this run also found no endpoint asserting a cause and does not assert one. THE WHOLE BALANCE IS SETTLED and nothing is claimed against it: the 09:45 MDT specification expired unexecuted at 15:30, so the 372.28 it claimed is released and deployable returns to the full 1011.15 for tomorrow's open. BOTH POSITION LISTS ARE EMPTY, so no +20% target, no -8% equity stop, no -40% option stop, no ~5 session time stop and NO OPTION NO-FLY WINDOW is reachable - each checked live at 15:35 rather than inherited from the 15:21 hourly, and the flat book is the decision this slot exists to make rather than the leftover it defaulted to. ZERO equity orders and ZERO option orders on a 2026-08-26 created_at floor confirm the flatness is not a stale read AND confirm the MDT specification was never resting at the broker - which is the reading that matters most today, because the limit was executable for the last eighty minutes of its life and an order that had been placed would have filled and would show here."
+    "verifiedAt": "2026-09-03 09:47 ET",
+    "note": "PULLED LIVE AT 09:41-09:47 ET BY THE OPEN, against the mandated account after a scope preflight that matched the mandate identifier EXACTLY AS A STRING against the connector list - one match, no first-account default, no nickname match, no balance heuristic. Every other account was discarded unread and none is summarised, totalled or mentioned in this file, in runs.json, in why.json, in the commit message or in the operator report. Portfolio, equity positions and option positions were each queried live and all three returned first time: 1011.15 total against 1011.15 cash, buying power 1011.15, equity_value 0, options_value 0, futures 0, crypto 0, pending_deposits 0, unsettled 0.0000. THE SIXTEENTH CONSECUTIVE IDENTICAL READ and unchanged from the 9/2 close. The 1.99 credit first flagged by the 9/1 open remains STABLE and remains FLAGGED rather than explained; this run found no endpoint asserting a cause and does not assert one. THE WHOLE BALANCE IS SETTLED: the 09:45 MDT specification of 9/2 expired unexecuted at 15:30 so the 372.28 it claimed is released, and deployable returns to the full 1011.15. Today's 09:47 specification claims 368.04 of it, 36.40%, leaving 643.11 - the claim is a published spec rather than a fill, and it is counted against deployable exactly as a fill would be. BOTH POSITION LISTS ARE EMPTY, so no +20% target, no -8% equity stop, no -40% option stop, no ~5 session time stop and NO OPTION NO-FLY WINDOW is reachable - each tested live at 09:41 rather than inherited from the 9/2 pre-close. ZERO equity orders and ZERO option orders on a 2026-08-28 created_at floor confirm the flatness is not a stale read and confirm the expired 9/2 MDT specification was never resting at the broker."
   },
   "positions": [],
   "entryWatch": [
     {
-      "setup": "MDT day-2 continuation after the 9/1 beat-and-raise - the name the 9/1 file flagged as worth this open's attention if it built a shelf. It built it. Medtronic reported fiscal Q1 2027 on 2026-09-01 am, EPS 1.45 against a 1.39 estimate, a 4.3% beat, with revenue 9.756B against 9.545B, FY27 EPS guidance raised to 5.94-6.00 and organic growth guidance raised to 7.25-7.75%. The 9/1 reaction bar opened 94.00, ran 95.41, flushed to 90.80 and closed 92.04 on 18.8M shares against roughly 6.5M typical - a faded gap that nonetheless HELD 1.53% above the 90.65 pre-print close, which is the exact line SAIC and NTNX failed. The afternoon based 92.24-92.96 for four hours. Today opened 91.47, below yesterday's close and below that base, held above the 90.80 reaction low, and reversed to a 93.39 high. SPECIFIED at 09:45 at a 93.07 limit for 4 shares, CLEAN, no checklist item marked fail, struck AT THE OFFER rather than under the bid as the direct correction to yesterday's DG failure.",
-      "state": "dead",
-      "level": 93.07,
-      "trigger": "EXPIRED UNEXECUTED AT ITS 15:30 FUSE, AND IT DIED EXECUTABLE RATHER THAN UNTOUCHED. Not killed - no invalidation ever fired and all six hourly re-quotes confirmed it. The 19:25Z bar, the last five minutes of the specification's life, opened 92.910 and CLOSED 92.710 on 93,078 shares, the heaviest bar of the half hour, so the 93.07 limit stood 0.36 or 0.39% ABOVE the tape at the moment it expired and would have filled instantly at the offer. The first quote after the fuse reads MDT 92.53 bid / 92.54 ask at 2026-09-02T19:35:40.110374188Z, last 92.540, +0.54% against a 92.04 settled close, on a 0.01 spread that is 0.011% of mark - the limit now 0.54 above the bid. IT WAS CONTINUOUSLY FILLABLE FOR EIGHTY MINUTES: MDT traded through 93.07 in the 18:10Z bar on a 92.940 low and never traded back above it, so every bar from 14:10 ET to the fuse was executable for a buy limit. The session-long gap history runs 0.86% under the bid, 1.16%, 0.82%, 0.42%, then 0.08% above, 0.22% above, and 0.39% above at the death. The limit was never raised through two hours of the name running to 94.605 and never lowered once the tape came to it. NOT RE-STRUCK FOR TOMORROW.",
-      "why": "THE PRICE HYPOTHESIS IS NOW TESTED AND DEAD, WHICH IS THIS ENTRY'S REAL LEGACY. Yesterday's DG specification died 2.24% ABOVE its limit and the 9/1 pre-close diagnosed the cause as the RESTING LIMIT rather than the window - struck 0.38% under the bid and never touched. This entry was the correction: struck AT THE OFFER, deliberately marketable at the moment it was written, with the correction named in the 09:45 text as the point of the trade. IT WORKED. The limit went marketable at 14:10, stayed marketable for eighty minutes, and the operator was pinged twice carrying exactly that - at 14:21 when it first crossed and at 15:21 with seven minutes left. The entry still did not execute. A limit cannot be struck more favourably than one already through the offer, so no future re-strike can improve on this and the remaining constraint is delivery rather than price. THE COUNTERWEIGHT IS KEPT RATHER THAN DROPPED NOW THAT IT COSTS NOTHING TO KEEP: the relative-strength case inverted outright over the afternoon. MDT +0.54% against XLV +0.79% and SPY +0.46% is 0.68x its own sector, BELOW ONE for the first time today after 2.50x at 13:21, 1.19x at 14:21 and 1.08x at 15:21, on a fifth consecutive falling hourly read from 94.16 down to 92.53 bid. The fill that got away would have bought the day's fading medtech name at a limit struck when it was the leader. The setup itself never broke - 92.53 is 1.88 above the 90.65 pre-print close, the round-trip line that killed SAIC and NTNX - so this is a delivery finding rather than a thesis failure, and tomorrow's open writes tomorrow's entry on tomorrow's quotes rather than inheriting this level."
+      "setup": "MDT day-3 pullback INTO the post-earnings base - THE LIVE SPECIFICATION. Medtronic reported fiscal Q1 2027 on 2026-09-01 am: EPS 1.45 against 1.39, a 4.3% beat, revenue 9.756B against 9.545B, FY27 EPS guidance raised to 5.94-6.00 and organic growth guidance raised to 7.25-7.75%. The base is two sessions old and real - 9/1 gapped to 94.00, ran 95.41, flushed to 90.80 and closed 92.04 on 18,840,839 shares against roughly 6.5M typical; 9/2 opened 92.25, ran 94.605, printed 91.47 and closed 92.18 on 9,161,918. Two closes twelve cents apart, both about 1.4 above the 90.65 pre-print close, on decaying volume. Today opened 93.04, ran 93.72, and has faded thirteen straight minutes to a re-pulled 91.8035 low. SPECIFIED at 09:47 at a 92.01 limit for 4 shares, struck AT THE OFFER, FORCED ON ITEM 1.",
+      "state": "armed",
+      "level": 92.01,
+      "trigger": "LIVE AND MARKETABLE AT THE MOMENT STRUCK, dying 15:30 ET. MDT 91.88 bid / 92.01 ask at 2026-09-03T13:47:27.699560082Z, last 91.97, -0.33% against a 92.18 settled close, on a 0.13 spread that is 0.141% of mark. The limit is struck AT the 92.01 offer so it is executable immediately - the same correction the 9/2 entry made and which the retro judged to have worked mechanically while still expiring unfilled, moving the remaining constraint onto delivery rather than price. Cost 368.04 at the limit, 36.40% of the 1011.15 account, inside the 40% single-name ceiling and wholly settled so no good-faith violation is reachable. Five invalidations named, four of them intraday-checkable: a trade below 91.47, a trade below 90.80, any close below 90.65, and MDT's session return falling below XLV's. The fifth - MDT red on a day XLV closes green - resolves at 16:00, AFTER the 15:30 fuse, so it can never kill this spec and binds only a filled position.",
+      "why": "THE ENTRY IS FORCED AND SAYS SO. Item 1 fails: the beat-and-raise is two sessions old, the next dated MDT event is 2026-11-17 - ten weeks past the 9/10 time stop - and the tape has sold every rally off the raise for three consecutive sessions, 95.41 to 92.04, 94.605 to 92.18, and 93.72 to 91.88 today. A base that may resolve upward is a technical read, not a catalyst. THE TAPE MOVED AGAINST THE THESIS DURING THE RUN AND THE ENTRY IS WRITTEN ON THE LATER NUMBERS: at 09:42 MDT was 92.42 bid and GREEN at +0.26%; by 09:47 it was 91.88 and RED, and a 91.90 session low recorded at 09:43 HAD ALREADY BEEN BROKEN - so the invalidation set was re-struck rather than published already-fired. MDT is now BELOW BOTH post-print closes, 92.04 and 92.18, for the first time, and the 13:47Z minute traded 71,356 shares, the heaviest bar of the session, into the decline. WHAT SURVIVES: the 90.65 pre-print close is intact 1.23 below and has never been threatened, so MDT has NOT round-tripped - the single distinction between this setup and the SAIC, NTNX and now OLLI refusals. THE ONE LIVE LEG IS SECTOR-RELATIVE AND IT CUTS BOTH WAYS: MDT -0.33% against XLV -0.87% is outperformance, but XLV against SPY +0.62% means healthcare is being rotated out of on a green tape, which is a real negative for a long medtech entry. Peers put MDT fourth of five. THE TARGET WILL NOT BE HIT and that is written before the outcome: 110.41 is +20% as the rulebook fixes it, and it sits ABOVE MDT's 106.33 52-week high, so the realistic end is the 9/10 time stop or the 84.65 stop."
     },
     {
-      "setup": "DG discount-retail reclaim - the 9/1 specification at a 128.40 limit that expired unexecuted at 15:30",
-      "state": "dead",
-      "level": 128.4,
-      "trigger": "NOT RE-STRUCK, AND THE REFUSAL IS RE-AFFIRMED FOR A FIFTH TIME TODAY. Quoted at 09:45 at 131.94 bid / 132.37 ask, leaving the dead 128.40 limit 2.68% below the market; not re-quoted this hour because nothing this slot could learn about DG would make re-striking it permissible, and a row this run did not re-pull does not get this run's clock. The 2026-08-18 rule is explicit that widening the time was never permission to widen the price. What the companion case did this hour is come the rest of the way back: MDT's limit now sits 0.42% under its bid against 1.16% two hours ago, so on one of the two names the identical refusal is close to being rewarded outright rather than merely stopping a chase. That is the outcome this row has been waiting for on both, and it is recorded on the hour it looks good only because it was also recorded on the hours it looked expensive.",
-      "why": "Kept as the standing example. The spec died VALID rather than wrong - none of its three invalidations fired - and it still did not fill, because it was struck 0.38% under the bid of a name that rose on every bar. Today's MDT entry is struck AT the offer for that reason, and this row is what that decision is answering."
-    },
-    {
-      "setup": "OLLI reaction bar after the 9/2 am print - the runner-up, refused on structure rather than on the beat",
+      "setup": "OLLI day-2 after the 9/2 am print - THE CANDIDATE THIS BOARD PRE-REGISTERED YESTERDAY, AND IT FAILED ITS OWN PRE-REGISTERED TEST",
       "state": "dead",
       "level": null,
-      "trigger": "REFUSED. OLLI is 75.67 bid / 76.15 ask at 2026-09-02T13:41:39.019258805Z, last 75.964, +4.60% against a 72.34 settled close, on a 0.63% spread. A 22.4% beat - 1.42 against a 1.16 estimate, reported this morning - and it is refused for three reasons that stack: TODAY IS ITS REACTION BAR and the rulebook buys the day-2 or day-3 pullback that holds, not the print bar; the two sessions into it whipsawed hard, 8/31 closing +4.3% at 75.42 and 9/1 giving all of it back to 72.34 at -4.1%, so there is no shelf to strike against; and FIVE reports tonight into the same discount-consumer complex, which lands inside any five-session hold opened today. Worth the 9/3 and 9/4 opens' attention if it builds a shelf, on the same terms SAIC was given and failed and MDT was given and passed.",
-      "why": "Recorded as the runner-up rather than dropped, because a mandated entry that does not name what it beat is not gradeable. If MDT fails and OLLI runs, this row is the evidence for whether the reaction-bar refusal was the right call or a reflex."
+      "trigger": "REFUSED ON STRUCTURE, NOT ON THE BEAT. OLLI is 71.11 bid / 71.37 ask at 2026-09-03T13:42:46.561401548Z, last 71.1988, -3.62% against a 73.87 settled close. That is BELOW BOTH its 72.34 pre-print close AND the 73.02 low of its own reaction bar. The reaction bar opened 76.00, ran 78.69, and closed 73.87 on 4,832,306 shares against roughly 1.2M typical - it gave back nearly the whole gap on the day, and today took out the rest. This is the completed round trip that killed SAIC and NTNX, arriving on day 2.",
+      "why": "THIS IS WHAT A PRE-REGISTERED TEST IS FOR. The 9/2 file wrote that OLLI was worth the 9/3 and 9/4 opens' attention IF IT BUILT A SHELF, on the same terms SAIC was given and failed and MDT was given and passed. The test was written yesterday with nothing at stake, applied this morning, and it DISQUALIFIED THE NAME THIS BOARD EXPECTED TO BUY. A 22.4% beat - 1.42 against 1.16 - is not the question; the question was whether the gap held its pre-print close, and it did not. Recorded prominently because the alternative reading, that the board went looking for a reason to prefer the name it already owned an opinion on, is the failure this row exists to rule out."
     },
     {
-      "setup": "SAIC post-earnings round-trip - the control case that gives the MDT setup its meaning",
+      "setup": "MDT options - the standing spread finding, RE-TESTED ON THE STRONGEST CASE THIS BOARD CAN CONSTRUCT",
       "state": "dead",
       "level": null,
-      "trigger": "STILL REFUSED, AND STILL BREAKING DOWN. SAIC is 123.11 bid / 124.39 ask at 2026-09-02T13:41:55.491665676Z, last 123.50, -2.90% against a 126.78 settled close, on a 1.03% spread. That is a third consecutive lower session and it remains below its 125.96 pre-print close and below the 127.10 low of its own reaction bar. A 30.9% beat has now fully round-tripped and kept going.",
-      "why": "This is the row MDT is graded against. Same shape at the start - a large beat, a gap, a fade - and opposite resolutions: SAIC lost its pre-print close on day 2 and MDT held 1.53% above it. The rulebook has no rule that says 'a big beat is a buy'; it has a rule about what the tape does with the gap, and these two names are the worked example of why."
+      "trigger": "REFUSED ON SPREAD, BY 3.4x, ON A 117.6 BILLION DOLLAR BLUE CHIP. MDT's 11/17 print clears a 3-6 week expiry outright, so for once the no-earnings-hold rule did not settle the question first and the spread had to answer it. The 10/09 weeklies are unusable: 90c 2.80/5.00, mark 3.90, 56.4% of mark, OI 8; 91c 2.25/3.90, mark 3.075, 53.7%, OI 25; 92c 1.84/3.60, mark 2.72, 64.7%, OI 2 - all volume 0. THE LIQUID 10/16 MONTHLY WAS THEN TESTED RATHER THAN SKIPPED: 92.5c 2.51/3.55, mark 3.03, 34.3% of mark, OI 843, delta 0.514; 90c 3.85/5.40, mark 4.625, 33.5%, OI 1550, delta 0.635. All quoted live at 13:46Z.",
+      "why": "THIS IS A STRONGER STATEMENT OF THE FINDING THAN THE SMALL-CAP VERSIONS IT HAS RESTED ON. Affordability PASSES - 303 and 463 against 1011.15 deployable. Delta PASSES - 0.514 and 0.635 against a 0.40 floor. Expiry PASSES. Earnings-clearance PASSES. Open interest PASSES at 843 and 1550. ONLY SPREAD FAILS, and it fails by more than three times the ceiling on a mega-cap's most liquid monthly. The 2026-08-10 rule change said the deposit answered the affordability half of the option finding and none of the spread half, and that options become available when a chain quotes inside 10% rather than when the account grows. This is that claim tested properly rather than assumed: no balance narrows a 34% spread, and equity on the identical name quotes 0.141%. Refusing options without checking the expiry that actually carries the open interest would have been a weak test, so the monthly was pulled."
     },
     {
-      "setup": "BOX post-earnings continuation - the 8/27 specification at a 34.50 limit that expired unexecuted",
+      "setup": "DELL day-2 after the 9/1 pm print - refused twice over, and the second refusal is MECHANICAL",
       "state": "dead",
-      "level": 34.5,
-      "trigger": "DEAD, AND NOT RE-STRUCK FOR THE FOURTEENTH TIME - though for the first time the gap has closed rather than widened. BOX is 34.68 bid / 34.77 ask at 2026-09-02T13:41:55.376034636Z, -1.37% against a 35.16 settled close, leaving the dead 34.50 limit 0.18 or 0.52% below the market, against 3.6% yesterday. It is still refused, and the reason is now entirely the second one: BOX is enterprise software, MDB and GTLB printed last night and were sold 14.3% and bought 13.6% respectively, SNOW reports tonight and ZS on 9/3, so branch one binds it regardless of the level.",
-      "why": "The refusal record: BOX has been declined at 36.11, 35.70, 35.59, 35.58, 35.35, 35.24, 35.06, 35.75 and now 34.68. Worth noting honestly that the price has finally come back to the limit, which is the first time in fourteen readings that the level argument has been neutral - and it is being refused on the complex instead, which is the correct ordering rather than a convenient one."
+      "level": null,
+      "trigger": "REFUSED. DELL is 499.20 bid / 500.00 ask at 2026-09-03T13:42:50.623482394Z, last 499.60, +1.50% against a 492.20 settled close - EXTENDING after a +15.8% reaction bar rather than pulling back from it, which is the chase the rulebook lists under does-not-fit. AND IT IS BLOCKED BY ARITHMETIC INDEPENDENTLY OF ANY VIEW: one single share at 499.20 is 49.4% of the 1011.15 account, over the 40% single-name ceiling, so the SMALLEST POSITION THAT EXISTS is unbuyable. A 44.3% beat, 7.04 against 4.88, and it does not matter.",
+      "why": "Kept because the mechanical half is the more interesting one and is easy to forget: at this account size a 500 dollar share price puts a name out of reach entirely, and no thesis can argue with that. It is the same shape as the 2026-08-05 option finding - the universe's arithmetic rather than three unlucky picks. Worth re-reading the next time a run builds a case for a high-priced name before checking whether one share fits."
     },
     {
-      "setup": "SMTC day-2 after the 8/25 print - the 8/26 specification at a 138.50 limit that expired unexecuted",
+      "setup": "GTLB day-2 after the 9/1 pm print - the +10% hold that is not a shelf",
       "state": "dead",
-      "level": 138.5,
-      "trigger": "DEAD, AND THE REFUSAL GIVES SOME BACK FOR THE FIRST TIME. SMTC is 132.11 bid / 132.86 ask at 2026-09-02T13:41:56.165650895Z, -0.12% against a 132.27 settled close, having bounced 5.7% off yesterday's 125.00. So the 8/27 decision not to re-strike 138.50 up to 144.20 is now worth 12.09 a share or 8.4%, down from 13.3% yesterday. Still not bought - AVGO reports tonight and sits inside any five-session hold opened today.",
-      "why": "Kept and updated in the direction that is less flattering. Yesterday this row read as a refusal that keeps paying; today the payoff shrank by a third in one session. A board that only updates a rule's scoreboard when the rule looks good is running an advertisement, not a record."
+      "level": null,
+      "trigger": "REFUSED TWICE. GTLB is 49.70 bid / 49.82 ask at 2026-09-03T13:42:50.309120199Z, +0.36% against a 49.59 settled close, on a tight 0.24% spread. The 84.6% beat is not the problem. Its REACTION BAR OPENED 55.20, RAN 55.55 AND CLOSED 49.59 - 0.48 off its own 49.1101 low, on 28,993,570 shares. A gap that is sold from the first print to the last is a REJECTED gap, not strength for a day 2 to pull back from. And ZS, DOCU, PATH, IOT, ASAN, GWRE and AMBA ALL REPORT TONIGHT into the same enterprise-software complex, inside any five-session hold opened today.",
+      "why": "The distinction this row records is between a faded gap and a rejected one. MDT's 9/1 bar faded from 95.41 to 92.04 and still closed 1.53% ABOVE its pre-print close; GTLB's closed at its low. Both are 'gave back most of the gap' and only one leaves a shelf. This is the same test that separated MDT from SAIC, applied to a name whose beat was four times larger."
+    },
+    {
+      "setup": "SAIC post-earnings reversal - the control case has RECLAIMED its pre-print close, and the row is updated in the direction that is less flattering to this board",
+      "state": "watch",
+      "level": null,
+      "trigger": "STILL REFUSED, BUT THE REFUSAL NOW COSTS SOMETHING. SAIC is 125.88 bid / 127.44 ask at 2026-09-03T13:42:46.012185728Z, last 126.83, -0.28% against a 127.18 settled close. It closed 9/2 at 127.18 - which is ABOVE its 125.96 pre-print close - having been 123.50 and breaking down when this board quoted it yesterday. So the name the board used for five sessions as its worked example of a failed beat has turned and reclaimed the exact line the example was built on. Refused today on a 1.23% spread, nine times MDT's, and because three lower sessions followed by one bounce is not a base.",
+      "why": "MOVED FROM DEAD TO WATCH AND SAID OUT LOUD RATHER THAN QUIETLY DROPPED. SAIC was this board's control case: a 30.9% beat that round-tripped its pre-print close on day 2 and kept going, cited repeatedly as the reason MDT was bought instead. That comparison is now weaker than it was, because SAIC recovered. It does NOT invalidate the test - the test is about what the tape does with the gap, and SAIC did lose the line for three sessions before reclaiming it, which is a different and worse path than never losing it. But a board that cites a control case while it flatters the argument and stops updating it when it turns is running an advertisement. So it is updated on the hour it looks wrong."
+    },
+    {
+      "setup": "The 9/2 pm cluster - nine reporters, every one on its REACTION BAR today",
+      "state": "dead",
+      "level": null,
+      "trigger": "ALL REFUSED ON ITEM 2, WITHOUT EXCEPTION AND WITHOUT A VIEW ON ANY OF THEM. Quoted live at 13:42Z: SNOW 367.15 bid, +20.2% against a 305.84 close, on a 0.62 beat against 0.26; AVGO 346.34 bid, -5.68% against 367.24, a 3.32 against 3.16 BEAT SOLD; HPE 49.66 bid, -4.14%, a 1.11 against 0.91 beat sold; NTAP 177.70 bid, -1.53%, a 2.58 against 2.04 beat sold; FIVE 244.00 bid, +0.64%, a 1.68 against 1.16 beat barely moved; PVH 73.34 bid / 74.39 ask, +2.49% on a 1.42% spread, a 3.70 against 2.62 beat.",
+      "why": "Recorded as a block because the pattern is the finding: FOUR of the six large beats here were SOLD, and the rulebook's item 2 refuses all of them anyway on the day-1 rule rather than needing to sort the good reactions from the bad. That is the item earning its place - a run picking among nine reaction bars by judgement would have had to be right about which beats stick, and the rule removes the question. The 9/4 and 9/8 opens own whichever of these builds a shelf above its pre-print close, on exactly the terms OLLI was given and failed this morning."
     }
   ],
-  "candidatesAsOf": "2026-09-02 15:35 ET for MDT, XLV, SPY and AVGO, each re-quoted live at 19:35Z by the pre-close - MDT because a specification expiring needs its own closing number rather than an inherited one, XLV and SPY because the relative-strength claim is the counterweight this entry carried all day and a claim about it at expiry needs both legs quoted on the same clock, and AVGO because the moves.json spot refresh is unconditional. The medtech peer names quoted in the 15:21 notes are NOT restamped: a row this run did not re-pull does not get this run's clock.",
-  "candidatesNote": "PRE-CLOSE, 15:35 ET. THIS SLOT'S JOB IS THE HOLD DECISION AND THERE WAS NOTHING TO HOLD: both position lists empty and both order lists empty on live pulls against a 2026-08-26 floor, 1011.15 all settled, so no +20% target, no -8% equity stop, no -40% option stop, no ~5 session time stop and NO OPTION NO-FLY WINDOW was reachable - each checked at 15:35 rather than inherited, and flat is recorded as the decision rather than the leftover. THE 09:45 MDT SPECIFICATION EXPIRED UNEXECUTED AT 15:30 AND DIED EXECUTABLE: the 19:25Z bar closed 92.710 on the heaviest volume of the half hour, so the 93.07 limit sat 0.39% ABOVE the tape at its own fuse after eighty continuous minutes of being fillable, and the post-fuse quote reads 92.53 bid / 92.54 ask. It is recorded by appending and is NOT re-struck. THE FINDING IS A DELIVERY FINDING AND IT FALSIFIES THIS BOARD'S OWN DIAGNOSIS FROM YESTERDAY: DG died 2.24% away and was blamed on a limit struck under the bid; today's limit was struck at the offer, went marketable, was announced twice, and expired anyway - so the price hypothesis is exhausted and what is left is the human gate. THE COUNTERWEIGHT INVERTED and is kept: MDT +0.54% against XLV +0.79% is 0.68x its sector, below one for the first time today on a fifth consecutive falling hourly read, so the missed fill is not obviously the good trade missed. NOTHING CROSSES TONIGHT'S NINE-NAME EARNINGS CLUSTER - AVGO, SNOW, HPE, NTAP, FIVE, PVH, AI, AGX and GOLD all report after this close and this board carries none of it, by decision rather than by accident. No new entry: the daily mandate binds the open slot and was discharged at 09:45, and the last thirty minutes are not an entry window.",
+  "candidatesAsOf": "2026-09-03 09:42-09:50 ET, every row quoted live this run. MDT, XLV, SPY and the four medtech peers were re-pulled at 13:47Z specifically, because the specification was struck on that pull rather than on the 13:42Z one and the entry must carry the numbers it was actually written on - MDT was GREEN at 92.42 bid at 13:42 and RED at 91.88 by 13:47. ORCL and ADBE were quoted at 13:49Z for the moves.json row added this run. No row here is inherited from the 9/2 pre-close.",
+  "candidatesNote": "MARKET OPEN, 09:41-09:50 ET. FLAT BOOK CONFIRMED LIVE - both position lists and both order lists empty on a 2026-08-28 floor, 1011.15 all settled, sixteenth consecutive identical read - so NO exit level of any kind was reachable and that is a tested result rather than a skipped step. THE DAILY MANDATE IS DISCHARGED WITH A FORCED ENTRY: BUY 4 MDT at a 92.01 limit struck at the offer, target 110.41, stop 84.65, time stop the 9/10 close, dying 15:30 ET, FORCED ON ITEM 1 because the 9/1 beat-and-raise is two sessions old, has no dated event inside the window, and has been sold on every rally for three straight sessions. Items 2, 4, 5 and 6 pass; item 3 is na. THE ENTRY IS THE BEST OF A GENUINELY POOR SET AND THE SET IS RANKED IN why.json. THE TAPE MOVED AGAINST IT MID-RUN AND THE LATER NUMBERS ARE THE ONES PUBLISHED: MDT went from 92.42 bid and green at 09:42 to 91.88 bid and red at 09:47, faded thirteen straight minutes off a 93.72 high, broke the 91.90 low this run had recorded at 09:43 BEFORE the entry was written - the re-pull caught it and the invalidations were re-struck rather than published already-fired - and is now below BOTH post-print closes on the heaviest minute of the session. THE PRE-REGISTERED CANDIDATE FAILED ITS OWN TEST: OLLI at 71.11 is below both its 72.34 pre-print close and its 73.02 reaction-bar low, the SAIC round trip, and is refused on structure rather than on a 22.4% beat. THE OPTION FINDING IS RE-TESTED ON ITS STRONGEST CASE AND HOLDS: five MDT contracts quoted live, the 10/09 weeklies at 53.7% to 64.7% of mark on open interest of 8, 25 and 2, and THE LIQUID 10/16 MONTHLY at 34.3% and 33.5% on open interest of 843 and 1550 with deltas of 0.514 and 0.635, both affordable outright - so affordability, delta, expiry, earnings-clearance and open interest ALL pass and only SPREAD fails, by 3.4x, on a 117.6 billion dollar blue chip. moves.json PRUNED: AVGO removed, its print having happened, and ORCL 9/10 added with a live spot and a forward branch. HEALTHCARE IS BEING ROTATED OUT OF - XLV -0.87% against SPY +0.62% - which is the honest counterweight to this entry's only live leg.",
   "candidates": [
     {
       "sym": "MDT",
-      "last": 92.87,
-      "bid": 92.86,
+      "last": 91.97,
+      "bid": 91.88,
       "earnings": "9/1 before",
       "flag": "ok",
-      "note": "THE LIVE SPECIFICATION, RE-QUOTED AND CONFIRMED FOR A SIXTH AND FINAL HOUR AT 15:21. 92.86 bid / 92.87 ask at 2026-09-02T19:21:34.681693447Z, last 92.870, +0.90% against a 92.04 settled close, on a 0.01 spread that is 0.011% of mark. BUY 4 at a 93.07 limit stands unamended - target 111.68, stop 85.62, time stop the 9/9 close, dying 15:30 ET. Cost 371.48 at the offer and 372.28 at the limit, 36.7% of the 1011.15 account, inside the 40% ceiling. All four invalidations re-checked and none fired; the session low is still the 91.47 opening print and has never been broken on any of seventy bars. THE LIMIT IS MORE MARKETABLE THAN LAST HOUR - 0.20 above the offer against 0.06 - and has been continuously fillable for 71 minutes since the 18:10Z bar. Not raised when the name ran to 94.605, not lowered now that it sits twenty cents beneath the limit. THE ALPHA RATIOS FELL FOR A SECOND CONSECUTIVE HOUR to 1.96x SPY and 1.08x XLV, the first sub-2x SPY reading of the day, because XLV rose again while MDT fell again - a fourth consecutive lower hourly read, 94.16 to 93.84 to 93.46 to 93.00 to 92.86. Peer rank recovered to third of five only because the peers fell harder. NEXT EARNINGS 2026-11-17, eight weeks past the time stop, so no straddle is owed. The 101.74 street mean still sits BELOW the 111.68 target, so a time-stop close remains the most likely end."
+      "note": "THE LIVE SPECIFICATION. 91.88 bid / 92.01 ask at 2026-09-03T13:47:27.699560082Z, last 91.97, -0.33% against a 92.18 settled close, on a 0.13 spread that is 0.141% of mark - the tightest book on this screen by an order of magnitude. BUY 4 at a 92.01 limit, struck AT THE OFFER so it is marketable on arrival; target 110.41, stop 84.65, time stop the 9/10 close, dying 15:30 ET. Cost 368.04, 36.40% of the account, inside the 40% cap. SESSION: opened 93.04, high 93.72 at 13:34Z, low RE-PULLED at 91.8035, volume 512,070 against an 8,757,733 two-week average. IT HAS FADED THIRTEEN CONSECUTIVE MINUTES and the 13:47Z bar traded 71,356 shares, the heaviest of the session, into the decline - so the entry is a pullback INTO the base rather than a continuation off strength, and MDT is BELOW BOTH post-print closes of 92.04 and 92.18 for the first time. Market cap 117,559,840,957, PE 22.72, 52-week range 73.31 to 106.33 - note the 110.41 target sits ABOVE the 52-week high, which is why the realistic end of this trade is the time stop. NEXT EARNINGS 2026-11-17, ten weeks past the time stop, so no straddle is owed and no option no-fly applies; the 9/25 ex-dividend is also outside the hold. Options refused on spread at 33.5% to 64.7% of mark across five live quotes."
     },
     {
       "sym": "XLV",
-      "last": 173.105,
-      "bid": 173.1,
+      "last": 171.47,
+      "bid": 171.45,
       "earnings": "not applicable",
       "flag": "watch",
-      "note": "173.10 bid / 173.12 ask at 2026-09-02T19:21:37.283878553Z, last 173.105, +0.84% against a 171.67 settled close - UP from +0.62% at 14:21 and up for a second consecutive hour. This row is the MDT specification's invalidation instrument and condition four still cannot fire before the fuse, because it resolves only at the 16:00 close and MDT is green. Its second straight hourly gain against MDT's second straight hourly loss is what has reduced the alpha ratio to 1.08x - MDT +0.90% against XLV +0.84% is, to two decimals, the sector. For three hours this board wrote that a ratio holding on a falling denominator was the smaller claim; the denominator has now RISEN twice and the claim is close to gone."
-    },
-    {
-      "sym": "BSX",
-      "last": 48.575,
-      "bid": 48.57,
-      "earnings": "not this window",
-      "flag": "watch",
-      "note": "48.57 bid / 48.58 ask at 2026-09-02T19:21:34.506251787Z, +1.03% against a 48.08 settled close, DOWN hard from +1.87% at 14:21 - a 0.84 point give-back, the largest of any name on the board this hour and more than six times MDT's 0.13. It is still marginally ahead of MDT by 0.13 points. This is the row that explains the peer-rank recovery: MDT did not climb past BSX, ZBH and BDX, they fell past it."
-    },
-    {
-      "sym": "ABT",
-      "last": 110.91,
-      "bid": 110.9,
-      "earnings": "not this window",
-      "flag": "watch",
-      "note": "110.90 bid / 110.92 ask at 2026-09-02T19:21:35.94262699Z, +1.82% against a 108.93 settled close, down from +1.99% at 14:21. Still the strongest of the five medtech names and still ahead of MDT, by 0.92 points against 0.95 last hour. It gave back the least of any peer this hour, which is why MDT's improved rank is read as a collapsing field rather than as MDT strength."
-    },
-    {
-      "sym": "OLLI",
-      "last": 75.964,
-      "bid": 75.67,
-      "earnings": "9/2 before",
-      "flag": "watch",
-      "note": "THE RUNNER-UP, AND THE CLOSEST CALL OF THE SCREEN. 75.67 bid / 76.15 ask at 2026-09-02T13:41:39.019258805Z, last 75.964, +4.60% against a 72.34 settled close, on a 0.63% spread. Reported this morning at 1.42 against a 1.16 estimate, a 22.4% beat. Refused three ways: today is its REACTION bar and the rulebook buys the day-2 or day-3 pullback that holds; 8/31 closed +4.3% at 75.42 and 9/1 gave it all back to 72.34 at -4.1%, so there is no shelf to strike against; and FIVE reports tonight into the same discount-consumer complex, inside any five-session hold opened today. Worth the 9/3 and 9/4 opens' attention on exactly the terms MDT was given yesterday and met today."
-    },
-    {
-      "sym": "DELL",
-      "last": 473.85,
-      "bid": 472.19,
-      "earnings": "9/1 after",
-      "flag": "nofly",
-      "note": "472.19 bid / 474.50 ask at 2026-09-02T13:41:55.324267867Z, +11.10% against a 425.00 settled close. A 44.3% beat - 7.04 against 4.88 - and refused flat by checklist item 2: this is the +8% day, and a +11% reaction bar is a wait signal rather than a buy signal. Refused a second way too, independently: HPE and NTAP report tonight into the same hardware complex, inside any hold opened today. B of A raised its target 505 to 600 this morning, which is the crowding this board reads as a caution rather than a confirmation."
-    },
-    {
-      "sym": "GTLB",
-      "last": 51.275,
-      "bid": 51.23,
-      "earnings": "9/1 after",
-      "flag": "nofly",
-      "note": "51.23 bid / 51.34 ask at 2026-09-02T13:41:55.088618031Z, +13.62% against a 45.09 settled close. An 84.6% beat - 0.24 against 0.13 - and refused on item 2 at +13.6%, the largest single-day move in the screen. SNOW reports tonight and ZS on 9/3, both enterprise software, so branch one binds it independently of the level. Piper Sandler moved its target 28 to 52 while keeping a Neutral rating, which is a target catching up to a price rather than a call."
-    },
-    {
-      "sym": "PANW",
-      "last": 329.47,
-      "bid": 329.12,
-      "earnings": "9/1 after",
-      "flag": "nofly",
-      "note": "329.12 bid / 329.84 ask at 2026-09-02T13:41:56.077082904Z, -9.11% against a 362.09 settled close. A 15.9% beat sold nine percent - the clearest expectations-versus-positioning failure on today's tape and a worked example of checklist item 5 happening to somebody else. Not bought: this is day one of a break with no shelf anywhere, which is the NTNX and SAIC refusal, and ZS reports 9/3 into the same complex."
-    },
-    {
-      "sym": "MDB",
-      "last": 372.245,
-      "bid": 372,
-      "earnings": "9/1 after",
-      "flag": "nofly",
-      "note": "372.00 bid / 372.49 ask at 2026-09-02T13:41:55.556841954Z, -14.33% against a 434.21 settled close. A 46.2% beat - 1.90 against 1.30 - down more than fourteen percent. Same refusal as PANW and for the same reason: a beat being sold hard on day one is not a setup until it builds a shelf, and Stifel cutting its target 475 to 465 while keeping a Buy is the shape of a thesis being trimmed rather than abandoned. SNOW tonight, ZS on 9/3."
-    },
-    {
-      "sym": "CRDO",
-      "last": 178.24,
-      "bid": 178.15,
-      "earnings": "9/1 after",
-      "flag": "nofly",
-      "note": "178.15 bid / 178.61 ask at 2026-09-02T13:41:55.548829727Z, -13.79% against a 206.63 settled close. A 7.1% beat - the smallest of last night's five - and the second-worst reaction. Refused twice over: no shelf on day one, and AVGO reports tonight into the same semiconductor complex, which is the standing moves.json branch one."
-    },
-    {
-      "sym": "DG",
-      "last": 132.295,
-      "bid": 131.94,
-      "earnings": "8/27 before",
-      "flag": "watch",
-      "note": "131.94 bid / 132.37 ask at 2026-09-02T13:41:54.214624591Z, last 132.295, +0.65% against a 131.09 settled close. THE NAME THAT GOT AWAY, AND IT IS REFUSED RATHER THAN RE-STRUCK. Yesterday's 128.40 limit died 2.24% below the bid at 15:30 without a single named invalidation firing; today the name has extended again and the dead limit sits 2.68% below the market. Re-striking near 132 is the chase the 2026-08-18 rule forbids in exactly these words - widening the time was never permission to widen the price - and yesterday's file wrote the warning for today's reader specifically. The reclaim thesis was RIGHT and this board still does not own it, which is the honest summary and the reason the refusal is worth recording rather than quietly dropping."
-    },
-    {
-      "sym": "SAIC",
-      "last": 123.5,
-      "bid": 123.11,
-      "earnings": "8/31 before",
-      "flag": "nofly",
-      "note": "123.11 bid / 124.39 ask at 2026-09-02T13:41:55.491665676Z, -2.90% against a 126.78 settled close, on a 1.03% spread. A third consecutive lower session, still below its 125.96 pre-print close and below its own reaction-bar low. THE CONTROL CASE FOR TODAY'S ENTRY: same starting shape as MDT - large beat, gap, fade - and the opposite resolution, because SAIC lost its pre-print close on day 2 and MDT held 1.53% above it. Kept quoted because the comparison is what makes the MDT decision gradeable rather than a hunch."
-    },
-    {
-      "sym": "AVGO",
-      "last": 368.698,
-      "bid": 368.62,
-      "earnings": "9/2 after",
-      "flag": "nofly",
-      "note": "368.62 bid / 368.73 ask at 2026-09-02T13:41:55.721520907Z, -0.29% against a 369.68 settled close. Reports TONIGHT, after the close, on an estimate of 3.16 with no actual - the only row in moves.json and the source of branch one. Refused on the date rather than on a view. Note the spot: 368.62 against the 369.75 the 9/1 pre-close wrote into moves.json, so that row is 0.31% off after a full overnight, which is the refresh discipline working."
-    },
-    {
-      "sym": "BOX",
-      "last": 34.76,
-      "bid": 34.68,
-      "earnings": "8/25 after",
-      "flag": "watch",
-      "note": "34.68 bid / 34.77 ask at 2026-09-02T13:41:55.376034636Z, -1.37% against a 35.16 settled close, on a 0.26% spread. THE DEAD 34.50 LIMIT IS FINALLY NEARLY AT THE MARKET - 0.52% below it, against 3.6% yesterday and wider still before that. Refused for the fourteenth time anyway, and now entirely on the complex rather than the level: BOX is enterprise software with SNOW tonight and ZS on 9/3. Recorded plainly because it is the first reading in fourteen where the price argument would not have blocked it."
-    },
-    {
-      "sym": "SMTC",
-      "last": 132.99,
-      "bid": 132.11,
-      "earnings": "8/25 after",
-      "flag": "nofly",
-      "note": "132.11 bid / 132.86 ask at 2026-09-02T13:41:56.165650895Z, -0.12% against a 132.27 settled close, having bounced 5.7% off yesterday's 125.00 low. The 8/27 refusal to re-strike 138.50 up to 144.20 is now worth 8.4% rather than the 13.3% it read yesterday - the scoreboard moved against the rule for the first time and is updated in that direction rather than left at its flattering number. Not bought: AVGO tonight."
+      "note": "171.45 bid / 171.48 ask at 2026-09-03T13:47:27.127074871Z, last 171.47, -0.87% against a 172.95 settled close. THIS IS THE HONEST COUNTERWEIGHT TO THE MDT ENTRY AND IT IS A REAL NEGATIVE. Healthcare is being SOLD on a day SPY is +0.62% - a 1.49-point relative gap - which means the sector is being rotated out of, and a long medtech entry is being opened into that. MDT at -0.33% is outperforming it by 0.54 points, and that outperformance is the ONLY live leg of today's thesis, which is why invalidation four is written as MDT's session return falling below XLV's. Yesterday this row inverted against the trade in the afternoon, reaching 0.68x; today the ratio starts positive and the sector starts weak."
     },
     {
       "sym": "SPY",
-      "last": 765.285,
-      "bid": 765.29,
+      "last": 769.8963,
+      "bid": 769.88,
       "earnings": "not applicable",
       "flag": "watch",
-      "note": "765.29 bid / 765.31 ask at 2026-09-02T19:21:36.753101066Z, last 765.285, +0.46% against a 761.78 settled close, UP from +0.38% at 14:21. The index rose for a second consecutive hour while MDT fell for a fourth, so the MDT-to-SPY multiple fell again, 2.16x to 1.96x - the first reading under 2x today and the second consecutive decline. Recorded as a decline rather than as a ratio that held."
+      "note": "769.88 bid / 769.90 ask at 2026-09-03T13:47:27.688269404Z, last 769.8963, +0.62% against a 765.16 settled close. The index is GREEN and healthcare is red, which is the rotation this entry is being opened against and the reason the XLV row is flagged rather than treated as neutral background. MDT outperforming a falling sector on a rising tape is a weaker signal than MDT outperforming a falling sector on a falling tape, and the distinction is recorded now rather than argued later."
+    },
+    {
+      "sym": "SYK",
+      "last": 314.4201,
+      "bid": 314.41,
+      "earnings": "not this window",
+      "flag": "watch",
+      "note": "314.41 bid / 315.37 ask at 2026-09-03T13:47:25.63294227Z, +0.71% against a 312.19 settled close. THE STRONGEST OF THE FIVE MEDTECH NAMES TODAY and the reason MDT's peer rank is fourth of five rather than better. Not a candidate itself - no print in this window, so no catalyst and no setup - but quoted because a peer-rank claim needs its peers on the same clock."
+    },
+    {
+      "sym": "ZBH",
+      "last": 99.96,
+      "bid": 99.68,
+      "earnings": "not this window",
+      "flag": "watch",
+      "note": "99.68 bid / 99.96 ask at 2026-09-03T13:47:25.292348053Z, +0.18% against a 99.50 settled close, on a 0.28% spread. Second of the five medtech names and ahead of MDT. Green while the sector is down 0.87%."
+    },
+    {
+      "sym": "BSX",
+      "last": 48.28,
+      "bid": 48.25,
+      "earnings": "not this window",
+      "flag": "watch",
+      "note": "48.25 bid / 48.31 ask at 2026-09-03T13:47:27.69953831Z, -0.25% against a 48.37 settled close. Third of five and marginally ahead of MDT's -0.33%. Yesterday this name led the complex; today it is merely less bad than the sector."
+    },
+    {
+      "sym": "ABT",
+      "last": 109.55,
+      "bid": 109.49,
+      "earnings": "not this window",
+      "flag": "watch",
+      "note": "109.49 bid / 109.56 ask at 2026-09-03T13:47:25.411368654Z, -0.89% against a 110.47 settled close. LAST of the five and the only peer worse than the sector itself. It led the complex for most of 9/2 at +1.82%, so the medtech leadership board has fully reshuffled overnight - which is the context for reading MDT's fourth-of-five as a mixed field rather than a verdict."
+    },
+    {
+      "sym": "OLLI",
+      "last": 71.1988,
+      "bid": 71.11,
+      "earnings": "9/2 before",
+      "flag": "nofly",
+      "note": "THE PRE-REGISTERED CANDIDATE, AND IT FAILED THE TEST WRITTEN FOR IT YESTERDAY. 71.11 bid / 71.37 ask at 2026-09-03T13:42:46.561401548Z, last 71.1988, -3.62% against a 73.87 settled close. It is BELOW its 72.34 pre-print close and BELOW the 73.02 low of its own reaction bar - the completed round trip, on day 2. The reaction bar opened 76.00, ran 78.69 and closed 73.87 on 4,832,306 shares against roughly 1.2M typical. The 22.4% beat, 1.42 against 1.16, is not in question; the structure is, and it failed. This is the SAIC and NTNX shape and it is refused on exactly the ground MDT passes."
+    },
+    {
+      "sym": "SNOW",
+      "last": 367.76,
+      "bid": 367.15,
+      "earnings": "9/2 after",
+      "flag": "nofly",
+      "note": "367.15 bid / 368.99 ask at 2026-09-03T13:42:49.888694398Z, +20.2% against a 305.84 settled close, on a 0.62 against 0.26 beat. THE LARGEST REACTION IN THE SCREEN and refused flat by item 2 - a +20% reaction bar is the definitional wait signal, not a buy. Worth the 9/4 and 9/8 opens' attention if it builds a shelf above 305.84."
+    },
+    {
+      "sym": "AVGO",
+      "last": 346.395,
+      "bid": 346.34,
+      "earnings": "9/2 after",
+      "flag": "nofly",
+      "note": "346.34 bid / 346.45 ask at 2026-09-03T13:42:50.001996692Z, -5.68% against a 367.24 settled close. THE PRINT HAPPENED AND IT BEAT - 3.32 actual against the 3.16 estimate moves.json carried - AND IT WAS SOLD 5.7%. This is the row moves.json has been built around for six sessions and it is pruned from that file this run, its purpose discharged. Not bought: day one of a break with no shelf anywhere is the NTNX, SAIC and now OLLI refusal."
+    },
+    {
+      "sym": "HPE",
+      "last": 49.685,
+      "bid": 49.66,
+      "earnings": "9/2 after",
+      "flag": "nofly",
+      "note": "49.66 bid / 49.71 ask at 2026-09-03T13:42:51.396865598Z, -4.14% against a 51.83 settled close. A 1.11 against 0.91 beat, 22.0%, sold four percent. Reaction bar, item 2, refused."
+    },
+    {
+      "sym": "NTAP",
+      "last": 178,
+      "bid": 177.7,
+      "earnings": "9/2 after",
+      "flag": "nofly",
+      "note": "177.70 bid / 178.00 ask at 2026-09-03T13:42:50.577671975Z, -1.53% against a 180.77 settled close. A 2.58 against 2.04 beat, 26.5%, sold. Reaction bar, refused. With HPE above it, both hardware names that printed last night were sold, which is the read-through that clears DELL's complex risk while leaving DELL refused on other grounds."
+    },
+    {
+      "sym": "FIVE",
+      "last": 244.64,
+      "bid": 244,
+      "earnings": "9/2 after",
+      "flag": "nofly",
+      "note": "244.00 bid / 245.48 ask at 2026-09-03T13:42:28.996951507Z, +0.64% against a 243.08 settled close, on a 0.60% spread. A 1.68 against 1.16 beat - 44.8% - and the stock has barely moved, which is the most interesting non-reaction in the screen. Refused on item 2 as a reaction bar regardless. Note it against OLLI: same discount-consumer complex, and the two beats resolved in opposite directions."
+    },
+    {
+      "sym": "PVH",
+      "last": 74.09,
+      "bid": 73.34,
+      "earnings": "9/2 after",
+      "flag": "nofly",
+      "note": "73.34 bid / 74.39 ask at 2026-09-03T13:42:15.714018738Z, +2.49% against a 72.29 settled close, on a 1.42% spread that is the widest of the liquid names here. A 3.70 against 2.62 beat. Reaction bar, refused."
+    },
+    {
+      "sym": "DELL",
+      "last": 499.6,
+      "bid": 499.2,
+      "earnings": "9/1 after",
+      "flag": "nofly",
+      "note": "499.20 bid / 500.00 ask at 2026-09-03T13:42:50.623482394Z, +1.50% against a 492.20 settled close. REFUSED TWICE AND THE SECOND IS ARITHMETIC: it is EXTENDING after a +15.8% reaction bar rather than pulling back, which is the chase the rulebook lists under does-not-fit; and ONE SINGLE SHARE IS 49.4% OF THE ACCOUNT, over the 40% single-name ceiling, so the smallest position that exists cannot be bought. A 44.3% beat, 7.04 against 4.88, and none of it matters. Its complex risk actually CLEARED overnight - HPE and NTAP have now printed - which is the one thing that improved and the one thing that changes nothing."
+    },
+    {
+      "sym": "GTLB",
+      "last": 49.77,
+      "bid": 49.7,
+      "earnings": "9/1 after",
+      "flag": "nofly",
+      "note": "49.70 bid / 49.82 ask at 2026-09-03T13:42:50.309120199Z, +0.36% against a 49.59 settled close, on a tight 0.24% spread. A REJECTED GAP RATHER THAN A SHELF: the reaction bar opened 55.20, ran 55.55 and CLOSED 49.59, just 0.48 off its own 49.1101 low, on 28,993,570 shares. A gap sold from first print to last leaves nothing for a day 2 to pull back from - the contrast with MDT's 9/1 bar, which faded from 95.41 to 92.04 and still closed 1.53% ABOVE its pre-print close, is the whole distinction. Refused independently on the complex: ZS, DOCU, PATH, IOT, ASAN, GWRE and AMBA all print TONIGHT."
+    },
+    {
+      "sym": "MDB",
+      "last": 388.8699,
+      "bid": 387.94,
+      "earnings": "9/1 after",
+      "flag": "nofly",
+      "note": "387.94 bid / 388.72 ask at 2026-09-03T13:42:50.433056708Z, +3.59% against a 375.40 settled close. A bounce off a -14.33% crush, not a day-2 pullback after strength - one green day following a beat sold hard is not a shelf, which is the same refusal this row carried yesterday. SNOW printed last night and ZS and DOCU print tonight, all database and enterprise software."
+    },
+    {
+      "sym": "CRDO",
+      "last": 167.96,
+      "bid": 168,
+      "earnings": "9/1 after",
+      "flag": "nofly",
+      "note": "168.00 bid / 168.20 ask at 2026-09-03T13:42:49.613534498Z, +1.66% against a 165.22 settled close. A bounce off a -13.79% crush. Refused as no-shelf, and the semiconductor complex it sits in just watched AVGO beat and fall 5.68% this morning, so the read-through is negative rather than absent."
+    },
+    {
+      "sym": "PANW",
+      "last": 325.72,
+      "bid": 325.42,
+      "earnings": "9/1 after",
+      "flag": "nofly",
+      "note": "325.42 bid / 326.02 ask at 2026-09-03T13:42:49.905611427Z, -0.84% against a 328.48 settled close. Day 2 of a -9.11% break and still going down. A 15.9% beat sold nine percent remains the cleanest item-5 failure on this week's tape, and it is somebody else's. ZS prints tonight into the same security complex."
+    },
+    {
+      "sym": "SAIC",
+      "last": 126.83,
+      "bid": 125.88,
+      "earnings": "8/31 before",
+      "flag": "watch",
+      "note": "125.88 bid / 127.44 ask at 2026-09-03T13:42:46.012185728Z, last 126.83, -0.28% against a 127.18 settled close. THE CONTROL CASE HAS RECLAIMED ITS PRE-PRINT CLOSE and this row is updated in the direction that weakens this board's own five-session argument. SAIC closed 9/2 at 127.18, above the 125.96 line, after being 123.50 and breaking down when it was quoted yesterday. Still refused - a 1.23% spread is nine times MDT's, and three lower sessions then one bounce is not a base - but the comparison MDT was bought against is now less clean than it was, and saying so is the point of keeping it."
+    },
+    {
+      "sym": "DG",
+      "last": 131.925,
+      "bid": 131.56,
+      "earnings": "8/27 before",
+      "flag": "watch",
+      "note": "131.56 bid / 131.94 ask at 2026-09-03T13:42:49.877246204Z, +0.79% against a 130.89 settled close. Five sessions past its print and outside the day-2/3 window entirely, so the dead 128.40 limit is not re-struck for a sixth time - and the reason has shifted from price to the calendar. The reclaim thesis was right and this board still does not own it, which remains the honest summary."
+    },
+    {
+      "sym": "BOX",
+      "last": 35.35,
+      "bid": 35.29,
+      "earnings": "8/25 after",
+      "flag": "nofly",
+      "note": "35.29 bid / 35.38 ask at 2026-09-03T13:42:50.309200713Z, +2.20% against a 34.59 settled close. The dead 34.50 limit is now BELOW the market again after one session of being nearly at it. Refused for the fifteenth time, and now on two grounds that both bind: seven sessions past its print is outside the window, and ZS and DOCU print tonight into its complex."
+    },
+    {
+      "sym": "SMTC",
+      "last": 128.36,
+      "bid": 128.26,
+      "earnings": "8/25 after",
+      "flag": "nofly",
+      "note": "128.26 bid / 129.14 ask at 2026-09-03T13:42:44.374407372Z, -4.10% against a 133.85 settled close, taking the AVGO read-through. THE 8/27 REFUSAL TO RE-STRIKE 138.50 UP TO 144.20 IS NOW WORTH 10.24 A SHARE OR 8.0% - down from 8.4% yesterday and 13.3% the day before, so the scoreboard has moved against the rule for a second consecutive session and is recorded that way both times."
+    },
+    {
+      "sym": "ORCL",
+      "last": 148.3912,
+      "bid": 148.33,
+      "earnings": "9/10 after",
+      "flag": "nofly",
+      "note": "148.33 bid / 148.40 ask at 2026-09-03T13:49:50.3273918Z, last 148.3912, +1.81% against a 145.75 settled close. ADDED TO moves.json THIS RUN as the forward branch, with ADBE the same evening at 289.06 bid, +3.31%. Neither is a candidate today - both are pre-print, refused on the date rather than on a view - and the row exists so that any enterprise-software entry considered between now and 9/10 meets the branch already written rather than one improvised on the morning it binds."
     }
   ],
-  "verifiedAt": "2026-09-02 15:35 ET"
+  "verifiedAt": "2026-09-03 09:47 ET"
 }
