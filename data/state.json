@@ -1,6 +1,6 @@
 {
   "_comment": "Written by the trading runs (9:30a / hourly / 3:30p ET). Never contains account numbers, broker IDs, or any account other than the sandbox.",
-  "lastRefreshUtc": "2026-09-03T19:35:35Z",
+  "lastRefreshUtc": "2026-09-04T13:45:34Z",
   "accountLabel": "Sandbox account",
   "account": {
     "total": 1011.15,
@@ -8,229 +8,220 @@
     "deployable": 1011.15,
     "unsettled": 0,
     "settlesOn": "nothing pending",
-    "verifiedAt": "2026-09-03 15:35 ET",
-    "note": "RE-PULLED LIVE AT 15:35 ET BY THE PRE-CLOSE, the last run of the session, against the mandated account after a scope preflight that matched the mandate identifier EXACTLY AS A STRING against the connector list - one match, agentic-permitted, type cash; no first-account default, no nickname match, no balance heuristic. Every other account was discarded unread and none is summarised, totalled or mentioned in this file, in runs.json, in moves.json, in why.json, in the commit message or in the operator report. Portfolio, equity positions and option positions were each queried live and all returned first time: 1011.15 total against 1011.15 cash, buying power 1011.15, equity_value 0, options_value 0, futures 0, crypto 0, pending_deposits 0, unsettled 0.0000. THE TWENTY-THIRD CONSECUTIVE IDENTICAL READ, unchanged from the 9/2 close, from this morning's open and from all six earlier runs today. The 1.99 credit first flagged by the 9/1 open remains STABLE and remains FLAGGED rather than explained; this run found no endpoint asserting a cause and does not assert one. DEPLOYABLE IS THE FULL 1011.15 and nothing is committed against it: the 09:47 MDT specification was withdrawn at 10:21, no run since has proposed a replacement, and this slot may not open one, so no open specification and no position claims settled cash. BOTH POSITION LISTS ARE EMPTY, so no +20% target, no -8% equity stop, no -40% option stop, no ~5 session time stop and NO OPTION NO-FLY WINDOW is reachable - each tested live at 15:35 rather than inherited from the 15:21 hourly. THE BOOK GOES FLAT INTO THE BELL AND NOTHING IS CARRIED OVERNIGHT, which is this run's decision rather than its default and is written up in why.json rather than left as an absence. The clock was corroborated rather than trusted: now-et.mjs read 19:34:59.496Z against an ORCL venue_bid_time of 19:35:35.566768832Z and an MDT venue_bid_time of 19:35:34.631575212Z, an exact -4 EDT offset from a venue this machine does not control."
+    "verifiedAt": "2026-09-04 09:42 ET",
+    "note": "PULLED LIVE AT 09:42 ET BY THE OPEN against the mandated account after a scope preflight that matched the mandate identifier EXACTLY AS A STRING against the connector list - one match, agentic-permitted, type cash; no first-account default, no nickname match, no balance heuristic. Every other account was discarded unread and none is summarised, totalled or mentioned in this file, in runs.json, in why.json, in the commit message or in the operator report. Portfolio, equity positions and option positions were each queried live and all returned first time: 1011.15 total against 1011.15 cash, buying power 1011.15, equity_value 0, options_value 0, futures 0, crypto 0, pending_deposits 0, unsettled 0.0000. THE TWENTY-FOURTH CONSECUTIVE IDENTICAL READ, unchanged from the 9/3 close and from every run of that session. The 1.99 credit first flagged by the 9/1 open remains STABLE and remains FLAGGED rather than explained; this run found no endpoint asserting a cause and does not assert one. ONE SPECIFICATION IS NOW OPEN AGAINST THIS CASH: the 09:45 buy of 7 HPE at a 54.21 limit commits 379.47, or 37.53% of the account, leaving 631.68 uncommitted. That is inside the 40% single-name ceiling and inside the mandate's two-position limit with one slot spare. BOTH POSITION LISTS ARE EMPTY, so no +20% target, no -8% equity stop, no -40% option stop, no ~5 session time stop and NO OPTION NO-FLY WINDOW was reachable - each tested live at 09:42 rather than inherited from yesterday's pre-close. The clock was corroborated rather than trusted: now-et.mjs read 13:41:06.646Z against an MDT venue_bid_time of 13:41:57.263953743Z, and again 13:45:34.252Z against an HPE venue_bid_time of 13:45:34.444541546Z two hundred milliseconds later - an exact -4 EDT offset from a venue this machine does not control."
   },
   "positions": [],
   "entryWatch": [
     {
-      "setup": "MDT day-3 pullback INTO the post-earnings base - THE SPECIFICATION WAS WITHDRAWN AT 10:21 AND IS DEAD AT THE BELL. Re-quoted one final time because the kill, not the entry, was this board's open question all session.",
+      "setup": "HPE day-2 pullback after the 9/3 outside reversal bar - THE LIVE SPECIFICATION, published 09:45, dies 15:30 ET today.",
+      "state": "armed",
+      "level": 54.21,
+      "trigger": "BUY 7 HPE AT A 54.21 LIMIT, struck inside a live 54.20 bid / 54.23 ask at 2026-09-04T13:45:34.444541546Z - one cent off the BID and below the 54.215 mid, deliberately NOT at the offer, because HPE has run 51.6079 to 54.64 in the first fourteen minutes and a limit at the offer would be buying the top tick of a vertical. Target 65.05 (+20%), stop 49.87 (-8%, seven cents above the 9/2 session low of 49.80), time stop the 2026-09-10 bell. FIVE INVALIDATIONS, FOUR OF THEM CLOSING TESTS: close below 51.83 (the 9/2 pre-print close, ALREADY pierced intraday at 51.6079 in the 13:31Z minute and reclaimed inside that minute - recorded in advance so no later run reads the wick as new); close below 51.6079; close below 50.29 (the midpoint of the 45.70-54.88 reaction bar); a TRADE below 49.87; or still open into 2026-09-10, closed at that bell ahead of the ORCL print regardless of price. An hourly seeing any of the first four kills or exits by APPENDING, never by editing, and never by re-striking the level higher.",
+      "why": "The reaction bar is the entire argument and it is checkable: 9/3 opened 47.60, low 45.70, high 54.88, CLOSE 54.44 on 72,139,283 shares against a 19-30M base - sold 11.8% below a 51.83 pre-print close and bought all the way back. That is the exact inverse of the GTLB, SAIC, NTNX and OLLI round trips this board refused this week, and it is graded on the same test rather than a friendlier one. The closing-basis invalidations are the deliberate adoption of yesterday's MDT lesson at the only place the rulebook permits it - the next entry's list, written before the fact."
+    },
+    {
+      "setup": "NTAP - THE RUNNER-UP, kept as a watch rather than a candidate because it lost this morning's comparison on arithmetic and could win it back on a pullback.",
+      "state": "watch",
+      "level": 187.45,
+      "trigger": "THE LEVEL IS ITS 9/3 REACTION-BAR HIGH AND THE TEST IS THAT IT COMES BACK UNDER IT WITHOUT LOSING 180.77. NTAP quotes 187.25 bid / 188.00 ask at 2026-09-04T13:44:47.806891155Z, +1.30% against a 185.38 close, ABOVE its own 187.45 reaction-bar high - which is what disqualified it today: that is a breakout being bought, and the setup this rulebook names is the pullback. It is refused a second time on size, since the two shares that fit under the 40% ceiling are 37.1% of the account against seven HPE shares at 37.53%, the same money at a third of the granularity, on a 0.377% spread against 0.055%. NOT ACTIONABLE WHILE HPE IS OPEN IN ANY CASE: both are enterprise IT hardware, the mandate's ceiling is two positions and the rulebook's is two names in one complex, so a second entry here would be one position at twice the size paying two spreads.",
+      "why": "Recorded so that tomorrow's run can see this was a close call decided on granularity and spread rather than on thesis, and can reverse it on evidence rather than re-deriving it from scratch. NTAP's reversal was LARGER than HPE's - it gapped to 161.00 against a 180.77 line and closed 185.38 - and if HPE's specification dies today unexecuted, NTAP is the first name to re-examine."
+    },
+    {
+      "setup": "THE NINE-NAME REACTION CLUSTER pre-registered here yesterday evening - ZS, DOCU, LULU, PATH, IOT, ASAN, GWRE, AMBA and PL. THE TEST WAS APPLIED THIS MORNING AND ALL NINE WERE REFUSED.",
       "state": "dead",
       "level": null,
-      "trigger": "DEAD BY WITHDRAWAL, NOT BY EXPIRY, AND THE LEVEL IS NOT RE-STRUCK FOR TOMORROW. The 09:47 buy of 4 MDT at a 92.01 limit was killed by the 10:21 hourly on two of its own five published invalidations, five hours before its 15:30 fuse. RE-QUOTED LIVE AT THE CLOSE: MDT 92.85 bid / 92.87 ask at 2026-09-03T19:35:34.631575212Z, last 92.86, +0.738% against a 92.18 settled close, on a 0.02 spread that is 0.022% of mark. THE COUNTERFACTUAL HAS REVERSED BACK TO ITS HIGH WATER MARK - 1.72 a share, 6.88 on four against the 91.13 offer live at the withdrawal, +1.887% on the 364.52 it would have cost and +0.680% of the account - EQUALLING the 6.88 peak set around 13:35 ET and undoing two consecutive hours of narrowing at 6.04 and 5.56. So the kill is at its most expensive reading of the day at the moment the session ends, and that is published rather than smoothed. THE KILL STILL STANDS on the one ground that has not moved since 10:21: invalidation one fired on a trade below 91.47 and a 90.965 print is permanent. Both shelf closes at 92.04 and 92.18 remain reclaimed and MDT closes near its session high, so the false-break reading is the strongest it has been all day and is still refused - a published invalidation that fired is not reclassified after the price recovers, which is a widened stop wearing a different name. If the trigger was too tight, the fix belongs in the NEXT entry's invalidation list, written before the fact. Next MDT earnings 2026-11-17, ten weeks past any five-session stop, so no straddle is owed and no option no-fly applies.",
-      "why": "Kept as a dead row rather than deleted because the disposition, not the entry, is what the record has to be able to grade. This board withdrew a specification at 10:21 and then watched the name close near its high; the honest version of that is a row that carries the cost of the decision at its worst reading, not a row that quietly disappears at the bell."
-    },
-    {
-      "setup": "TOMORROW'S OPEN - the nine-name post-earnings cluster reporting after tonight's close: ZS, DOCU, LULU, PATH, IOT, ASAN, GWRE, AMBA and PL. PRE-REGISTERED NOW, WHILE NOTHING IS AT STAKE.",
-      "state": "wait",
-      "level": null,
-      "trigger": "LEVEL IS NULL BECAUSE IT IS NINE DIFFERENT NUMBERS, ONE PER NAME, AND NONE OF THEM EXISTS YET: each name's line is its own pre-print close, which is tonight's 9/3 settled close, and a settled close is not quotable until the session settles. Pulling nine closes now and calling them levels would be inventing numbers this run did not have. TOMORROW'S OPEN READS THEM OFF THE TAPE AND WRITES THEM DOWN. THE RULE ITSELF NEEDS NO NUMBER TO BE BINDING: none of these is bought on its reaction bar, however good the print is. The entry is the day-2 or day-3 pullback that HOLDS its pre-print close; a name sitting below that line is refused. Item 2 governs in the same breath - a name up 8% on the gap is a wait signal, not a buy signal. Any of these that is also an enterprise-software or database name meets the ORCL row's branch one on top of this: a five-session time stop from tomorrow lands on or after 2026-09-10, when ORCL and ADBE both report, so it is refused unless the run opening it writes down AT ENTRY that it will be closed before that print.",
-      "why": "Written the evening before rather than the morning of, because a pre-commitment made on the morning it binds is not a pre-commitment. This exact test has now been applied repeatedly and honoured every time: SAIC lost its 125.96 line and was refused twice, NTNX the same, OLLI was pre-registered on 9/2 and refused on 9/3 for sitting below both its 72.34 line and its own reaction-bar low, and MDT held 1.53% above its line and was the one bought. Today is itself the argument for pre-registration - MDT felt like three different things in three hours, and the only thing that survived the session unchanged was the invalidation written down before the fact."
+      "trigger": "RESOLVED, NOT PENDING. The rule written before any number was known was that none of these is bought on its reaction bar, however good the print. Today is that bar for all nine and all nine are refused, unargued: GWRE -19.8%, PATH -17.7%, LULU -17.5%, ASAN -14.5%, AMBA -7.9%, ZS -3.6%, DOCU -1.9%, PL +0.3%, IOT +8.8%, each measured on the bid against its 9/3 settled close. IOT IS THE ONE THAT COST SOMETHING: +8.8% is the largest gain in the group and item 2 refuses it by name as the definitional wait signal rather than a buy. Any of these becomes eligible again only as a day-2 or day-3 pullback that HOLDS its 9/3 pre-print close, which is 177.80 for ZS, 65.97 DOCU, 121.77 LULU, 18.22 PATH, 38.75 IOT, 10.09 ASAN, 202.86 GWRE, 63.38 AMBA and 18.35 PL - all nine now quotable settled closes rather than the numbers that did not exist when this row was written.",
+      "why": "Kept as a dead row rather than deleted because the value of a pre-commitment is only visible when the record shows it was honoured on a morning when it bound. It bound on IOT. The nine lines are carried forward so the 9/8 and 9/9 opens inherit them as numbers instead of re-deriving them."
     }
   ],
-  "candidatesAsOf": "2026-09-03 15:35 ET for MDT, ORCL and ADBE, each re-quoted live this run with its venue timestamp carried. Every other row is INHERITED from earlier runs today and is labelled as such rather than presented as current - the pre-close re-quotes what it must decide against and does not refresh a screen it is not acting on.",
-  "candidatesNote": "THE BOOK IS FLAT INTO THE BELL AND NO ROW HERE IS A PROPOSAL. This slot may not open a position in the last thirty minutes, the daily entry mandate binds the OPEN and was discharged at 09:47, so every row below is a watch rather than a candidate. THREE WERE RE-QUOTED LIVE. MDT because the kill is this board's open question and the counterfactual reversed back to its 6.88 high water mark at the close. ORCL because the moves.json prune requires a live spot and the carried 148.33 was stale by 7.12 - it is 155.45 bid, +6.655%, on a sector-wide enterprise-software re-rating after SNOW printed product revenue up 37% and ran 21.9% and Waller signalled support for a September rate hold, with NOW +6.0%, PLTR +8.3%, CRWD +4.5% and CRM +4.0%. ADBE because it shares the ORCL row's 9/10 date and one branch, and it moved the OTHER way - 285.59 bid, +2.074%, LOWER than the 289.06 recorded this morning. Both names on one branch are updated rather than only the one that moved as the row expected. NINE NAMES REPORT AFTER TONIGHT'S CLOSE - ZS, DOCU, LULU, PATH, IOT, ASAN, GWRE, AMBA and PL - and the rule that governs them at tomorrow's open is pre-registered in entryWatch rather than improvised in the morning: none is bought on its reaction bar, the entry is the day-2 or day-3 pullback that holds its pre-print close.",
+  "candidatesAsOf": "2026-09-04 09:41-09:45 ET. Every row below was re-quoted LIVE this run against the tape with its venue timestamp carried - no row is inherited from yesterday, because the entire screen turned over: six names moved from reaction bar to day 2, five from day 2 to day 3, and nine new reporters printed after last night's close.",
+  "candidatesNote": "THE ENTRY IS HPE AND IT IS CLEAN. Seven shares at a 54.21 limit, all six checklist items logged with none marked fail, item 3 'na' because HPE reported 9/2 pm and appears nowhere in a fourteen-day high-market-cap earnings calendar pulled live this run - so no straddle is owed and no no-fly window exists. THE SELECTION TEST WAS THE ONE PRE-REGISTERED YESTERDAY: a day-2 or day-3 pullback that HOLDS its pre-print close. Of the six 9/2-pm reporters now on day 2, HPE, NTAP, SNOW and PVH hold their lines and AVGO and FIVE do not. SNOW is refused by item 2 on a +20.2% reaction bar, PVH on the widest spread in the group, and NTAP loses to HPE on extension, granularity and spread rather than on thesis. All nine of last night's reporters are on their reaction bar and all nine are refused by the rule written for them before any of their numbers existed. THE BROAD TAPE IS SOFT AND IT IS A NAMED NEGATIVE, NOT AN OMISSION: SPY 771.99 bid, -0.153% against a 773.17 settled close, so this entry is being made into a red index rather than with it.",
   "candidates": [
     {
-      "sym": "MDT",
-      "last": 92.86,
-      "bid": 92.85,
-      "earnings": "9/1 before",
-      "flag": "watch",
-      "note": "THE WITHDRAWN SPECIFICATION, RE-QUOTED AT THE BELL, AND THE COUNTERFACTUAL REVERSED BACK TO ITS WORST. 92.85 bid / 92.87 ask at 2026-09-03T19:35:34.631575212Z, last 92.86 at 19:35:32.052Z, +0.738% against a 92.18 settled close, on a 0.02 spread that is 0.022% of mark. THE KILL IS NOW 1.72 A SHARE, 6.88 ON FOUR against the 91.13 offer live at the withdrawal, +1.887% on the 364.52 it would have cost and +0.680% of the account - UP from 5.56 at 15:21 and 6.04 at 14:21, and EQUAL to the 6.88 high water mark set on the 92.85 print around 13:35 ET. Two consecutive hours of reported narrowing are undone in the final hour, which makes this the FOURTH straight hour in which the previous hour's headline reversed on the next quote, and it is published for the same reason the narrowing was. Both shelf closes at 92.04 and 92.18 are STILL RECLAIMED and MDT closes near the top of its session range, so the false-break case against this board's own kill is at its strongest exactly when the session ends - and the kill stands anyway, because invalidation one fired on a 90.965 print and that does not un-print. The 92.01 limit IS NOT RE-STRUCK, neither for the close nor for tomorrow: dead by withdrawal, not by distance. NEXT EARNINGS 2026-11-17, so no straddle is owed and no option no-fly applies; options remain refused on spread at 33.5% to 64.7% of mark on the five contracts quoted at the open."
-    },
-    {
-      "sym": "XLV",
-      "last": 173.1,
-      "bid": 173.09,
-      "earnings": "not applicable",
-      "flag": "watch",
-      "note": "THE SECTOR LEG OF THE WITHDRAWN THESIS, RE-QUOTED, AND THIS IS THE ROW THAT WEAKENS LAST HOUR'S ARGUMENT. 173.09 bid / 173.11 ask at 2026-09-03T19:22:15.91248181Z, +0.081% against a 172.95 settled close, marginally firmer than the +0.069% at 14:21. Invalidation four, MDT's session return falling below XLV's, remains UN-FIRED - but the edge has NARROWED to 0.288 points from 0.43 and from 0.463 at 13:21, three consecutive hours of compression. It could not resurrect the specification in any case: invalidation one fired on a permanent print and one un-firing leg does not undo it. Recorded because the 14:21 run cited the sector comparison as evidence MDT's edge was name-specific, and on the next quote that evidence is weaker rather than stronger."
-    },
-    {
-      "sym": "SPY",
-      "last": 773.425,
-      "bid": 773.42,
-      "earnings": "not applicable",
-      "flag": "watch",
-      "note": "BROAD TAPE, for context only - no position, no candidacy. 773.42 bid at 2026-09-03T19:22:15.054748939Z, +1.080% against a 765.16 settled close. Healthcare is still the laggard: XLV +0.081% against SPY +1.080% is a 1.00-point sector drag, essentially unchanged from 1.05 an hour ago, so MDT's +0.369% is still being produced against a sector the index is leaving behind - a named negative for a long medtech entry at the open, and still one."
-    },
-    {
-      "sym": "SAIC",
-      "last": 126.395,
-      "bid": 126.26,
-      "earnings": "8/31 before",
-      "flag": "watch",
-      "note": "THE CONTROL CASE, AND IT HAS TAKEN THE LINE BACK - WHICH DIRECTLY REVERSES LAST HOUR'S HEADLINE ON THIS ROW. 126.26 bid / 126.61 ask at 2026-09-03T19:21:25.749133946Z, last 126.395 at 19:21:53.351609849Z, -0.723% on the bid against a 127.18 settled close, against -1.117% an hour ago. The 125.96 pre-print line is RECLAIMED ON THE BID, having been broken on the bid at 125.76 at 14:21 and reported here as broken. The spread has tightened back to 0.35, 0.277% of mark, from 0.508%. Written this way on purpose: the 14:21 note led with SAIC losing the line, and one hour later that is no longer true, so the row is corrected with the same prominence it was asserted with. The wider point is the one in candidatesNote - forty-minute swings of half a percent do not each deserve a headline. Carried because SAIC is the round-trip failure MDT was measured against at the open, and the gap between them is 1.09 points of session return today, narrowed from 1.62."
-    },
-    {
-      "sym": "SYK",
-      "last": 309.22,
-      "bid": 309.16,
-      "earnings": "not this window",
-      "flag": "watch",
-      "note": "MEDTECH PEER, re-quoted. 309.16 bid at 2026-09-03T19:22:04.216283334Z, -0.971% against a 312.19 close - BETTER than the -1.227% at 14:21, not worse. Second of five. This is one of the two rows that break last hour's 'all four worse' claim."
-    },
-    {
-      "sym": "ZBH",
-      "last": 99.2,
-      "bid": 99.13,
-      "earnings": "not this window",
-      "flag": "watch",
-      "note": "MEDTECH PEER, re-quoted. 99.13 bid at 2026-09-03T19:22:14.681610976Z, -0.372% against a 99.50 close - BETTER than the -0.663% at 14:21, and the strongest of the four peers. Third of five, and the second row that breaks last hour's 'all four worse' claim."
-    },
-    {
-      "sym": "BSX",
-      "last": 46.93,
-      "bid": 46.92,
-      "earnings": "not this window",
-      "flag": "watch",
-      "note": "MEDTECH PEER, re-quoted. 46.92 bid at 2026-09-03T19:22:14.919484188Z, -2.998% against a 48.37 close, WORSE than -2.357% at 14:21 and by some distance the weakest of the five. The one peer for which last hour's claim still holds."
-    },
-    {
-      "sym": "ABT",
-      "last": 108.445,
-      "bid": 108.44,
-      "earnings": "not this window",
-      "flag": "watch",
-      "note": "MEDTECH PEER, re-quoted. 108.44 bid at 2026-09-03T19:22:14.954240059Z, -1.838% against a 110.47 close, effectively unchanged from -1.829% at 14:21. Fourth of five. Neither better nor worse, which is why the peer group this hour reads mixed rather than uniformly deteriorating."
-    },
-    {
-      "sym": "OLLI",
-      "last": 71.1988,
-      "bid": 71.11,
-      "earnings": "9/2 before",
-      "flag": "nofly",
-      "note": "THE PRE-REGISTERED CANDIDATE, AND IT FAILED THE TEST WRITTEN FOR IT YESTERDAY. 71.11 bid / 71.37 ask at 2026-09-03T13:42:46.561401548Z, last 71.1988, -3.62% against a 73.87 settled close. It is BELOW its 72.34 pre-print close and BELOW the 73.02 low of its own reaction bar - the completed round trip, on day 2. The reaction bar opened 76.00, ran 78.69 and closed 73.87 on 4,832,306 shares against roughly 1.2M typical. The 22.4% beat, 1.42 against 1.16, is not in question; the structure is, and it failed. This is the SAIC and NTNX shape and it is refused on exactly the ground MDT passes."
-    },
-    {
-      "sym": "SNOW",
-      "last": 367.76,
-      "bid": 367.15,
-      "earnings": "9/2 after",
-      "flag": "nofly",
-      "note": "367.15 bid / 368.99 ask at 2026-09-03T13:42:49.888694398Z, +20.2% against a 305.84 settled close, on a 0.62 against 0.26 beat. THE LARGEST REACTION IN THE SCREEN and refused flat by item 2 - a +20% reaction bar is the definitional wait signal, not a buy. Worth the 9/4 and 9/8 opens' attention if it builds a shelf above 305.84."
-    },
-    {
-      "sym": "AVGO",
-      "last": 346.395,
-      "bid": 346.34,
-      "earnings": "9/2 after",
-      "flag": "nofly",
-      "note": "346.34 bid / 346.45 ask at 2026-09-03T13:42:50.001996692Z, -5.68% against a 367.24 settled close. THE PRINT HAPPENED AND IT BEAT - 3.32 actual against the 3.16 estimate moves.json carried - AND IT WAS SOLD 5.7%. This is the row moves.json has been built around for six sessions and it is pruned from that file this run, its purpose discharged. Not bought: day one of a break with no shelf anywhere is the NTNX, SAIC and now OLLI refusal."
-    },
-    {
       "sym": "HPE",
-      "last": 49.685,
-      "bid": 49.66,
+      "last": 54.225,
+      "bid": 54.2,
       "earnings": "9/2 after",
-      "flag": "nofly",
-      "note": "49.66 bid / 49.71 ask at 2026-09-03T13:42:51.396865598Z, -4.14% against a 51.83 settled close. A 1.11 against 0.91 beat, 22.0%, sold four percent. Reaction bar, item 2, refused."
+      "flag": "ok",
+      "note": "THE ENTRY. 54.20 bid / 54.23 ask at 2026-09-04T13:45:34.444541546Z, last 54.225, on a 0.03 spread that is 0.055% of mark - the tightest quote in this screen. -0.40% against a 54.44 settled close, so it is BELOW its own reaction-bar close and below the 54.88 reaction-bar high: a pullback on the daily frame. THE 9/3 BAR IS THE THESIS: opened 47.60, low 45.70 (-11.8% against a 51.83 pre-print close), high 54.88, CLOSE 54.44 (+5.03%), on 72,139,283 shares against a 19-30M base. Sold a fifth of the way down on a 19.4% EPS beat and bought all the way back. TODAY IT PIERCED THE 51.83 LINE at 51.6079 in the 13:31Z minute on 198,197 shares and RECLAIMED INSIDE THAT MINUTE, then closed thirteen consecutive minutes higher - the pierce is recorded here in advance so no later run reads it as fresh. Catalyst: EPS 1.11 vs 0.93, revenue 12.21B vs 11.91B and +34% y/y; FY26 EPS raised to 3.75-3.85 from 3.35-3.45 vs 3.43 street; Q4 guided to 1.20-1.30 EPS vs 1.07 and 13.9-14.8B revenue vs 12.96B; networking orders +36%, server orders +75%, normalized orders +42%, AI backlog ~7B, a post-quarter multibillion-dollar hyperscaler server deal, FY27 revenue growth 13-17% and >=5B FCF. The bear case is margin mix and supply, and the sell-side is genuinely split - BofA 88 and Barclays 79 against Morgan Stanley 67, UBS 59 and Susquehanna 62, mean 69.05."
     },
     {
       "sym": "NTAP",
-      "last": 178,
-      "bid": 177.7,
+      "last": 187.625,
+      "bid": 187.25,
+      "earnings": "9/2 after",
+      "flag": "watch",
+      "note": "THE RUNNER-UP AND THE CLOSEST CALL OF THE MORNING. 187.25 bid / 188.00 ask at 2026-09-04T13:44:47.806891155Z, +1.30% against a 185.38 close, on a 0.75 spread that is 0.377% of mark. Its 9/3 reversal was LARGER than HPE's - opened 161.95, low 161.00 against a 180.77 pre-print close, closed 185.38, +2.55% - and it holds its line comfortably. REFUSED ON THREE ARITHMETIC GROUNDS, none of them a view: it is EXTENDING rather than pulling back, and at 187.79 earlier it traded ABOVE its own 187.45 reaction-bar high, which is a breakout being bought; the two shares that fit under the 40% ceiling are 37.1% of the account against seven HPE shares at 37.53%, identical money at a third of the exit granularity; and the spread is seven times HPE's. Same complex as HPE, so not openable alongside it in any case."
+    },
+    {
+      "sym": "SNOW",
+      "last": 349.5,
+      "bid": 349.01,
       "earnings": "9/2 after",
       "flag": "nofly",
-      "note": "177.70 bid / 178.00 ask at 2026-09-03T13:42:50.577671975Z, -1.53% against a 180.77 settled close. A 2.58 against 2.04 beat, 26.5%, sold. Reaction bar, refused. With HPE above it, both hardware names that printed last night were sold, which is the read-through that clears DELL's complex risk while leaving DELL refused on other grounds."
+      "note": "HOLDS ITS LINE AND IS STILL REFUSED. 349.01 bid / 349.62 ask at 2026-09-04T13:41:55.90603065Z, -2.09% against a 356.47 settled close, and far above its 305.84 pre-print close - so it passes the pre-registered hold test outright. Item 2 refuses it anyway and by name: the 9/3 reaction bar was +20.2% on product revenue up 37% y/y and a raise to 6.07B from 5.84B, which is the definitional wait signal, not a buy. Today's -2.09% is day one of digesting that, not a day-2 pullback into a base. Worth the 9/8 open's attention if it builds a shelf."
+    },
+    {
+      "sym": "AVGO",
+      "last": 358.32,
+      "bid": 358.22,
+      "earnings": "9/2 after",
+      "flag": "nofly",
+      "note": "FAILS THE PRE-REGISTERED HOLD TEST. 358.22 bid at 2026-09-04T13:41:58.481367711Z, +0.297% against a 357.16 close, but BELOW its 367.24 pre-print close by 2.45%. It beat - 3.32 against 3.16 - and was sold 5.68% on the reaction bar; today's small green day is a bounce beneath a broken line, which is the MDB and CRDO shape and the OLLI shape, refused on exactly the ground those were."
     },
     {
       "sym": "FIVE",
-      "last": 244.64,
-      "bid": 244,
+      "last": 242.43,
+      "bid": 241.84,
       "earnings": "9/2 after",
       "flag": "nofly",
-      "note": "244.00 bid / 245.48 ask at 2026-09-03T13:42:28.996951507Z, +0.64% against a 243.08 settled close, on a 0.60% spread. A 1.68 against 1.16 beat - 44.8% - and the stock has barely moved, which is the most interesting non-reaction in the screen. Refused on item 2 as a reaction bar regardless. Note it against OLLI: same discount-consumer complex, and the two beats resolved in opposite directions."
+      "note": "FAILS THE HOLD TEST BY HALF A PERCENT AND IS REFUSED ON IT ANYWAY. 241.84 bid / 243.87 ask at 2026-09-04T13:41:55.192252724Z, +0.78% against a 239.96 close, but BELOW its 243.08 pre-print close by 0.51%. A 44.8% beat, 1.68 against 1.16, and the reaction bar opened 256.995, ran 260.12 and closed 239.96 - a rejected gap, the GTLB shape. The margin is small and the rule is not graded on a curve."
     },
     {
       "sym": "PVH",
-      "last": 74.09,
-      "bid": 73.34,
+      "last": 74.22,
+      "bid": 73.83,
       "earnings": "9/2 after",
+      "flag": "watch",
+      "note": "HOLDS ITS LINE AND LOSES ON QUOTE QUALITY. 73.83 bid / 74.46 ask at 2026-09-04T13:41:39.271941185Z, +1.89% against a 72.46 close and above its 72.29 pre-print close. The 0.63 spread is 0.85% of mark, the widest of the day-2 group and fifteen times HPE's, which on a name this size is the difference between an exit and a negotiation. A 3.70 against 2.62 beat. Third-best of the day-2 set and not close to first."
+    },
+    {
+      "sym": "IOT",
+      "last": 42.21,
+      "bid": 42.16,
+      "earnings": "9/3 after",
       "flag": "nofly",
-      "note": "73.34 bid / 74.39 ask at 2026-09-03T13:42:15.714018738Z, +2.49% against a 72.29 settled close, on a 1.42% spread that is the widest of the liquid names here. A 3.70 against 2.62 beat. Reaction bar, refused."
+      "note": "THE PRE-COMMITMENT THAT ACTUALLY COST SOMETHING TODAY. 42.16 bid / 42.22 ask at 2026-09-04T13:41:57.127539317Z, +8.80% against a 38.75 settled close - the largest gain among last night's nine reporters and the only one meaningfully green. Refused flat, on a rule written into entryWatch YESTERDAY EVENING before this board knew any of these numbers: none of the nine is bought on its reaction bar, and item 2 names the +8% day specifically. Eligible again only as a day-2 or day-3 pullback that holds its 38.75 pre-print close."
+    },
+    {
+      "sym": "GWRE",
+      "last": 163.55,
+      "bid": 162.76,
+      "earnings": "9/3 after",
+      "flag": "nofly",
+      "note": "162.76 bid / 163.91 ask at 2026-09-04T13:41:58.364262786Z, -19.8% against a 202.86 settled close - the worst reaction in the screen. Reaction bar, refused by the pre-registered rule. Pre-print close 202.86 is the line it would have to reclaim."
+    },
+    {
+      "sym": "PATH",
+      "last": 15.0075,
+      "bid": 15,
+      "earnings": "9/3 after",
+      "flag": "nofly",
+      "note": "15.00 bid / 15.01 ask at 2026-09-04T13:41:57.525085207Z, -17.7% against an 18.22 close. Reaction bar, refused. Line 18.22."
+    },
+    {
+      "sym": "LULU",
+      "last": 100.4654,
+      "bid": 100.41,
+      "earnings": "9/3 after",
+      "flag": "nofly",
+      "note": "100.41 bid / 100.56 ask at 2026-09-04T13:41:56.16121458Z, -17.5% against a 121.77 close. Reaction bar, refused. Line 121.77."
+    },
+    {
+      "sym": "ASAN",
+      "last": 8.645,
+      "bid": 8.63,
+      "earnings": "9/3 after",
+      "flag": "nofly",
+      "note": "8.63 bid / 8.65 ask at 2026-09-04T13:41:56.425156416Z, -14.5% against a 10.09 close. Reaction bar, refused. Line 10.09."
+    },
+    {
+      "sym": "AMBA",
+      "last": 58.4,
+      "bid": 58.4,
+      "earnings": "9/3 after",
+      "flag": "nofly",
+      "note": "58.40 bid / 58.56 ask at 2026-09-04T13:41:53.522756697Z, -7.86% against a 63.38 close. Reaction bar, refused. Line 63.38."
+    },
+    {
+      "sym": "ZS",
+      "last": 171.42,
+      "bid": 171.33,
+      "earnings": "9/3 after",
+      "flag": "nofly",
+      "note": "171.33 bid / 171.50 ask at 2026-09-04T13:41:57.846900941Z, -3.64% against a 177.80 close. Reaction bar, refused. Line 177.80. PANW's -9.11% break on 9/2 was the read-through this board flagged for the security complex and it landed."
+    },
+    {
+      "sym": "DOCU",
+      "last": 64.75,
+      "bid": 64.74,
+      "earnings": "9/3 after",
+      "flag": "nofly",
+      "note": "64.74 bid / 64.91 ask at 2026-09-04T13:41:56.296672395Z, -1.86% against a 65.97 close - the mildest reaction of the nine. Reaction bar, refused. Line 65.97."
+    },
+    {
+      "sym": "PL",
+      "last": 18.44,
+      "bid": 18.41,
+      "earnings": "9/3 after",
+      "flag": "nofly",
+      "note": "18.41 bid / 18.45 ask at 2026-09-04T13:41:56.967817904Z, +0.33% against an 18.35 close. Reaction bar, refused. Line 18.35. It fell 8.3% on 9/3 BEFORE printing, which the tape read as pre-print positioning."
+    },
+    {
+      "sym": "MDT",
+      "last": 93.265,
+      "bid": 93.22,
+      "earnings": "9/1 before",
+      "flag": "watch",
+      "note": "YESTERDAY'S WITHDRAWN SPECIFICATION, RE-QUOTED ONCE AND THEN LEFT ALONE. 93.22 bid / 93.30 ask at 2026-09-04T13:41:57.263953743Z, +0.129% against a 93.10 settled close. Against the 91.13 offer live at the 10:21 withdrawal that is 2.09 a share, 8.36 on four - PAST the 7.92 the retro priced at last night's bell, so the kill keeps getting more expensive and is published that way for the sixth consecutive reading. THE LEVEL IS NOT RE-STRUCK AND MDT IS NOT RE-ENTERED: today is day 4 from its 9/1 print, outside the day-2/3 window entirely, so the refusal has moved from price to the calendar exactly as DG's did. Carried as a watch only so the retro can keep pricing the decision."
     },
     {
       "sym": "DELL",
-      "last": 499.6,
-      "bid": 499.2,
+      "last": 524.794,
+      "bid": 523.01,
       "earnings": "9/1 after",
       "flag": "nofly",
-      "note": "499.20 bid / 500.00 ask at 2026-09-03T13:42:50.623482394Z, +1.50% against a 492.20 settled close. REFUSED TWICE AND THE SECOND IS ARITHMETIC: it is EXTENDING after a +15.8% reaction bar rather than pulling back, which is the chase the rulebook lists under does-not-fit; and ONE SINGLE SHARE IS 49.4% OF THE ACCOUNT, over the 40% single-name ceiling, so the smallest position that exists cannot be bought. A 44.3% beat, 7.04 against 4.88, and none of it matters. Its complex risk actually CLEARED overnight - HPE and NTAP have now printed - which is the one thing that improved and the one thing that changes nothing."
-    },
-    {
-      "sym": "GTLB",
-      "last": 49.77,
-      "bid": 49.7,
-      "earnings": "9/1 after",
-      "flag": "nofly",
-      "note": "49.70 bid / 49.82 ask at 2026-09-03T13:42:50.309120199Z, +0.36% against a 49.59 settled close, on a tight 0.24% spread. A REJECTED GAP RATHER THAN A SHELF: the reaction bar opened 55.20, ran 55.55 and CLOSED 49.59, just 0.48 off its own 49.1101 low, on 28,993,570 shares. A gap sold from first print to last leaves nothing for a day 2 to pull back from - the contrast with MDT's 9/1 bar, which faded from 95.41 to 92.04 and still closed 1.53% ABOVE its pre-print close, is the whole distinction. Refused independently on the complex: ZS, DOCU, PATH, IOT, ASAN, GWRE and AMBA all print TONIGHT."
+      "note": "523.01 bid / 525.99 ask at 2026-09-04T13:41:57.061484099Z, +1.28% against a 516.39 close and still extending, now +6.5% above its 492.20 pre-print close. Refused for the third day on the same arithmetic that needs no thesis: ONE SHARE IS 51.7% OF THE ACCOUNT, over the 40% single-name ceiling, so the smallest position that exists cannot be bought. The 44.3% beat remains irrelevant to that."
     },
     {
       "sym": "MDB",
-      "last": 388.8699,
-      "bid": 387.94,
+      "last": 366.24,
+      "bid": 366.22,
       "earnings": "9/1 after",
       "flag": "nofly",
-      "note": "387.94 bid / 388.72 ask at 2026-09-03T13:42:50.433056708Z, +3.59% against a 375.40 settled close. A bounce off a -14.33% crush, not a day-2 pullback after strength - one green day following a beat sold hard is not a shelf, which is the same refusal this row carried yesterday. SNOW printed last night and ZS and DOCU print tonight, all database and enterprise software."
+      "note": "366.22 bid at 2026-09-04T13:41:57.742534505Z, -4.74% against a 384.45 close. Day 3 from its print and giving back the bounce off its -14.33% crush - which is what a bounce off a crush usually does, and is why this board refused it on 9/3 and 9/4 both. Refused as no-shelf."
     },
     {
-      "sym": "CRDO",
-      "last": 167.96,
-      "bid": 168,
+      "sym": "GTLB",
+      "last": 48.21,
+      "bid": 48.08,
       "earnings": "9/1 after",
       "flag": "nofly",
-      "note": "168.00 bid / 168.20 ask at 2026-09-03T13:42:49.613534498Z, +1.66% against a 165.22 settled close. A bounce off a -13.79% crush. Refused as no-shelf, and the semiconductor complex it sits in just watched AVGO beat and fall 5.68% this morning, so the read-through is negative rather than absent."
+      "note": "48.08 bid / 48.21 ask at 2026-09-04T13:41:57.610987837Z, -2.49% against a 49.31 close and now BELOW its 49.59 reaction-bar close. The rejected gap that opened 55.20, ran 55.55 and closed 49.59 continues to be rejected. It is the control case for HPE: same week, same enterprise complex, opposite bar, opposite verdict, and the two are graded on one test."
     },
     {
-      "sym": "PANW",
-      "last": 325.72,
-      "bid": 325.42,
-      "earnings": "9/1 after",
-      "flag": "nofly",
-      "note": "325.42 bid / 326.02 ask at 2026-09-03T13:42:49.905611427Z, -0.84% against a 328.48 settled close. Day 2 of a -9.11% break and still going down. A 15.9% beat sold nine percent remains the cleanest item-5 failure on this week's tape, and it is somebody else's. ZS prints tonight into the same security complex."
-    },
-    {
-      "sym": "DG",
-      "last": 131.925,
-      "bid": 131.56,
-      "earnings": "8/27 before",
+      "sym": "SAIC",
+      "last": 125.785,
+      "bid": 125.33,
+      "earnings": "8/31 before",
       "flag": "watch",
-      "note": "131.56 bid / 131.94 ask at 2026-09-03T13:42:49.877246204Z, +0.79% against a 130.89 settled close. Five sessions past its print and outside the day-2/3 window entirely, so the dead 128.40 limit is not re-struck for a sixth time - and the reason has shifted from price to the calendar. The reclaim thesis was right and this board still does not own it, which remains the honest summary."
+      "note": "THE STANDING CONTROL CASE HAS LOST ITS LINE AGAIN, THIS TIME ON THE LAST TRADE AS WELL AS THE BID. 125.33 bid / 126.34 ask at 2026-09-04T13:41:40.009181618Z, last 125.785, -0.92% against a 126.50 close, both figures BELOW the 125.96 pre-print close it reclaimed yesterday. The round trip is back on, on a 1.01 spread that is 0.80% of mark. Carried because it is the failure shape HPE is being measured against, and it is failing again today while HPE holds."
     },
     {
-      "sym": "BOX",
-      "last": 35.35,
-      "bid": 35.29,
-      "earnings": "8/25 after",
-      "flag": "nofly",
-      "note": "35.29 bid / 35.38 ask at 2026-09-03T13:42:50.309200713Z, +2.20% against a 34.59 settled close. The dead 34.50 limit is now BELOW the market again after one session of being nearly at it. Refused for the fifteenth time, and now on two grounds that both bind: seven sessions past its print is outside the window, and ZS and DOCU print tonight into its complex."
-    },
-    {
-      "sym": "SMTC",
-      "last": 128.36,
-      "bid": 128.26,
-      "earnings": "8/25 after",
-      "flag": "nofly",
-      "note": "128.26 bid / 129.14 ask at 2026-09-03T13:42:44.374407372Z, -4.10% against a 133.85 settled close, taking the AVGO read-through. THE 8/27 REFUSAL TO RE-STRIKE 138.50 UP TO 144.20 IS NOW WORTH 10.24 A SHARE OR 8.0% - down from 8.4% yesterday and 13.3% the day before, so the scoreboard has moved against the rule for a second consecutive session and is recorded that way both times."
+      "sym": "SPY",
+      "last": 772.02,
+      "bid": 771.99,
+      "earnings": "not applicable",
+      "flag": "watch",
+      "note": "BROAD TAPE, context only, and it is a NAMED NEGATIVE for today's entry rather than an omission. 771.99 bid at 2026-09-04T13:44:47.41845555Z, -0.153% against a 773.17 settled close. HPE at -0.40% is roughly in line with a soft index rather than being carried by a strong one, so nothing in this entry is index beta wearing a thesis."
     },
     {
       "sym": "ORCL",
-      "last": 155.49,
-      "bid": 155.45,
+      "last": 158.8691,
+      "bid": 158.73,
       "earnings": "9/10 after",
       "flag": "nofly",
-      "note": "RE-QUOTED LIVE BY THE PRE-CLOSE BECAUSE THE MOVES PRUNE REQUIRES IT, AND THE CARRIED SPOT WAS BADLY STALE. 155.45 bid / 155.52 ask at 2026-09-03T19:35:35.566768832Z, last 155.49, +6.655% on the bid against a 145.75 settled close, on a 0.07 spread that is 0.045% of mark. The moves.json row carried 148.33 from 13:49:50Z this morning - STALE BY 7.12, or 4.58% low - which is the reference-price error the prune step exists to catch, caught before any implied range was computed against it. THE MOVE IS SECTOR-WIDE AND NOT AN ORCL DISCLOSURE: SNOW printed product revenue up 37% year over year after Wednesday's close and ran 21.9%, Waller signalled he could support a September rate hold, and the enterprise-software complex re-rated together - NOW +6.0%, PLTR +8.3%, CRWD +4.5%, CRM +4.0%. STAYS NOFLY AND THE FLAG IS NOW OVERDETERMINED: it reports 2026-09-10 after the close, so a five-session stop from any entry between now and then carries through the print, AND the complex is extended on a one-day sector re-rating, which is item 2's spike rather than a pullback. Both halves of the moves row's branch one are true at once."
+      "note": "RE-QUOTED BECAUSE IT NOW BEARS ON AN OPEN SPECIFICATION RATHER THAN ONLY ON moves.json. 158.73 bid / 158.91 ask at 2026-09-04T13:41:56.216370787Z, +3.05% against a 154.04 close, extending yesterday's +6.655% sector re-rating for a second session. STAYS NOFLY FOR ITSELF - it reports 2026-09-10 pm - AND IT IS WHY THE HPE TIME STOP WAS SHORTENED TO FOUR SESSIONS: HPE's Q3 release names an expanded Oracle collaboration and quotes an Oracle Cloud Infrastructure executive, so a fifth session would carry the HPE position through ORCL's print. That is written into the specification at entry rather than discovered on 9/10."
     },
     {
       "sym": "ADBE",
-      "last": 285.67,
-      "bid": 285.59,
+      "last": 266.03,
+      "bid": 266.02,
       "earnings": "9/10 after",
       "flag": "nofly",
-      "note": "RE-QUOTED LIVE BY THE PRE-CLOSE AND ADDED AS A ROW because it shares the ORCL moves row's 2026-09-10 date and its branch, and this board should not refresh only the name on that branch that moved the way it expected. 285.59 bid / 285.73 ask at 2026-09-03T19:35:33.394415543Z, last 285.67, +2.074% against a 279.79 settled close, on a 0.14 spread that is 0.049% of mark. IT MOVED THE OTHER WAY FROM ORCL: this is LOWER than the 289.06 recorded on the moves row this morning, while ORCL ran +6.655%, so the enterprise-software re-rating was not uniform and the row's two names diverged on the same day. NOFLY: fiscal Q3 2026 reports 2026-09-10 pm, verified true, estimate 5.83, so a five-session time stop from any entry between now and then carries through the print, which the rulebook refuses for an option outright and permits for equity only if the run writes down AT ENTRY that it closes before the print."
+      "note": "THE OTHER NAME ON THE moves.json 9/10 BRANCH AND IT HAS BROKEN HARD. 266.02 bid / 266.38 ask at 2026-09-04T13:41:57.832587382Z, -6.90% against a 285.75 settled close, after already closing lower than yesterday morning's 289.06. So the two names on one branch have now diverged for a second consecutive session and in the same directions - ORCL +3.05%, ADBE -6.90% - which says the 9/3 enterprise-software re-rating was never uniform. Updated because this board refreshes the name that moved against the row as readily as the one that moved with it. Reports 2026-09-10 pm, estimate 5.84."
     }
   ],
-  "verifiedAt": "2026-09-03 15:35 ET"
+  "verifiedAt": "2026-09-04 09:45 ET"
 }
