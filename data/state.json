@@ -1,6 +1,6 @@
 {
   "_comment": "Written by the trading runs (9:30a / hourly / 3:30p ET). Never contains account numbers, broker IDs, or any account other than the sandbox.",
-  "lastRefreshUtc": "2026-09-07T13:40:34Z",
+  "lastRefreshUtc": "2026-09-07T17:21:01Z",
   "accountLabel": "Sandbox account",
   "account": {
     "total": 1011.15,
@@ -8,8 +8,8 @@
     "deployable": 1011.15,
     "unsettled": 0,
     "settlesOn": "nothing pending",
-    "verifiedAt": "2026-09-07 09:40 ET",
-    "note": "RE-PULLED LIVE AT 09:40 ET ON A CLOSED MARKET (2026-09-07 is Labor Day) against the mandated account after a fresh scope preflight that matched the mandate identifier EXACTLY AS A STRING against the connector list - one match, agentic-permitted, type cash; no first-account default, no nickname match, no balance heuristic. Every other account was discarded unread and none is summarised, totalled or mentioned in this file, in runs.json, in why.json, in the commit message or in the operator report. Portfolio and both position lists were queried live and all returned first time: 1011.15 total against 1011.15 cash, buying power 1011.15, equity_value 0, options_value 0, futures 0, crypto 0, pending_deposits 0, unsettled 0.0000. THE TWENTY-EIGHTH CONSECUTIVE IDENTICAL READ, unchanged from the 9/4 11:22 hourly and from the 9/3 close. Balances are live and current: a holiday closes the quote feed, not the account endpoints, and these came back first time. NO SPECIFICATION IS OPEN - the 9/4 HPE 54.21 entry expired unexecuted at its 15:30 fuse on Friday - so the full 1011.15 is uncommitted and nothing is claimed against settled cash. The 1.99 credit first flagged by the 9/1 open remains STABLE and remains FLAGGED rather than explained; this run found no endpoint asserting a cause and does not assert one. BOTH POSITION LISTS ARE EMPTY, so no +20% target, no -8% equity stop, no -40% option stop, no ~5 session time stop and NO OPTION NO-FLY WINDOW was reachable - each tested live rather than inherited."
+    "verifiedAt": "2026-09-07 13:21 ET",
+    "note": "RE-PULLED LIVE AT 13:21 ET ON A CLOSED MARKET (2026-09-07 is Labor Day) against the mandated account after a fresh scope preflight that matched the mandate identifier EXACTLY AS A STRING against the connector list - one match, agentic-permitted, type cash; no first-account default, no nickname match, no balance heuristic. Every other account was discarded unread and none is summarised, totalled or mentioned in this file, in runs.json, in why.json, in the commit message or in the operator report. Portfolio and both position lists were queried live and all returned first time: 1011.15 total against 1011.15 cash, buying power 1011.15, equity_value 0, options_value 0, futures 0, crypto 0, pending_deposits 0, unsettled 0.0000. THE THIRTY-SECOND CONSECUTIVE IDENTICAL READ, unchanged from the 9/4 11:22 hourly and from the 9/3 close. Balances are live and current: a holiday closes the quote feed, not the account endpoints, and these came back first time. THIS FIELD IS THE ONE THING THIS RUN REPAIRED. It had read 09:40 ET since this morning's open while the 10:21, 11:21 and 12:21 hourlies each verified the same numbers live and left it untouched, so the public page understated how recently the board had checked by up to three hours and forty-one minutes - the opposite direction from the usual staleness failure, but a page saying 09:40 at 13:21 is still telling a reader something untrue about when it last looked. The board's own convention refreshes it hourly, as the 9/3 15:21 and the 9/4 10:22 and 11:22 rows did. NO SPECIFICATION IS OPEN - the 9/4 HPE 54.21 entry expired unexecuted at its 15:30 fuse on Friday - so the full 1011.15 is uncommitted and nothing is claimed against settled cash. The 1.99 credit first flagged by the 9/1 open remains STABLE and remains FLAGGED rather than explained; this run found no endpoint asserting a cause and does not assert one. BOTH POSITION LISTS ARE EMPTY, so no +20% target, no -8% equity stop, no -40% option stop, no ~5 session time stop and NO OPTION NO-FLY WINDOW was reachable - each tested against the live 13:21 lists rather than inherited."
   },
   "positions": [],
   "entryWatch": [
@@ -223,5 +223,5 @@
       "note": "THE OTHER NAME ON THE moves.json 9/10 BRANCH AND IT HAS BROKEN HARD. 266.02 bid / 266.38 ask at 2026-09-04T13:41:57.832587382Z, -6.90% against a 285.75 settled close, after already closing lower than yesterday morning's 289.06. So the two names on one branch have now diverged for a second consecutive session and in the same directions - ORCL +3.05%, ADBE -6.90% - which says the 9/3 enterprise-software re-rating was never uniform. Updated because this board refreshes the name that moved against the row as readily as the one that moved with it. Reports 2026-09-10 pm, estimate 5.84."
     }
   ],
-  "verifiedAt": "2026-09-07 09:40 ET"
+  "verifiedAt": "2026-09-07 13:21 ET"
 }
