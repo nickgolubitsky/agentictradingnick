@@ -80,6 +80,11 @@ t = 5.3, matching 2017–2026's +0.59%. QQQ is weaker (t = 2.8). The edge is ris
 market about 12% of the time, a 15% max drawdown against buy-and-hold's 55%. See
 `results/round2-summary.md`.
 
+**2026-10-26: daily pullback buying across an ETF basket can beat SPY, but costs decide it.** IBS
+pullbacks on 20 ETFs, 5 slots, next-open fills: 9.2% vs SPY's 8.2% (2000–2026), 16% max DD, about 5
+trades a week. At 5 bp per side instead of 2 it falls below SPY, and it lagged SPY over 2016–2026.
+Measure real open-fill slippage before trusting it. See `results/round4-summary.md`.
+
 **2026-10-26: what passes so far is lower risk, not higher return.** Next-open RSI(2) keeps 70–100%
 of its edge, GTAA-5 trend passes, and their blend has the best Sharpe (0.82). But each makes about half
 of SPY's return. "Passes the bar" and "makes more money than an index fund" are different
