@@ -80,6 +80,15 @@ t = 5.3, matching 2017–2026's +0.59%. QQQ is weaker (t = 2.8). The edge is ris
 market about 12% of the time, a 15% max drawdown against buy-and-hold's 55%. See
 `results/round2-summary.md`.
 
+**2026-10-26: a high win rate isn't an edge.** Crypto dip-buying with +1–2% targets won 64–92% of
+trades and still lost 16–65% a year over 2023–26, while just holding the coins made about 48% a year.
+Capped winners and uncapped losers, plus a 1.9% spread, make "patience" expensive. Judge mean trade
+and worst trade, never win rate. See `results/round5-summary.md`.
+
+**2026-10-26: check data for impossible prints before trusting a result.** Coinbase's BTC history
+opens at $0.06 on 2017-04-15 23:00. It produced a +1,945,000% "trade". Any per-trade mean that looks
+absurd is a data bug until proven otherwise.
+
 **2026-10-26: free data can't give a survivorship-free stock test.** In a sample of 80 stocks that
 left the S&P 500 since 2007, Yahoo had full history for 26, a reused ticker for 5, and nothing for 49.
 The missing names are the failures and buyouts. Robinhood's historicals return "not found" for
