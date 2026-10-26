@@ -68,3 +68,12 @@ The classifier blocks it even with chat approval. Permission JSON is handed to N
 Prefer scripts with fixed names in the repo, so allowlist rules stay stable.
 
 ## Since the restart
+
+**2026-10-25: the popular day-trading setups don't survive costs.** day-trader-skill's
+opening-range breakout lost money in every variant over 60 sessions × 98 large caps, and its five
+daily scanner setups showed no edge over a random same-day entry across 10 years. Popularity
+(1,600+ stars in five days) isn't evidence. The only promising signal in round 1 was market-level
+mean reversion (RSI(2) on SPY/QQQ). See `results/round1-summary.md`.
+
+**2026-10-25: ticker lists rot.** MMC returned 404 from Yahoo. Fetches report failures by name
+instead of shrinking the universe silently.
