@@ -8,6 +8,7 @@ import json
 import os
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -58,13 +59,16 @@ def cache_path(sym, kind):
 
 
 def fetch(sym, kind, refresh=False):
-    """kind 'daily' (10y of 1d) or 'intraday' (60d of 5m). Returns the raw chart result."""
+    """kind 'daily' (10y of 1d), 'max' (all of 1d) or 'intraday' (60d of 5m). Returns the raw chart result."""
     path = cache_path(sym, kind)
     if os.path.exists(path) and not refresh:
         with open(path, encoding="utf-8") as f:
             return json.load(f)
-    q = "range=10y&interval=1d" if kind == "daily" else "range=60d&interval=5m"
-    doc = json.loads(_get("/v8/finance/chart/%s?%s" % (sym, q)))
+    # range=max silently downsamples to monthly bars; explicit bounds keep it daily
+    q = {"daily": "range=10y&interval=1d",
+         "max": "period1=0&period2=%d&interval=1d" % int(time.time()),
+         "intraday": "range=60d&interval=5m"}[kind]
+    doc = json.loads(_get("/v8/finance/chart/%s?%s" % (urllib.parse.quote(sym), q)))
     res = (doc.get("chart") or {}).get("result")
     if not res:
         raise FetchError("no data for %s: %s" % (sym, (doc.get("chart") or {}).get("error")))

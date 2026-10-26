@@ -75,5 +75,13 @@ daily scanner setups showed no edge over a random same-day entry across 10 years
 (1,600+ stars in five days) isn't evidence. The only promising signal in round 1 was market-level
 mean reversion (RSI(2) on SPY/QQQ). See `results/round1-summary.md`.
 
+**2026-10-25: RSI(2) on SPY survives untouched data.** 179 trades from 1993–2016, +0.61% per trade,
+t = 5.3, matching 2017–2026's +0.59%. QQQ is weaker (t = 2.8). The edge is risk-adjusted: in the
+market about 12% of the time, a 15% max drawdown against buy-and-hold's 55%. See
+`results/round2-summary.md`.
+
+**2026-10-25: Yahoo's `range=max` silently returns monthly bars.** Use explicit
+`period1`/`period2` bounds, and check for gaps over 5 days after every fetch.
+
 **2026-10-25: ticker lists rot.** MMC returned 404 from Yahoo. Fetches report failures by name
 instead of shrinking the universe silently.
