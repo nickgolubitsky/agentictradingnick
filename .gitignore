@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+.env.*
+config.local.json
+cache/
+node_modules/
+package-lock.json
+.DS_Store
