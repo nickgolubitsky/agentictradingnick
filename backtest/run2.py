@@ -15,7 +15,7 @@ COSTS = {"primary": (10, 2), "sensitivity": (20, 5)}
 SYMBOLS = ["SPY", "QQQ"]
 
 
-def curve_stats(dates, eq, bh_ratio=None):
+def curve_stats(dates, eq):
     c, dd = cagr(eq, dates), rel_drawdown(eq)
     return {"cagr": c, "max_dd": dd, "ratio": c / dd if dd else float("nan")}
 
