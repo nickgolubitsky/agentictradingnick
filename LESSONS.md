@@ -80,6 +80,11 @@ t = 5.3, matching 2017–2026's +0.59%. QQQ is weaker (t = 2.8). The edge is ris
 market about 12% of the time, a 15% max drawdown against buy-and-hold's 55%. See
 `results/round2-summary.md`.
 
+**2026-10-26: what passes so far is lower risk, not higher return.** Next-open RSI(2) keeps 70–100%
+of its edge, GTAA-5 trend passes, and their blend has the best Sharpe (0.82). But each makes about half
+of SPY's return. "Passes the bar" and "makes more money than an index fund" are different
+questions, so ask both. See `results/round3-summary.md`.
+
 **2026-10-25: Yahoo's `range=max` silently returns monthly bars.** Use explicit
 `period1`/`period2` bounds, and check for gaps over 5 days after every fetch.
 
